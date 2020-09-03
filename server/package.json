@@ -1,0 +1,24 @@
+{
+  "name": "Banzai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "client": "npm run --prefix ../client",
+    "server": "nodemon server.js",
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jess Hilliam",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "bookshelf": "^1.2.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}

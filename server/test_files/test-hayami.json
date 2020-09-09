@@ -1,0 +1,160 @@
+{
+  "id": 1,
+  "insight": {
+    "totalPoints": 125,
+    "rank": 1
+  },
+  "baseExp": 20,
+  "name": "Yasuki Hayami",
+  "clan": "Crab",
+  "family": {
+    "name": "Yasuki",
+    "bonus": "awareness"
+  },
+  "school": {
+    "clan": "Crab",
+    "name": "Hiruma Bushi",
+    "type": "bushi",
+    "bonus": "willpower",
+    "skills": {
+      "core": [
+        "athletics",
+        "hunting",
+        "kenjutsu",
+        "kyujutsu",
+        "lore: shadowlands",
+        "stealth"
+      ],
+      "freePickType": "any"
+    },
+    "honor": 4.5
+  },
+  "rings": {
+    "air": {
+      "rank": 2,
+      "traits": {
+        "reflexes": {
+          "baseRank": 2,
+          "type": "physical",
+          "isVoid": false
+        },
+        "awareness": {
+          "baseRank": 3, // due to family bonus
+          "type": "mental",
+          "isVoid": false
+        }
+      }
+    },
+    "earth": {
+      "rank": 2,
+      "traits": {
+        "stamina": {
+          "baseRank": 2,
+          "type": "physical",
+          "isVoid": false
+        },
+        "willpower": {
+          "baseRank": 3, // due to school bonus
+          "type": "mental",
+          "isVoid": false
+        }
+      }
+    },
+    "fire": {
+      "rank": 2,
+      "traits": {
+        "agility": {
+          "baseRank": 2,
+          "type": "physical",
+          "isVoid": false
+        },
+        "intelligence": {
+          "baseRank": 2,
+          "type": "mental",
+          "isVoid": false
+        }
+      }
+    },
+    "water": {
+      "rank": 2,
+      "traits": {
+        "strength": {
+          "baseRank": 2,
+          "type": "physical",
+          "isVoid": false
+        },
+        "perception": {
+          "baseRank": 2,
+          "type": "mental",
+          "isVoid": false
+        }
+      }
+    },
+    "void": {
+      "rank": 2,
+      "traits": {
+        "void": {
+          "baseRank": 2, // void doesn't actually possess any traits, this is just for consistency with other ring calculations
+          "type": "mental",
+          "isVoid": false
+        }
+      }
+    }
+  },
+  "skills": {
+    "athletics": {
+      "trait": "strength",
+      "type": "Bugei",
+      "subType": [],
+      "schoolSkill": true
+    },
+    "hunting": {
+      "trait": "perception",
+      "type": "Bugei",
+      "subType": [],
+      "schoolSkill": true
+    },
+    "kenjutsu": {
+      "trait": "agility",
+      "type": "Bugei",
+      "subType": ["Weapon"],
+      "schoolSkill": true
+    },
+    "kyujutsu": {
+      "trait": "reflexes",
+      "type": "Bugei",
+      "subType": ["Weapon"],
+      "schoolSkill": true
+    },
+    "lore: shadowlands": {
+      "trait": "intelligence",
+      "type": "Low",
+      "subType": [],
+      "schoolSkill": true
+    },
+    "stealth": {
+      "trait": "agility",
+      "type": "Low",
+      "subType": [],
+      "schoolSkill": true
+    },
+    "defense": {
+      "trait": "reflexes",
+      "type": "Bugei",
+      "subType": [],
+      "schoolSkill": false
+    },
+    "meditation": {
+      "trait": "void",
+      "type": "High",
+      "subType": "",
+      "schoolSkill": false
+    },
+    "investigation": {
+      "trait": "perception",
+      "type": "High",
+      "subType": [],
+      "schoolSkill": false
+    }
+  }
+}

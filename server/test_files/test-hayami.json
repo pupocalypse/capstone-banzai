@@ -39,7 +39,7 @@
           "isVoid": false
         },
         "awareness": {
-          "baseRank": 3, // due to family bonus
+          "baseRank": 3,
           "type": "mental",
           "isVoid": false
         }
@@ -54,7 +54,7 @@
           "isVoid": false
         },
         "willpower": {
-          "baseRank": 3, // due to school bonus
+          "baseRank": 3,
           "type": "mental",
           "isVoid": false
         }
@@ -94,7 +94,7 @@
       "rank": 2,
       "traits": {
         "void": {
-          "baseRank": 2, // void doesn't actually possess any traits, this is just for consistency with other ring calculations
+          "baseRank": 2,
           "type": "mental",
           "isVoid": false
         }

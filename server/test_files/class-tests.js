@@ -35,6 +35,8 @@ class Insight {
       case (points = 324):
         rank = 8;
         break;
+      default:
+        return "Please provide a correct insight total";
     }
     return rank;
   }
@@ -72,28 +74,22 @@ class Trait {
 }
 
 class Skill {
-  constructor(skillName, rank, trait, subType, schoolSkill, emphasis) {
-    this.skillName = skillName;
-    this.trait = trait;
+  constructor(skillName, rank, trait, type, subType, schoolSkill, emphasis) {
+    // this.skillName = skillName;
     this.baseRank = rank;
+    this.trait = trait;
+    this.type = type;
     this.subType = subType;
     this.schoolSkill = schoolSkill; // will be true or false
     // this.emphasis = emphasis; // skip emphases for now?
   }
 
-  rankUpTrait(exp) {
-    // next rank and required exp are the same value, don't need two variables
-    const requiredExp = this.rank + 1; // eg. rank 2 + 1 = 3, cost of next rank
-    if (requiredExp > exp) {
-      return "You do not have enough experience to improve this skill";
-    } else {
-      // deduct requiredExp from character's xp value
-      // improve Skill rank by +1
-      this.newRank = requiredExp;
-    }
+  get rank() {
+    // return current rank, as defined by previous experience spending
+    return this.rank || this.baseRank;
   }
 
-  set newRank(newRank) {
+  set rank(newRank) {
     this.rank = newRank;
   }
 }
@@ -148,8 +144,8 @@ class Character {
         type: "bushi",
         bonus: "willpower",
       }),
-      this.skills;
-  }
+      // this.skills;
+    }
 
   get rings() {
     // traits won't be dynamic once in Ring class, but need to figure out bonuses beforehand
@@ -199,6 +195,55 @@ class Character {
     };
   }
 
+  get skills() {
+    // start with skills as defined by schools (make Skill class)
+    // later include purchased skills
+
+    // loop through this.school.skills.core array, look up skills object for name matches
+    // assign schoolSkill = true for this set
+    // for freePickType, find the length (usually 1, up to 2)
+
+    const schoolSkillNames = this.school.skills.core;
+    let characterSkills = {};
+    for (let skillName of schoolSkillNames) {
+      // loop through array
+      for (let skillProp in skillsFile) {
+        // loop through object
+        if (skillName === skillProp) {
+          // characterSkills[skillProp] = skillProp;
+          // characterSkills[skillProp].schoolSkill = true;
+          characterSkills[skillName] = new Skill(
+            skillProp.rank,
+            skillProp.trait,
+            skillProp.type,
+            skillProp.subType,
+            true
+          );
+        }
+      }
+    }
+    return this.skills || characterSkills;
+  }
+
+  set skills(skillName) {
+    for (let skillProp in skillsFile) {
+      // loop through object
+      if (skillName === skillProp) {
+        // characterSkills[skillProp] = skillProp;
+        // characterSkills[skillProp].schoolSkill = true;
+        characterSkills[skillName] = new Skill(
+          skillProp.rank,
+          skillProp.trait,
+          skillProp.type,
+          skillProp.subType,
+          true
+        );
+      }
+    }
+
+    this.skills = {...this.skills, newSkill};
+  }
+
   get currExp() {
     return this.currExp || this.baseExp;
   }
@@ -208,7 +253,7 @@ class Character {
     // if positive, update totalExp
     this.currExp += expUpdate;
     if (expUpdate > 0) {
-      this.totalExp = expUpdate;
+      this.totalExp += expUpdate;
     }
   }
 
@@ -224,8 +269,8 @@ class Character {
   rankUpTrait(trait) {
     // receives a trait name
     for (let element in this.rings) {
-      if (this.rings.element.traits.hasOwnProperty(trait)) {
-        let nextRank = this.rings.element.traits[trait].rank + 1;
+      if (element.traits.hasOwnProperty(trait)) {
+        let nextRank = element.traits[trait].rank + 1;
         let requiredExp;
         if (trait === "void") {
           requiredExp = nextRank * 6; // eg. rank (1 + 1) * 6 = 12, cost of next rank
@@ -238,7 +283,8 @@ class Character {
         } else {
           // deduct requiredExp from character's xp value
           // improve Trait rank by +1
-          this.rings.element.traits[trait].rank = nextRank;
+          this.currExp(-Math.abs(requiredExp)); // need to make sure it subtracts, not adds
+          this.rings[element].traits[trait].rank = nextRank;
         }
       }
     }

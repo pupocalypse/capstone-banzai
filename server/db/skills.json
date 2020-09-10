@@ -1,0 +1,170 @@
+{
+  "acting": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": ["Social", "Perform"],
+    "schoolSkill": false
+  },
+  "athletics": {
+    "trait": "strength",
+    "type": "Bugei",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "battle": {
+    "trait": "perception",
+    "type": "Bugei",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "commerce": {
+    "trait": "intelligence",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "courtier": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "defense": {
+    "trait": "reflexes",
+    "type": "Bugei",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "etiquette": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "heavy weapons": {
+    "trait": "agility",
+    "type": "Bugei",
+    "subType": ["Weapon"],
+    "schoolSkill": false
+  },
+  "horsemanship": {
+    "trait": "agility",
+    "type": "Bugei",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "hunting": {
+    "trait": "perception",
+    "type": "Bugei",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "iaijutsu": {
+    "trait": "reflexes",
+    "type": "Bugei",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "intimidation": {
+    "trait": "awareness",
+    "type": "Low",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "investigation": {
+    "trait": "perception",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "jiujutsu": {
+    "trait": "agility",
+    "type": "Bugei",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "kenjutsu": {
+    "trait": "agility",
+    "type": "Bugei",
+    "subType": ["Weapon"],
+    "schoolSkill": false
+  },
+  "knives": {
+    "trait": "agility",
+    "type": "Bugei",
+    "subType": ["Weapon"],
+    "schoolSkill": false
+  },
+  "kyujutsu": {
+    "trait": "reflexes",
+    "type": "Bugei",
+    "subType": ["Weapon"],
+    "schoolSkill": false
+  },
+  "lore: history": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "lore: shadowlands": {
+    "trait": "intelligence",
+    "type": "Low",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "lore: shugenja": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "lore: theology": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "meditation": {
+    "trait": "void",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "ninjutsu": {
+    "trait": ["agility", "reflexes"],
+    "type": "Bugei",
+    "subType": ["Weapon", "Low"],
+    "schoolSkill": false
+  },
+  "sailing": {
+    "trait": ["agility", "intelligence"],
+    "type": "Merchant",
+    "subType": ["Craft"],
+    "schoolSkill": false
+  },
+  "sincerity": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "spears": {
+    "trait": "agility",
+    "type": "Bugei",
+    "subType": ["Weapon"],
+    "schoolSkill": false
+  },
+  "stealth": {
+    "trait": "agility",
+    "type": "Low",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "tea ceremony": {
+    "trait": "void",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  }
+}

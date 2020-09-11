@@ -1,53 +1,65 @@
-class Insight {
-  get totalPoints() {
-    // calculated by rings x 10, + skill rank totals
-    // (eg. ((2 + 2 + 2 + 2 + 2) * 10) + (3 + 2 + 1 + 1 + 2 + 3 + 3)) = 115 insight
-    const ringsTotal = testCharacter.rings.map((ring) => ring.rank);
-    const skillsTotal = testCharacter.skills.map((skill) => skill.rank);
-    return ringsTotal * 10 + skillsTotal;
-  }
+const fs = require("fs");
+const path = require("path");
 
-  get rank() {
-    const points = this.totalPoints;
-    let rank;
-    switch (points) {
-      case points < 149:
-        rank = 1;
-        break;
-      case points < 174:
-        rank = 2;
-        break;
-      case points < 199:
-        rank = 3;
-        break;
-      case points < 224:
-        rank = 4;
-        break;
-      case points < 249:
-        rank = 5;
-        break;
-      case points < 274:
-        rank = 6;
-        break;
-      case points < 299:
-        rank = 7;
-        break;
-      case (points = 324):
-        rank = 8;
-        break;
-      default:
-        return "Please provide a correct insight total";
-    }
-    return rank;
-  }
-}
+const charactersPath = path.join(__dirname, "../db/characters.json");
+const skillsPath = path.join(__dirname, "../db/skills.json");
+
+// class Insight {
+//   constructor() {
+//     this.rank = this.getRank();
+//     this.totalPoints = this.getTotalPoints();
+//   }
+
+//   getTotalPoints() {
+//     // calculated by rings x 10, + skill rank totals
+//     // (eg. ((2 + 2 + 2 + 2 + 2) * 10) + (3 + 2 + 1 + 1 + 2 + 3 + 3)) = 115 insight
+//     const ringsTotal = this.rings.map((ring) => ring.rank);
+//     const skillsTotal = this.skills.map((skill) => skill.rank);
+//     return ringsTotal * 10 + skillsTotal;
+//   }
+
+//   getRank() {
+//     const points = this.totalPoints;
+//     let rank;
+//     switch (points) {
+//       case points < 149:
+//         rank = 1;
+//         break;
+//       case points < 174:
+//         rank = 2;
+//         break;
+//       case points < 199:
+//         rank = 3;
+//         break;
+//       case points < 224:
+//         rank = 4;
+//         break;
+//       case points < 249:
+//         rank = 5;
+//         break;
+//       case points < 274:
+//         rank = 6;
+//         break;
+//       case points < 299:
+//         rank = 7;
+//         break;
+//       case points < 324:
+//         rank = 8;
+//         break;
+//       default:
+//         return "Please provide a correct insight total";
+//     }
+//     return rank;
+//   }
+// }
 
 class Ring {
   constructor(traits) {
     this.traits = traits;
+    this.rank = this.getRank;
   }
 
-  get rank() {
+  get getRank() {
     let traitRanks = [];
     Object.values(this.traits).forEach((trait) =>
       traitRanks.push(trait.baseRank)
@@ -63,92 +75,57 @@ class Trait {
     this.isVoid = isVoid;
   }
 
-  get rank() {
-    // return current rank, as defined by previous experience spending
-    return this.rank || this.baseRank;
-  }
+  // get rank() {
+  //   // return current rank, as defined by previous experience spending
+  //   return this.rank || this.baseRank;
+  // }
 
-  set rank(newRank) {
-    this.rank = newRank;
-  }
+  // set rank(newRank) {
+  //   this.rank = newRank;
+  // }
 }
 
 class Skill {
-  constructor(skillName, rank, trait, type, subType, schoolSkill, emphasis) {
-    // this.skillName = skillName;
+  constructor(rank, trait, type, subType, schoolSkill, emphasis) {
     this.baseRank = rank;
     this.trait = trait;
     this.type = type;
     this.subType = subType;
     this.schoolSkill = schoolSkill; // will be true or false
+    this.rank = this.getRank();
     // this.emphasis = emphasis; // skip emphases for now?
   }
 
-  get rank() {
+  getRank() {
     // return current rank, as defined by previous experience spending
-    return this.rank || this.baseRank;
+    return this.getRank || this.baseRank;
   }
 
-  set rank(newRank) {
-    this.rank = newRank;
-  }
+  // set rank(newRank) {
+  //   this.rank = newRank;
+  // }
 }
 
-// const airRing = new Ring("air", [
-//   { trait: "reflexes", rank: 2, type: "physical" },
-//   { trait: "awareness", rank: 2, type: "mental" },
-// ]);
-
-// const earthRing = new Ring("earth", [
-//   { trait: "stamina", rank: 2, type: "physical" },
-//   { trait: "willpower", rank: 2, type: "mental" },
-// ]);
-
-// const fireRing = new Ring("fire", [
-//   { trait: "agility", rank: 2, type: "physical" },
-//   { trait: "intelligence", rank: 2, type: "mental" },
-// ]);
-
-// const waterRing = new Ring("water", [
-//   { trait: "strength", rank: 2, type: "physical" },
-//   { trait: "perception", rank: 2, type: "mental" },
-// ]);
-
-// const voidRing = new Ring("void", [{ trait: "void", rank: 2, type: "mental" }]);
-
-// fireRing.traits[0].rank = 3;
-// fireRing.traits[1].rank = 3;
-
-// voidRing.traits[0].rank = 3;
-
-// console.log("fireRing:", fireRing);
-// console.log("voidRing:", voidRing.rank);
-
+// class functions
 class Character {
   // ...
   // args = name, clan, family object, school object
   constructor(...args) {
     this.id = null; // created with uuid?
-    this.insight = new Insight(); // what args should it take?
+    // this.insight = new Insight(); // what args should it take?
     this.baseExp = 20;
-    this.name = args.name;
-    this.clan = args.clan;
+    this.name = args[0];
+    this.clan = args[1];
     // this.family = args.family;
-    (this.family = {
-      name: "Hiruma",
-      bonus: "agility",
-    }),
+    (this.family = args[2]),
       // this.school = args.school;
-      (this.school = {
-        clan: "Crab",
-        name: "Hiruma Bushi",
-        type: "bushi",
-        bonus: "willpower",
-      });
+      (this.school = args[3]);
     // this.skills;
+    this.rings = this.getRings();
+    this.skills = this.getSkills();
   }
 
-  get rings() {
+  getRings() {
     // traits won't be dynamic once in Ring class, but need to figure out bonuses beforehand
     const familyBonus = this.family.bonus;
     const schoolBonus = this.school.bonus;
@@ -196,7 +173,7 @@ class Character {
     };
   }
 
-  get skills() {
+  getSkills() {
     // start with skills as defined by schools (make Skill class)
     // this only needs to be done once
     // purchased schools can be added later
@@ -204,24 +181,26 @@ class Character {
     // loop through this.school.skills.core array, look up skills object for name matches
     // assign schoolSkill = true for this set
     // for freePickType, find the length (usually 1, up to 2)
+    let characterSkills = {};
+    const skillsFile = JSON.parse(fs.readFileSync(skillsPath));
     if (!this.skills) {
       const schoolSkillNames = this.school.skills.core;
-      let characterSkills = {};
       // loop through array
+      console.log("schoolSkillNames", schoolSkillNames);
       for (let skillName of schoolSkillNames) {
         // loop through object
         for (let skillProp in skillsFile) {
           if (skillName === skillProp) {
-            // characterSkills[skillProp] = skillProp;
-            // characterSkills[skillProp].schoolSkill = true;
+            const baseRank = 1;
             if (characterSkills.hasOwnProperty(skillName)) {
               characterSkills[skillName].rank++;
             } else {
+              // args = rank, trait, type, subType, schoolSkill
               characterSkills[skillName] = new Skill(
-                skillProp.rank,
-                skillProp.trait,
-                skillProp.type,
-                skillProp.subType,
+                baseRank,
+                skillsFile[skillProp].trait,
+                skillsFile[skillProp].type,
+                skillsFile[skillProp].subType,
                 true
               );
             }
@@ -232,24 +211,24 @@ class Character {
     return this.skills || characterSkills;
   }
 
-  set skills(skillName) {
-    for (let skillProp in skillsFile) {
-      // loop through object
-      if (skillName === skillProp) {
-        // characterSkills[skillProp] = skillProp;
-        // characterSkills[skillProp].schoolSkill = true;
-        characterSkills[skillName] = new Skill(
-          skillProp.rank,
-          skillProp.trait,
-          skillProp.type,
-          skillProp.subType,
-          true
-        );
-      }
-    }
+  // set skills(skillName) {
+  //   for (let skillProp in skillsFile) {
+  //     // loop through object
+  //     if (skillName === skillProp) {
+  //       // characterSkills[skillProp] = skillProp;
+  //       // characterSkills[skillProp].schoolSkill = true;
+  //       characterSkills[skillName] = new Skill(
+  //         skillProp.rank,
+  //         skillProp.trait,
+  //         skillProp.type,
+  //         skillProp.subType,
+  //         true
+  //       );
+  //     }
+  //   }
 
-    this.skills = { ...this.skills, newSkill };
-  }
+  //   this.skills = { ...this.skills, newSkill };
+  // }
 
   get currExp() {
     return this.currExp || this.baseExp;
@@ -298,9 +277,67 @@ class Character {
   }
 }
 
-let testCharacter = new Character();
-console.log("testCharacter.rings:", testCharacter.rings);
-// console.log(
-//   "testCharacter.rings.earth.traits.stamina:",
-//   testCharacter.rings.earth.traits.stamina
-// );
+// args = name, clan, family object, school object
+let character = new Character(
+  "Isawa Mei",
+  "Phoenix",
+  {
+    name: "Isawa",
+    bonus: "willpower",
+  },
+  {
+    clan: "Phoenix",
+    name: "Shiba Bushi",
+    type: "bushi",
+    bonus: "agility",
+    skills: {
+      core: [
+        "defense",
+        "kenjutsu",
+        "kyujutsu",
+        "lore: theology",
+        "meditation",
+        "spears",
+      ],
+      emphases: [
+        {
+          skillName: "meditation",
+          emphasis: "void recovery",
+        },
+      ],
+      freePickType: ["bugei", "high"],
+    },
+    honor: 5.5,
+    outfit: {
+      armor: {
+        option1: "light armor",
+        option2: "",
+      },
+      clothing: "sturdy clothing",
+      weapons: {
+        base: {
+          base1: "katana",
+          base2: "wakizashi",
+        },
+        options: {
+          option1: "any",
+          option2: "",
+        },
+      },
+      tools: [""],
+      pack: "traveling pack",
+      koku: 5,
+    },
+  }
+);
+
+character.rings.air.traits.reflexes.rank = 3;
+character.rings.air.traits.awareness.rank = 3;
+console.log("character:", character);
+
+const listCharacters = () => {
+  const characters = JSON.parse(fs.readFileSync(charactersPath));
+  return characters;
+};
+
+module.exports = { listCharacters };

@@ -1,17 +1,17 @@
 // what should a final character object look like?
 character = {
-  id: random (uuid?),
+  id: random (uuid),
   insight: {
     rank: integer (1), // calculated in tiers - 0-149 = rank 1, 150-174 = rank 2, 175-200 = rank 3, etc.
     total: integer // calculated by (ring ranks * 10) + all skill ranks
   },
-  name: string (Utaku Yuki),
+  name: string ("Utaku Yuki"),
   // point to clans table to see families and their trait bonuses
   clan: string (Unicorn),
   family: string (Utaku),
   // point to clans > schools table to see school loadout, skills, and trait bonuses
   school: {
-    school: string (Bushi - Utaku Battle Maiden) - use only Bushi/Shugenja/Courtier for now,
+    school: string ("Bushi - Utaku Battle Maiden"), // use only Bushi/Shugenja/Courtier for now,
     rank: integer (1), // will almost always be the same as insight rank (no multi-schooling for demo purposes ;P)
   },
   // maybe leave this out for now? not important for major calculations & features
@@ -158,7 +158,7 @@ clans = [
     ]
   },
   {
-    clan: "Crane"
+    clan: "Crane",
     families: [],
     schools: []
   },

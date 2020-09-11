@@ -6,12 +6,12 @@
     "bonus": "stamina",
     "skills": {
       "core": [
-        "athletics",
-        "defense",
-        "heavy weapons",
-        "intimidation",
-        "kenjutsu",
-        "lore: shadowlands"
+        ["athletics", 1],
+        ["defense", 1],
+        ["heavy weapons", 1],
+        ["intimidation", 1],
+        ["kenjutsu", 1],
+        ["lore: shadowlands", 1]
       ],
       "emphases": [
         {
@@ -50,12 +50,12 @@
     "bonus": "willpower",
     "skills": {
       "core": [
-        "athletics",
-        "hunting",
-        "kenjutsu",
-        "kyujutsu",
-        "lore: shadowlands",
-        "stealth"
+        ["athletics", 1],
+        ["hunting", 1],
+        ["kenjutsu", 1],
+        ["kyujutsu", 1],
+        ["lore: shadowlands", 1],
+        ["stealth", 1]
       ],
       "emphases": [
         {
@@ -94,12 +94,12 @@
     "bonus": "reflexes",
     "skills": {
       "core": [
-        "etiquette",
-        "iaijutsu",
-        "kenjutsu",
-        "kyujutsu",
-        "sincerity",
-        "tea ceremony"
+        ["etiquette", 1],
+        ["iaijutsu", 1],
+        ["kenjutsu", 1],
+        ["kyujutsu", 1],
+        ["sincerity", 1],
+        ["tea ceremony", 1]
       ],
       "emphases": [
         {
@@ -138,12 +138,11 @@
     "bonus": "agility",
     "skills": {
       "core": [
-        "battle",
-        "defense",
-        "defense",
-        "iaijutsu",
-        "kenjutsu",
-        "kyujutsu"
+        ["battle", 1],
+        ["defense", 2],
+        ["iaijutsu", 1],
+        ["kenjutsu", 1],
+        ["kyujutsu", 1]
       ],
       "emphases": [
         {
@@ -182,12 +181,12 @@
     "bonus": "stamina",
     "skills": {
       "core": [
-        "defense",
-        "iaijutsu",
-        "kenjutsu",
-        "lore: shugenja",
-        "lore: theology",
-        "meditation"
+        ["defense", 1],
+        ["iaijutsu", 1],
+        ["kenjutsu", 1],
+        ["lore: shugenja", 1],
+        ["lore: theology", 1],
+        ["meditation", 1]
       ],
       "emphases": [
         {
@@ -226,12 +225,12 @@
     "bonus": "perception",
     "skills": {
       "core": [
-        "battle",
-        "defense",
-        "kenjutsu",
-        "kyujutsu",
-        "lore: history",
-        "sincerity"
+        ["battle", 1],
+        ["defense", 1],
+        ["kenjutsu", 1],
+        ["kyujutsu", 1],
+        ["lore: history", 1],
+        ["sincerity", 1]
       ],
       "emphases": [
         {
@@ -269,7 +268,13 @@
     "type": "bushi",
     "bonus": "strength",
     "skills": {
-      "core": ["battle", "jiujutsu", "kenjutsu", "kyujutsu", "lore: history"],
+      "core": [
+        ["battle", 1],
+        ["jiujutsu", 1],
+        ["kenjutsu", 1],
+        ["kyujutsu", 1],
+        ["lore: history", 1]
+      ],
       "emphases": [
         {
           "skillName": "kenjutsu",
@@ -307,12 +312,12 @@
     "bonus": "strength",
     "skills": {
       "core": [
-        "commerce",
-        "defense",
-        "jiujutsu",
-        "kenjutsu",
-        "knives",
-        "sailing"
+        ["commerce", 1],
+        ["defense", 1],
+        ["jiujutsu", 1],
+        ["kenjutsu", 1],
+        ["knives", 1],
+        ["sailing", 1]
       ],
       "emphases": [
         {
@@ -355,12 +360,11 @@
     "bonus": "reflexes",
     "skills": {
       "core": [
-        "athletics",
-        "defense",
-        "hunting",
-        "investigation",
-        "kyujutsu",
-        "kyujutsu"
+        ["athletics", 1],
+        ["defense", 1],
+        ["hunting", 1],
+        ["investigation", 1],
+        ["kyujutsu", 2]
       ],
       "emphases": [
         {
@@ -399,12 +403,12 @@
     "bonus": "agility",
     "skills": {
       "core": [
-        "defense",
-        "kenjutsu",
-        "kyujutsu",
-        "lore: theology",
-        "meditation",
-        "spears"
+        ["defense", 1],
+        ["kenjutsu", 1],
+        ["kyujutsu", 1],
+        ["lore: theology", 1],
+        ["meditation", 1],
+        ["spears", 1]
       ],
       "emphases": [
         {
@@ -443,12 +447,12 @@
     "bonus": "intelligence",
     "skills": {
       "core": [
-        "courtier",
-        "defense",
-        "etiquette",
-        "iaijutsu",
-        "kenjutsu",
-        "sincerity"
+        ["courtier", 1],
+        ["defense", 1],
+        ["etiquette", 1],
+        ["iaijutsu", 1],
+        ["kenjutsu", 1],
+        ["sincerity", 1]
       ],
       "emphases": [
         {
@@ -487,12 +491,11 @@
     "bonus": "reflexes",
     "skills": {
       "core": [
-        "acting",
-        "athletics",
-        "ninjutsu",
-        "sincerity",
-        "stealth",
-        "stealth"
+        ["acting", 1],
+        ["athletics", 1],
+        ["ninjutsu", 1],
+        ["sincerity", 1],
+        ["stealth", 2]
       ],
       "emphases": [
         {
@@ -530,14 +533,20 @@
     "type": "bushi",
     "bonus": "strength",
     "skills": {
-      "core": ["athletics", "defense", "horsemanship", "hunting", "kenjutsu"],
+      "core": [
+        ["athletics", 1],
+        ["defense", 1],
+        ["horsemanship", 1],
+        ["hunting", 1],
+        ["kenjutsu", 1]
+      ],
       "emphases": [
         {
           "skillName": "kenjutsu",
           "emphasis": "scimitar"
         }
       ],
-      "freePickType": ["bugei", "any"]
+      "freePickType": [["bugei"], ["any"]]
     },
     "honor": 3.5,
     "outfit": {
@@ -569,12 +578,11 @@
     "bonus": "reflexes",
     "skills": {
       "core": [
-        "battle",
-        "defense",
-        "horsemanship",
-        "horsemanship",
-        "kenjutsu",
-        "sincerity"
+        ["battle", 1],
+        ["defense", 1],
+        ["horsemanship", 2],
+        ["kenjutsu", 1],
+        ["sincerity", 1]
       ],
       "emphases": [
         {

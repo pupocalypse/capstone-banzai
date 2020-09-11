@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "client": "npm run --prefix ../client",
+    "client": "npm start --prefix ../client",
     "server": "nodemon server.js",
     "dev": "concurrently \"npm run client\" \"npm run server\"",
     "test": "echo \"Error: no test specified\" && exit 1"

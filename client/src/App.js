@@ -1,8 +1,12 @@
 import React from "react";
 import axios from "axios";
+import { Route, Switch, Link } from "react-router-dom";
+
 import "./App.css";
 
+import Wizard from "./components/Wizard";
 import Clans from "./components/Clans";
+import UITest from "./components/UI-Test";
 
 const URL = "http://localhost:8000";
 
@@ -62,13 +66,31 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>万歳 Banzai! Homepage</h1>
-        <Clans
+        <Link to="/" exact>
+          <button>Home</button>
+        </Link>
+        <Link to="/build-character">
+          <button>New Character Wizard</button>
+        </Link>
+        <Link to="/characters">
+          <button>Characters</button>
+        </Link>
+        <Switch>
+          <Route
+            path="/build-character"
+            render={() => {
+              return <Wizard clans={this.state.clans} />;
+            }}
+          />
+        </Switch>
+        {/* <UITest clans={this.state.clans} /> */}
+        {/* <Clans
           clans={this.state.clans}
           schools={this.state.schools}
           selectedClan={this.state.selectedClan}
           handleClick={this.handleClick}
           open={this.state.open}
-        />
+        /> */}
       </div>
     );
   }

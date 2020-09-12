@@ -32,7 +32,7 @@ import React from "react";
 // };
 
 const SchoolSkills = ({ schoolName, schoolSkills }) => {
-  console.log("schoolSkills prop:", schoolSkills);
+  // console.log("schoolSkills prop:", schoolSkills);
   const skills = schoolSkills.map((skill) => {
     return (
       <li

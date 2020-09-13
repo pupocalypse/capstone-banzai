@@ -1,12 +1,26 @@
 import React from "react";
-import UITest from "./UI-Test";
-import DropdownMenu from "./Dropdown";
+import { Button } from "semantic-ui-react";
+
+// import UITest from "./UI-Test";
+// import DropdownMenu from "./DropdownMenu";
+import ClanSelect from "./ClanSelect";
+import FamilySelect from "./FamilySelect";
+import SchoolSelect from "./SchoolSelect";
 
 class Wizard extends React.Component {
   state = {
     currentClan: "",
     currentFamily: "",
     currentSchool: "",
+    character: {
+      firstName: "",
+      lastName: "",
+      clan: "",
+      family: {}, // family name, bonus
+      school: {}, // school name, bonus
+      skills: {},
+      rings: {},
+    },
   };
 
   componentDidMount() {
@@ -17,6 +31,22 @@ class Wizard extends React.Component {
     console.log("Wizard component updated");
   }
 
+  // getDropdownsWithoutClan = (array) => {
+  //   // eg: this.props.clans.families array
+  //   // let allItems;
+
+  //   let allItems = this.props.clans.map((clan) => {
+  //     clan[array].map((item) => {
+  //       return {
+  //         key: item.name,
+  //         text: item.name,
+  //         value: item.name,
+  //       };
+  //     });
+  //   });
+  //   return allItems;
+  // };
+
   updateCurrentClan = (e, { value }) => {
     const currentClan = this.props.clans.filter((clan) => clan.clan === value);
 
@@ -26,7 +56,6 @@ class Wizard extends React.Component {
   };
 
   updateCurrentFamily = (e, { value }) => {
-    console.log("update value:", value);
     const currentFamily = this.state.currentClan[0].families.filter(
       (family) => family.name === value
     );
@@ -37,13 +66,15 @@ class Wizard extends React.Component {
   };
 
   updateCurrentSchool = (e, { value }) => {
-    console.log("update value:", value);
     const currentSchool = this.state.currentClan[0].schools.filter(
       (school) => school.name === value
     );
+    const schoolDetails = this.props.schools.filter(
+      (school) => school.name === currentSchool[0].name
+    );
 
     this.setState({
-      currentSchool,
+      currentSchool: schoolDetails,
     });
   };
 
@@ -58,12 +89,32 @@ class Wizard extends React.Component {
         {/* FamilySelect component with dropdown */}
         {/* SchoolSelect component with dropdown */}
         {/* free school skill pick */}
+        <ClanSelect
+          clans={this.props.clans}
+          currentClan={this.state.currentClan}
+          handleChange={this.updateCurrentClan}
+        />
+
+        <FamilySelect
+          currentClan={this.state.currentClan}
+          currentFamily={this.state.currentFamily}
+          handleChange={this.updateCurrentFamily}
+        />
+
+        <SchoolSelect
+          currentClan={this.state.currentClan}
+          currentSchool={this.state.currentSchool}
+          skills={this.props.skills}
+          handleChange={this.updateCurrentSchool}
+        />
+
+        <Button content="Next" icon="right arrow" labelPosition="right" />
 
         {/* page two component: */}
         {/* experience spending: new skills, skill ranks, trait ranks */}
         {/* input for character name */}
 
-        <DropdownMenu
+        {/* <DropdownMenu
           title={"Clan"}
           dropdownOptions={this.props.clans.map((clan) => {
             return {
@@ -77,8 +128,8 @@ class Wizard extends React.Component {
             };
           })}
           handleChange={this.updateCurrentClan}
-        />
-        <DropdownMenu
+        /> */}
+        {/* <DropdownMenu
           title={"Family"}
           dropdownOptions={
             this.state.currentClan.length <= 0
@@ -92,8 +143,8 @@ class Wizard extends React.Component {
                 })
           }
           handleChange={this.updateCurrentFamily}
-        />
-        <DropdownMenu
+        /> */}
+        {/* <DropdownMenu
           title={"School"}
           dropdownOptions={
             this.state.currentClan.length <= 0
@@ -109,7 +160,7 @@ class Wizard extends React.Component {
                   })
           }
           handleChange={this.updateCurrentSchool}
-        />
+        /> */}
       </main>
     );
   }

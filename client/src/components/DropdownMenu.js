@@ -6,7 +6,7 @@ const DropdownMenu = ({ title, dropdownOptions, handleChange }) => {
     <Dropdown
       placeholder={`Select Your ${title}`}
       selection
-      search
+      // search
       options={dropdownOptions}
       onChange={handleChange}
     />

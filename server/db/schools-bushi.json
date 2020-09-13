@@ -19,7 +19,7 @@
           "emphasis": "tetsubo"
         }
       ],
-      "freePickType": "bugei"
+      "freePickType": [["bugei"]]
     },
     "honor": 3.5,
     "outfit": {
@@ -63,7 +63,7 @@
           "emphasis": "katana"
         }
       ],
-      "freePickType": "any"
+      "freePickType": [["any"]]
     },
     "honor": 4.5,
     "outfit": {
@@ -107,7 +107,7 @@
           "emphasis": "focus"
         }
       ],
-      "freePickType": ["bugei", "high"]
+      "freePickType": [["bugei", "high"]]
     },
     "honor": 6.5,
     "outfit": {
@@ -150,7 +150,7 @@
           "emphasis": "katana"
         }
       ],
-      "freePickType": "any"
+      "freePickType": [["any"]]
     },
     "honor": 6.5,
     "outfit": {
@@ -194,7 +194,7 @@
           "emphasis": "katana"
         }
       ],
-      "freePickType": ["bugei", "high"]
+      "freePickType": [["bugei", "high"]]
     },
     "honor": 4.5,
     "outfit": {
@@ -238,7 +238,7 @@
           "emphasis": "mass combat"
         }
       ],
-      "freePickType": ["bugei", "high"]
+      "freePickType": [["bugei", "high"]]
     },
     "honor": 6.5,
     "outfit": {
@@ -329,7 +329,7 @@
           "emphasis": "kama"
         }
       ],
-      "freePickType": "any"
+      "freePickType": [["any"]]
     },
     "honor": 3.5,
     "outfit": {
@@ -372,7 +372,7 @@
           "emphasis": "yumi"
         }
       ],
-      "freePickType": ["bugei", "high"]
+      "freePickType": [["bugei", "high"]]
     },
     "honor": 3.5,
     "outfit": {
@@ -416,7 +416,7 @@
           "emphasis": "void recovery"
         }
       ],
-      "freePickType": ["bugei", "high"]
+      "freePickType": [["bugei", "high"]]
     },
     "honor": 5.5,
     "outfit": {
@@ -460,7 +460,7 @@
           "emphasis": "manipulation"
         }
       ],
-      "freePickType": "any"
+      "freePickType": [["any"]]
     },
     "honor": 2.5,
     "outfit": {
@@ -503,7 +503,7 @@
           "emphasis": "sneaking"
         }
       ],
-      "freePickType": "any"
+      "freePickType": [["any"]]
     },
     "honor": 1.5,
     "outfit": {
@@ -590,7 +590,7 @@
           "emphasis": "scimitar"
         }
       ],
-      "freePickType": ["high", "bugei"]
+      "freePickType": [["high", "bugei"]]
     },
     "honor": 6.5,
     "outfit": {

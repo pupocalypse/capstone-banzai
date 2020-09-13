@@ -5,8 +5,8 @@ import { Route, Switch, Link } from "react-router-dom";
 import "./App.css";
 
 import Wizard from "./components/Wizard";
-import Clans from "./components/Clans";
-import UITest from "./components/UI-Test";
+// import Clans from "./components/Clans";
+// import UITest from "./components/UI-Test";
 
 const URL = "http://localhost:8000";
 
@@ -15,8 +15,8 @@ class App extends React.Component {
     clans: [],
     schools: [],
     skills: {},
-    selectedClan: {},
-    open: true,
+    // selectedClan: {},
+    // open: true,
   };
 
   componentDidMount() {
@@ -26,21 +26,21 @@ class App extends React.Component {
     console.log("App component mounted");
   }
 
-  componentDidUpdate(_prevProps, prevState) {
-    // console.log("prevState:", prevState);
-    // console.log("this.state:", this.state);
-    if (prevState.clans !== this.state.clans) {
-      this.setState({
-        selectedClan: this.state.clans[0],
-      });
-    }
-    if (prevState.selectedClan !== this.state.selectedClan) {
-      this.setState({
-        open: true,
-      });
-    }
-    console.log("App component updated");
-  }
+  // componentDidUpdate(_prevProps, prevState) {
+  //   // console.log("prevState:", prevState);
+  //   // console.log("this.state:", this.state);
+  //   if (prevState.clans !== this.state.clans) {
+  //     this.setState({
+  //       selectedClan: this.state.clans[0],
+  //     });
+  //   }
+  //   if (prevState.selectedClan !== this.state.selectedClan) {
+  //     this.setState({
+  //       open: true,
+  //     });
+  //   }
+  //   console.log("App component updated");
+  // }
 
   getData(stateProp) {
     // pass in clans, schools, skills as string
@@ -48,8 +48,12 @@ class App extends React.Component {
       .get(`${URL}/${stateProp}`)
       .then(({ data }) => {
         // console.log(data);
+        let sevenClans;
+        if (stateProp === "clans" || stateProp === "schools") {
+          sevenClans = data.filter((clanData) => clanData.clan !== "Mantis");
+        }
         this.setState({
-          [stateProp]: data,
+          [stateProp]: sevenClans || data,
         });
       })
       .catch((error) => console.log(error));
@@ -66,7 +70,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>万歳 Banzai! Homepage</h1>
-        <Link to="/" exact>
+        <Link to="/">
           <button>Home</button>
         </Link>
         <Link to="/build-character">
@@ -79,7 +83,13 @@ class App extends React.Component {
           <Route
             path="/build-character"
             render={() => {
-              return <Wizard clans={this.state.clans} />;
+              return (
+                <Wizard
+                  clans={this.state.clans}
+                  schools={this.state.schools}
+                  skills={this.state.skills}
+                />
+              );
             }}
           />
         </Switch>

@@ -2,7 +2,7 @@ import React from "react";
 import { Dropdown } from "semantic-ui-react";
 
 // receives currentSchool prop
-const SkillDropdown = ({ currentSchool, skills }) => {
+const SchoolSkillDropdown = ({ currentSchool, skills }) => {
   const freeSkillsDropdown = currentSchool[0].skills.freePickType.map(
     (skillType) => {
       let dropdownHeading;
@@ -60,29 +60,20 @@ const SkillDropdown = ({ currentSchool, skills }) => {
         }
       } else {
         for (let skill in skills) {
-          // console.log("skillType:", skillType[0]);
-          // console.log(
-          //   "currentSchool[0].skills.core,",
-          //   currentSchool[0].skills.core
-          // );
           if (
             skills[skill].type.toLowerCase() === skillType[0] &&
             !currentSchool[0].skills.core.flat().includes(skill)
           ) {
             skillList[skill] = skills[skill];
-            skillTypeItems.push(
-              // <Dropdown.Item key={skill}>{skill}</Dropdown.Item>
-              {
-                key: skill,
-                text: skill,
-                value: skill,
-                description: skills[skill].type,
-              }
-            );
+            skillTypeItems.push({
+              key: skill,
+              text: skill,
+              value: skill,
+              description: skills[skill].type,
+            });
           }
         }
       }
-      // skillTypeItems = skillTypeItems.sort((a, b) => a.text - b.text);
 
       return (
         <>
@@ -90,14 +81,10 @@ const SkillDropdown = ({ currentSchool, skills }) => {
           <Dropdown
             placeholder={"Select skill"}
             selection
-            // search
-            // button
+            search
             scrolling
             options={skillTypeItems}
-            // onChange={handleChange}
-          >
-            {/* <Dropdown.Menu>{skillTypeItems}</Dropdown.Menu> */}
-          </Dropdown>
+          ></Dropdown>
         </>
       );
     }
@@ -110,4 +97,4 @@ const SkillDropdown = ({ currentSchool, skills }) => {
   );
 };
 
-export default SkillDropdown;
+export default SchoolSkillDropdown;

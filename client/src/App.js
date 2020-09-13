@@ -73,7 +73,7 @@ class App extends React.Component {
         <Link to="/">
           <button>Home</button>
         </Link>
-        <Link to="/build-character">
+        <Link to="/build-character/page1">
           <button>New Character Wizard</button>
         </Link>
         <Link to="/characters">

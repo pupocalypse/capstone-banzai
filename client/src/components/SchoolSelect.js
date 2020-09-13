@@ -1,7 +1,7 @@
 import React from "react";
 import DropdownMenu from "./DropdownMenu";
 import SchoolSkills from "./SchoolSkills";
-import SkillDropdown from "./SkillDropdown";
+import SchoolSkillDropdown from "./SchoolSkillDropdown";
 
 const SchoolSelect = ({ currentClan, currentSchool, skills, handleChange }) => {
   return (
@@ -35,7 +35,10 @@ const SchoolSelect = ({ currentClan, currentSchool, skills, handleChange }) => {
               Bonus: +1 {currentSchool[0].bonus}
             </p>
             <SchoolSkills currentSchool={currentSchool} skills={skills} />
-            <SkillDropdown currentSchool={currentSchool} skills={skills} />
+            <SchoolSkillDropdown
+              currentSchool={currentSchool}
+              skills={skills}
+            />
           </>
         )}
       </div>

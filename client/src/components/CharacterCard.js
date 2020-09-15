@@ -40,7 +40,9 @@ const CharacterCard = ({
         </div>
         <div className="character-card__description">
           {specialTitle ? (
-            <p className="character-card__special-title">{specialTitle}</p>
+            <div className="character-card__special-banner">
+              <p className="character-card__special-title">{specialTitle}</p>
+            </div>
           ) : null}
           <ul className="character-card__desc-items">
             <li className="character-card__desc-item">{job}</li>

@@ -1,0 +1,39 @@
+import React from "react";
+import CharacterCard from "./CharacterCard";
+
+import HayamiImg from "../assets/images/example_YasukiHayami.png";
+import RyoImg from "../assets/images/example_GoukimaroRyo.jpg";
+
+const CharactersPage = () => {
+  return (
+    <main className="characters">
+      {/* renders existing character 'card' components, links to character sheet */}
+      <h1 className="characters__heading">Characters</h1>
+      <div className="characters__cards-container">
+        <CharacterCard
+          rank="1"
+          name="Yasuki Hayami"
+          clan="Crab"
+          family={{ name: "Yasuki" }}
+          school={{ name: "Hiruma Bushi" }}
+          job="Bushi"
+          img={HayamiImg}
+          campaign="The Darkest Timeline"
+        />
+        <CharacterCard
+          rank="4"
+          name="Goukimaro Ryo"
+          clan="Spider"
+          family={{ name: "Goukimaro" }}
+          school={{ name: "Order of Heroes" }}
+          job="Shugenja"
+          img={RyoImg}
+          campaign="March of the Black Queen"
+          specialTitle={"Abbot of the Spider"}
+        />
+      </div>
+    </main>
+  );
+};
+
+export default CharactersPage;

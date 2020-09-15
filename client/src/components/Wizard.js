@@ -16,15 +16,18 @@ class Wizard extends React.Component {
     currentClan: "",
     currentFamily: "",
     currentSchool: "",
+    selectSkills: [],
     character: {
       firstName: "",
       lastName: "",
       clan: "",
       family: {}, // family name, bonus
       school: {}, // school name, bonus
+      job: "",
       skills: {},
       rings: {},
     },
+    buttonColour: "",
   };
 
   componentDidMount() {
@@ -32,31 +35,30 @@ class Wizard extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (prevState.character !== this.state.character) {
+      localStorage.setItem(
+        "new character",
+        JSON.stringify(this.state.character)
+      );
+    }
     console.log("Wizard component updated");
   }
-
-  // getDropdownsWithoutClan = (array) => {
-  //   // eg: this.props.clans.families array
-  //   // let allItems;
-
-  //   let allItems = this.props.clans.map((clan) => {
-  //     clan[array].map((item) => {
-  //       return {
-  //         key: item.name,
-  //         text: item.name,
-  //         value: item.name,
-  //       };
-  //     });
-  //   });
-  //   return allItems;
-  // };
 
   updateCurrentClan = (e, { value }) => {
     const currentClan = this.props.clans.filter((clan) => clan.clan === value);
 
-    this.setState({
-      currentClan,
-    });
+    this.setState(
+      {
+        currentClan,
+      },
+      () => {
+        localStorage.setItem(
+          "current clan",
+          JSON.stringify(this.state.currentClan)
+        );
+        this.buttonColour();
+      }
+    );
   };
 
   updateCurrentFamily = (e, { value }) => {
@@ -64,9 +66,16 @@ class Wizard extends React.Component {
       (family) => family.name === value
     );
 
-    this.setState({
-      currentFamily,
-    });
+    this.setState(
+      {
+        currentFamily,
+      },
+      () =>
+        localStorage.setItem(
+          "current family",
+          JSON.stringify(this.state.currentFamily)
+        )
+    );
   };
 
   updateCurrentSchool = (e, { value }) => {
@@ -77,9 +86,103 @@ class Wizard extends React.Component {
       (school) => school.name === currentSchool[0].name
     );
 
+    let selectSkills = [];
+    for (let i = 0; i < schoolDetails[0].skills.freePickType.length; i++) {
+      selectSkills.push(false);
+      // console.log("selectSkills setting:", selectSkills);
+    }
+
+    this.setState(
+      {
+        currentSchool: schoolDetails,
+        selectSkills,
+        character: {
+          ...this.state.character,
+          job: currentSchool[0].type,
+        },
+      },
+      () =>
+        localStorage.setItem(
+          "current school",
+          JSON.stringify(this.state.currentSchool)
+        )
+    );
+  };
+
+  updateLastName = (e, { value }) => {
+    // receives Form.Input value on change,
+    // updated character.lastName in state
     this.setState({
-      currentSchool: schoolDetails,
+      character: {
+        ...this.state.character,
+        lastName: value,
+      },
     });
+  };
+
+  schoolSkillsSelected = (index) => {
+    console.log("index:", index);
+    let selectedSkill = this.state.selectSkills;
+    selectedSkill[index] = true;
+    this.setState({
+      selectSkills: selectedSkill,
+    });
+    console.log("this.state.selectSkills:", this.state.selectSkills);
+  };
+
+  nextPageClick = () => {
+    // add current selections to character object, pass to page 2 component
+    const clan = this.state.currentClan[0].clan;
+    const family = this.state.currentFamily[0];
+    const school = this.state.currentSchool[0];
+
+    this.setState({
+      character: {
+        ...this.state.character,
+        clan,
+        family,
+        school,
+        lastName: family.name,
+      },
+    });
+    // localStorage.setItem("new character", JSON.stringify(this.state.character));
+  };
+
+  resetInputs = () => {
+    localStorage.removeItem("new character");
+  };
+
+  buttonColour = () => {
+    // when clan is selected, update button colours :)
+    let colour;
+    const clan = this.state.currentClan[0].clan;
+    switch (clan) {
+      case "Crab":
+        colour = "blue";
+        break;
+      case "Crane":
+        colour = "teal";
+        break;
+      case "Dragon":
+        colour = "green";
+        break;
+      case "Lion":
+        colour = "yellow";
+        break;
+      case "Phoenix":
+        colour = "orange";
+        break;
+      case "Scorpion":
+        colour = "red";
+        break;
+      case "Unicorn":
+        colour = "violet";
+        break;
+      default:
+        colour = "olive";
+        break;
+    }
+    return colour;
   };
 
   render() {
@@ -87,6 +190,7 @@ class Wizard extends React.Component {
       <main className="wizard-container">
         {/* <UITest clans={this.props.clans} /> */}
         <WizardHeader />
+
         <Switch>
           <Route
             path="/build-character/page1"
@@ -98,13 +202,19 @@ class Wizard extends React.Component {
                   currentClan={this.state.currentClan}
                   currentFamily={this.state.currentFamily}
                   currentSchool={this.state.currentSchool}
+                  selectSkills={this.state.selectSkills}
                   updateClan={this.updateCurrentClan}
                   updateFamily={this.updateCurrentFamily}
                   updateSchool={this.updateCurrentSchool}
+                  schoolSkillsSelected={this.schoolSkillsSelected}
+                  nextPageClick={this.nextPageClick}
+                  resetInputs={this.resetInputs}
+                  // buttonColour={this.state.buttonColour}
                 />
               );
             }}
           />
+
           <Route
             path="/build-character/page2"
             render={() => {
@@ -114,6 +224,8 @@ class Wizard extends React.Component {
                   currentClan={this.state.currentClan}
                   currentFamily={this.state.currentFamily}
                   currentSchool={this.state.currentSchool}
+                  character={this.state.character}
+                  updateLastName={this.updateLastName}
                 />
               );
             }}

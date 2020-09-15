@@ -17,26 +17,43 @@ class WizardPage2 extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.skills !== this.props.skills) {
       this.setSkills();
-      console.log("skillOptions:", this.state.skillOptions);
     }
   }
 
   setSkills = () => {
     let skillOptions = [];
     for (let skill in this.props.skills) {
-      skillOptions.push({
-        key: skill,
-        text: skill,
-        value: skill,
-        description: this.props.skills[skill].type,
-      });
+      if (this.props.currentSchool.length !== 0) {
+        for (let schoolSkill of this.props.currentSchool[0].skills.core) {
+          if (skill !== schoolSkill[0]) {
+            skillOptions.push({
+              key: skill,
+              text: skill,
+              value: skill,
+              description: this.props.skills[skill].type,
+            });
+          }
+        }
+      }
     }
     this.setState({
       skillOptions,
     });
   };
 
-  removeSkillOption = ({ data }) => {};
+  // disableSkillOption = (e, { value }) => {
+  //   // loop through skillOptions object, find match for value
+  //   // delete skillOptions[value]
+  //   console.log("data.value:", value);
+  //   const updatedOptions = this.state.skillOptions.map((skill) => {
+  //     if (skill.name === value) {
+  //       skill.disabled = true;
+  //     }
+  //   });
+  //   this.setState({
+  //     skillOptions: updatedOptions,
+  //   });
+  // };
 
   addSkillField = () => {
     const skillFieldNum =
@@ -66,10 +83,11 @@ class WizardPage2 extends React.Component {
               <Form.Input
                 placeholder="Family Name"
                 value={
-                  this.props.currentFamily
-                    ? this.props.currentFamily[0].name
+                  this.props.character.lastName
+                    ? this.props.character.lastName
                     : ""
                 }
+                onChange={this.props.updateLastName}
               />
               <Form.Input placeholder="Given Name" />
             </Form.Group>
@@ -92,7 +110,7 @@ class WizardPage2 extends React.Component {
                     <Form.Select
                       options={this.state.skillOptions}
                       placeholder="Select a skill..."
-                      onChange={this.removeSkillOption}
+                      // onChange={this.disableSkillOption}
                     />
                     <Button
                       circular
@@ -111,16 +129,22 @@ class WizardPage2 extends React.Component {
           </Form>
         </div>
 
-        <Link to="/build-character/page1">
-          <Button
-            content="Back"
-            icon="left arrow"
-            labelPosition="left"
-            color="olive"
-            circular
-            size="tiny"
-          />
-        </Link>
+        <Button
+          as={Link}
+          to="/build-character/page1"
+          content="Back"
+          icon="left arrow"
+          labelPosition="left"
+          color="olive"
+          circular
+          size="tiny"
+        />
+
+        <Button.Group size="tiny">
+          <Button>Cancel</Button>
+          <Button.Or />
+          <Button color="teal">Save</Button>
+        </Button.Group>
       </div>
     );
   }

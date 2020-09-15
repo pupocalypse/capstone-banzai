@@ -3,6 +3,8 @@ import DropdownMenu from "./DropdownMenu";
 
 // receives currentClan as prop
 const ClanSelect = ({ clans, currentClan, handleChange }) => {
+  const localStorageClan = JSON.parse(localStorage.getItem("current clan"));
+
   return (
     <section className="wizard__clan-container">
       <div className="wizard__clan-left-container">
@@ -16,7 +18,7 @@ const ClanSelect = ({ clans, currentClan, handleChange }) => {
               value: clan.clan,
               image: {
                 avatar: true,
-                src: `./images/mons-colour/Mon_${clan.clan}_colour.png`,
+                src: `${process.env.PUBLIC_URL}/images/mons-colour/Mon_${clan.clan}_colour.png`,
               },
             };
           })}
@@ -30,7 +32,7 @@ const ClanSelect = ({ clans, currentClan, handleChange }) => {
           <img
             className="clan__mon-image"
             alt={`${currentClan[0].clan} mon`}
-            src={`./images/mons-detail/${currentClan[0].clan}_Clan_mon.png`}
+            src={`${process.env.PUBLIC_URL}/images/mons-detail/${currentClan[0].clan}_Clan_mon.png`}
             style={{
               height: "7rem",
               // filter: "drop-shadow(0px 3px 1px rgba(0,0,0,0.3))",
@@ -43,7 +45,8 @@ const ClanSelect = ({ clans, currentClan, handleChange }) => {
         <h2 className="clan__details-heading">Clan Details</h2>
         {!currentClan ? null : (
           <p className="clan__details-text">
-            A brief description of the {currentClan[0].clan}
+            {/* A brief description of the {currentClan[0].clan} */}
+            {currentClan[0].description}
           </p>
         )}
       </div>

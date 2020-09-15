@@ -1,0 +1,182 @@
+html,
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+* {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+.characters {
+  padding: 0 1rem;
+}
+
+.characters__cards-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.character-card {
+  background: rgba(119, 136, 153, 0.4);
+  width: 19rem;
+  margin: 1.5rem 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  -webkit-box-shadow: 0px 2px 5px 2px rgba(47, 79, 79, 0.5);
+          box-shadow: 0px 2px 5px 2px rgba(47, 79, 79, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.character-card__name-banner {
+  position: relative;
+  background: white;
+  top: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 3.75rem;
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(47, 79, 79, 0.5);
+          box-shadow: 0px 2px 2px 0px rgba(47, 79, 79, 0.5);
+  border-radius: 2px;
+}
+
+.character-card__name-banner::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 20px 0 0;
+  border-color: darkslategray transparent transparent transparent;
+  position: absolute;
+  right: 0;
+  margin-top: 0.5rem;
+  z-index: -1;
+}
+
+.character-card__rank-container {
+  background: url("../assets/images/rings/rings_empty_whiteBG.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  padding-top: 0.65rem;
+  top: -0.75rem;
+  left: -0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.character-card__rank-heading {
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.character-card__rank {
+  position: relative;
+  top: -0.35rem;
+}
+
+.character-card__name {
+  text-align: center;
+}
+
+.character-card__card-art {
+  width: 96%;
+  height: 17rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.character-card__bottom-container {
+  position: relative;
+  width: 100%;
+}
+
+.character-card__mon-container {
+  background: url("../assets/images/rings/rings_empty_whiteBG.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  padding: 0.5rem;
+  top: -2.75rem;
+  right: -0.25rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.character-card__description {
+  padding: 1rem 0;
+}
+
+.character-card__special-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.character-card__desc-items {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.character-card__campaign-text {
+  text-align: center;
+  font-style: italic;
+}
+/*# sourceMappingURL=app.css.map */

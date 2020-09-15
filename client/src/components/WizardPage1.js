@@ -12,9 +12,14 @@ const WizardPage1 = ({
   currentClan,
   currentFamily,
   currentSchool,
+  selectSkills,
   updateClan,
   updateFamily,
   updateSchool,
+  schoolSkillsSelected,
+  nextPageClick,
+  resetInputs,
+  // buttonColour,
 }) => {
   return (
     <div className="wizard__part-one-container">
@@ -35,9 +40,33 @@ const WizardPage1 = ({
         currentSchool={currentSchool}
         skills={skills}
         handleChange={updateSchool}
+        schoolSkillsSelected={schoolSkillsSelected}
       />
 
-      <Link to="/build-character/page2">
+      <Button
+        content="Reset"
+        icon="exclamation circle"
+        labelPosition="left"
+        color="red"
+        circular
+        size="tiny"
+        onClick={resetInputs}
+      />
+      {currentFamily &&
+      selectSkills.length !== 0 &&
+      selectSkills.every((item) => !!item) ? (
+        <Button
+          as={Link}
+          to="/build-character/page2"
+          content="Next"
+          icon="right arrow"
+          labelPosition="right"
+          color="olive"
+          circular
+          size="tiny"
+          onClick={nextPageClick}
+        />
+      ) : (
         <Button
           content="Next"
           icon="right arrow"
@@ -45,8 +74,9 @@ const WizardPage1 = ({
           color="olive"
           circular
           size="tiny"
+          disabled
         />
-      </Link>
+      )}
     </div>
   );
 };

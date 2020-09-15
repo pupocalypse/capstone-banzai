@@ -1,0 +1,11 @@
+.characters {
+  padding: 0 1rem;
+  &__heading {
+  }
+
+  &__cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

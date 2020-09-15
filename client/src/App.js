@@ -2,9 +2,9 @@ import React from "react";
 import axios from "axios";
 import { Route, Switch, Link } from "react-router-dom";
 
-import "./App.css";
-
+import Home from "./components/Home";
 import Wizard from "./components/Wizard";
+import CharactersPage from "./components/CharactersPage";
 // import Clans from "./components/Clans";
 // import UITest from "./components/UI-Test";
 
@@ -69,17 +69,24 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>万歳 Banzai! Homepage</h1>
+        {/* <h1>万歳 Banzai! Homepage</h1> */}
         <Link to="/">
-          <button>Home</button>
+          <span>Home</span>
         </Link>
         <Link to="/build-character/page1">
-          <button>New Character Wizard</button>
+          <span>New Character Wizard</span>
         </Link>
         <Link to="/characters">
-          <button>Characters</button>
+          <span>Characters</span>
         </Link>
         <Switch>
+          <Route
+            path="/"
+            render={() => {
+              return <Home />;
+            }}
+            exact
+          />
           <Route
             path="/build-character"
             render={() => {
@@ -90,6 +97,12 @@ class App extends React.Component {
                   skills={this.state.skills}
                 />
               );
+            }}
+          />
+          <Route
+            path="/characters"
+            render={() => {
+              return <CharactersPage />;
             }}
           />
         </Switch>

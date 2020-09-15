@@ -1,6 +1,7 @@
 [
   {
     "clan": "Crab",
+    "description": "The Crab Clan serve as the Defenders of the Empire. They spend their lives upon the Carpenter Wall, standing vigilant along the southwestern border of Rokugan to defend against the next attack from the Shadowlands, a lawless nation cursed with Taint and a frequent threat to the lands of the Empire. The Crab Clan was founded by the Kami Hida. Every day, the Crab warriors give their lives defending the Wall so that the people of the other clans might live in peace and security. The Crab value this duty above everything, even honor. They might be gruff, unkempt and downright rude at times, but no one questions their strength or courage.",
     "families": [
       {
         "name": "Hida",
@@ -48,6 +49,7 @@
   },
   {
     "clan": "Crane",
+    "description": "The Crane Clan, Left Hand of the Emperor, is known throughout Rokugan for its skilled duelists and artisans. The Crane are also noted courtiers, wielding great power in the courts of the land. The Crane were founded by the Kami Doji. They pursue excellence in all things, and the traditions established by Lady Doji are now customary in the Emperor's Court. The formal dueling system, iaijutsu, was established by Doji's husband, Kakita. Their preferential status with the Imperial line is renowned and throughout history the clan has had fewer taxes and more gifts heaped upon them. They are the masters of the courts and hold the status and wealth commensurate with such a position.",
     "families": [
       {
         "name": "Asahina",
@@ -87,6 +89,7 @@
   },
   {
     "clan": "Dragon",
+    "description": "The Dragon Clan was founded by the Kami Togashi, the most enigmatic of Amaterasu's children. For over a thousand years it has been their duty to watch and record the history of Rokugan. While the Dragon are seen as reclusive and aloof by most clans, they understand the necessity of acting only when the time is right.",
     "families": [
       {
         "name": "Kitsuki",
@@ -122,6 +125,7 @@
   },
   {
     "clan": "Lion",
+    "description": "The Lion Clan are the Right Hand of the Emperor, recording the military and political interactions between the Clans. They are the epitome of bushido and the very example of valor. Next to the Imperial Seppun family, they are most likely to serve as the Emperor's guardsmen. They comprise the greater portion of the Imperial Legions. The Lion Clan was founded by the Kami Akodo.",
     "families": [
       {
         "name": "Akodo",
@@ -161,6 +165,7 @@
   },
   {
     "clan": "Mantis",
+    "description": "The Mantis occupy a unique position in Rokugani history, as a former Minor Clan that rose up on the Second Day of Thunder to become a Great Clan. Until recently, they were the only Great Clan without a divine representative. This changed, however, when the great Mantis hero Yoritomo ascended to Tengoku. Later, the Thunder Dragon gave up a portion of her divinity to allow Yoritomo to remain as the Mantis' official representative in the court of Tengoku. Specifically, their duties within the Emerald Empire are to guard and patrol all the lands of the Empire which do not belong to any other clan, including the seas of Rokugan. They protect the Empire against threats from the oceans, particulalrly any potential gaijin invaders. The clan's motto is \"Only a fool stands in the path of a storm.\"",
     "families": [
       {
         "name": "Kitsune",
@@ -200,6 +205,7 @@
   },
   {
     "clan": "Phoenix",
+    "description": "The Phoenix Clan is known throughout Rokugan for their skilled shugenja and mastery of elemental magic. The Phoenix are also noted pacifists, preferring diplomacy to war if at all possible. The Phoenix presence in the courts of the land is not great as their courtiers are relatively few, although they are not isolationists like the Dragon Clan. The Phoenix Clan was founded by the Kami Shiba, while the family of his vassal Isawa, generally ran the affairs of the clan.",
     "families": [
       {
         "name": "Agasha",
@@ -239,6 +245,7 @@
   },
   {
     "clan": "Scorpion",
+    "description": "The Scorpion Clan was founded by the Kami Bayushi. The clan and its members are widely considered to be villainous and untrustworthy by the rest of Rokugan, though they merely attempt to fulfill the duty given to their family by the First Emperor on the day of his ascension. Often referred to as the Underhand of the Emperor, they are the spies, manipulators, and assassins who value loyalty and duty, and for whom the ends justify the means. It is understood by the Scorpion that by dirtying their hands, they ensure that no others need do so.",
     "families": [
       {
         "name": "Bayushi",
@@ -278,6 +285,7 @@
   },
   {
     "clan": "Unicorn",
+    "description": "Once known as the Ki-Rin Clan, the Unicorn Clan departed Rokugan shortly after the first Day of Thunder. The Kami Shinjo, founder of the clan, hoped to avert other threats to Rokugan by discovering them first. They roamed the world for eight centuries before returning to Rokugan. Unarguably the finest cavalry across the Empire, the nomadic Unicorn are oft regarded as barbarians by the other Great Clans, due to their adoption of various 'uncivilized' gaijin cultures in lands beyond Rokugani borders.",
     "families": [
       {
         "name": "Horiuchi",

@@ -1,11 +1,20 @@
 import React from "react";
 import { Dropdown } from "semantic-ui-react";
+// import SchoolSkills from "./SchoolSkills";
 
 // receives currentSchool prop
-const SchoolSkillDropdown = ({ currentSchool, skills }) => {
+const SchoolSkillDropdown = ({
+  currentSchool,
+  skills,
+  // setSchoolSkillChecker,
+  schoolSkillsSelected,
+}) => {
   const freeSkillsDropdown = currentSchool[0].skills.freePickType.map(
-    (skillType) => {
+    (skillType, index) => {
       let dropdownHeading;
+      // most schools have one free pick skill
+      // that skill will either have a specified type or allow for any skill to be picked
+      // some schools have more than one free pick skill, same rules for type
       if (skillType.length === 1 && skillType.includes("any")) {
         dropdownHeading = "Select any skill";
       } else if (skillType.length === 1) {
@@ -17,35 +26,25 @@ const SchoolSkillDropdown = ({ currentSchool, skills }) => {
       // remember skills is not an array, but an object!
       let skillList = {};
       let skillTypeItems = [];
+      // render multiple drop downs if there are multiple free picks
       if (skillType.length > 1) {
         for (let type of skillType) {
-          // skillTypeItems.push(
-          //   <Dropdown.Divider />,
-          //   <Dropdown.Header
-          //     content={`Type: ${type}`}
-          //     key={`${type}-header`}
-          //   />,
-          //   <Dropdown.Divider />
-          // );
           for (let skill in skills) {
-            // console.log("free skill:", skills[skill]);
             if (
               skills[skill].type.toLowerCase() === type &&
               !currentSchool[0].skills.core.flat().includes(skill)
             ) {
               skillList[skill] = skills[skill];
-              skillTypeItems.push(
-                // <Dropdown.Item key={skill}>{skill}</Dropdown.Item>
-                {
-                  key: skill,
-                  text: skill,
-                  value: skill,
-                  description: skills[skill].type,
-                }
-              );
+              skillTypeItems.push({
+                key: skill,
+                text: skill,
+                value: skill,
+                description: skills[skill].type,
+              });
             }
           }
         }
+        // render all skills for free picks of 'any' type
       } else if (skillType.includes("any")) {
         for (let skill in skills) {
           if (!currentSchool[0].skills.core.flat().includes(skill)) {
@@ -58,6 +57,7 @@ const SchoolSkillDropdown = ({ currentSchool, skills }) => {
             });
           }
         }
+        // take skills of matching type, as long as the school does not already offer them
       } else {
         for (let skill in skills) {
           if (
@@ -84,6 +84,7 @@ const SchoolSkillDropdown = ({ currentSchool, skills }) => {
             search
             scrolling
             options={skillTypeItems}
+            onChange={() => schoolSkillsSelected(index)}
           ></Dropdown>
         </>
       );

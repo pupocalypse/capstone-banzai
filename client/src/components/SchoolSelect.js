@@ -3,7 +3,13 @@ import DropdownMenu from "./DropdownMenu";
 import SchoolSkills from "./SchoolSkills";
 import SchoolSkillDropdown from "./SchoolSkillDropdown";
 
-const SchoolSelect = ({ currentClan, currentSchool, skills, handleChange }) => {
+const SchoolSelect = ({
+  currentClan,
+  currentSchool,
+  skills,
+  handleChange,
+  schoolSkillsSelected,
+}) => {
   return (
     <section className="wizard__school-container">
       <div className="wizard__school-left-container">
@@ -38,6 +44,7 @@ const SchoolSelect = ({ currentClan, currentSchool, skills, handleChange }) => {
             <SchoolSkillDropdown
               currentSchool={currentSchool}
               skills={skills}
+              schoolSkillsSelected={schoolSkillsSelected}
             />
           </>
         )}

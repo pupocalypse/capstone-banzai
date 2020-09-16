@@ -7,7 +7,8 @@ const Home = () => {
     <main className="home">
       <div className="home__header">
         <h1 className="home__main-heading">
-          <span className="home__main-heading--kanji">万歳</span> Banzai!
+          <span className="home__main-heading--kanji">万歳</span> Banzai
+          <span className="font-fix">!</span>
         </h1>
         <h3 className="home__sub-heading">
           A{" "}
@@ -17,28 +18,31 @@ const Home = () => {
           character sheet builder and management tool.
         </h3>
       </div>
-      <div className="home__inset-container">
-        <img
-          src={`${process.env.PUBLIC_URL}/images/l5r_logo.png`}
-          alt=""
-          className="home__image"
-        />
+      <img
+        src={`${process.env.PUBLIC_URL}/images/l5r_logo.png`}
+        alt=""
+        className="home__image"
+      />
+      <div className="home__buttons-container">
         <Button
           as={Link}
           to="/build-character/page1"
-          color="olive"
+          // color="olive"
           circular
           content="Create New Character"
           className="home__button"
+          primary
         />
         <Button
           as={Link}
           to="/characters"
-          color="teal"
+          // color="teal"
           circular
           content="View Saved Characters"
           className="home__button"
         />
+      </div>
+      <div className="home__inset-container">
         <p className="home__body-text">
           Legend of the Five Rings is a table-top role-playing game published by{" "}
           <a href="https://www.alderac.com/" target="_blank" className="link">

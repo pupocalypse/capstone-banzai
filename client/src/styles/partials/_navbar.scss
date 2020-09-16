@@ -17,9 +17,11 @@
   }
 
   &__logo-heading--kanji {
-    font-family: "Noto Serif JP";
+    font-family: "Otsutome";
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+    position: relative;
+    top: 0.5rem;
   }
 
   &__nav-links {

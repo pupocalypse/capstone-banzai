@@ -13,7 +13,8 @@ class Navbar extends React.Component {
     return (
       <header className="header">
         <h3 className="header__logo-heading">
-          <span className="header__logo-heading--kanji">万歳</span> Banzai!
+          <span className="header__logo-heading--kanji">万歳</span> Banzai
+          <span className="font-fix">!</span>
         </h3>
         <nav className="header__nav-links">
           <Link to="/" className="header__link">

@@ -8,7 +8,7 @@ const ClanSelect = ({ clans, currentClan, handleChange }) => {
   return (
     <section className="wizard__clan-container">
       <div className="wizard__clan-left-container">
-        <h2 className="clan__left-heading">Select Clan</h2>
+        <h2 className="wizard__clan-left-heading">Select Clan</h2>
         <DropdownMenu
           title={"Clan"}
           dropdownOptions={clans.map((clan) => {
@@ -27,10 +27,10 @@ const ClanSelect = ({ clans, currentClan, handleChange }) => {
       </div>
 
       <div className="wizard__clan-middle-container">
-        <h2 className="clan__mon-heading">Clan Mon</h2>
+        <h2 className="wizard__clan-mon-heading">Clan Mon</h2>
         {!currentClan ? null : (
           <img
-            className="clan__mon-image"
+            className="wizard__clan-mon-image"
             alt={`${currentClan[0].clan} mon`}
             src={`${process.env.PUBLIC_URL}/images/mons-detail/${currentClan[0].clan}_Clan_mon.png`}
             style={{
@@ -42,9 +42,9 @@ const ClanSelect = ({ clans, currentClan, handleChange }) => {
       </div>
 
       <div className="wizard__clan-right-container">
-        <h2 className="clan__details-heading">Clan Details</h2>
+        <h2 className="wizard__clan-details-heading">Clan Details</h2>
         {!currentClan ? null : (
-          <p className="clan__details-text">
+          <p className="wizard__clan-details-text">
             {/* A brief description of the {currentClan[0].clan} */}
             {currentClan[0].description}
           </p>

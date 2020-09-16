@@ -8,6 +8,7 @@
   margin: 1.5rem;
   border-radius: 0.5rem;
   overflow: hidden;
+  box-shadow: 0px 2px 5px 2px rgba($primary-black, 0.8);
 
   &__header {
     width: 100%;
@@ -42,14 +43,17 @@
   }
 
   &__main-heading--kanji {
-    font-family: "Noto Serif JP";
+    font-family: "Otsutome";
     font-weight: 400;
+    position: relative;
+    top: 0.25rem;
   }
 
   &__sub-heading {
     position: relative;
     z-index: 10;
     color: $background-colour-secondary;
+    filter: drop-shadow(2px 2px 2px $primary-black);
   }
 
   &__sub-heading--pop {
@@ -57,23 +61,28 @@
     color: $primary-complement;
   }
 
-  &__inset-container {
-    padding: 1rem;
-  }
-
   &__image {
     width: 100%;
-    margin: 1.5rem 0;
-    border: 1px solid rgba(darkslategrey, 0.35);
-    border-radius: 0.25rem;
+    max-width: 32rem;
+    margin: 0 1rem;
+    margin-bottom: 1.5rem;
+    // border: 1px solid rgba($content-colour-accent, 1);
+    border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 0px 2px 5px 2px rgba(darkslategray, 0.5);
+    box-shadow: 0px 0px 3px 2px rgba($content-colour-accent, 0.8);
+  }
+
+  &__inset-container {
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba($mid-peach, 0.35);
+    box-shadow: 0px 0px 10px 1px rgba($mid-blue, 0.8) inset;
+    background: rgba($primary-dark-colour, 0.25);
   }
 
   &__body-text {
     margin: 0.5rem 0;
-    font-style: italic;
-    color: lightslategray;
   }
 
   &__button {

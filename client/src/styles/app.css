@@ -18,7 +18,107 @@ h4,
 h5,
 h6,
 p {
+  font-family: "Fontin Regular";
   margin: 0;
+}
+
+@font-face {
+  font-family: "BrushtipTexe";
+  src: url("../assets/fonts/BrushtipTexe.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Fontin Regular";
+  src: url("../assets/fonts/Fontin-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Fontin Italic";
+  src: url("../assets/fonts/Fontin-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Fontin Bold";
+  src: url("../assets/fonts/Fontin-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Fontin Small Caps";
+  src: url("../assets/fonts/Fontin-SmallCaps.ttf") format("truetype");
+}
+
+.header {
+  padding: 0 1.5rem;
+  background: #221e1f;
+  border-bottom: 5px solid #b8b6af;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__logo-heading {
+  color: #dccdb0;
+  -webkit-filter: drop-shadow(0.5px 0.5px 0 #822c2d);
+          filter: drop-shadow(0.5px 0.5px 0 #822c2d);
+  font-family: "BrushtipTexe";
+  font-size: 1.125rem;
+  text-align: center;
+  width: 4rem;
+  padding: 0.75rem 0;
+}
+
+.header__logo-heading--kanji {
+  font-family: "Noto Serif JP";
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.header__nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 5rem;
+}
+
+.header__link {
+  height: 100%;
+  padding: 0 0.75rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__link:hover {
+  color: #b8b6af;
+  background: #822c2d;
+}
+
+.header__link:hover .header__nav-link {
+  color: #b8b6af;
+}
+
+.header__nav-link {
+  display: inline-block;
+  max-width: 8rem;
+  text-align: center;
+  font-family: "BrushtipTexe";
+  font-size: 1.5rem;
+  letter-spacing: 0.125rem;
+  color: #dccdb0;
+  position: relative;
+  top: 0.125rem;
 }
 
 .home {
@@ -31,28 +131,69 @@ p {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   text-align: center;
-  padding: 0 1rem;
+  background: #221e1f;
+  margin: 1.5rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.home__header {
+  width: 100%;
+  background: url("../assets/images/home_header.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 1.5rem 1rem;
+  padding-bottom: 3.5rem;
+  -webkit-box-shadow: 0 -30px 30px #221e1f inset;
+          box-shadow: 0 -30px 30px #221e1f inset;
+}
+
+.home__header::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(34, 30, 31, 0.5);
+  z-index: 1;
 }
 
 .home__main-heading {
-  font-family: "Noto Serif JP";
+  font-family: "BrushtipTexe";
   font-weight: 700;
-  font-size: 2.5rem;
-  margin: 1.5rem 0;
+  font-size: 3.5rem;
+  color: #dccdb0;
+  -webkit-filter: drop-shadow(2px 2px 3px #822c2d);
+          filter: drop-shadow(2px 2px 3px #822c2d);
+  position: relative;
+  z-index: 10;
 }
 
 .home__main-heading--kanji {
+  font-family: "Noto Serif JP";
   font-weight: 400;
+}
+
+.home__sub-heading {
+  position: relative;
+  z-index: 10;
+  color: #b8b6af;
 }
 
 .home__sub-heading--pop {
   font-weight: bold;
-  color: darkslateblue;
+  color: #00b5ad;
+}
+
+.home__inset-container {
+  padding: 1rem;
 }
 
 .home__image {
   width: 100%;
-  margin: 1.5rem;
+  margin: 1.5rem 0;
   border: 1px solid rgba(47, 79, 79, 0.35);
   border-radius: 0.25rem;
   overflow: hidden;
@@ -68,6 +209,19 @@ p {
 
 .home__button {
   margin: 0.25rem;
+}
+
+.wizard-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+  padding: 0 1rem;
 }
 
 .characters {
@@ -101,6 +255,17 @@ p {
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+
+.character-card:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
 }
 
 .character-card__name-banner {
@@ -166,7 +331,12 @@ p {
 }
 
 .character-card__name {
+  font-family: "BrushtipTexe";
+  font-size: 1.75rem;
+  line-height: 1.5rem;
   text-align: center;
+  position: relative;
+  top: 0.35rem;
 }
 
 .character-card__card-art {
@@ -219,7 +389,7 @@ p {
 .character-card__special-banner {
   position: absolute;
   background: #e0dcd0;
-  top: -1.75rem;
+  top: -1.5rem;
   width: 100%;
   padding: 0.25rem;
   padding-left: 0.75rem;
@@ -233,6 +403,7 @@ p {
 .character-card__special-title {
   text-align: center;
   font-weight: bold;
+  font-size: 0.875rem;
 }
 
 .character-card__desc-items {

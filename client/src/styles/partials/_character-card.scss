@@ -8,6 +8,12 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.01);
+  }
 
   &__name-banner {
     position: relative;
@@ -62,7 +68,12 @@
   }
 
   &__name {
+    font-family: "BrushtipTexe";
+    font-size: 1.75rem;
+    line-height: 1.5rem;
     text-align: center;
+    position: relative;
+    top: 0.35rem;
   }
 
   &__card-art {
@@ -107,7 +118,7 @@
   &__special-banner {
     position: absolute;
     background: rgb(224, 220, 208);
-    top: -1.75rem;
+    top: -1.5rem;
     width: 100%;
     padding: 0.25rem;
     padding-left: 0.75rem;
@@ -120,6 +131,7 @@
   &__special-title {
     text-align: center;
     font-weight: bold;
+    font-size: 0.875rem;
   }
 
   &__desc-items {

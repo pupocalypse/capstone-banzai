@@ -11,6 +11,8 @@ import WizardPage1 from "./WizardPage1";
 import WizardPage2 from "./WizardPage2";
 import WizardHeader from "./WizardHeader";
 
+import { Character } from "./CharacterClasses";
+
 class Wizard extends React.Component {
   state = {
     currentClan: "",

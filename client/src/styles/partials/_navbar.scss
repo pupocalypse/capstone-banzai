@@ -1,0 +1,58 @@
+.header {
+  padding: 0 1.5rem;
+  background: $primary-black;
+  border-bottom: 5px solid $background-colour-secondary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo-heading {
+    color: $content-colour-accent;
+    filter: drop-shadow(0.5px 0.5px 0 rgba($primary-dark-colour, 1));
+    font-family: "BrushtipTexe";
+    font-size: 1.125rem;
+    text-align: center;
+    width: 4rem;
+    padding: 0.75rem 0;
+  }
+
+  &__logo-heading--kanji {
+    font-family: "Noto Serif JP";
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+
+  &__nav-links {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+  }
+
+  &__link {
+    height: 100%;
+    padding: 0 0.75rem;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: $background-colour-secondary;
+      background: rgba($primary-dark-colour, 1);
+
+      .header__nav-link {
+        color: $background-colour-secondary;
+      }
+    }
+  }
+
+  &__nav-link {
+    display: inline-block;
+    max-width: 8rem;
+    text-align: center;
+    font-family: "BrushtipTexe";
+    font-size: 1.5rem;
+    letter-spacing: 0.125rem;
+    color: $content-colour-accent;
+    position: relative;
+    top: 0.125rem;
+  }
+}

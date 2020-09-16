@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Route, Switch, Link } from "react-router-dom";
 
+import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Wizard from "./components/Wizard";
 import CharactersPage from "./components/CharactersPage";
@@ -70,15 +71,7 @@ class App extends React.Component {
     return (
       <div className="App">
         {/* <h1>万歳 Banzai! Homepage</h1> */}
-        <Link to="/">
-          <span>Home</span>
-        </Link>
-        <Link to="/build-character/page1">
-          <span>New Character Wizard</span>
-        </Link>
-        <Link to="/characters">
-          <span>Characters</span>
-        </Link>
+        <Navbar />
         <Switch>
           <Route
             path="/"

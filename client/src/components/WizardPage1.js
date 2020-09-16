@@ -47,10 +47,11 @@ const WizardPage1 = ({
         content="Reset"
         icon="exclamation circle"
         labelPosition="left"
-        color="red"
+        // color="red"
         circular
         size="tiny"
         onClick={resetInputs}
+        negative
       />
       {currentFamily &&
       selectSkills.length !== 0 &&
@@ -61,19 +62,21 @@ const WizardPage1 = ({
           content="Next"
           icon="right arrow"
           labelPosition="right"
-          color="olive"
+          // color="olive"
           circular
           size="tiny"
           onClick={nextPageClick}
+          primary
         />
       ) : (
         <Button
           content="Next"
           icon="right arrow"
           labelPosition="right"
-          color="olive"
+          // color="olive"
           circular
           size="tiny"
+          primary
           disabled
         />
       )}

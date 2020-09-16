@@ -3,7 +3,6 @@
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
-  // padding: 0 1rem;
   background: $primary-black;
   margin: 1.5rem;
   border-radius: 0.5rem;
@@ -61,11 +60,15 @@
     color: $primary-complement;
   }
 
+  &__buttons-container {
+    width: 100%;
+  }
+
   &__image {
     width: 100%;
     max-width: 32rem;
-    margin: 0 1rem;
-    margin-bottom: 1.5rem;
+    margin: 1.5rem 1rem;
+    margin-bottom: 1rem;
     // border: 1px solid rgba($content-colour-accent, 1);
     border-radius: 0.5rem;
     overflow: hidden;

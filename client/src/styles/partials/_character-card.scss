@@ -1,18 +1,41 @@
 .character-card {
-  background: rgba(lightslategray, 0.4);
+  background: rgba($mid-slate, 0.6);
   width: 19rem;
   margin: 1.5rem 1rem;
   padding: 0.5rem 0.75rem;
   border-radius: 0.75rem;
-  box-shadow: 0px 2px 5px 2px rgba(darkslategray, 0.5);
+  box-shadow: 0px 2px 5px 2px rgba($primary-black, 0.5);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   transform: scale(1);
   transition: transform 0.2s ease-in-out;
+  position: relative;
+  top: -1rem;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient($background-colour-primary, $primary-black);
+    border-radius: 0.75rem;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
 
   &:hover {
     transform: scale(1.01);
+  }
+
+  &__name-art-container {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
   }
 
   &__name-banner {
@@ -23,7 +46,7 @@
     padding: 0.5rem;
     padding-right: 0.75rem;
     padding-left: 4rem;
-    box-shadow: 0px 2px 2px 0px rgba(darkslategray, 0.5);
+    box-shadow: 0px 2px 2px 0px rgba($primary-black, 0.5);
     border-radius: 2px;
 
     &::after {
@@ -32,7 +55,7 @@
       height: 0;
       border-style: solid;
       border-width: 20px 20px 0 0;
-      border-color: darkslategray transparent transparent transparent;
+      border-color: $primary-black transparent transparent transparent;
       position: absolute;
       right: 0;
       margin-top: 0.5rem;
@@ -55,16 +78,36 @@
     justify-content: center;
     align-items: center;
     flex-flow: column;
+
+    &::after {
+      content: "";
+      background: url("../assets/images/rings/rings_empty_noBG.png");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      filter: invert(26%) sepia(14%) saturate(1373%) hue-rotate(169deg)
+        brightness(92%) contrast(93%);
+    }
   }
 
   &__rank-heading {
     font-size: 0.75rem;
     font-style: italic;
+    position: relative;
+    z-index: 10;
   }
 
   &__rank {
     position: relative;
-    top: -0.35rem;
+    z-index: 10;
+    top: -0.25rem;
+    font-family: "Otsutome";
+    color: rgba($primary-dark-colour, 0.7);
   }
 
   &__name {
@@ -74,6 +117,7 @@
     text-align: center;
     position: relative;
     top: 0.35rem;
+    filter: brightness(0.85);
   }
 
   &__card-art {
@@ -83,11 +127,40 @@
     object-position: center;
     overflow: hidden;
     border-radius: 0.5rem;
+    position: relative;
+    z-index: -1;
+    box-shadow: 0 0 2px 2px rgba($background-colour-secondary, 0.2),
+      0 0 8px 5px rgba($content-colour-accent, 0.1);
+  }
+
+  &__card-art-shadow {
+    width: 96.25%;
+    height: 90%;
+    box-shadow: 0 0 10px 10px rgba($primary-black, 0.4) inset;
+    border-radius: 0.5rem;
+    position: absolute;
+    z-index: -1;
+    bottom: 0.3rem;
+    left: 0.32rem;
   }
 
   &__bottom-container {
     position: relative;
     width: 100%;
+
+    &::after {
+      content: "";
+      background: url("../assets/images/rings/rings_noBG.png") no-repeat;
+      background-size: contain;
+      background-position: left;
+      opacity: 0.3;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: -1;
+      top: -1rem;
+      left: 0;
+    }
   }
 
   &__mon-container {
@@ -96,6 +169,7 @@
     background-position: center;
     background-repeat: no-repeat;
     position: absolute;
+    z-index: 10;
     width: 4rem;
     height: 4rem;
     padding: 0.5rem;
@@ -105,10 +179,26 @@
     justify-content: center;
     align-items: center;
     flex-flow: column;
-    z-index: 10;
+    z-index: 15;
+
+    &::after {
+      content: "";
+      background: url("../assets/images/rings/rings_empty_noBG.png");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      filter: invert(26%) sepia(14%) saturate(1373%) hue-rotate(169deg)
+        brightness(92%) contrast(93%);
+    }
   }
 
   &__mon-image {
+    width: 100%;
   }
 
   &__description {
@@ -117,21 +207,23 @@
 
   &__special-banner {
     position: absolute;
-    background: rgb(224, 220, 208);
+    background: $background-colour-primary;
     top: -1.5rem;
     width: 100%;
     padding: 0.25rem;
     padding-left: 0.75rem;
     padding-right: 4rem;
-    box-shadow: 0px 2px 2px 0px rgba(darkslategray, 0.5);
+    box-shadow: 0px 2px 2px 0px rgba($primary-black, 0.5);
     border-radius: 2px;
-    z-index: 1;
+    z-index: 10;
   }
 
   &__special-title {
     text-align: center;
     font-weight: bold;
     font-size: 0.875rem;
+    color: $primary-dark-colour;
+    filter: drop-shadow(1px 1px 0 rgba($primary-black, 0.3));
   }
 
   &__desc-items {
@@ -142,10 +234,27 @@
   }
 
   &__desc-item {
+    font-size: 0.925rem;
   }
 
   &__campaign-text {
     text-align: center;
     font-style: italic;
+    font-size: 0.925rem;
+    color: $content-colour-accent;
+    position: relative;
+    z-index: 10;
+
+    &::before {
+      content: "";
+      width: 120%;
+      height: 150%;
+      background: rgba($light-slate, 0.3);
+      border-top: 1px dotted rgba($background-colour-secondary, 0.3);
+      position: absolute;
+      top: -0.25rem;
+      left: -1.5rem;
+      z-index: -1;
+    }
   }
 }

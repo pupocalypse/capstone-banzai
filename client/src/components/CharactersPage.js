@@ -8,7 +8,9 @@ const CharactersPage = () => {
   return (
     <main className="characters">
       {/* renders existing character 'card' components, links to character sheet */}
-      <h1 className="characters__heading">Characters</h1>
+      <div className="characters__header">
+        <h1 className="characters__heading">Characters</h1>
+      </div>
       <div className="characters__cards-container">
         <CharacterCard
           rank="1"

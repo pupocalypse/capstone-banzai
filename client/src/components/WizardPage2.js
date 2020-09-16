@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Form, Button, Loader } from "semantic-ui-react";
+import { Form, Button, Loader, Statistic } from "semantic-ui-react";
 
 class WizardPage2 extends React.Component {
   // const WizardPage2 = ({ skills, currentClan, currentFamily, currentSchool }) => {
@@ -91,15 +91,26 @@ class WizardPage2 extends React.Component {
               />
               <Form.Input placeholder="Given Name" />
             </Form.Group>
-            <Button
-              circular
-              content="Add a new skill"
-              icon="add"
-              color="blue"
-              inverted
-              size="tiny"
-              onClick={this.addSkillField}
-            />
+            <div className="wizard__form-xp-button-container">
+              <div className="wizard__form-xp-container">
+                <Statistic>
+                  <Statistic.Value>20</Statistic.Value>
+                  <Statistic.Label>XP</Statistic.Label>
+                </Statistic>
+              </div>
+              <div className="wizard__form-add-skill-button">
+                <Button
+                  circular
+                  content="Add a new skill"
+                  icon="add"
+                  // floated="right"
+                  // color="blue"
+                  // inverted
+                  size="tiny"
+                  onClick={this.addSkillField}
+                />
+              </div>
+            </div>
             {this.state.skillOptions.length > 0 ? (
               this.state.formSkillFields.map((num, index) => {
                 return (
@@ -110,40 +121,57 @@ class WizardPage2 extends React.Component {
                     <Form.Select
                       options={this.state.skillOptions}
                       placeholder="Select a skill..."
+                      className="wizard__form-skill-select"
                       // onChange={this.disableSkillOption}
                     />
+                    <Form.Select
+                      options={[1, 2, 3, 4].map((item) => {
+                        return { key: item, text: item, value: item };
+                      })}
+                      placeholder="Rank..."
+                      compact
+                      className="wizard__form-skill-rank-select"
+                      // onChange={this.disableSkillOption}
+                    />
+                    {/* <div className="wizard__form-skill-details">{trait}</div> */}
                     <Button
                       circular
                       size="mini"
                       icon="remove"
-                      color="red"
-                      inverted
+                      // color="red"
+                      negative
+                      // inverted
                       onClick={() => this.removeSkillField(index)}
+                      className="wizard__form-skill-delete"
                     />
                   </div>
                 );
               })
             ) : (
-              <Loader active inline />
+              <div className="wizard__form-add-skill">
+                <Loader active inline />
+              </div>
             )}
           </Form>
         </div>
 
-        <Button
-          as={Link}
-          to="/build-character/page1"
-          content="Back"
-          icon="left arrow"
-          labelPosition="left"
-          color="olive"
-          circular
-          size="tiny"
-        />
-
+        <div className="wizard__buttons-container">
+          <Button
+            as={Link}
+            to="/build-character/page1"
+            content="Back"
+            icon="left arrow"
+            labelPosition="left"
+            // floated="left"
+            // color="olive"
+            circular
+            size="tiny"
+          />
+        </div>
         <Button.Group size="tiny">
-          <Button>Cancel</Button>
+          <Button negative>Cancel</Button>
           <Button.Or />
-          <Button color="teal">Save</Button>
+          <Button primary>Save</Button>
         </Button.Group>
       </div>
     );

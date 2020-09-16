@@ -189,50 +189,52 @@ class Wizard extends React.Component {
 
   render() {
     return (
-      <main className="wizard-container">
+      <main className="wizard">
         {/* <UITest clans={this.props.clans} /> */}
         <WizardHeader />
 
-        <Switch>
-          <Route
-            path="/build-character/page1"
-            render={() => {
-              return (
-                <WizardPage1
-                  clans={this.props.clans}
-                  skills={this.props.skills}
-                  currentClan={this.state.currentClan}
-                  currentFamily={this.state.currentFamily}
-                  currentSchool={this.state.currentSchool}
-                  selectSkills={this.state.selectSkills}
-                  updateClan={this.updateCurrentClan}
-                  updateFamily={this.updateCurrentFamily}
-                  updateSchool={this.updateCurrentSchool}
-                  schoolSkillsSelected={this.schoolSkillsSelected}
-                  nextPageClick={this.nextPageClick}
-                  resetInputs={this.resetInputs}
-                  // buttonColour={this.state.buttonColour}
-                />
-              );
-            }}
-          />
+        <div className="wizard__inset-container">
+          <Switch>
+            <Route
+              path="/build-character/page1"
+              render={() => {
+                return (
+                  <WizardPage1
+                    clans={this.props.clans}
+                    skills={this.props.skills}
+                    currentClan={this.state.currentClan}
+                    currentFamily={this.state.currentFamily}
+                    currentSchool={this.state.currentSchool}
+                    selectSkills={this.state.selectSkills}
+                    updateClan={this.updateCurrentClan}
+                    updateFamily={this.updateCurrentFamily}
+                    updateSchool={this.updateCurrentSchool}
+                    schoolSkillsSelected={this.schoolSkillsSelected}
+                    nextPageClick={this.nextPageClick}
+                    resetInputs={this.resetInputs}
+                    // buttonColour={this.state.buttonColour}
+                  />
+                );
+              }}
+            />
 
-          <Route
-            path="/build-character/page2"
-            render={() => {
-              return (
-                <WizardPage2
-                  skills={this.props.skills}
-                  currentClan={this.state.currentClan}
-                  currentFamily={this.state.currentFamily}
-                  currentSchool={this.state.currentSchool}
-                  character={this.state.character}
-                  updateLastName={this.updateLastName}
-                />
-              );
-            }}
-          />
-        </Switch>
+            <Route
+              path="/build-character/page2"
+              render={() => {
+                return (
+                  <WizardPage2
+                    skills={this.props.skills}
+                    currentClan={this.state.currentClan}
+                    currentFamily={this.state.currentFamily}
+                    currentSchool={this.state.currentSchool}
+                    character={this.state.character}
+                    updateLastName={this.updateLastName}
+                  />
+                );
+              }}
+            />
+          </Switch>
+        </div>
 
         {/* page one component: */}
         {/* WizardHeader component with hero image */}
@@ -240,78 +242,10 @@ class Wizard extends React.Component {
         {/* FamilySelect component with dropdown */}
         {/* SchoolSelect component with dropdown */}
         {/* free school skill pick */}
-        {/* <ClanSelect
-          clans={this.props.clans}
-          currentClan={this.state.currentClan}
-          handleChange={this.updateCurrentClan}
-        />
-
-        <FamilySelect
-          currentClan={this.state.currentClan}
-          currentFamily={this.state.currentFamily}
-          handleChange={this.updateCurrentFamily}
-        />
-
-        <SchoolSelect
-          currentClan={this.state.currentClan}
-          currentSchool={this.state.currentSchool}
-          skills={this.props.skills}
-          handleChange={this.updateCurrentSchool}
-        />
-
-        <Button content="Next" icon="right arrow" labelPosition="right" /> */}
 
         {/* page two component: */}
         {/* experience spending: new skills, skill ranks, trait ranks */}
         {/* input for character name */}
-
-        {/* <DropdownMenu
-          title={"Clan"}
-          dropdownOptions={this.props.clans.map((clan) => {
-            return {
-              key: clan.clan,
-              text: clan.clan,
-              value: clan.clan,
-              image: {
-                avatar: true,
-                src: `./images/mons/Mon_${clan.clan}.gif`,
-              },
-            };
-          })}
-          handleChange={this.updateCurrentClan}
-        /> */}
-        {/* <DropdownMenu
-          title={"Family"}
-          dropdownOptions={
-            this.state.currentClan.length <= 0
-              ? null
-              : this.state.currentClan[0].families.map((family) => {
-                  return {
-                    key: family.name,
-                    text: family.name,
-                    value: family.name,
-                  };
-                })
-          }
-          handleChange={this.updateCurrentFamily}
-        /> */}
-        {/* <DropdownMenu
-          title={"School"}
-          dropdownOptions={
-            this.state.currentClan.length <= 0
-              ? null
-              : this.state.currentClan[0].schools
-                  .filter((school) => school.type === "bushi")
-                  .map((school) => {
-                    return {
-                      key: school.name,
-                      text: school.name,
-                      value: school.name,
-                    };
-                  })
-          }
-          handleChange={this.updateCurrentSchool}
-        /> */}
       </main>
     );
   }

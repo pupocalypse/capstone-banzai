@@ -1,5 +1,6 @@
 import React from "react";
 import DropdownMenu from "./DropdownMenu";
+import { Divider } from "semantic-ui-react";
 
 // receives currentClan as prop
 const ClanSelect = ({ clans, currentClan, handleChange }) => {
@@ -7,8 +8,8 @@ const ClanSelect = ({ clans, currentClan, handleChange }) => {
 
   return (
     <section className="wizard__clan-container">
-      <div className="wizard__clan-left-container">
-        <h2 className="wizard__clan-left-heading">Select Clan</h2>
+      <div className="wizard__left-container">
+        <h2 className="wizard__heading">Select Clan</h2>
         <DropdownMenu
           title={"Clan"}
           dropdownOptions={clans.map((clan) => {
@@ -26,8 +27,12 @@ const ClanSelect = ({ clans, currentClan, handleChange }) => {
         />
       </div>
 
-      <div className="wizard__clan-middle-container">
-        <h2 className="wizard__clan-mon-heading">Clan Mon</h2>
+      <Divider horizontal>
+        <span className="wizard__divider-text">万歳</span>
+      </Divider>
+
+      <div className="wizard__middle-container">
+        <h2 className="wizard__heading">Clan Mon</h2>
         {!currentClan ? null : (
           <img
             className="wizard__clan-mon-image"
@@ -35,16 +40,21 @@ const ClanSelect = ({ clans, currentClan, handleChange }) => {
             src={`${process.env.PUBLIC_URL}/images/mons-detail/${currentClan[0].clan}_Clan_mon.png`}
             style={{
               height: "7rem",
+              width: "auto",
               // filter: "drop-shadow(0px 3px 1px rgba(0,0,0,0.3))",
             }}
           />
         )}
       </div>
 
-      <div className="wizard__clan-right-container">
-        <h2 className="wizard__clan-details-heading">Clan Details</h2>
+      <Divider horizontal>
+        <span className="wizard__divider-text">万歳</span>
+      </Divider>
+
+      <div className="wizard__right-container">
+        <h2 className="wizard__heading">Clan Details</h2>
         {!currentClan ? null : (
-          <p className="wizard__clan-details-text">
+          <p className="wizard__details-text">
             {/* A brief description of the {currentClan[0].clan} */}
             {currentClan[0].description}
           </p>

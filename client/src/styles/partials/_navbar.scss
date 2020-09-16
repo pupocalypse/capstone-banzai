@@ -5,6 +5,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 0px 10px rgba($primary-black, 0.6);
+  position: relative;
+  z-index: 100;
 
   &__logo-heading {
     color: $content-colour-accent;

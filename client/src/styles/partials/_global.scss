@@ -20,9 +20,26 @@ p {
   color: $background-colour-secondary;
 }
 
+ul {
+  padding: 0;
+  // margin: 0;
+  list-style-type: none;
+}
+
+li {
+  font-family: "Fontin Regular";
+  color: $background-colour-secondary;
+}
+
+label {
+  font-family: "Fontin Regular";
+  color: $background-colour-secondary;
+}
+
 .App {
-  background: rgba($primary-black, 0.6);
+  background: $absolute-background-colour;
   padding-bottom: 0.25rem;
+  min-height: 100vh;
 }
 
 .font-fix {
@@ -38,13 +55,30 @@ p {
 
   &:hover {
     color: $content-colour-accent;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
   }
 }
+
+// .pop-text-1 {
+//   color: $content-colour-accent;
+// }
+
+.pop-text-2 {
+  color: $mid-beige;
+  filter: drop-shadow(0.5px 0.5px 0 $accent-red);
+}
+
+// .pop-text-3 {
+//   color: $accent-red;
+// }
 
 // **********
 // adjustments for semantic ui components
 .ui.button {
   margin: 0.25rem;
+  font-family: "Roboto Condensed";
   background: $background-colour-secondary;
   color: $primary-dark-colour;
   border: 1px solid rgba($background-colour-secondary, 0);
@@ -75,8 +109,137 @@ p {
   color: rgba($accent-red, 0.8);
   border: 1px solid $accent-red;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: $accent-red;
     color: white;
   }
+}
+
+// for button group
+.ui.buttons .button:first-child {
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+
+.ui.buttons .button:last-child {
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+// or button separator
+.ui.buttons .or::before {
+  background: $background-colour-primary;
+  color: rgba($primary-black, 0.8);
+}
+
+.ui.selection.dropdown,
+.menu > .item {
+  font-family: "Roboto Condensed";
+  background: $primary-black;
+  color: $content-colour-accent;
+
+  &:hover,
+  &:focus {
+    border: 1px solid rgba($background-colour-secondary, 0.5);
+  }
+}
+
+.ui.selection.dropdown .menu > .item {
+  background: $primary-black;
+  color: $background-colour-secondary;
+  border-top: $primary-black;
+
+  &:hover,
+  &:focus {
+    background: rgba($primary-black, 0.2);
+  }
+}
+
+.ui.selection.dropdown .menu > .item:hover,
+.ui.selection.dropdown .menu > .item:focus {
+  background: $mid-slate;
+}
+
+.ui.dropdown .menu .selected.item {
+  background: $background-colour-primary;
+  color: $light-slate;
+}
+
+.ui.selection.visible.dropdown > .text:not(.default) {
+  color: $background-colour-primary;
+}
+
+.ui.selection.active.dropdown .menu,
+.ui.selection.active.dropdown {
+  border-color: $primary-dark-colour;
+}
+
+.ui.dropdown .menu > .item > .description,
+.ui.dropdown > .text > .description {
+  color: $accent-red;
+}
+
+.ui.selection.active.dropdown:hover,
+.ui.selection.active.dropdown:hover .menu {
+  border-color: $content-colour-accent;
+}
+
+// mon icon fix -- doesn't actually work??
+// .ui.dropdown .menu > .item > .image,
+// .ui.dropdown .menu > .item > img,
+// .ui.dropdown > .text > .image,
+// .ui.dropdown > .text > img {
+//   width: inherit;
+// }
+
+// inputs
+.ui.form .field .ui.input input,
+.ui.form .fields .field .ui.input input {
+  background: rgba($background-colour-secondary, 0.2);
+  border: 1px solid rgba($background-colour-primary, 0.3);
+  color: $content-colour-accent;
+
+  &::placeholder {
+    color: rgba($background-colour-primary, 0.6);
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $primary-complement;
+  }
+}
+
+// .wizard__form-skill-select > .ui.form .field > .selection.dropdown {
+//   width: 20rem;
+// }
+
+// loader
+.ui.loader {
+  &::before {
+    border-color: rgba($primary-dark-colour, 0.5);
+  }
+
+  &::after {
+    border-color: $content-colour-accent transparent transparent;
+    // border-style: dotted;
+  }
+}
+
+// statistic for xp
+.ui.statistic > .value {
+  font-family: "Otsutome";
+  font-size: 1.75rem !important;
+  color: $primary-dark-colour;
+  position: relative;
+  top: 0.25rem;
+  filter: drop-shadow(1px 1px 0 rgba($primary-black, 0.3));
+}
+
+.ui.statistic > .label {
+  color: $primary-dark-colour;
+  font-family: "Fontin Regular";
+  font-size: 0.925rem;
+  position: relative;
+  top: -0.125rem;
 }

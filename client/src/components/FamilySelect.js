@@ -1,11 +1,12 @@
 import React from "react";
 import DropdownMenu from "./DropdownMenu";
+import { Divider } from "semantic-ui-react";
 
 const FamilySelect = ({ currentClan, currentFamily, handleChange }) => {
   return (
     <section className="wizard__family-container">
-      <div className="wizard__family-left-container">
-        <h2 className="family__left-heading">Select Family</h2>
+      <div className="wizard__left-container">
+        <h2 className="wizard__heading">Select Family</h2>
         <DropdownMenu
           title={"Family"}
           dropdownOptions={
@@ -23,19 +24,27 @@ const FamilySelect = ({ currentClan, currentFamily, handleChange }) => {
         />
       </div>
 
-      <div className="wizard__family-middle-container">
-        <h2 className="family__bonus-heading">Family Bonus</h2>
+      <Divider horizontal>
+        <span className="wizard__divider-text">万歳</span>
+      </Divider>
+
+      <div className="wizard__middle-container">
+        <h2 className="wizard__heading">Family Bonus</h2>
         {!currentFamily ? null : (
-          <p className="family__bonus-text">
+          <p className="wizard__bonus-text">
             Bonus: +1 {currentFamily[0].bonus}
           </p>
         )}
       </div>
 
-      <div className="wizard__family-right-container">
-        <h2 className="family__details-heading">Family Details</h2>
+      <Divider horizontal>
+        <span className="wizard__divider-text">万歳</span>
+      </Divider>
+
+      <div className="wizard__right-container">
+        <h2 className="wizard__heading">Family Details</h2>
         {!currentFamily ? null : (
-          <p className="clan__details-text">
+          <p className="wizard__details-text">
             A brief description of the {currentFamily[0].name} family
           </p>
         )}

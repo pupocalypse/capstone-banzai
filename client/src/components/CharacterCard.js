@@ -15,20 +15,17 @@ const CharacterCard = ({
 }) => {
   return (
     <div className="character-card">
-      <div className="character-card__name-banner">
-        <div className="character-card__rank-container">
-          <p className="character-card__rank-heading">Rank:</p>
-          <h2 className="character-card__rank">{rank}</h2>
+      <div className="character-card__name-art-container">
+        <div className="character-card__name-banner">
+          <div className="character-card__rank-container">
+            <p className="character-card__rank-heading">Rank:</p>
+            <h2 className="character-card__rank">{rank}</h2>
+          </div>
+          <h3 className="character-card__name">{name}</h3>
         </div>
-        <h3 className="character-card__name">{name}</h3>
+        <img src={img} alt="" className="character-card__card-art" />
+        <div className="character-card__card-art-shadow"></div>
       </div>
-      {/* <div className="character-card__triangle"></div> */}
-      <img
-        src={img}
-        alt=""
-        className="character-card__card-art"
-        // style={{ width: "80vw" }}
-      />
       <div className="character-card__bottom-container">
         <div className="character-card__mon-container">
           <img

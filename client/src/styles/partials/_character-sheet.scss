@@ -148,33 +148,193 @@
     line-height: 1rem;
   }
 
-  &__status-container {
+  &__status-outer-container {
     width: 45%;
     height: 20rem;
     flex: 1 1;
     margin-left: 1rem;
+    padding: 0 1rem;
     display: flex;
     flex-wrap: wrap;
-    background: $light-slate;
-    border: 1px solid rgba($dark-blue, 0.4);
-    border-radius: 0.5rem;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+    position: relative;
+  }
+
+  &__status-borders-horizontal {
+    width: 100%;
+    height: calc(100% - 2rem);
+    border-left: 4px solid $primary-dark-colour;
+    border-right: 4px solid $primary-dark-colour;
+    position: absolute;
+  }
+
+  &__status-borders-vertical {
+    width: calc(100% - 2rem);
+    height: 100%;
+    border-top: 4px solid $primary-dark-colour;
+    border-bottom: 4px solid $primary-dark-colour;
+    position: absolute;
+  }
+
+  &__status-round-corner {
+    width: 2rem;
+    height: 2rem;
+    border: 4px solid $primary-dark-colour;
+    border-radius: 10rem;
+    position: absolute;
+  }
+
+  .corner-top-left {
+    top: -1rem;
+    left: -1rem;
+  }
+
+  .corner-top-right {
+    top: -1rem;
+    right: -1rem;
+  }
+  .corner-bottom-left {
+    bottom: -1rem;
+    left: -1rem;
+  }
+  .corner-bottom-right {
+    bottom: -1rem;
+    right: -1rem;
+  }
+
+  &__initiative-karma-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    width: 100%;
+  }
+
+  &__initiative-container {
+  }
+
+  &__initiative-count {
+    background: $primary-dark-colour;
+    padding: 0.125rem 1rem 0;
+    border-radius: 2.5rem;
+    margin: 0 0.5rem;
+    font-family: "Otsutome";
+    font-size: 2.5rem;
+    letter-spacing: 0.0325rem;
+    color: $background-colour-primary;
+    filter: drop-shadow(0 2px 2px $primary-black);
+    transform: scale(1);
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__initiative-label {
+    font-family: "Fontin Small Caps";
+    font-size: 0.925rem;
+    font-weight: bold;
+    color: rgba($primary-black, 0.7);
+    padding-top: 0.5rem;
+  }
+
+  &__karma-container {
+  }
+
+  &__karma-count {
+    background: $mid-slate;
+    padding: 0.125rem 1rem 0;
+    border-radius: 0.5rem;
+    margin: 0 0.5rem;
+    font-family: "Otsutome";
+    font-size: 2.5rem;
+    letter-spacing: 0.0325rem;
+    color: rgba($light-beige, 1);
+    filter: drop-shadow(0 2px 2px $primary-black);
+    transform: scale(1);
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__karma-label {
+    font-family: "Fontin Small Caps";
+    font-size: 0.925rem;
+    font-weight: bold;
+    color: rgba($primary-black, 0.7);
+    padding-top: 0.5rem;
+  }
+
+  &__stats-container {
+    width: 100%;
+    align-self: flex-end;
+    padding-bottom: 1.5rem;
+  }
+
+  &__honor-container,
+  &__glory-container,
+  &__status-container {
+    width: 100%;
+    // padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__honor-text,
+  &__glory-text,
+  &__status-text {
+    font-family: "Fontin Small Caps";
+    font-size: 1.25rem;
+    color: $mid-slate;
+  }
+
+  &__honor-slots,
+  &__glory-slots,
+  &__status-slots {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+    height: 100%;
+  }
+
+  &__slots-image {
+    width: 2rem;
+    height: 2rem;
+    max-width: 2rem;
+    max-height: 2rem;
+    margin: 0.0625rem;
+    background: url("../assets/images/rings/rings_empty_whiteBG.png") no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .honor-point,
+  .glory-point,
+  .status-point {
     position: relative;
 
     &::after {
       content: "";
-      width: 100%;
       height: 100%;
+      width: 4px;
       position: absolute;
       top: 0;
-      left: 0;
-      box-shadow: 0 0 10px 1px rgba($primary-dark-colour, 0.5) inset;
+      left: 45%;
+      border-radius: 0.5rem;
+      background: rgba($primary-black, 0.5);
+      background: linear-gradient($primary-dark-colour, $primary-black);
+      transform: rotate(37deg);
+      opacity: 0.7;
     }
   }
-
   // rings
   &__rings-container {
-    width: 70%;
+    width: 100%;
+    // width: 70%;
     height: 100%;
     padding: 1rem;
     // height: 20rem;
@@ -190,6 +350,22 @@
     position: relative;
     box-shadow: 0px 0px 7px 1px rgba($primary-dark-colour, 0.5) inset;
     margin: 1rem 0;
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 0.5rem;
+      background: linear-gradient(
+        45deg,
+        rgba($mid-slate, 0.3),
+        rgba($mid-peach, 0.4)
+      );
+      opacity: 1;
+    }
   }
 
   &__all-rings-container {
@@ -351,6 +527,8 @@
   &__void-container {
     width: 100%;
     padding: 0 5rem;
+    position: relative;
+    z-index: 1;
   }
 
   &__void-text {
@@ -361,6 +539,7 @@
 
   &__void-slots {
     display: flex;
+    justify-content: center;
     padding: 0 1rem;
     height: 100%;
   }

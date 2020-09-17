@@ -24,18 +24,19 @@ const CharactersPage = () => {
             img={HayamiImg}
             campaign="The Darkest Timeline"
           />
-          <CharacterCard
-            rank="4"
-            name="Goukimaro Ryo"
-            clan="Spider"
-            family={{ name: "Goukimaro" }}
-            school={{ name: "Order of Heroes" }}
-            job="Shugenja"
-            img={RyoImg}
-            campaign="March of the Black Queen"
-            specialTitle={"Abbot of the Spider"}
-          />
         </Link>
+
+        <CharacterCard
+          rank="4"
+          name="Goukimaro Ryo"
+          clan="Spider"
+          family={{ name: "Goukimaro" }}
+          school={{ name: "Order of Heroes" }}
+          job="Shugenja"
+          img={RyoImg}
+          campaign="March of the Black Queen"
+          specialTitle={"Abbot of the Spider"}
+        />
       </div>
     </main>
   );

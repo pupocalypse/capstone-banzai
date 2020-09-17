@@ -52,6 +52,7 @@ label {
 .link {
   color: $primary-complement;
   font-family: "Fontin Small Caps";
+  text-decoration: none;
 
   &:hover {
     color: $content-colour-accent;

@@ -1,0 +1,184 @@
+.character-sheet {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  background: rgba($light-beige, 1);
+  margin: 1.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0px 2px 5px 2px rgba($primary-black, 0.8);
+  position: relative;
+
+  &__info-container {
+    width: 55%;
+    height: 20rem;
+    display: flex;
+    flex-wrap: wrap;
+    background: $light-slate;
+    border: 1px solid rgba($dark-blue, 0.4);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-shadow: 5px 0px 10px 1px rgba($primary-dark-colour, 0.5) inset;
+    }
+  }
+
+  &__artwork {
+    height: 100%;
+    width: 7rem;
+    background: url("../assets/images/example_YasukiHayami.png");
+    background-size: cover;
+    background-position: center;
+    background-position-x: -6rem;
+    box-shadow: -30px 0 25px $light-slate inset;
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba($light-slate, 0.25);
+      z-index: 1;
+    }
+  }
+
+  &__info {
+    width: calc(100% - 7rem);
+    right: 0;
+    padding: 1rem 1rem 0 0;
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: calc(100% - 4rem - 1rem);
+      position: absolute;
+      top: 0;
+      left: -1rem;
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+      border-left: 2px dotted rgba($primary-black, 0.4);
+    }
+  }
+
+  &__name-heading {
+    position: relative;
+    z-index: 1;
+    left: -8rem;
+    // padding-top: 1rem;
+    font-family: "BrushtipTexe";
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: $content-colour-accent;
+    filter: drop-shadow(2px 2px 3px $primary-dark-colour);
+  }
+
+  &__details-container {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba($background-colour-secondary, 0.4);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__info-text {
+    font-size: 1.125rem;
+    color: $background-colour-primary;
+    position: relative;
+    top: 0.125rem;
+  }
+
+  &__info-text--identifier {
+    background: $primary-dark-colour;
+    padding: 0.5rem 1rem 0;
+    border-radius: 1.5rem;
+    margin: 0 0.5rem;
+    font-family: "BrushtipTexe";
+    font-size: 1.25rem;
+    color: $content-colour-accent;
+    top: 0;
+  }
+
+  &__info-text--rank {
+    margin-left: 1.5rem;
+    font-family: "Fontin Small Caps";
+    font-size: 1rem;
+    font-style: italic;
+    color: $background-colour-secondary;
+    position: relative;
+    top: 0.175rem;
+  }
+
+  &__info-experience-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 0.75rem;
+  }
+
+  &__rank-label {
+    line-height: 1rem;
+  }
+
+  // rings
+  &__rings-container {
+    width: 100%;
+    height: 20rem;
+    // flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: $light-slate;
+    border: 1px solid rgba($dark-blue, 0.4);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 0px 7px 1px rgba($primary-dark-colour, 0.5) inset;
+    margin: 1rem 0;
+    // padding: 1rem 0;
+  }
+
+  &__all-rings-container {
+    width: 70%;
+  }
+
+  &__rings-image {
+    width: 53%;
+    opacity: 0.65;
+  }
+
+  &__void-container {
+    width: 30%;
+  }
+
+  &__void-slots {
+    display: flex;
+    padding: 0 1rem;
+  }
+
+  &__void-slots-image {
+    max-width: 10%;
+    margin: 0.0625rem;
+  }
+
+  // skills
+  &__skills-container {
+    width: 100%;
+  }
+}

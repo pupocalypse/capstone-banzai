@@ -256,7 +256,7 @@ label {
   font-size: 1.75rem !important;
   color: #822c2d;
   position: relative;
-  top: 0.25rem;
+  top: 0.125rem;
   -webkit-filter: drop-shadow(1px 1px 0 rgba(34, 30, 31, 0.3));
           filter: drop-shadow(1px 1px 0 rgba(34, 30, 31, 0.3));
 }
@@ -266,7 +266,25 @@ label {
   font-family: "Fontin Regular";
   font-size: 0.925rem;
   position: relative;
-  top: -0.125rem;
+  line-height: 1rem;
+}
+
+.ui.statistic {
+  margin-top: 0;
+}
+
+.character-sheet__info-experience-container > .ui.statistic > .label,
+.character-sheet__info-xp > .ui.statistic > .label {
+  font-family: "Fontin Bold";
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+  color: rgba(48, 71, 94, 0.8);
+}
+
+.character-sheet__info-experience-container > .ui.statistic > .value,
+.character-sheet__info-xp > .ui.statistic > .value {
+  font-size: 2.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .header {
@@ -1047,5 +1065,213 @@ label {
   top: -0.25rem;
   left: -1.5rem;
   z-index: -1;
+}
+
+.character-sheet {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+  background: #e7dec8;
+  margin: 1.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 2px 5px 2px rgba(34, 30, 31, 0.8);
+          box-shadow: 0px 2px 5px 2px rgba(34, 30, 31, 0.8);
+  position: relative;
+}
+
+.character-sheet__info-container {
+  width: 55%;
+  height: 20rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: #7e8a97;
+  border: 1px solid rgba(27, 27, 47, 0.4);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.character-sheet__info-container::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-box-shadow: 5px 0px 10px 1px rgba(130, 44, 45, 0.5) inset;
+          box-shadow: 5px 0px 10px 1px rgba(130, 44, 45, 0.5) inset;
+}
+
+.character-sheet__artwork {
+  height: 100%;
+  width: 7rem;
+  background: url("../assets/images/example_YasukiHayami.png");
+  background-size: cover;
+  background-position: center;
+  background-position-x: -6rem;
+  -webkit-box-shadow: -30px 0 25px #7e8a97 inset;
+          box-shadow: -30px 0 25px #7e8a97 inset;
+  position: relative;
+}
+
+.character-sheet__artwork::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(126, 138, 151, 0.25);
+  z-index: 1;
+}
+
+.character-sheet__info {
+  width: calc(100% - 7rem);
+  right: 0;
+  padding: 1rem 1rem 0 0;
+  position: relative;
+}
+
+.character-sheet__info::before {
+  content: "";
+  width: 100%;
+  height: calc(100% - 4rem - 1rem);
+  position: absolute;
+  top: 0;
+  left: -1rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  border-left: 2px dotted rgba(34, 30, 31, 0.4);
+}
+
+.character-sheet__name-heading {
+  position: relative;
+  z-index: 1;
+  left: -8rem;
+  font-family: "BrushtipTexe";
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #dccdb0;
+  -webkit-filter: drop-shadow(2px 2px 3px #822c2d);
+          filter: drop-shadow(2px 2px 3px #822c2d);
+}
+
+.character-sheet__details-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(184, 182, 175, 0.4);
+}
+
+.character-sheet__details-container:last-child {
+  border-bottom: none;
+}
+
+.character-sheet__info-text {
+  font-size: 1.125rem;
+  color: #ddd5c4;
+  position: relative;
+  top: 0.125rem;
+}
+
+.character-sheet__info-text--identifier {
+  background: #822c2d;
+  padding: 0.5rem 1rem 0;
+  border-radius: 1.5rem;
+  margin: 0 0.5rem;
+  font-family: "BrushtipTexe";
+  font-size: 1.25rem;
+  color: #dccdb0;
+  top: 0;
+}
+
+.character-sheet__info-text--rank {
+  margin-left: 1.5rem;
+  font-family: "Fontin Small Caps";
+  font-size: 1rem;
+  font-style: italic;
+  color: #b8b6af;
+  position: relative;
+  top: 0.175rem;
+}
+
+.character-sheet__info-experience-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  top: 0.75rem;
+}
+
+.character-sheet__rank-label {
+  line-height: 1rem;
+}
+
+.character-sheet__rings-container {
+  width: 100%;
+  height: 20rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: #7e8a97;
+  border: 1px solid rgba(27, 27, 47, 0.4);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+  -webkit-box-shadow: 0px 0px 7px 1px rgba(130, 44, 45, 0.5) inset;
+          box-shadow: 0px 0px 7px 1px rgba(130, 44, 45, 0.5) inset;
+  margin: 1rem 0;
+}
+
+.character-sheet__all-rings-container {
+  width: 70%;
+}
+
+.character-sheet__rings-image {
+  width: 53%;
+  opacity: 0.65;
+}
+
+.character-sheet__void-container {
+  width: 30%;
+}
+
+.character-sheet__void-slots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 1rem;
+}
+
+.character-sheet__void-slots-image {
+  max-width: 10%;
+  margin: 0.0625rem;
+}
+
+.character-sheet__skills-container {
+  width: 100%;
 }
 /*# sourceMappingURL=app.css.map */

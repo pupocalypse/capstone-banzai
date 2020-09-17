@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Wizard from "./components/Wizard";
 import CharactersPage from "./components/CharactersPage";
+import CharacterSheet from "./components/CharacterSheet";
 // import Clans from "./components/Clans";
 // import UITest from "./components/UI-Test";
 
@@ -96,6 +97,13 @@ class App extends React.Component {
             path="/characters"
             render={() => {
               return <CharactersPage />;
+            }}
+            exact
+          />
+          <Route
+            path="/characters/YasukiHayami"
+            render={() => {
+              return <CharacterSheet />;
             }}
           />
         </Switch>

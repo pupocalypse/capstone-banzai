@@ -232,7 +232,7 @@ label {
   font-size: 1.75rem !important;
   color: $primary-dark-colour;
   position: relative;
-  top: 0.25rem;
+  top: 0.125rem;
   filter: drop-shadow(1px 1px 0 rgba($primary-black, 0.3));
 }
 
@@ -241,5 +241,23 @@ label {
   font-family: "Fontin Regular";
   font-size: 0.925rem;
   position: relative;
-  top: -0.125rem;
+  line-height: 1rem;
+}
+
+.ui.statistic {
+  margin-top: 0;
+}
+
+.character-sheet__info-experience-container > .ui.statistic > .label,
+.character-sheet__info-xp > .ui.statistic > .label {
+  font-family: "Fontin Bold";
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+  color: rgba($mid-slate, 0.8);
+}
+
+.character-sheet__info-experience-container > .ui.statistic > .value,
+.character-sheet__info-xp > .ui.statistic > .value {
+  font-size: 2.25rem;
+  margin-bottom: 0.25rem;
 }

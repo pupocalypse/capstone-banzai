@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap");
 @font-face {
@@ -1074,7 +1075,7 @@ label {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   text-align: center;
-  background: #e7dec8;
+  background: rgba(231, 222, 200, 0.9);
   margin: 1.5rem;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -1099,6 +1100,19 @@ label {
   position: relative;
 }
 
+.character-sheet__info-container::before {
+  content: "";
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: -1rem;
+  right: -2.25rem;
+  background: url("../assets/images/Mon_Crab_colour.png") no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.3;
+}
+
 .character-sheet__info-container::after {
   content: "";
   width: 100%;
@@ -1106,8 +1120,8 @@ label {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-box-shadow: 5px 0px 10px 1px rgba(130, 44, 45, 0.5) inset;
-          box-shadow: 5px 0px 10px 1px rgba(130, 44, 45, 0.5) inset;
+  -webkit-box-shadow: 3px 0px 10px 1px rgba(130, 44, 45, 0.5) inset;
+          box-shadow: 3px 0px 10px 1px rgba(130, 44, 45, 0.5) inset;
 }
 
 .character-sheet__artwork {
@@ -1222,9 +1236,40 @@ label {
   line-height: 1rem;
 }
 
-.character-sheet__rings-container {
-  width: 100%;
+.character-sheet__status-container {
+  width: 45%;
   height: 20rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  margin-left: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: #7e8a97;
+  border: 1px solid rgba(27, 27, 47, 0.4);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.character-sheet__status-container::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-box-shadow: 0 0 10px 1px rgba(130, 44, 45, 0.5) inset;
+          box-shadow: 0 0 10px 1px rgba(130, 44, 45, 0.5) inset;
+}
+
+.character-sheet__rings-container {
+  width: 70%;
+  height: 100%;
+  padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1247,16 +1292,179 @@ label {
 }
 
 .character-sheet__all-rings-container {
-  width: 70%;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .character-sheet__rings-image {
-  width: 53%;
-  opacity: 0.65;
+  height: 18rem;
+  width: 18rem;
+  background: url("../assets/images/rings/rings_noBG.png") no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.7;
+  position: relative;
+}
+
+.character-sheet__ring-rank-container {
+  height: 2.75rem;
+  width: 2.75rem;
+  background: url("../assets/images/rings/rings_empty_whiteBG.png");
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.character-sheet__trait-rank {
+  font-family: "Otsutome";
+  font-size: 1.875rem;
+  color: #00b5ad;
+  padding-top: 0.35rem;
+  padding-left: 0.15rem;
+  background: linear-gradient(-45deg, #e43f5a, #221e1f);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.character-sheet__trait-text {
+  position: absolute;
+  top: 1.25rem;
+  font-family: "BrushtipTexe";
+  font-size: 1.75rem;
+  line-height: 1rem;
+  color: #221e1f;
+}
+
+.character-sheet .earth {
+  top: 5.5rem;
+  left: 6.25rem;
+}
+
+.character-sheet .air {
+  top: 5.5rem;
+  right: 6rem;
+}
+
+.character-sheet .water {
+  top: 8.25rem;
+  left: 5.25rem;
+}
+
+.character-sheet .fire {
+  top: 8.25rem;
+  right: 5rem;
+}
+
+.character-sheet .void {
+  top: 10rem;
+  left: 7.75rem;
+}
+
+.character-sheet .stamina {
+  top: -0.25rem;
+  left: 2.5rem;
+}
+
+.character-sheet .stamina-text {
+  left: -5rem;
+}
+
+.character-sheet .willpower {
+  top: 2.25rem;
+  left: 0;
+}
+
+.character-sheet .willpower-text {
+  left: -6rem;
+}
+
+.character-sheet .reflexes {
+  top: -0.25rem;
+  right: 2.5rem;
+}
+
+.character-sheet .reflexes-text {
+  right: -5rem;
+}
+
+.character-sheet .awareness {
+  top: 2.25rem;
+  right: 0;
+}
+
+.character-sheet .awareness-text {
+  right: -6rem;
+}
+
+.character-sheet .strength {
+  top: 10rem;
+  left: -1.5rem;
+}
+
+.character-sheet .strength-text {
+  padding-top: 0.25rem;
+  left: -5.25rem;
+}
+
+.character-sheet .perception {
+  top: 13rem;
+  left: 0.25rem;
+}
+
+.character-sheet .perception-text {
+  padding-top: 0.25rem;
+  left: -6.75rem;
+}
+
+.character-sheet .agility {
+  top: 10rem;
+  right: -1.5rem;
+}
+
+.character-sheet .agility-text {
+  padding-top: 0.25rem;
+  right: -4rem;
+}
+
+.character-sheet .intelligence {
+  top: 13rem;
+  right: 0.25rem;
+}
+
+.character-sheet .intelligence-text {
+  padding-top: 0.25rem;
+  right: -6.25rem;
 }
 
 .character-sheet__void-container {
-  width: 30%;
+  width: 100%;
+  padding: 0 5rem;
+}
+
+.character-sheet__void-text {
+  font-family: "Fontin Small Caps";
+  font-size: 1.5rem;
+  color: #221e1f;
 }
 
 .character-sheet__void-slots {
@@ -1264,14 +1472,185 @@ label {
   display: -ms-flexbox;
   display: flex;
   padding: 0 1rem;
+  height: 100%;
 }
 
 .character-sheet__void-slots-image {
-  max-width: 10%;
+  width: 2rem;
+  height: 2rem;
   margin: 0.0625rem;
+  background: url("../assets/images/rings/rings_empty_whiteBG.png") no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.character-sheet .void-spent {
+  position: relative;
+}
+
+.character-sheet .void-spent::after {
+  content: "虚";
+  font-family: "Otsutome";
+  font-size: 1.75rem;
+  color: #822c2d;
+  position: relative;
+  top: 0.4rem;
+  background: linear-gradient(-45deg, #e43f5a, #221e1f);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.character-sheet .unavailable {
+  opacity: 0.4;
 }
 
 .character-sheet__skills-container {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: rgba(27, 27, 47, 0.8);
+  border: 1px solid rgba(27, 27, 47, 0.4);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.character-sheet__skills-container::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(27, 27, 47, 0.4)), color-stop(rgba(34, 30, 31, 0.7)), color-stop(rgba(34, 30, 31, 0.9)), color-stop(rgba(34, 30, 31, 0.5)), to(rgba(27, 27, 47, 0.4)));
+  background: linear-gradient(180deg, rgba(27, 27, 47, 0.4), rgba(34, 30, 31, 0.7), rgba(34, 30, 31, 0.9), rgba(34, 30, 31, 0.5), rgba(27, 27, 47, 0.4));
+}
+
+.character-sheet__skills-container::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-box-shadow: 0 0 10px 1px rgba(34, 30, 31, 0.8) inset;
+          box-shadow: 0 0 10px 1px rgba(34, 30, 31, 0.8) inset;
+}
+
+.character-sheet__skills-table {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  color: #b8b6af;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: "Fontin Regular";
+  color: #ddd5c4;
+}
+
+.character-sheet__skills-header {
+  color: rgba(126, 138, 151, 0.8);
+  border-bottom: 4px double rgba(184, 182, 175, 0.3);
+  position: relative;
+}
+
+.character-sheet .heading-name {
+  width: 30%;
+  text-align: left;
+  padding: 0.5rem;
+  font-family: "Honoka";
+  font-size: 0.875rem;
+}
+
+.character-sheet .heading-rank {
+  width: 10%;
+  font-family: "Honoka";
+  font-size: 0.875rem;
+}
+
+.character-sheet .heading-trait {
+  font-family: "Honoka";
+  font-size: 0.875rem;
+}
+
+.character-sheet .heading-roll {
+  width: 10%;
+  font-family: "Honoka";
+  font-size: 0.875rem;
+}
+
+.character-sheet .heading-types {
+  width: 25%;
+  text-align: left;
+  font-family: "Honoka";
+  font-size: 0.875rem;
+  padding-left: 2rem;
+}
+
+.character-sheet__skills-item {
+  color: rgba(184, 182, 175, 0.8);
+}
+
+.character-sheet__skills-item:nth-child(2n + 2) {
+  background: rgba(220, 205, 176, 0.1);
+}
+
+.character-sheet__skill-name {
+  text-align: left;
+  font-family: "Fontin Bold";
+  font-size: 1.25rem;
+  padding: 1.25rem 0.75rem;
+  border-bottom: 2px dotted rgba(184, 182, 175, 0.4);
+}
+
+.character-sheet__skill-rank {
+  font-family: "Honoka";
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #dccdb0;
+  border-bottom: 2px dotted rgba(184, 182, 175, 0.4);
+}
+
+.character-sheet__skill-trait {
+  border-bottom: 2px dotted rgba(184, 182, 175, 0.4);
+}
+
+.character-sheet__skill-roll {
+  border-bottom: 2px dotted rgba(184, 182, 175, 0.4);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+
+.character-sheet__skill-roll:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.character-sheet .skill-roll {
+  background: #822c2d;
+  padding: 0.125rem 0.75rem 0;
+  border-radius: 1.5rem;
+  margin: 0 0.5rem;
+  font-family: "Otsutome";
+  font-size: 1.5rem;
+  letter-spacing: 0.0325rem;
+  color: #ddd5c4;
+  -webkit-filter: drop-shadow(0 2px 5px #221e1f);
+          filter: drop-shadow(0 2px 5px #221e1f);
+}
+
+.character-sheet__skill-types {
+  text-align: left;
+  border-bottom: 2px dotted rgba(184, 182, 175, 0.4);
+  padding-left: 2rem;
 }
 /*# sourceMappingURL=app.css.map */

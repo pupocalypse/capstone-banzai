@@ -628,36 +628,37 @@
   }
 
   // tr > th
-  &__skills-header {
-    color: rgba($light-slate, 0.8);
-    border-bottom: 4px double rgba($background-colour-secondary, 0.3);
-    position: relative;
-  }
-
-  // th
   .heading-name {
     width: 30%;
     text-align: left;
     padding: 0.5rem;
     font-family: "Honoka";
     font-size: 0.875rem;
+    color: rgba($light-slate, 0.9);
+    border-bottom: 4px double rgba($light-slate, 0.3);
   }
 
   .heading-rank {
     width: 10%;
     font-family: "Honoka";
     font-size: 0.875rem;
+    color: rgba($light-slate, 0.9);
+    border-bottom: 4px double rgba($light-slate, 0.3);
   }
 
   .heading-trait {
     font-family: "Honoka";
     font-size: 0.875rem;
+    color: rgba($light-slate, 0.9);
+    border-bottom: 4px double rgba($light-slate, 0.3);
   }
 
   .heading-roll {
     width: 10%;
     font-family: "Honoka";
     font-size: 0.875rem;
+    color: rgba($light-slate, 0.9);
+    border-bottom: 4px double rgba($light-slate, 0.3);
   }
 
   .heading-types {
@@ -666,6 +667,8 @@
     font-family: "Honoka";
     font-size: 0.875rem;
     padding-left: 2rem;
+    color: rgba($light-slate, 0.89);
+    border-bottom: 4px double rgba($light-slate, 0.3);
   }
 
   // td

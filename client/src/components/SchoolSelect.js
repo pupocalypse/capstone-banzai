@@ -10,6 +10,7 @@ const SchoolSelect = ({
   skills,
   handleChange,
   schoolSkillsSelected,
+  addSelectedSkill,
 }) => {
   return (
     <section className="wizard__school-container">
@@ -34,13 +35,17 @@ const SchoolSelect = ({
         />
       </div>
 
-      <Divider horizontal>
+      {/* <Divider horizontal>
         <span className="wizard__divider-text">万歳</span>
-      </Divider>
+      </Divider> */}
 
       <div className="wizard__middle-container">
         <h2 className="wizard__heading">School Bonus & Skills</h2>
-        {!currentSchool ? null : (
+        {!currentSchool ? (
+          <p className="wizard__waiting-text">
+            Please select a clan, then school
+          </p>
+        ) : (
           <>
             <p className="wizard__bonus-text">
               Bonus: +1 {currentSchool[0].bonus}
@@ -50,6 +55,7 @@ const SchoolSelect = ({
               currentSchool={currentSchool}
               skills={skills}
               schoolSkillsSelected={schoolSkillsSelected}
+              addSelectedSkill={addSelectedSkill}
             />
           </>
         )}
@@ -61,10 +67,21 @@ const SchoolSelect = ({
 
       <div className="wizard__right-container">
         <h2 className="wizard__heading">School Details</h2>
-        {!currentSchool ? null : (
-          <p className="wizard__details-text">
-            A brief description of the {currentSchool[0].name} school
+        {!currentSchool ? (
+          <p className="wizard__waiting-text">
+            Please select a clan, then school
           </p>
+        ) : (
+          // <p className="wizard__details-text">
+          // {/* A brief description of the {currentSchool[0].name} school */}
+          currentSchool[0].description.split("\n").map((desc, index) => {
+            return (
+              <p className="wizard__details-text" key={index}>
+                {desc}
+              </p>
+            );
+          })
+          // </p>
         )}
       </div>
     </section>

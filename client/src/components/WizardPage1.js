@@ -17,6 +17,7 @@ const WizardPage1 = ({
   updateFamily,
   updateSchool,
   schoolSkillsSelected,
+  addSelectedSkill,
   nextPageClick,
   resetInputs,
   // buttonColour,
@@ -41,6 +42,7 @@ const WizardPage1 = ({
         skills={skills}
         handleChange={updateSchool}
         schoolSkillsSelected={schoolSkillsSelected}
+        addSelectedSkill={addSelectedSkill}
       />
 
       <Button

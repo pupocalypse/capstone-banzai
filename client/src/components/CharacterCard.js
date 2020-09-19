@@ -1,6 +1,6 @@
 import React from "react";
 
-import HayamiImg from "../assets/images/example_YasukiHayami.png";
+// import HayamiImg from "../assets/images/example_YasukiHayami.png";
 
 const CharacterCard = ({
   rank,

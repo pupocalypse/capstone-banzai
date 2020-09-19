@@ -1,9 +1,9 @@
 import React from "react";
 import { Statistic } from "semantic-ui-react";
 
-import HayamiImg from "../assets/images/example_YasukiHayami.png";
-import ringsImg from "../assets/images/rings/rings_noBG.png";
-import emptyRingImg from "../assets/images/rings/rings_empty_whiteBG.png";
+// import HayamiImg from "../assets/images/example_YasukiHayami.png";
+// import ringsImg from "../assets/images/rings/rings_noBG.png";
+// import emptyRingImg from "../assets/images/rings/rings_empty_whiteBG.png";
 
 class CharacterSheet extends React.Component {
   state = {

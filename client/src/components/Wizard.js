@@ -1,17 +1,11 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-// import { Button } from "semantic-ui-react";
 
-// import UITest from "./UI-Test";
-// import DropdownMenu from "./DropdownMenu";
-// import ClanSelect from "./ClanSelect";
-// import FamilySelect from "./FamilySelect";
-// import SchoolSelect from "./SchoolSelect";
 import WizardPage1 from "./WizardPage1";
 import WizardPage2 from "./WizardPage2";
 import WizardHeader from "./WizardHeader";
 
-import { Character } from "./CharacterClasses";
+// import { Character } from "./CharacterClasses";
 
 class Wizard extends React.Component {
   state = {
@@ -23,13 +17,12 @@ class Wizard extends React.Component {
       firstName: "",
       lastName: "",
       clan: "",
-      family: {}, // family name, bonus
+      family: {}, // family name, bonus, description
       school: {}, // school name, bonus
       job: "",
       skills: {},
       rings: {},
     },
-    buttonColour: "",
   };
 
   componentDidMount() {
@@ -52,13 +45,18 @@ class Wizard extends React.Component {
     this.setState(
       {
         currentClan,
+        currentFamily: "",
+        currentSchool: "",
+        character: {
+          ...this.state.character,
+          clan: currentClan[0].clan,
+        },
       },
       () => {
         localStorage.setItem(
           "current clan",
           JSON.stringify(this.state.currentClan)
         );
-        this.buttonColour();
       }
     );
   };
@@ -71,6 +69,11 @@ class Wizard extends React.Component {
     this.setState(
       {
         currentFamily,
+        character: {
+          ...this.state.character,
+          family: currentFamily[0],
+          lastName: currentFamily[0].name,
+        },
       },
       () =>
         localStorage.setItem(
@@ -101,6 +104,8 @@ class Wizard extends React.Component {
         character: {
           ...this.state.character,
           job: currentSchool[0].type,
+          school: schoolDetails[0],
+          skills: schoolDetails[0].skills.core,
         },
       },
       () =>
@@ -112,8 +117,8 @@ class Wizard extends React.Component {
   };
 
   updateLastName = (e, { value }) => {
-    // receives Form.Input value on change,
-    // updated character.lastName in state
+    // receives Form.Input value on change (from second page),
+    // updates character.lastName in state
     this.setState({
       character: {
         ...this.state.character,
@@ -122,69 +127,63 @@ class Wizard extends React.Component {
     });
   };
 
-  schoolSkillsSelected = (index) => {
-    console.log("index:", index);
+  schoolSkillsSelected = (e, { value }, index) => {
+    // gatekeeping for disabled 'next' button
+    // checks that ALL free pick skills have been selected
     let selectedSkill = this.state.selectSkills;
     selectedSkill[index] = true;
     this.setState({
       selectSkills: selectedSkill,
     });
-    console.log("this.state.selectSkills:", this.state.selectSkills);
+    const originalSkills = this.state.currentSchool[0].skills.core;
+    const skillsIndex = originalSkills.length + (index + 1);
+    this.addSelectedSkill(value, skillsIndex);
+    // console.log("this.state.selectSkills:", this.state.selectSkills);
+  };
+
+  addSelectedSkill = (value, skillsIndex) => {
+    // receives onChange data, updates LAST item in
+    // character.skills array (so it doesn't keep
+    // adding if user changes their mind)
+    let currentSkills = this.state.character.skills;
+    currentSkills[skillsIndex] = [value, "1"];
+
+    this.setState(
+      {
+        character: {
+          ...this.state.character,
+          skills: currentSkills,
+        },
+      },
+      () => {
+        console.log("character's skills:", this.state.character.skills);
+        localStorage.setItem("new character", this.state.character);
+      }
+    );
   };
 
   nextPageClick = () => {
     // add current selections to character object, pass to page 2 component
-    const clan = this.state.currentClan[0].clan;
-    const family = this.state.currentFamily[0];
-    const school = this.state.currentSchool[0];
-
-    this.setState({
-      character: {
-        ...this.state.character,
-        clan,
-        family,
-        school,
-        lastName: family.name,
-      },
-    });
+    // const clan = this.state.currentClan[0].clan;
+    // const family = this.state.currentFamily[0];
+    // const school = this.state.currentSchool[0];
+    // this.setState({
+    //   character: {
+    //     ...this.state.character,
+    //     clan,
+    //     family,
+    //     school,
+    //     lastName: family.name,
+    //   },
+    // });
     // localStorage.setItem("new character", JSON.stringify(this.state.character));
   };
 
   resetInputs = () => {
     localStorage.removeItem("new character");
-  };
-
-  buttonColour = () => {
-    // when clan is selected, update button colours :)
-    let colour;
-    const clan = this.state.currentClan[0].clan;
-    switch (clan) {
-      case "Crab":
-        colour = "blue";
-        break;
-      case "Crane":
-        colour = "teal";
-        break;
-      case "Dragon":
-        colour = "green";
-        break;
-      case "Lion":
-        colour = "yellow";
-        break;
-      case "Phoenix":
-        colour = "orange";
-        break;
-      case "Scorpion":
-        colour = "red";
-        break;
-      case "Unicorn":
-        colour = "violet";
-        break;
-      default:
-        colour = "olive";
-        break;
-    }
-    return colour;
+    localStorage.removeItem("current clan");
+    localStorage.removeItem("current family");
+    localStorage.removeItem("current school");
   };
 
   render() {
@@ -210,9 +209,9 @@ class Wizard extends React.Component {
                     updateFamily={this.updateCurrentFamily}
                     updateSchool={this.updateCurrentSchool}
                     schoolSkillsSelected={this.schoolSkillsSelected}
+                    addSelectedSkill={this.addSelectedSkill}
                     nextPageClick={this.nextPageClick}
                     resetInputs={this.resetInputs}
-                    // buttonColour={this.state.buttonColour}
                   />
                 );
               }}

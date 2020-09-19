@@ -88,14 +88,18 @@
     background: rgba($background-colour-secondary, 0.1);
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    // align-items: center;
     flex-wrap: wrap;
   }
 
-  // &__left-container,
-  // &__middle-container {
-  //   width: 50%;
-  // }
+  &__left-container,
+  &__middle-container {
+    width: 50%;
+  }
+
+  &__right-container {
+    width: 100%;
+  }
 
   &__heading {
     margin-bottom: 0.75rem;
@@ -114,7 +118,7 @@
   }
 
   &__form-xp-container {
-    background: url("../assets/images/rings/rings_empty_whiteBG.png");
+    background: url("../assets/images/rings/rings_empty_noBG.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -140,8 +144,9 @@
       position: absolute;
       top: 0;
       left: 0;
-      filter: sepia(100%) saturate(150%) hue-rotate(15deg) brightness(75%)
-        contrast(92%);
+      filter: brightness(0) saturate(100%) invert(4%) sepia(2%) saturate(7243%)
+        hue-rotate(294deg) brightness(94%) contrast(82%);
+      opacity: 0.9;
     }
 
     &::after {
@@ -155,9 +160,8 @@
       position: absolute;
       top: 0;
       left: 0;
-
-      filter: invert(60%) sepia(6%) saturate(840%) hue-rotate(171deg)
-        brightness(90%) contrast(86%);
+      filter: invert(95%) sepia(7%) saturate(1291%) hue-rotate(333deg)
+        brightness(93%) contrast(85%);
     }
   }
 
@@ -199,10 +203,10 @@
     align-self: flex-end;
   }
 
-  &__buttons-container {
-    display: inline-flex;
-    justify-content: flex-start;
-    width: 80%;
-    flex: 1 1;
-  }
+  // &__buttons-container {
+  //   display: inline-flex;
+  //   justify-content: flex-start;
+  //   width: 80%;
+  //   flex: 1 1;
+  // }
 }

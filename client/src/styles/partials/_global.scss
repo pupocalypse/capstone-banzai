@@ -84,10 +84,16 @@ label {
   color: $primary-dark-colour;
   border: 1px solid rgba($background-colour-secondary, 0);
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: rgba($primary-dark-colour, 0.7);
     color: $content-colour-accent;
     border: 1px solid rgba($primary-dark-colour, 0);
+  }
+
+  &:active {
+    background: rgba($background-colour-secondary, 0.9);
+    color: $primary-dark-colour;
   }
 }
 
@@ -97,10 +103,16 @@ label {
   color: rgba($content-colour-accent, 0.7);
   border: 1px solid rgba($primary-dark-colour, 0);
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: rgba($primary-complement, 0.75);
     color: $content-colour-accent;
     border: 1px solid rgba($primary-complement, 0);
+  }
+
+  &:active {
+    background: rgba($primary-complement, 0.5);
+    color: $content-colour-accent;
   }
 }
 
@@ -114,6 +126,11 @@ label {
   &:focus {
     background: $accent-red;
     color: white;
+  }
+
+  &:active {
+    background: rgba($accent-red, 0.8);
+    border-color: rgba($accent-red, 0.8);
   }
 }
 
@@ -186,14 +203,6 @@ label {
   border-color: $content-colour-accent;
 }
 
-// mon icon fix -- doesn't actually work??
-// .ui.dropdown .menu > .item > .image,
-// .ui.dropdown .menu > .item > img,
-// .ui.dropdown > .text > .image,
-// .ui.dropdown > .text > img {
-//   width: inherit;
-// }
-
 // inputs
 .ui.form .field .ui.input input,
 .ui.form .fields .field .ui.input input {
@@ -209,6 +218,18 @@ label {
   &:focus {
     border-color: $primary-complement;
   }
+}
+
+.ui.form .fields {
+  width: 50%;
+  flex-wrap: wrap;
+}
+
+.ui.form .field > label {
+  color: $background-colour-secondary;
+  text-align: left;
+  padding-left: 0.25rem;
+  padding-top: 1rem;
 }
 
 // .wizard__form-skill-select > .ui.form .field > .selection.dropdown {
@@ -231,14 +252,14 @@ label {
 .ui.statistic > .value {
   font-family: "Otsutome";
   font-size: 1.75rem !important;
-  color: $primary-dark-colour;
+  color: $primary-complement;
   position: relative;
   top: 0.125rem;
   filter: drop-shadow(1px 1px 0 rgba($primary-black, 0.3));
 }
 
 .ui.statistic > .label {
-  color: $primary-dark-colour;
+  color: $background-colour-secondary;
   font-family: "Fontin Regular";
   font-size: 0.925rem;
   position: relative;
@@ -261,4 +282,5 @@ label {
 .character-sheet__info-xp > .ui.statistic > .value {
   font-size: 2.25rem;
   margin-bottom: 0.25rem;
+  color: $primary-dark-colour;
 }

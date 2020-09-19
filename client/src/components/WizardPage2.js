@@ -20,19 +20,29 @@ class WizardPage2 extends React.Component {
     }
   }
 
+  getNonSchoolSkills = () => {};
+
   setSkills = () => {
+    // get available options by eliminating already chosen skills
+    // const allSkills = this.props.skills;
     let skillOptions = [];
     for (let skill in this.props.skills) {
       if (this.props.currentSchool.length !== 0) {
+        let noMatches = true;
         for (let schoolSkill of this.props.currentSchool[0].skills.core) {
-          if (skill !== schoolSkill[0]) {
-            skillOptions.push({
-              key: skill,
-              text: skill,
-              value: skill,
-              description: this.props.skills[skill].type,
-            });
+          if (skill === schoolSkill[0]) {
+            console.log("skill:", skill);
+            console.log("schoolSkill[0]:", schoolSkill[0]);
+            noMatches = false;
           }
+        }
+        if (noMatches) {
+          skillOptions.push({
+            key: skill,
+            text: skill,
+            value: skill,
+            description: this.props.skills[skill].type,
+          });
         }
       }
     }
@@ -88,8 +98,9 @@ class WizardPage2 extends React.Component {
                     : ""
                 }
                 onChange={this.props.updateLastName}
+                label="Family Name"
               />
-              <Form.Input placeholder="Given Name" />
+              <Form.Input placeholder="Given Name" label="Given Name" />
             </Form.Group>
             <div className="wizard__form-xp-button-container">
               <div className="wizard__form-xp-container">
@@ -103,9 +114,6 @@ class WizardPage2 extends React.Component {
                   circular
                   content="Add a new skill"
                   icon="add"
-                  // floated="right"
-                  // color="blue"
-                  // inverted
                   size="tiny"
                   onClick={this.addSkillField}
                 />
@@ -155,20 +163,20 @@ class WizardPage2 extends React.Component {
           </Form>
         </div>
 
-        <div className="wizard__buttons-container">
-          <Button
-            as={Link}
-            to="/build-character/page1"
-            content="Back"
-            icon="left arrow"
-            labelPosition="left"
-            // floated="left"
-            // color="olive"
-            circular
-            size="tiny"
-          />
-        </div>
-        <Button.Group size="tiny">
+        {/* <div className="wizard__buttons-container"> */}
+        <Button
+          as={Link}
+          to="/build-character/page1"
+          content="Back"
+          icon="left arrow"
+          labelPosition="left"
+          floated="left"
+          // color="olive"
+          circular
+          size="tiny"
+        />
+        {/* </div> */}
+        <Button.Group size="tiny" floated="right">
           <Button negative>Cancel</Button>
           <Button.Or />
           <Button primary>Save</Button>

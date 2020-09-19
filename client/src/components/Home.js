@@ -46,13 +46,19 @@ const Home = () => {
         <p className="home__body-text">
           <span className="pop-text-2">Legend of the Five Rings</span> is a
           table-top role-playing game published by{" "}
-          <a href="https://www.alderac.com/" target="_blank" className="link">
+          <a
+            href="https://www.alderac.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link"
+          >
             Alderac Entertainment Group
           </a>{" "}
           in 1997 and acquired by{" "}
           <a
             href="https://www.fantasyflightgames.com/en/index/"
             target="_blank"
+            rel="noopener noreferrer"
             className="link"
           >
             Fantasy Flight Games

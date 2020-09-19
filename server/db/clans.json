@@ -5,27 +5,33 @@
     "families": [
       {
         "name": "Hida",
-        "bonus": "strength"
+        "bonus": "strength",
+        "description": "The descendants of the Kami Hida are among the largest and most powerful samurai in all the Empire. The burden of defending the Empire falls upon them, and they are both incredible warriors and skilled defensive tacticians. Hida samurai often resent the other Clans for enjoying their protection even as they mock the Crab for their mannerisms."
       },
       {
         "name": "Hiruma",
-        "bonus": "agility"
+        "bonus": "agility",
+        "description": "Silent and deadly, the Hiruma are the scouts and yojimbo of the Crab. They are as agile and graceful as the Hida are powerful, and warriors from the two families tend to complement one another very well. Hiruma samurai often have the unsavory duty of scouting the Shadowlands for enemies, a task that leads many to death or ruination."
       },
       {
         "name": "Kaiu",
-        "bonus": "intelligence"
+        "bonus": "intelligence",
+        "description": "The industrious Kaiu are responsible for the most impressive and long-standing feats of engineering in all the Empire. They are the siege engineers and architects of the Crab Clan, and are responsible for maintaining the Great Carpenter Wall as well as its defenses."
       },
       {
         "name": "Kuni",
-        "bonus": "intelligence"
+        "bonus": "intelligence",
+        "description": "Sinister in appearance and deed, the Kuni are among the most feared shugenja families in the Empire. Long ago, the family’s leadership determined the only hope of defeating the Shadowlands lay in understanding it, and so the Kuni possess knowledge of things that would drive most men mad."
       },
       {
         "name": "Toritaka",
-        "bonus": "perception"
+        "bonus": "perception",
+        "description": "The tiny Toritaka family was once known as the Falcon Clan before tragedy threatened to destroy the Minor Clan completely. It was absorbed by the Crab to prevent a threat from growing within its ranks. The Toritaka hail from a region frequented by spirits, and they are highly knowledgeable about ghosts and spirits of all different sorts."
       },
       {
         "name": "Yasuki",
-        "bonus": "awareness"
+        "bonus": "awareness",
+        "description": "Strangely at odds with the other Crab families, the Yasuki are slight of build and devious of mind. They were once part of the Crane Clan, but joined the Crab in the third century, provoking the first great internal war in Rokugani history. They are merchants and courtiers, always looking for any means to gain an advantage for their Clan, and tend to be more concerned with monetary gain than is considered respectable for someone of the samurai caste."
       }
     ],
     "schools": [
@@ -53,19 +59,23 @@
     "families": [
       {
         "name": "Asahina",
-        "bonus": "intelligence"
+        "bonus": "intelligence",
+        "description": "Quiet and serene, the Asahina are among the most monastic of all samurai families. They are also perhaps the most pacifistic, even more so than the Phoenix Clan, and abhor violence, seeking other means of resolving disputes at all costs. The Asahina are also known for their devotion to philosophy and the arts."
       },
       {
         "name": "Daidoji",
-        "bonus": "stamina"
+        "bonus": "stamina",
+        "description": "The so-called Iron Crane are the strong arm of the Crane Clan and the enforcers of the Doji and Kakita’s will. They do not employ grace and style as their kinsmen do, but instead focus on sheer strength of arms and employ tactics that some might consider ruthless or even dishonorable. Daidoji means “defenders of Doji,” and it is a name the family has earned."
       },
       {
         "name": "Doji",
-        "bonus": "awareness"
+        "bonus": "awareness",
+        "description": "Lords of the Crane Clan, the Doji are the unquestioned masters of culture and politics in the Empire. It is a testament to the Doji’s cunning and influence that the Clan has endured for a thousand years despite being beset by larger, more militant Clans who find the Crane’s dominance of the courts endlessly antagonistic."
       },
       {
         "name": "Kakita",
-        "bonus": "agility"
+        "bonus": "agility",
+        "description": "Literal cousins of the Doji, the Kakita family was created by the children of Lady Doji and her husband Kakita during the dawn of the Empire. The Kakita believe in excelling at one’s chosen task, whether that task is making war or creating the most glorious pieces of art. Like other Crane families, the Kakita are also well known for their physical beauty."
       }
     ],
     "schools": [
@@ -93,19 +103,23 @@
     "families": [
       {
         "name": "Kitsuki",
-        "bonus": "awareness"
+        "bonus": "awareness",
+        "description": "The ever-perceptive Kitsuki serve the Dragon Clan as magistrates and court representatives, although they are better suited as the former. Even in court, however, a Kitsuki’s ability to perceive truth when presented with lies has proven a tremendous asset to the Dragon in their pursuit of an Empire free of deceit and treachery."
       },
       {
         "name": "Mirumoto",
-        "bonus": "agility"
+        "bonus": "agility",
+        "description": "The Mirumoto are the broad shoulders that carry the burdens of the Dragon Clan. While the Togashi pursue their unique brand of enlightenment, the Mirumoto rule the clan in all but name, overseeing its day to day operations and filling the ranks of its military. Comprising more than half the Clan’s ranks, the Mirumoto are the most commonly encountered Dragon samurai in the Empire."
       },
       {
         "name": "Tamori",
-        "bonus": "willpower"
+        "bonus": "willpower",
+        "description": "Perhaps the most militant shugenja family in the Empire, the Tamori embrace unique magical styles, including alchemy, blacksmithing, and melding the arts of magic and war. The Tamori are more feared than other shugenja because of their willingness to commit to violence when other priests would turn away."
       },
       {
         "name": "Togashi",
-        "bonus": "reflexes"
+        "bonus": "reflexes",
+        "description": "A monastic order rather than a true family, the Togashi accept all who wish to join their ranks, provided they are able to embrace the order’s teachings and endure its trials, which many are not. Over the centuries, the monks of this order have used the divine blood of the Dragon Kami to create mystical tattoos that grant them incredible, supernatural abilities."
       }
     ],
     "schools": [
@@ -129,19 +143,23 @@
     "families": [
       {
         "name": "Akodo",
-        "bonus": "agility"
+        "bonus": "agility",
+        "description": "The lords of the Lion Clan, the Akodo are the unquestioned masters of battle throughout the Empire. It is said that no army led by an Akodo has ever known defeat, and while this is something of an exaggeration, it is not all that far from the truth. Akodo samurai tend to be calm and analytical, and often lack the fiery nature for which the Lion are so well known."
       },
       {
         "name": "Ikoma",
-        "bonus": "awareness"
+        "bonus": "awareness",
+        "description": "The voice of the Lion Clan, the Ikoma speak on behalf of the Clan in court and in the annals of history. The family provides not only the majority of the clan’s courtiers, but virtually all of its historians and storytellers as well, studies that the Clan considers extremely important. For every stoic Lion who refuses to allow emotion to affect him, there is an Ikoma bard who weeps openly when he tells the samurai’s story to others."
       },
       {
         "name": "Kitsu",
-        "bonus": "intelligence"
+        "bonus": "intelligence",
+        "description": "Quiet and reserved, the Kitsu are the most traditional and conservative, some might say old-fashioned, shugenja family in the Empire. Descended from the union of men and the ancient kitsu creatures that were driven nearly to extinction by the Lion during the dawn of the Empire, the Kitsu possess several bloodlines with strange, otherworldly abilities, such as the ability to walk between the mortal world and the spirit realms."
       },
       {
         "name": "Matsu",
-        "bonus": "strength"
+        "bonus": "strength",
+        "description": "The Matsu are the largest family in the Empire, and they are the reason for the image many have of the vast legions of the Lion Clan. They are also the source of the tempestuous stereotype for the Lion, and it is largely correct; the Matsu are fiery in nature, quick to anger, and eager for battle at all times. They were founded by a female warrior, Matsu, and have a famous all-female military unit, the Lion’s Pride."
       }
     ],
     "schools": [
@@ -169,37 +187,45 @@
     "families": [
       {
         "name": "Kitsune",
-        "bonus": "awareness"
+        "bonus": "awareness",
+        "description:": ""
       },
       {
         "name": "Moshi",
-        "bonus": "intelligence"
+        "bonus": "intelligence",
+        "description:": ""
       },
       {
         "name": "Tsuruchi",
-        "bonus": "perception"
+        "bonus": "perception",
+        "description:": ""
       },
       {
         "name": "Yoritomo",
-        "bonus": "stamina"
+        "bonus": "stamina",
+        "description:": ""
       }
     ],
     "schools": [
       {
         "name": "Yoritomo Bushi",
-        "type": "bushi"
+        "type": "bushi",
+        "description:": ""
       },
       {
         "name": "Moshi Shugenja",
-        "type": "shugenja"
+        "type": "shugenja",
+        "description:": ""
       },
       {
         "name": "Yoritomo Courtier",
-        "type": "courtier"
+        "type": "courtier",
+        "description:": ""
       },
       {
         "name": "Tsuruchi Archer",
-        "type": "bushi"
+        "type": "bushi",
+        "description:": ""
       }
     ]
   },
@@ -209,37 +235,45 @@
     "families": [
       {
         "name": "Agasha",
-        "bonus": "perception"
+        "bonus": "perception",
+        "description:": "Once a family of the Dragon Clan, the Agasha abandoned their Togashi masters when they felt the Dragon abandoned their duties to the Empire. The Phoenix have proven much more amenable to their unique brand of magic. The Agasha are highly experimental and curious, always pushing the boundaries of what is known and what can be safely attempted when dealing with magic."
       },
       {
         "name": "Asako",
-        "bonus": "awareness"
+        "bonus": "awareness",
+        "description:": "The quiet, reclusive Asako are a very monastic family, living scholarly and ascetic lives more befitting the Brotherhood of Shinsei than a family of samurai. They comprise the majority of the Phoenix Clan’s courtiers, and the entirety of the mysterious Henshin monks. Asako are contemplative and inquisitive, but generally without ambition other than to serve and learn."
       },
       {
         "name": "Isawa",
-        "bonus": "willpower"
+        "bonus": "willpower",
+        "description:": "The Isawa truly rule the Phoenix Clan, despite the presence of a Shiba Clan Champion. They are unquestionably the most knowledgeable, most powerful, and most numerous shugenja family in the Empire. Unfortunately, this has made them arrogant as well, and many Isawa constantly struggle against their own shortcomings."
       },
       {
         "name": "Shiba",
-        "bonus": "perception"
+        "bonus": "perception",
+        "description:": "The Shiba are among the most scholarly and least aggressive of all bushi families. They serve the Clan and the Isawa without complaint or consideration for themselves. Although they prefer peace and compassion, the Shiba will not retreat from a battle once the Phoenix have committed themselves to an engagement."
       }
     ],
     "schools": [
       {
         "name": "Shiba Bushi",
-        "type": "bushi"
+        "type": "bushi",
+        "description:": ""
       },
       {
         "name": "Isawa Shugenja",
-        "type": "shugenja"
+        "type": "shugenja",
+        "description:": ""
       },
       {
         "name": "Asako Loremaster",
-        "type": "courtier"
+        "type": "courtier",
+        "description:": ""
       },
       {
         "name": "Agasha Shugenja",
-        "type": "shugenja"
+        "type": "shugenja",
+        "description:": ""
       }
     ]
   },
@@ -249,37 +283,45 @@
     "families": [
       {
         "name": "Bayushi",
-        "bonus": "agility"
+        "bonus": "agility",
+        "description:": "Ruthless and deceitful, the lords of the Scorpion Clan possess many talents, all of which have been put to sinister use for the benefit of their Clan and their Emperor. The Bayushi are dark, dangerous, and manipulative, and always evaluate any situation in terms of how it can best benefit themselves and the Scorpion."
       },
       {
         "name": "Shosuro",
-        "bonus": "awareness"
+        "bonus": "awareness",
+        "description:": "The Shosuro dwell in shadows, rarely being seen but always having an influence on those around them. They are secretive and withdrawn, keeping their own counsel but never failing to obey a command from their Bayushi lords. When the Scorpion require some impossible task performed without complication, it is a Shosuro who fulfills the duty."
       },
       {
         "name": "Soshi",
-        "bonus": "intelligence"
+        "bonus": "intelligence",
+        "description:": "The Soshi are the main shugenja family of the Scorpion Clan, founded soon after the Clan’s beginnings, and specialize in using magic to enhance the Clan’s efforts in politics, deceit, and manipulation. They often work in close concert with the Shosuro, using their magic to support the Shosuro’s ruthless and secret activities."
       },
       {
         "name": "Yogo",
-        "bonus": "willpower"
+        "bonus": "willpower",
+        "description:": "No family among the accepted Great Clans is more feared or reviled than the Yogo, the Scorpion Clan’s second shugenja family. They are descended from a Phoenix who was cursed during the early days of the Empire to betray the one he loved the most. The curse has been passed down into the family’s bloodline, and as such many avoid the Yogo whenever possible. The Yogo pay no heed to their reputation, however, and use their powerful magic in service to the Scorpion regardless of how expendable they may be considered."
       }
     ],
     "schools": [
       {
         "name": "Bayushi Bushi",
-        "type": "bushi"
+        "type": "bushi",
+        "description:": ""
       },
       {
         "name": "Soshi Shugenja",
-        "type": "shugenja"
+        "type": "shugenja",
+        "description:": ""
       },
       {
         "name": "Bayushi Courtier",
-        "type": "courtier"
+        "type": "courtier",
+        "description:": ""
       },
       {
         "name": "Shosuro Infiltrator",
-        "type": "bushi"
+        "type": "bushi",
+        "description:": ""
       }
     ]
   },
@@ -289,45 +331,55 @@
     "families": [
       {
         "name": "Horiuchi",
-        "bonus": "willpower"
+        "bonus": "willpower",
+        "description:": "The tiny Horiuchi family has never claimed more than a few dozen members at most. Created a few decades before the Clan War, the Horiuchi are a branch of the Iuchi family that specializes in defensive and protective magic. Horiuchi samurai are compassionate individuals who tend to intervene in the affairs of others during times of crisis."
       },
       {
         "name": "Ide",
-        "bonus": "perception"
+        "bonus": "perception",
+        "description:": "The public face of the Unicorn, the Ide have worked tirelessly to combat the perception many have of the Clan as barbarians and near-gaijin. They flawlessly merge the traditions of their people with the customs of the Empire, and in doing so seek to earn the gradual respect and acceptance of other clans. Samurai of the Ide family are almost universally even-tempered and eager to forge alliances with others, whether personal or larger in scale."
       },
       {
         "name": "Iuchi",
-        "bonus": "intelligence"
+        "bonus": "intelligence",
+        "description:": "With the exception of the Tamori, the Iuchi family is probably the most militant shugenja family in the Empire. They serve in the armies of the Unicorn Clan in considerable numbers, and while they enjoy friendship and scholarly debate as much as any priests, they do not shy away from conflict when pressed."
       },
       {
         "name": "Moto",
-        "bonus": "agility"
+        "bonus": "agility",
+        "description:": "The Moto exemplify virtually every negative stereotype that the Unicorn Clan as a whole has struggled with since their return to the Empire centuries ago. More than any other family, their gaijin blood is obvious from the look of them, short and squat as they are. They are alternately boisterous and brusque, depending upon the circumstances, and rarely fit in well with samurai of other Clans. They are respected, however, for their warrior traditions."
       },
       {
         "name": "Shinjo",
-        "bonus": "reflexes"
+        "bonus": "reflexes",
+        "description:": "The Shinjo family ruled the Unicorn Clan for most of their history, although in the latter portion of the Empire’s development they were removed from power by their founder, the Kami Shinjo, due to corruption within their ranks. The Shinjo are an affable, industrious family whose members adapt easily to almost any task set before them, and who work well with others in virtually any situation."
       },
       {
         "name": "Utaku",
-        "bonus": "stamina"
+        "bonus": "stamina",
+        "description:": "The matriarchal Utaku family are rigidly honorable and pious individuals with carefully defined duties depending upon their gender. Women are generally trained to serve with the most elite cavalry units in the world, the Utaku Battle Maidens, while the men manage the households and serve among the legions of infantry in the Unicorn army."
       }
     ],
     "schools": [
       {
         "name": "Moto Bushi",
-        "type": "bushi"
+        "type": "bushi",
+        "description:": ""
       },
       {
         "name": "Iuchi Shugenja",
-        "type": "shugenja"
+        "type": "shugenja",
+        "description:": ""
       },
       {
         "name": "Ide Emissary",
-        "type": "courtier"
+        "type": "courtier",
+        "description:": ""
       },
       {
         "name": "Utaku Battle Maiden",
-        "type": "bushi"
+        "type": "bushi",
+        "description:": ""
       }
     ]
   }

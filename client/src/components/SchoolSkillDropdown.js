@@ -1,6 +1,5 @@
 import React from "react";
 import { Dropdown } from "semantic-ui-react";
-// import SchoolSkills from "./SchoolSkills";
 
 // receives currentSchool prop
 const SchoolSkillDropdown = ({
@@ -8,6 +7,7 @@ const SchoolSkillDropdown = ({
   skills,
   // setSchoolSkillChecker,
   schoolSkillsSelected,
+  addSelectedSkill,
 }) => {
   const freeSkillsDropdown = currentSchool[0].skills.freePickType.map(
     (skillType, index) => {
@@ -84,7 +84,7 @@ const SchoolSkillDropdown = ({
             search
             scrolling
             options={skillTypeItems}
-            onChange={() => schoolSkillsSelected(index)}
+            onChange={(e, data) => schoolSkillsSelected(e, data, index)}
           ></Dropdown>
         </>
       );

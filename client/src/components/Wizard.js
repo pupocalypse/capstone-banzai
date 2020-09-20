@@ -51,13 +51,13 @@ class Wizard extends React.Component {
           ...this.state.character,
           clan: currentClan[0].clan,
         },
-      },
-      () => {
-        localStorage.setItem(
-          "current clan",
-          JSON.stringify(this.state.currentClan)
-        );
       }
+      // () => {
+      //   localStorage.setItem(
+      //     "current clan",
+      //     JSON.stringify(this.state.currentClan)
+      //   );
+      // }
     );
   };
 
@@ -74,12 +74,12 @@ class Wizard extends React.Component {
           family: currentFamily[0],
           lastName: currentFamily[0].name,
         },
-      },
-      () =>
-        localStorage.setItem(
-          "current family",
-          JSON.stringify(this.state.currentFamily)
-        )
+      }
+      // () =>
+      //   localStorage.setItem(
+      //     "current family",
+      //     JSON.stringify(this.state.currentFamily)
+      //   )
     );
   };
 
@@ -94,7 +94,6 @@ class Wizard extends React.Component {
     let selectSkills = [];
     for (let i = 0; i < schoolDetails[0].skills.freePickType.length; i++) {
       selectSkills.push(false);
-      // console.log("selectSkills setting:", selectSkills);
     }
 
     this.setState(
@@ -107,12 +106,12 @@ class Wizard extends React.Component {
           school: schoolDetails[0],
           skills: schoolDetails[0].skills.core,
         },
-      },
-      () =>
-        localStorage.setItem(
-          "current school",
-          JSON.stringify(this.state.currentSchool)
-        )
+      }
+      // () =>
+      //   localStorage.setItem(
+      //     "current school",
+      //     JSON.stringify(this.state.currentSchool)
+      //   )
     );
   };
 
@@ -130,13 +129,14 @@ class Wizard extends React.Component {
   schoolSkillsSelected = (e, { value }, index) => {
     // gatekeeping for disabled 'next' button
     // checks that ALL free pick skills have been selected
+    console.log("index:", index);
     let selectedSkill = this.state.selectSkills;
     selectedSkill[index] = true;
     this.setState({
       selectSkills: selectedSkill,
     });
     const originalSkills = this.state.currentSchool[0].skills.core;
-    const skillsIndex = originalSkills.length + (index + 1);
+    const skillsIndex = originalSkills.length + index;
     this.addSelectedSkill(value, skillsIndex);
     // console.log("this.state.selectSkills:", this.state.selectSkills);
   };
@@ -145,7 +145,8 @@ class Wizard extends React.Component {
     // receives onChange data, updates LAST item in
     // character.skills array (so it doesn't keep
     // adding if user changes their mind)
-    let currentSkills = this.state.character.skills;
+    console.log("skillsIndex:", skillsIndex);
+    const currentSkills = [...this.state.character.skills];
     currentSkills[skillsIndex] = [value, "1"];
 
     this.setState(
@@ -209,7 +210,6 @@ class Wizard extends React.Component {
                     updateFamily={this.updateCurrentFamily}
                     updateSchool={this.updateCurrentSchool}
                     schoolSkillsSelected={this.schoolSkillsSelected}
-                    addSelectedSkill={this.addSelectedSkill}
                     nextPageClick={this.nextPageClick}
                     resetInputs={this.resetInputs}
                   />

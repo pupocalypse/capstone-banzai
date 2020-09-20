@@ -5,9 +5,7 @@ import { Dropdown } from "semantic-ui-react";
 const SchoolSkillDropdown = ({
   currentSchool,
   skills,
-  // setSchoolSkillChecker,
   schoolSkillsSelected,
-  addSelectedSkill,
 }) => {
   const freeSkillsDropdown = currentSchool[0].skills.freePickType.map(
     (skillType, index) => {

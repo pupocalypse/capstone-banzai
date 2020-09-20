@@ -188,44 +188,44 @@
       {
         "name": "Kitsune",
         "bonus": "awareness",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Moshi",
         "bonus": "intelligence",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Tsuruchi",
         "bonus": "perception",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Yoritomo",
         "bonus": "stamina",
-        "description:": ""
+        "description": ""
       }
     ],
     "schools": [
       {
         "name": "Yoritomo Bushi",
         "type": "bushi",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Moshi Shugenja",
         "type": "shugenja",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Yoritomo Courtier",
         "type": "courtier",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Tsuruchi Archer",
         "type": "bushi",
-        "description:": ""
+        "description": ""
       }
     ]
   },
@@ -236,44 +236,44 @@
       {
         "name": "Agasha",
         "bonus": "perception",
-        "description:": "Once a family of the Dragon Clan, the Agasha abandoned their Togashi masters when they felt the Dragon abandoned their duties to the Empire. The Phoenix have proven much more amenable to their unique brand of magic. The Agasha are highly experimental and curious, always pushing the boundaries of what is known and what can be safely attempted when dealing with magic."
+        "description": "Once a family of the Dragon Clan, the Agasha abandoned their Togashi masters when they felt the Dragon abandoned their duties to the Empire. The Phoenix have proven much more amenable to their unique brand of magic. The Agasha are highly experimental and curious, always pushing the boundaries of what is known and what can be safely attempted when dealing with magic."
       },
       {
         "name": "Asako",
         "bonus": "awareness",
-        "description:": "The quiet, reclusive Asako are a very monastic family, living scholarly and ascetic lives more befitting the Brotherhood of Shinsei than a family of samurai. They comprise the majority of the Phoenix Clan’s courtiers, and the entirety of the mysterious Henshin monks. Asako are contemplative and inquisitive, but generally without ambition other than to serve and learn."
+        "description": "The quiet, reclusive Asako are a very monastic family, living scholarly and ascetic lives more befitting the Brotherhood of Shinsei than a family of samurai. They comprise the majority of the Phoenix Clan’s courtiers, and the entirety of the mysterious Henshin monks. Asako are contemplative and inquisitive, but generally without ambition other than to serve and learn."
       },
       {
         "name": "Isawa",
         "bonus": "willpower",
-        "description:": "The Isawa truly rule the Phoenix Clan, despite the presence of a Shiba Clan Champion. They are unquestionably the most knowledgeable, most powerful, and most numerous shugenja family in the Empire. Unfortunately, this has made them arrogant as well, and many Isawa constantly struggle against their own shortcomings."
+        "description": "The Isawa truly rule the Phoenix Clan, despite the presence of a Shiba Clan Champion. They are unquestionably the most knowledgeable, most powerful, and most numerous shugenja family in the Empire. Unfortunately, this has made them arrogant as well, and many Isawa constantly struggle against their own shortcomings."
       },
       {
         "name": "Shiba",
         "bonus": "perception",
-        "description:": "The Shiba are among the most scholarly and least aggressive of all bushi families. They serve the Clan and the Isawa without complaint or consideration for themselves. Although they prefer peace and compassion, the Shiba will not retreat from a battle once the Phoenix have committed themselves to an engagement."
+        "description": "The Shiba are among the most scholarly and least aggressive of all bushi families. They serve the Clan and the Isawa without complaint or consideration for themselves. Although they prefer peace and compassion, the Shiba will not retreat from a battle once the Phoenix have committed themselves to an engagement."
       }
     ],
     "schools": [
       {
         "name": "Shiba Bushi",
         "type": "bushi",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Isawa Shugenja",
         "type": "shugenja",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Asako Loremaster",
         "type": "courtier",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Agasha Shugenja",
         "type": "shugenja",
-        "description:": ""
+        "description": ""
       }
     ]
   },
@@ -284,44 +284,44 @@
       {
         "name": "Bayushi",
         "bonus": "agility",
-        "description:": "Ruthless and deceitful, the lords of the Scorpion Clan possess many talents, all of which have been put to sinister use for the benefit of their Clan and their Emperor. The Bayushi are dark, dangerous, and manipulative, and always evaluate any situation in terms of how it can best benefit themselves and the Scorpion."
+        "description": "Ruthless and deceitful, the lords of the Scorpion Clan possess many talents, all of which have been put to sinister use for the benefit of their Clan and their Emperor. The Bayushi are dark, dangerous, and manipulative, and always evaluate any situation in terms of how it can best benefit themselves and the Scorpion."
       },
       {
         "name": "Shosuro",
         "bonus": "awareness",
-        "description:": "The Shosuro dwell in shadows, rarely being seen but always having an influence on those around them. They are secretive and withdrawn, keeping their own counsel but never failing to obey a command from their Bayushi lords. When the Scorpion require some impossible task performed without complication, it is a Shosuro who fulfills the duty."
+        "description": "The Shosuro dwell in shadows, rarely being seen but always having an influence on those around them. They are secretive and withdrawn, keeping their own counsel but never failing to obey a command from their Bayushi lords. When the Scorpion require some impossible task performed without complication, it is a Shosuro who fulfills the duty."
       },
       {
         "name": "Soshi",
         "bonus": "intelligence",
-        "description:": "The Soshi are the main shugenja family of the Scorpion Clan, founded soon after the Clan’s beginnings, and specialize in using magic to enhance the Clan’s efforts in politics, deceit, and manipulation. They often work in close concert with the Shosuro, using their magic to support the Shosuro’s ruthless and secret activities."
+        "description": "The Soshi are the main shugenja family of the Scorpion Clan, founded soon after the Clan’s beginnings, and specialize in using magic to enhance the Clan’s efforts in politics, deceit, and manipulation. They often work in close concert with the Shosuro, using their magic to support the Shosuro’s ruthless and secret activities."
       },
       {
         "name": "Yogo",
         "bonus": "willpower",
-        "description:": "No family among the accepted Great Clans is more feared or reviled than the Yogo, the Scorpion Clan’s second shugenja family. They are descended from a Phoenix who was cursed during the early days of the Empire to betray the one he loved the most. The curse has been passed down into the family’s bloodline, and as such many avoid the Yogo whenever possible. The Yogo pay no heed to their reputation, however, and use their powerful magic in service to the Scorpion regardless of how expendable they may be considered."
+        "description": "No family among the accepted Great Clans is more feared or reviled than the Yogo, the Scorpion Clan’s second shugenja family. They are descended from a Phoenix who was cursed during the early days of the Empire to betray the one he loved the most. The curse has been passed down into the family’s bloodline, and as such many avoid the Yogo whenever possible. The Yogo pay no heed to their reputation, however, and use their powerful magic in service to the Scorpion regardless of how expendable they may be considered."
       }
     ],
     "schools": [
       {
         "name": "Bayushi Bushi",
         "type": "bushi",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Soshi Shugenja",
         "type": "shugenja",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Bayushi Courtier",
         "type": "courtier",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Shosuro Infiltrator",
         "type": "bushi",
-        "description:": ""
+        "description": ""
       }
     ]
   },
@@ -332,54 +332,54 @@
       {
         "name": "Horiuchi",
         "bonus": "willpower",
-        "description:": "The tiny Horiuchi family has never claimed more than a few dozen members at most. Created a few decades before the Clan War, the Horiuchi are a branch of the Iuchi family that specializes in defensive and protective magic. Horiuchi samurai are compassionate individuals who tend to intervene in the affairs of others during times of crisis."
+        "description": "The tiny Horiuchi family has never claimed more than a few dozen members at most. Created a few decades before the Clan War, the Horiuchi are a branch of the Iuchi family that specializes in defensive and protective magic. Horiuchi samurai are compassionate individuals who tend to intervene in the affairs of others during times of crisis."
       },
       {
         "name": "Ide",
         "bonus": "perception",
-        "description:": "The public face of the Unicorn, the Ide have worked tirelessly to combat the perception many have of the Clan as barbarians and near-gaijin. They flawlessly merge the traditions of their people with the customs of the Empire, and in doing so seek to earn the gradual respect and acceptance of other clans. Samurai of the Ide family are almost universally even-tempered and eager to forge alliances with others, whether personal or larger in scale."
+        "description": "The public face of the Unicorn, the Ide have worked tirelessly to combat the perception many have of the Clan as barbarians and near-gaijin. They flawlessly merge the traditions of their people with the customs of the Empire, and in doing so seek to earn the gradual respect and acceptance of other clans. Samurai of the Ide family are almost universally even-tempered and eager to forge alliances with others, whether personal or larger in scale."
       },
       {
         "name": "Iuchi",
         "bonus": "intelligence",
-        "description:": "With the exception of the Tamori, the Iuchi family is probably the most militant shugenja family in the Empire. They serve in the armies of the Unicorn Clan in considerable numbers, and while they enjoy friendship and scholarly debate as much as any priests, they do not shy away from conflict when pressed."
+        "description": "With the exception of the Tamori, the Iuchi family is probably the most militant shugenja family in the Empire. They serve in the armies of the Unicorn Clan in considerable numbers, and while they enjoy friendship and scholarly debate as much as any priests, they do not shy away from conflict when pressed."
       },
       {
         "name": "Moto",
         "bonus": "agility",
-        "description:": "The Moto exemplify virtually every negative stereotype that the Unicorn Clan as a whole has struggled with since their return to the Empire centuries ago. More than any other family, their gaijin blood is obvious from the look of them, short and squat as they are. They are alternately boisterous and brusque, depending upon the circumstances, and rarely fit in well with samurai of other Clans. They are respected, however, for their warrior traditions."
+        "description": "The Moto exemplify virtually every negative stereotype that the Unicorn Clan as a whole has struggled with since their return to the Empire centuries ago. More than any other family, their gaijin blood is obvious from the look of them, short and squat as they are. They are alternately boisterous and brusque, depending upon the circumstances, and rarely fit in well with samurai of other Clans. They are respected, however, for their warrior traditions."
       },
       {
         "name": "Shinjo",
         "bonus": "reflexes",
-        "description:": "The Shinjo family ruled the Unicorn Clan for most of their history, although in the latter portion of the Empire’s development they were removed from power by their founder, the Kami Shinjo, due to corruption within their ranks. The Shinjo are an affable, industrious family whose members adapt easily to almost any task set before them, and who work well with others in virtually any situation."
+        "description": "The Shinjo family ruled the Unicorn Clan for most of their history, although in the latter portion of the Empire’s development they were removed from power by their founder, the Kami Shinjo, due to corruption within their ranks. The Shinjo are an affable, industrious family whose members adapt easily to almost any task set before them, and who work well with others in virtually any situation."
       },
       {
         "name": "Utaku",
         "bonus": "stamina",
-        "description:": "The matriarchal Utaku family are rigidly honorable and pious individuals with carefully defined duties depending upon their gender. Women are generally trained to serve with the most elite cavalry units in the world, the Utaku Battle Maidens, while the men manage the households and serve among the legions of infantry in the Unicorn army."
+        "description": "The matriarchal Utaku family are rigidly honorable and pious individuals with carefully defined duties depending upon their gender. Women are generally trained to serve with the most elite cavalry units in the world, the Utaku Battle Maidens, while the men manage the households and serve among the legions of infantry in the Unicorn army."
       }
     ],
     "schools": [
       {
         "name": "Moto Bushi",
         "type": "bushi",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Iuchi Shugenja",
         "type": "shugenja",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Ide Emissary",
         "type": "courtier",
-        "description:": ""
+        "description": ""
       },
       {
         "name": "Utaku Battle Maiden",
         "type": "bushi",
-        "description:": ""
+        "description": ""
       }
     ]
   }

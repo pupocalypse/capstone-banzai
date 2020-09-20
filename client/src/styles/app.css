@@ -626,7 +626,7 @@ label {
   margin-bottom: 0.75rem;
 }
 
-.wizard__form-xp-button-container {
+.wizard__form-button-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -638,6 +638,10 @@ label {
           align-items: baseline;
   margin-top: 2rem;
   padding-left: 0.5rem;
+}
+
+.wizard__form-xp-rings-container {
+  width: 50%;
 }
 
 .wizard__form-xp-container {
@@ -654,9 +658,9 @@ label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

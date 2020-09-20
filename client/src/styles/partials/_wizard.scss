@@ -109,12 +109,21 @@
   .part-two-container {
   }
 
-  &__form-xp-button-container {
+  &__form-container {
+    // width: 100%;
+    // display: flex;
+  }
+
+  &__form-button-container {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     margin-top: 2rem;
     padding-left: 0.5rem;
+  }
+
+  &__form-xp-rings-container {
+    width: 50%;
   }
 
   &__form-xp-container {
@@ -129,7 +138,7 @@
     top: -0.75rem;
     left: -0.5rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     flex-flow: column;
 

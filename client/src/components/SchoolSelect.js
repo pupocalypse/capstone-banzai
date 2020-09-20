@@ -10,7 +10,6 @@ const SchoolSelect = ({
   skills,
   handleChange,
   schoolSkillsSelected,
-  addSelectedSkill,
 }) => {
   return (
     <section className="wizard__school-container">
@@ -55,7 +54,6 @@ const SchoolSelect = ({
               currentSchool={currentSchool}
               skills={skills}
               schoolSkillsSelected={schoolSkillsSelected}
-              addSelectedSkill={addSelectedSkill}
             />
           </>
         )}

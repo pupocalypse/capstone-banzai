@@ -17,10 +17,8 @@ const WizardPage1 = ({
   updateFamily,
   updateSchool,
   schoolSkillsSelected,
-  addSelectedSkill,
   nextPageClick,
   resetInputs,
-  // buttonColour,
 }) => {
   return (
     <div className="wizard__part-one-container">
@@ -42,7 +40,6 @@ const WizardPage1 = ({
         skills={skills}
         handleChange={updateSchool}
         schoolSkillsSelected={schoolSkillsSelected}
-        addSelectedSkill={addSelectedSkill}
       />
 
       <Button

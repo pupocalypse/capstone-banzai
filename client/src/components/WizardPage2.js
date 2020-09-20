@@ -103,6 +103,13 @@ class WizardPage2 extends React.Component {
               <Form.Input placeholder="Given Name" label="Given Name" />
             </Form.Group>
             <div className="wizard__form-xp-rings-container">
+              <div className="wizard__form-rings-borders-horizontal"></div>
+              <div className="wizard__form-rings-borders-vertical"></div>
+              <div className="wizard__form-rings-round-corner corner-top-left"></div>
+              <div className="wizard__form-rings-round-corner corner-top-right"></div>
+              <div className="wizard__form-rings-round-corner corner-bottom-left"></div>
+              <div className="wizard__form-rings-round-corner corner-bottom-right"></div>
+
               <div className="wizard__form-xp-container">
                 <Statistic>
                   <Statistic.Value>20</Statistic.Value>

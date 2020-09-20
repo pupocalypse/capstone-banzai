@@ -109,21 +109,70 @@
   .part-two-container {
   }
 
-  &__form-container {
-    // width: 100%;
-    // display: flex;
-  }
-
-  &__form-button-container {
+  &__form-container > .ui.form {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-top: 2rem;
-    padding-left: 0.5rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
 
   &__form-xp-rings-container {
     width: 50%;
+    height: 20rem;
+    flex: 1 1;
+    margin-left: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    background: rgba($primary-black, 0.4);
+  }
+
+  &__form-rings-borders-horizontal {
+    width: 100%;
+    height: calc(100% - 2rem);
+    border-left: 3px solid rgba($content-colour-accent, 0.5);
+    border-right: 3px solid rgba($content-colour-accent, 0.5);
+    position: absolute;
+  }
+
+  &__form-rings-borders-vertical {
+    width: calc(100% - 2rem);
+    height: 100%;
+    border-top: 3px solid rgba($content-colour-accent, 0.5);
+    border-bottom: 3px solid rgba($content-colour-accent, 0.5);
+    position: absolute;
+  }
+
+  &__form-rings-round-corner {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid rgba($content-colour-accent, 0.5);
+    background: #322e2e;
+    background-clip: padding-box;
+    border-radius: 10rem;
+    position: absolute;
+  }
+
+  .corner-top-left {
+    top: -1rem;
+    left: -1rem;
+  }
+
+  .corner-top-right {
+    top: -1rem;
+    right: -1rem;
+  }
+  .corner-bottom-left {
+    bottom: -1rem;
+    left: -1rem;
+  }
+  .corner-bottom-right {
+    bottom: -1rem;
+    right: -1rem;
   }
 
   &__form-xp-container {
@@ -134,11 +183,13 @@
     position: relative;
     width: 4rem;
     height: 4rem;
-    padding-top: 0.65rem;
-    top: -0.75rem;
-    left: -0.5rem;
+    padding-top: 0.45rem;
+    // top: -0.75rem;
+    // left: -0.5rem;
+    align-self: flex-start;
+    margin-left: auto;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     flex-flow: column;
 
@@ -172,6 +223,15 @@
       filter: invert(95%) sepia(7%) saturate(1291%) hue-rotate(333deg)
         brightness(93%) contrast(85%);
     }
+  }
+
+  &__form-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin-top: 2rem;
+    padding-left: 0.5rem;
   }
 
   &__form-add-skill-button {

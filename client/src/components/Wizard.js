@@ -163,6 +163,11 @@ class Wizard extends React.Component {
     );
   };
 
+  // page two functions
+  // addNewSkillName = () => {
+  //   const newSkillArray
+  // }
+
   nextPageClick = () => {
     // add current selections to character object, pass to page 2 component
     // const clan = this.state.currentClan[0].clan;

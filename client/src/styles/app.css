@@ -266,6 +266,15 @@ label {
       flex-wrap: wrap;
 }
 
+.ui.form .field {
+  margin-bottom: 0;
+}
+
+.wizard__form-add-skill-dropdowns > .field:last-child,
+.wizard__form-school-skill-names > .field:last-child {
+  margin-left: 1rem;
+}
+
 .ui.form .field > label {
   color: #b8b6af;
   text-align: left;
@@ -638,13 +647,20 @@ label {
           align-items: flex-start;
 }
 
+.wizard__form-details {
+  text-align: left;
+  padding: 1rem;
+  padding-bottom: 0;
+  color: #00b5ad;
+  font-size: 1rem;
+}
+
 .wizard__form-xp-rings-container {
   width: 50%;
-  height: 20rem;
   -webkit-box-flex: 1;
       -ms-flex: 1 1;
           flex: 1 1;
-  margin-left: 1rem;
+  margin-left: 1.5rem;
   padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -660,6 +676,20 @@ label {
   overflow: hidden;
   position: relative;
   background: rgba(34, 30, 31, 0.4);
+}
+
+.wizard__form-xp-rings-container::after {
+  content: "";
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  z-index: -1;
+  top: -5.5rem;
+  left: -2rem;
+  background: url("../assets/images/rings/rings_noBG.png") no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.6;
 }
 
 .wizard__form-rings-borders-horizontal {
@@ -708,17 +738,34 @@ label {
   right: -1rem;
 }
 
+.wizard__form-rings-header-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wizard__form-rings-heading {
+  width: 100%;
+  text-align: left;
+  padding-left: 1rem;
+}
+
 .wizard__form-xp-container {
   background: url("../assets/images/rings/rings_empty_noBG.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   padding-top: 0.45rem;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
   margin-left: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -766,6 +813,45 @@ label {
           filter: invert(95%) sepia(7%) saturate(1291%) hue-rotate(333deg) brightness(93%) contrast(85%);
 }
 
+.wizard__form-rings-table {
+  width: 100%;
+  font-family: "Fontin Regular";
+  color: #ddd5c4;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+}
+
+.wizard__form-skills {
+  width: 100%;
+  margin-top: 2.5rem;
+}
+
+.wizard__skills-heading {
+  text-align: left;
+}
+
+.wizard__form-school-skill {
+  width: 100%;
+  height: 4rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(184, 182, 175, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.wizard__form-school-skill-name {
+  width: 13rem;
+  text-align: left;
+  padding-left: 0.5rem;
+}
+
 .wizard__form-button-container {
   width: 100%;
   display: -webkit-box;
@@ -777,7 +863,7 @@ label {
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding-left: 0.5rem;
 }
 
@@ -792,10 +878,13 @@ label {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
 }
 
 .wizard__form-add-skill:first-child {
@@ -805,6 +894,17 @@ label {
 
 .wizard__form-add-skill:last-child {
   margin-bottom: 1.5rem;
+}
+
+.wizard__form-add-skill-dropdowns {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .wizard__form-skill-select {
@@ -818,12 +918,59 @@ label {
   -ms-flex-item-align: start;
       align-self: flex-start;
   position: relative;
-  left: -6.5rem;
 }
 
-.wizard__form-skill-delete {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+.wizard__form-buttons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 0;
+}
+
+.element {
+  font-family: "BrushtipTexe";
+  font-size: 1.5rem;
+  border-bottom: 2px solid #822c2d;
+  padding-top: 0.5rem;
+}
+
+.element-rank {
+  background: url("../assets/images/rings/rings_empty_whiteBG.png") no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 12%;
+  color: #822c2d;
+  font-family: "Otsutome";
+  font-size: 1.5rem;
+  border-bottom: 2px solid #822c2d;
+  padding-left: 0.15rem;
+  padding-top: 0.3rem;
+}
+
+.trait {
+  border-bottom: 2px solid #822c2d;
+  padding: 0.25rem;
+}
+
+.trait-rank {
+  border-bottom: 2px solid #822c2d;
+  padding-right: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.upgrade-button {
+  border-bottom: 2px solid #822c2d;
+}
+
+.void {
+  border: none;
 }
 
 .characters__header {

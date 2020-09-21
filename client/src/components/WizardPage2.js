@@ -2,11 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Button, Loader, Statistic } from "semantic-ui-react";
 
+import WizardRingsTable from "./WizardRingsTable";
+
 class WizardPage2 extends React.Component {
   // const WizardPage2 = ({ skills, currentClan, currentFamily, currentSchool }) => {
   state = {
     formSkillFields: [],
     skillOptions: [],
+    // currentSelections: [], // an array of only skills that gets added below
   };
 
   componentDidMount() {
@@ -29,7 +32,9 @@ class WizardPage2 extends React.Component {
     for (let skill in this.props.skills) {
       if (this.props.currentSchool.length !== 0) {
         let noMatches = true;
-        for (let schoolSkill of this.props.currentSchool[0].skills.core) {
+        for (let schoolSkill of this.props.character.skills) {
+          console.log("skill:", skill);
+          console.log("schoolSkill:", schoolSkill[0]);
           if (skill === schoolSkill[0]) {
             console.log("skill:", skill);
             console.log("schoolSkill[0]:", schoolSkill[0]);
@@ -66,13 +71,13 @@ class WizardPage2 extends React.Component {
   // };
 
   addSkillField = () => {
-    const skillFieldNum =
+    const skillFieldKey =
       this.state.formSkillFields.length > 0
         ? this.state.formSkillFields[this.state.formSkillFields.length - 1] + 1
         : 1;
 
     this.setState({
-      formSkillFields: [...this.state.formSkillFields, skillFieldNum],
+      formSkillFields: [...this.state.formSkillFields, [skillFieldKey]],
     });
   };
 
@@ -84,12 +89,40 @@ class WizardPage2 extends React.Component {
     });
   };
 
+  updateSkillName = (e, index) => {
+    console.log(e.target.value);
+    const skillName = e.target.value;
+    this.setState({
+      formSkillFields: [
+        ...this.state.formSkillFields,
+        (this.state.formSkillFields[index][1] = skillName),
+      ],
+    });
+  };
+
+  updateSkillRank = (e, index) => {};
+
+  createCharacter = (e) => {
+    // console.log("form:", e.target);
+  };
+
   render() {
     return (
       <div className="wizard__part-two-container">
         <div className="wizard__form-container">
-          <Form>
+          <Form onSubmit={this.createCharacter}>
             <Form.Group widths="equal">
+              <h4 className="wizard__form-details">
+                You now have 20 starting experience points to spend. You may
+                purchase additional skills, or higher ranks in existing skills
+                (which contribute to your 'roll' dice) or your trait rings
+                (these control your 'kept' dice). Once you've made your choices
+                and named your character, click 'Save' to generate your
+                character sheet.
+                <br />
+                Note that some rank purchases may be at your GM's
+                discretion&mdash;always check with them first!
+              </h4>
               <Form.Input
                 placeholder="Family Name"
                 value={
@@ -110,12 +143,52 @@ class WizardPage2 extends React.Component {
               <div className="wizard__form-rings-round-corner corner-bottom-left"></div>
               <div className="wizard__form-rings-round-corner corner-bottom-right"></div>
 
-              <div className="wizard__form-xp-container">
-                <Statistic>
-                  <Statistic.Value>20</Statistic.Value>
-                  <Statistic.Label>XP</Statistic.Label>
-                </Statistic>
+              <div className="wizard__form-rings-header-container">
+                <h2 className="wizard__form-rings-heading">Rings</h2>
+                <div className="wizard__form-xp-container">
+                  <Statistic>
+                    <Statistic.Value>20</Statistic.Value>
+                    <Statistic.Label>XP</Statistic.Label>
+                  </Statistic>
+                </div>
               </div>
+
+              <WizardRingsTable />
+            </div>
+            <div className="wizard__form-skills">
+              <h2 className="wizard__skills-heading">School Skills</h2>
+              {this.props.character.skills.length > 0 ? (
+                this.props.character.skills.map((skill) => {
+                  let ranks = [];
+                  for (let i = skill[1]; i < 5; i++) {
+                    ranks.push(i);
+                  }
+
+                  return (
+                    <div className="wizard__form-school-skill">
+                      <h4 className="wizard__form-school-skill-name">
+                        {skill[0]}
+                      </h4>
+                      <Form.Select
+                        name={`skill-rank-${skill}`}
+                        options={ranks.map((item) => {
+                          return { key: item, text: item, value: item };
+                        })}
+                        placeholder="Rank..."
+                        // label="Rank"
+                        defaultValue={ranks[0]}
+                        compact
+                        className="wizard__form-skill-rank-select"
+                        onChange={this.updateSkillRank}
+                      />
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="wizard__form-add-skill">
+                  <Loader active inline />
+                </div>
+              )}
             </div>
             <div className="wizard__form-button-container">
               <div className="wizard__form-add-skill-button">
@@ -128,68 +201,77 @@ class WizardPage2 extends React.Component {
                 />
               </div>
             </div>
-            {this.state.skillOptions.length > 0 ? (
-              this.state.formSkillFields.map((num, index) => {
-                return (
-                  <div
-                    className="wizard__form-add-skill"
-                    key={`add-skill-${num}`}
-                  >
+
+            {/* {this.state.skillOptions.length > 0 ? ( */}
+            {this.state.formSkillFields.map((key, index) => {
+              // console.log("form field key:", key);
+              // console.log("form field index:", index);
+              return (
+                <div
+                  className="wizard__form-add-skill"
+                  key={`add-skill-${key}`}
+                >
+                  <div className="wizard__form-add-skill-dropdowns">
                     <Form.Select
+                      name={`skill-${key}`}
                       options={this.state.skillOptions}
                       placeholder="Select a skill..."
+                      // label="Skill Name & Types"
+                      defaultValue={this.state.skillOptions[0]}
                       className="wizard__form-skill-select"
-                      // onChange={this.disableSkillOption}
+                      onChange={(e) => this.updateSkillName(e, index)}
                     />
                     <Form.Select
+                      name={`skill-${key}-rank`}
                       options={[1, 2, 3, 4].map((item) => {
                         return { key: item, text: item, value: item };
                       })}
                       placeholder="Rank..."
+                      // label="Rank"
+                      defaultValue={1}
                       compact
                       className="wizard__form-skill-rank-select"
-                      // onChange={this.disableSkillOption}
-                    />
-                    {/* <div className="wizard__form-skill-details">{trait}</div> */}
-                    <Button
-                      circular
-                      size="mini"
-                      icon="remove"
-                      // color="red"
-                      negative
-                      // inverted
-                      onClick={() => this.removeSkillField(index)}
-                      className="wizard__form-skill-delete"
+                      onChange={this.updateSkillRank}
                     />
                   </div>
-                );
-              })
-            ) : (
+                  {/* <div className="wizard__form-skill-details">{trait}</div> */}
+                  <Button
+                    circular
+                    size="mini"
+                    icon="remove"
+                    negative
+                    onClick={() => this.removeSkillField(index)}
+                    className="wizard__form-skill-delete"
+                  />
+                </div>
+              );
+            })}
+            {/* ) : (
               <div className="wizard__form-add-skill">
                 <Loader active inline />
               </div>
-            )}
+            )} */}
+            <div className="wizard__form-buttons">
+              <Button
+                as={Link}
+                to="/build-character/page1"
+                content="Back"
+                icon="left arrow"
+                labelPosition="left"
+                floated="left"
+                circular
+                size="tiny"
+              />
+              <Button.Group size="tiny" floated="right">
+                <Button negative>Cancel</Button>
+                <Button.Or />
+                <Button primary type="submit">
+                  Save
+                </Button>
+              </Button.Group>
+            </div>
           </Form>
         </div>
-
-        {/* <div className="wizard__buttons-container"> */}
-        <Button
-          as={Link}
-          to="/build-character/page1"
-          content="Back"
-          icon="left arrow"
-          labelPosition="left"
-          floated="left"
-          // color="olive"
-          circular
-          size="tiny"
-        />
-        {/* </div> */}
-        <Button.Group size="tiny" floated="right">
-          <Button negative>Cancel</Button>
-          <Button.Or />
-          <Button primary>Save</Button>
-        </Button.Group>
       </div>
     );
   }

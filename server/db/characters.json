@@ -97,7 +97,7 @@
           "void": {
             "baseRank": 2,
             "type": "mental",
-            "isVoid": false
+            "isVoid": true
           }
         }
       }

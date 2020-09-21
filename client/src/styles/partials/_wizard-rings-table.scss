@@ -1,0 +1,38 @@
+.element {
+  font-family: "BrushtipTexe";
+  font-size: 1.5rem;
+  border-bottom: 2px solid $primary-dark-colour;
+  padding-top: 0.5rem;
+}
+
+.element-rank {
+  background: url("../assets/images/rings/rings_empty_whiteBG.png") no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 12%;
+  color: $primary-dark-colour;
+  font-family: "Otsutome";
+  font-size: 1.5rem;
+  border-bottom: 2px solid $primary-dark-colour;
+  padding-left: 0.15rem;
+  padding-top: 0.3rem;
+}
+
+.trait {
+  border-bottom: 2px solid $primary-dark-colour;
+  padding: 0.25rem;
+}
+
+.trait-rank {
+  border-bottom: 2px solid $primary-dark-colour;
+  padding-right: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.upgrade-button {
+  border-bottom: 2px solid $primary-dark-colour;
+}
+
+.void {
+  border: none;
+}

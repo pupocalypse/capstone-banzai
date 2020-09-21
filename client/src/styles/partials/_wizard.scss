@@ -116,11 +116,19 @@
     align-items: flex-start;
   }
 
+  &__form-details {
+    text-align: left;
+    padding: 1rem;
+    padding-bottom: 0;
+    color: $primary-complement;
+    font-size: 1rem;
+  }
+
   &__form-xp-rings-container {
     width: 50%;
-    height: 20rem;
+    // height: 20rem;
     flex: 1 1;
-    margin-left: 1rem;
+    margin-left: 1.5rem;
     padding: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -129,6 +137,20 @@
     overflow: hidden;
     position: relative;
     background: rgba($primary-black, 0.4);
+
+    &::after {
+      content: "";
+      width: 60%;
+      height: 60%;
+      position: absolute;
+      z-index: -1;
+      top: -5.5rem;
+      left: -2rem;
+      background: url("../assets/images/rings/rings_noBG.png") no-repeat;
+      background-size: contain;
+      background-position: center;
+      opacity: 0.6;
+    }
   }
 
   &__form-rings-borders-horizontal {
@@ -175,18 +197,30 @@
     right: -1rem;
   }
 
+  &__form-rings-header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__form-rings-heading {
+    width: 100%;
+    text-align: left;
+    padding-left: 1rem;
+  }
+
   &__form-xp-container {
     background: url("../assets/images/rings/rings_empty_noBG.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
     padding-top: 0.45rem;
     // top: -0.75rem;
     // left: -0.5rem;
-    align-self: flex-start;
     margin-left: auto;
     display: flex;
     justify-content: center;
@@ -225,12 +259,48 @@
     }
   }
 
+  &__form-rings-table {
+    width: 100%;
+    font-family: "Fontin Regular";
+    color: $background-colour-primary;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  &__form-skills {
+    width: 100%;
+    margin-top: 2.5rem;
+  }
+
+  &__skills-heading {
+    text-align: left;
+  }
+
+  &__form-school-skill {
+    // display: flex;
+    // align-items: center;
+    width: 100%;
+    height: 4rem;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba($background-colour-secondary, 0.2);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__form-school-skill-name {
+    width: 13rem;
+    text-align: left;
+    padding-left: 0.5rem;
+  }
+
   &__form-button-container {
     width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: baseline;
-    margin-top: 2rem;
+    margin-top: 1rem;
     padding-left: 0.5rem;
   }
 
@@ -244,7 +314,8 @@
     border-bottom: 1px solid rgba($background-colour-secondary, 0.2);
     display: flex;
     align-items: center;
-    flex-flow: column wrap;
+    justify-content: space-between;
+    flex-flow: row wrap;
 
     &:first-child {
       border-top: 1px solid rgba($background-colour-secondary, 0.2);
@@ -256,6 +327,12 @@
     }
   }
 
+  &__form-add-skill-dropdowns {
+    flex: 1 1;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   &__form-skill-select {
     width: 15rem;
     align-self: flex-start;
@@ -265,17 +342,16 @@
     width: 6rem;
     align-self: flex-start;
     position: relative;
-    left: -6.5rem;
   }
 
   &__form-skill-delete {
-    align-self: flex-end;
   }
 
-  // &__buttons-container {
-  //   display: inline-flex;
-  //   justify-content: flex-start;
-  //   width: 80%;
-  //   flex: 1 1;
-  // }
+  &__form-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+  }
 }

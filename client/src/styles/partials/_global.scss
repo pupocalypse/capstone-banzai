@@ -225,6 +225,21 @@ label {
   flex-wrap: wrap;
 }
 
+.ui.form .field {
+  margin-bottom: 0;
+
+  // &:last-child {
+  //   margin-left: 1rem;
+  // }
+}
+
+.wizard__form-add-skill-dropdowns > .field,
+.wizard__form-school-skill-names > .field {
+  &:last-child {
+    margin-left: 1rem;
+  }
+}
+
 .ui.form .field > label {
   color: $background-colour-secondary;
   text-align: left;

@@ -46,7 +46,7 @@ const SchoolSelect = ({
           </p>
         ) : (
           <>
-            <p className="wizard__bonus-text">
+            <p className="wizard__bonus-text pop-text-2">
               Bonus: +1 {currentSchool[0].bonus}
             </p>
             <SchoolSkills currentSchool={currentSchool} skills={skills} />

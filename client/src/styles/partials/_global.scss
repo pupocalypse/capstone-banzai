@@ -299,3 +299,13 @@ label {
   margin-bottom: 0.25rem;
   color: $primary-dark-colour;
 }
+
+// dividers
+.ui.horizontal.divider {
+  width: 100%;
+}
+
+.ui.horizontal.divider:after,
+.ui.horizontal.divider:before {
+  top: 0;
+}

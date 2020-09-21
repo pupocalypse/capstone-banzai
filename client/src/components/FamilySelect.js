@@ -36,7 +36,7 @@ const FamilySelect = ({ currentClan, currentFamily, handleChange }) => {
               Please select a clan, then family
             </p>
           ) : (
-            <p className="wizard__bonus-text">
+            <p className="wizard__bonus-text pop-text-2">
               Bonus: +1 {currentFamily[0].bonus}
             </p>
           )}

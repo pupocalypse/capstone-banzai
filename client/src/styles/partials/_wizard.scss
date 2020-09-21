@@ -114,6 +114,20 @@
     }
   }
 
+  &__bonus-text {
+    // font-family: "BrushtipTexe";
+    font-size: 1.25rem;
+  }
+
+  &__details-text {
+    text-align: justify;
+    padding: 0.35rem;
+
+    &:last-child {
+      margin-top: 0.5rem;
+    }
+  }
+
   // part two rules
   .part-two-container {
   }

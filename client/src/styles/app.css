@@ -327,6 +327,15 @@ label {
   color: #822c2d;
 }
 
+.ui.horizontal.divider {
+  width: 100%;
+}
+
+.ui.horizontal.divider:after,
+.ui.horizontal.divider:before {
+  top: 0;
+}
+
 .header {
   padding: 0 1.5rem;
   background: #221e1f;
@@ -642,6 +651,19 @@ label {
 
 .wizard__skills-pick-label:first-child {
   margin-top: 0;
+}
+
+.wizard__bonus-text {
+  font-size: 1.25rem;
+}
+
+.wizard__details-text {
+  text-align: justify;
+  padding: 0.35rem;
+}
+
+.wizard__details-text:last-child {
+  margin-top: 0.5rem;
 }
 
 .wizard__form-container > .ui.form {

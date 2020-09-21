@@ -105,6 +105,15 @@
     margin-bottom: 0.75rem;
   }
 
+  &__skills-pick-label {
+    display: block;
+    margin-top: 0.75rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
   // part two rules
   .part-two-container {
   }
@@ -290,9 +299,15 @@
   }
 
   &__form-school-skill-name {
-    width: 13rem;
+    width: 15rem;
     text-align: left;
     padding-left: 0.5rem;
+  }
+
+  &__form-school-skill-trait,
+  &__form-add-skill-trait {
+    margin-left: 2rem;
+    color: rgba($background-colour-secondary, 0.7);
   }
 
   &__form-button-container {
@@ -330,6 +345,7 @@
   &__form-add-skill-dropdowns {
     flex: 1 1;
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
   }
 

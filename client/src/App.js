@@ -25,7 +25,7 @@ class App extends React.Component {
     this.getData("clans");
     this.getData("schools");
     this.getData("skills");
-    console.log("App component mounted");
+    // console.log("App component mounted");
   }
 
   // componentDidUpdate(_prevProps, prevState) {

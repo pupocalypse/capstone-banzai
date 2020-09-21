@@ -33,11 +33,11 @@ class WizardPage2 extends React.Component {
       if (this.props.currentSchool.length !== 0) {
         let noMatches = true;
         for (let schoolSkill of this.props.character.skills) {
-          console.log("skill:", skill);
-          console.log("schoolSkill:", schoolSkill[0]);
+          // console.log("skill:", skill);
+          // console.log("schoolSkill:", schoolSkill[0]);
           if (skill === schoolSkill[0]) {
-            console.log("skill:", skill);
-            console.log("schoolSkill[0]:", schoolSkill[0]);
+            // console.log("skill:", skill);
+            // console.log("schoolSkill[0]:", schoolSkill[0]);
             noMatches = false;
           }
         }
@@ -73,11 +73,15 @@ class WizardPage2 extends React.Component {
   addSkillField = () => {
     const skillFieldKey =
       this.state.formSkillFields.length > 0
-        ? this.state.formSkillFields[this.state.formSkillFields.length - 1] + 1
+        ? this.state.formSkillFields[this.state.formSkillFields.length - 1][0] +
+          1
         : 1;
 
     this.setState({
-      formSkillFields: [...this.state.formSkillFields, [skillFieldKey]],
+      formSkillFields: [
+        ...this.state.formSkillFields,
+        [skillFieldKey, "", 1, ""],
+      ],
     });
   };
 
@@ -89,14 +93,23 @@ class WizardPage2 extends React.Component {
     });
   };
 
-  updateSkillName = (e, index) => {
-    console.log(e.target.value);
-    const skillName = e.target.value;
+  updateSelectedSkill = (e, { value }, index) => {
+    console.log("data.value:", value);
+    const skillName = value;
+    let trait = this.props.skills[skillName].trait;
+    // for (let key in this.props.skills) {
+    //   if (key === skillName) {
+    //     trait = this.props.skills[key].trait;
+    //   }
+    // }
+
+    const updatedSkills = this.state.formSkillFields;
+    updatedSkills[index][1] = skillName;
+    updatedSkills[index][3] = trait;
+    console.log("updatedSkills:", updatedSkills);
+
     this.setState({
-      formSkillFields: [
-        ...this.state.formSkillFields,
-        (this.state.formSkillFields[index][1] = skillName),
-      ],
+      formSkillFields: updatedSkills,
     });
   };
 
@@ -119,6 +132,7 @@ class WizardPage2 extends React.Component {
                 (these control your 'kept' dice). Once you've made your choices
                 and named your character, click 'Save' to generate your
                 character sheet.
+                <br />
                 <br />
                 Note that some rank purchases may be at your GM's
                 discretion&mdash;always check with them first!
@@ -163,6 +177,12 @@ class WizardPage2 extends React.Component {
                   for (let i = skill[1]; i < 5; i++) {
                     ranks.push(i);
                   }
+                  let trait = "";
+                  for (let key in this.props.skills) {
+                    if (key === skill[0]) {
+                      trait = this.props.skills[key].trait;
+                    }
+                  }
 
                   return (
                     <div className="wizard__form-school-skill">
@@ -181,6 +201,9 @@ class WizardPage2 extends React.Component {
                         className="wizard__form-skill-rank-select"
                         onChange={this.updateSkillRank}
                       />
+                      <p className="wizard__form-school-skill-trait">
+                        Trait: {trait}
+                      </p>
                     </div>
                   );
                 })
@@ -204,12 +227,12 @@ class WizardPage2 extends React.Component {
 
             {/* {this.state.skillOptions.length > 0 ? ( */}
             {this.state.formSkillFields.map((key, index) => {
-              // console.log("form field key:", key);
+              console.log("form field key:", key);
               // console.log("form field index:", index);
               return (
                 <div
                   className="wizard__form-add-skill"
-                  key={`add-skill-${key}`}
+                  key={`add-skill-${key[0]}`}
                 >
                   <div className="wizard__form-add-skill-dropdowns">
                     <Form.Select
@@ -219,7 +242,9 @@ class WizardPage2 extends React.Component {
                       // label="Skill Name & Types"
                       defaultValue={this.state.skillOptions[0]}
                       className="wizard__form-skill-select"
-                      onChange={(e) => this.updateSkillName(e, index)}
+                      onChange={(e, data) =>
+                        this.updateSelectedSkill(e, data, index)
+                      }
                     />
                     <Form.Select
                       name={`skill-${key}-rank`}
@@ -233,6 +258,11 @@ class WizardPage2 extends React.Component {
                       className="wizard__form-skill-rank-select"
                       onChange={this.updateSkillRank}
                     />
+                    {!key[3] ? null : (
+                      <p className="wizard__form-add-skill-trait">
+                        Trait: {key[3]}
+                      </p>
+                    )}
                   </div>
                   {/* <div className="wizard__form-skill-details">{trait}</div> */}
                   <Button

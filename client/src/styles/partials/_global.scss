@@ -234,8 +234,8 @@ label {
 }
 
 .wizard__form-add-skill-dropdowns > .field,
-.wizard__form-school-skill-names > .field {
-  &:last-child {
+.wizard__form-school-skill > .field {
+  &:nth-child(n + 2) {
     margin-left: 1rem;
   }
 }

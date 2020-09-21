@@ -270,8 +270,8 @@ label {
   margin-bottom: 0;
 }
 
-.wizard__form-add-skill-dropdowns > .field:last-child,
-.wizard__form-school-skill-names > .field:last-child {
+.wizard__form-add-skill-dropdowns > .field:nth-child(n + 2),
+.wizard__form-school-skill > .field:nth-child(n + 2) {
   margin-left: 1rem;
 }
 
@@ -635,6 +635,15 @@ label {
   margin-bottom: 0.75rem;
 }
 
+.wizard__skills-pick-label {
+  display: block;
+  margin-top: 0.75rem;
+}
+
+.wizard__skills-pick-label:first-child {
+  margin-top: 0;
+}
+
 .wizard__form-container > .ui.form {
   width: 100%;
   display: -webkit-box;
@@ -847,9 +856,14 @@ label {
 }
 
 .wizard__form-school-skill-name {
-  width: 13rem;
+  width: 15rem;
   text-align: left;
   padding-left: 0.5rem;
+}
+
+.wizard__form-school-skill-trait, .wizard__form-add-skill-trait {
+  margin-left: 2rem;
+  color: rgba(184, 182, 175, 0.7);
 }
 
 .wizard__form-button-container {
@@ -903,6 +917,9 @@ label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -971,6 +988,7 @@ label {
 
 .void {
   border: none;
+  height: 4rem;
 }
 
 .characters__header {

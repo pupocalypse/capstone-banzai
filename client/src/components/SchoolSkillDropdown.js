@@ -75,7 +75,7 @@ const SchoolSkillDropdown = ({
 
       return (
         <>
-          <label className="skills__pick-label">{dropdownHeading}</label>
+          <label className="wizard__skills-pick-label">{dropdownHeading}</label>
           <Dropdown
             placeholder={"Select skill"}
             selection
@@ -90,7 +90,7 @@ const SchoolSkillDropdown = ({
   );
 
   return (
-    <div className="skills__pick-container">
+    <div className="wizard__skills-pick-container">
       {!currentSchool ? <p>Loading...</p> : freeSkillsDropdown}
     </div>
   );

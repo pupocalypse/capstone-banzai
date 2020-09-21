@@ -25,9 +25,9 @@ class Wizard extends React.Component {
     },
   };
 
-  componentDidMount() {
-    console.log("Wizard component mounted");
-  }
+  // componentDidMount() {
+  //   console.log("Wizard component mounted");
+  // }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.character !== this.state.character) {
@@ -36,7 +36,7 @@ class Wizard extends React.Component {
         JSON.stringify(this.state.character)
       );
     }
-    console.log("Wizard component updated");
+    // console.log("Wizard component updated");
   }
 
   updateCurrentClan = (e, { value }) => {

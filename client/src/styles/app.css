@@ -1400,10 +1400,10 @@ label {
   height: 50%;
   position: absolute;
   top: -1rem;
-  right: -2.25rem;
+  right: -1rem;
   background: url("../assets/images/Mon_Crab_colour.png") no-repeat;
   background-size: contain;
-  background-position: center;
+  background-position: right;
   opacity: 0.3;
 }
 
@@ -1463,7 +1463,8 @@ label {
 .character-sheet__name-heading {
   position: relative;
   z-index: 1;
-  left: -8rem;
+  left: -3rem;
+  text-align: left;
   font-family: "BrushtipTexe";
   font-weight: 700;
   font-size: 2.5rem;

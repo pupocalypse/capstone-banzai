@@ -21,7 +21,78 @@ class Wizard extends React.Component {
       school: {}, // school name, bonus
       job: "",
       skills: {},
-      rings: {},
+      rings: {
+        air: {
+          rank: 2,
+          traits: {
+            reflexes: {
+              rank: 2,
+              type: "physical",
+              isVoid: false,
+            },
+            awareness: {
+              rank: 2,
+              type: "mental",
+              isVoid: false,
+            },
+          },
+        },
+        earth: {
+          rank: 2,
+          traits: {
+            stamina: {
+              rank: 2,
+              type: "physical",
+              isVoid: false,
+            },
+            willpower: {
+              rank: 2,
+              type: "mental",
+              isVoid: false,
+            },
+          },
+        },
+        fire: {
+          rank: 2,
+          traits: {
+            agility: {
+              rank: 2,
+              type: "physical",
+              isVoid: false,
+            },
+            intelligence: {
+              rank: 2,
+              type: "mental",
+              isVoid: false,
+            },
+          },
+        },
+        water: {
+          rank: 2,
+          traits: {
+            strength: {
+              rank: 2,
+              type: "physical",
+              isVoid: false,
+            },
+            perception: {
+              rank: 2,
+              type: "mental",
+              isVoid: false,
+            },
+          },
+        },
+        void: {
+          rank: 2,
+          traits: {
+            void: {
+              rank: 2,
+              type: "mental",
+              isVoid: true,
+            },
+          },
+        },
+      },
     },
   };
 
@@ -65,6 +136,11 @@ class Wizard extends React.Component {
     const currentFamily = this.state.currentClan[0].families.filter(
       (family) => family.name === value
     );
+    let rings = { ...this.state.character.rings };
+    const { elementRing, bonusRank } = this.applyRingBonus(
+      currentFamily[0].bonus
+    );
+    rings[elementRing].traits[currentFamily[0].bonus].rank = bonusRank;
 
     this.setState(
       {
@@ -73,6 +149,7 @@ class Wizard extends React.Component {
           ...this.state.character,
           family: currentFamily[0],
           lastName: currentFamily[0].name,
+          rings,
         },
       }
       // () =>
@@ -96,6 +173,12 @@ class Wizard extends React.Component {
       selectSkills.push(false);
     }
 
+    let rings = { ...this.state.character.rings };
+    const { elementRing, bonusRank } = this.applyRingBonus(
+      currentSchool[0].bonus
+    );
+    rings[elementRing].traits[currentSchool[0].bonus].rank = bonusRank;
+
     this.setState(
       {
         currentSchool: schoolDetails,
@@ -105,6 +188,7 @@ class Wizard extends React.Component {
           job: currentSchool[0].type,
           school: schoolDetails[0],
           skills: schoolDetails[0].skills.core,
+          rings,
         },
       }
       // () =>
@@ -157,10 +241,49 @@ class Wizard extends React.Component {
         },
       },
       () => {
-        console.log("character's skills:", this.state.character.skills);
+        // console.log("character's skills:", this.state.character.skills);
         localStorage.setItem("new character", this.state.character);
       }
     );
+  };
+
+  // receives specified trait bonus based on family & school,
+  // applies the bonus
+  applyRingBonus = (trait) => {
+    const character = { ...this.state.character };
+    let elementRing = "";
+    let bonusRank = 0;
+    for (let ring in character.rings) {
+      if (ring.traits.hasOwnProperty(trait)) {
+        elementRing = ring;
+        bonusRank = ring.traits[trait].rank + 1;
+      }
+    }
+
+    // character.rings[elementRing].traits[trait].rank = bonusRank;
+
+    // this.setState({ character });
+    return { elementRing, bonusRank };
+  };
+
+  // provided an element ring, search that ring for its trait
+  // ranks and calculate minimum of the two for element ring rank
+  calculateElementRingRank = (element) => {
+    const character = { ...this.state.character };
+    let ringRank = 0;
+    for (let ring in this.state.character.rings) {
+      if (ring === element) {
+        let traitRanks = [];
+        for (let trait in ring.traits) {
+          traitRanks.push(trait.rank);
+        }
+        ringRank = Math.min(...traitRanks);
+      }
+    }
+
+    character.rings[element].rank = ringRank;
+
+    this.setState({ character });
   };
 
   // page two functions
@@ -168,22 +291,8 @@ class Wizard extends React.Component {
   //   const newSkillArray
   // }
 
-  nextPageClick = () => {
-    // add current selections to character object, pass to page 2 component
-    // const clan = this.state.currentClan[0].clan;
-    // const family = this.state.currentFamily[0];
-    // const school = this.state.currentSchool[0];
-    // this.setState({
-    //   character: {
-    //     ...this.state.character,
-    //     clan,
-    //     family,
-    //     school,
-    //     lastName: family.name,
-    //   },
-    // });
-    // localStorage.setItem("new character", JSON.stringify(this.state.character));
-  };
+  // prepares character object for final phase, including ring calculations
+  nextPageClick = () => {};
 
   resetInputs = () => {
     localStorage.removeItem("new character");
@@ -195,7 +304,6 @@ class Wizard extends React.Component {
   render() {
     return (
       <main className="wizard">
-        {/* <UITest clans={this.props.clans} /> */}
         <WizardHeader />
 
         <div className="wizard__inset-container">
@@ -239,17 +347,6 @@ class Wizard extends React.Component {
             />
           </Switch>
         </div>
-
-        {/* page one component: */}
-        {/* WizardHeader component with hero image */}
-        {/* ClanSelect component with dropdown */}
-        {/* FamilySelect component with dropdown */}
-        {/* SchoolSelect component with dropdown */}
-        {/* free school skill pick */}
-
-        {/* page two component: */}
-        {/* experience spending: new skills, skill ranks, trait ranks */}
-        {/* input for character name */}
       </main>
     );
   }

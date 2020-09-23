@@ -175,9 +175,9 @@ class Wizard extends React.Component {
 
     let rings = { ...this.state.character.rings };
     const { elementRing, bonusRank } = this.applyRingBonus(
-      currentSchool[0].bonus
+      schoolDetails[0].bonus
     );
-    rings[elementRing].traits[currentSchool[0].bonus].rank = bonusRank;
+    rings[elementRing].traits[schoolDetails[0].bonus].rank = bonusRank;
 
     this.setState(
       {
@@ -199,9 +199,9 @@ class Wizard extends React.Component {
     );
   };
 
+  // receives Form.Input value on change (from second page),
+  // updates character.lastName in state
   updateLastName = (e, { value }) => {
-    // receives Form.Input value on change (from second page),
-    // updates character.lastName in state
     this.setState({
       character: {
         ...this.state.character,
@@ -210,9 +210,9 @@ class Wizard extends React.Component {
     });
   };
 
+  // gatekeeping for disabled 'next' button
+  // checks that ALL free pick skills have been selected
   schoolSkillsSelected = (e, { value }, index) => {
-    // gatekeeping for disabled 'next' button
-    // checks that ALL free pick skills have been selected
     console.log("index:", index);
     let selectedSkill = this.state.selectSkills;
     selectedSkill[index] = true;
@@ -225,10 +225,10 @@ class Wizard extends React.Component {
     // console.log("this.state.selectSkills:", this.state.selectSkills);
   };
 
+  // receives onChange data, updates LAST item in
+  // character.skills array (so it doesn't keep
+  // adding if user changes their mind)
   addSelectedSkill = (value, skillsIndex) => {
-    // receives onChange data, updates LAST item in
-    // character.skills array (so it doesn't keep
-    // adding if user changes their mind)
     console.log("skillsIndex:", skillsIndex);
     const currentSkills = [...this.state.character.skills];
     currentSkills[skillsIndex] = [value, "1"];
@@ -250,13 +250,14 @@ class Wizard extends React.Component {
   // receives specified trait bonus based on family & school,
   // applies the bonus
   applyRingBonus = (trait) => {
+    console.log("trait:", trait);
     const character = { ...this.state.character };
     let elementRing = "";
     let bonusRank = 0;
     for (let ring in character.rings) {
-      if (ring.traits.hasOwnProperty(trait)) {
+      if (character.rings[ring].traits.hasOwnProperty(trait)) {
         elementRing = ring;
-        bonusRank = ring.traits[trait].rank + 1;
+        bonusRank = character.rings[ring].traits[trait].rank + 1;
       }
     }
 

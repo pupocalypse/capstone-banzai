@@ -167,7 +167,7 @@ class WizardPage2 extends React.Component {
                 </div>
               </div>
 
-              <WizardRingsTable />
+              <WizardRingsTable rings={this.props.character.rings} />
             </div>
             <div className="wizard__form-skills">
               <h2 className="wizard__skills-heading">School Skills</h2>
@@ -227,7 +227,7 @@ class WizardPage2 extends React.Component {
 
             {/* {this.state.skillOptions.length > 0 ? ( */}
             {this.state.formSkillFields.map((key, index) => {
-              console.log("form field key:", key);
+              // console.log("form field key:", key);
               // console.log("form field index:", index);
               return (
                 <div

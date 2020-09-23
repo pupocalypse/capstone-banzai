@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "semantic-ui-react";
 
-const WizardRingsTable = () => {
+const WizardRingsTable = ({ rings }) => {
   return (
     <table className="wizard__form-rings-table">
       <tbody>
@@ -10,10 +10,10 @@ const WizardRingsTable = () => {
             Air
           </td>
           <td rowSpan="2" className="element-rank">
-            2
+            {rings.air.rank}
           </td>
           <td className="trait">Reflexes</td>
-          <td className="trait-rank">2</td>
+          <td className="trait-rank">{rings.air.traits.reflexes.rank}</td>
           <td className="upgrade-button-cell">
             <Button
               primary
@@ -25,7 +25,7 @@ const WizardRingsTable = () => {
         </tr>
         <tr>
           <td className="trait">Awareness</td>
-          <td className="trait-rank">2</td>
+          <td className="trait-rank">{rings.air.traits.awareness.rank}</td>
           <td className="upgrade-button-cell">
             <Button
               primary
@@ -41,10 +41,10 @@ const WizardRingsTable = () => {
             Earth
           </td>
           <td rowSpan="2" className="element-rank">
-            2
+            {rings.earth.rank}
           </td>
           <td className="trait">Stamina</td>
-          <td className="trait-rank">2</td>
+          <td className="trait-rank">{rings.earth.traits.stamina.rank}</td>
           <td className="upgrade-button-cell">
             <Button
               primary
@@ -56,7 +56,7 @@ const WizardRingsTable = () => {
         </tr>
         <tr>
           <td className="trait">Willpower</td>
-          <td className="trait-rank">2</td>
+          <td className="trait-rank">{rings.earth.traits.willpower.rank}</td>
           <td className="upgrade-button-cell">
             <Button
               primary
@@ -72,10 +72,10 @@ const WizardRingsTable = () => {
             Fire
           </td>
           <td rowSpan="2" className="element-rank">
-            2
+            {rings.fire.rank}
           </td>
           <td className="trait">Agility</td>
-          <td className="trait-rank">2</td>
+          <td className="trait-rank">{rings.fire.traits.agility.rank}</td>
           <td className="upgrade-button-cell">
             <Button
               primary
@@ -87,7 +87,7 @@ const WizardRingsTable = () => {
         </tr>
         <tr>
           <td className="trait">Intelligence</td>
-          <td className="trait-rank">2</td>
+          <td className="trait-rank">{rings.fire.traits.intelligence.rank}</td>
           <td className="upgrade-button-cell">
             <Button
               primary
@@ -103,10 +103,10 @@ const WizardRingsTable = () => {
             Water
           </td>
           <td rowSpan="2" className="element-rank">
-            2
+            {rings.water.rank}
           </td>
           <td className="trait">Strength</td>
-          <td className="trait-rank">2</td>
+          <td className="trait-rank">{rings.water.traits.strength.rank}</td>
           <td className="upgrade-button-cell">
             <Button
               primary
@@ -118,7 +118,7 @@ const WizardRingsTable = () => {
         </tr>
         <tr>
           <td className="trait">Perception</td>
-          <td className="trait-rank">2</td>
+          <td className="trait-rank">{rings.water.traits.perception.rank}</td>
           <td className="upgrade-button-cell">
             <Button
               primary
@@ -131,7 +131,7 @@ const WizardRingsTable = () => {
 
         <tr>
           <td className="element void">Void</td>
-          <td className="element-rank void">2</td>
+          <td className="element-rank void">{rings.void.rank}</td>
           <td className="trait void"></td>
           <td className="trait-rank void"></td>
           <td className="upgrade-button-cell void">

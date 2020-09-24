@@ -2,7 +2,6 @@ import React from "react";
 import DropdownMenu from "./DropdownMenu";
 import { Divider } from "semantic-ui-react";
 
-// receives currentClan as prop
 const ClanSelect = ({ clans, currentClan, handleChange }) => {
   // const localStorageClan = JSON.parse(localStorage.getItem("current clan"));
 
@@ -44,7 +43,6 @@ const ClanSelect = ({ clans, currentClan, handleChange }) => {
               style={{
                 height: "7rem",
                 width: "auto",
-                // filter: "drop-shadow(0px 3px 1px rgba(0,0,0,0.3))",
               }}
             />
           )}
@@ -59,10 +57,7 @@ const ClanSelect = ({ clans, currentClan, handleChange }) => {
           {!currentClan ? (
             <p className="wizard__waiting-text">Please select a clan</p>
           ) : (
-            <p className="wizard__details-text">
-              {/* A brief description of the {currentClan[0].clan} */}
-              {currentClan[0].description}
-            </p>
+            <p className="wizard__details-text">{currentClan[0].description}</p>
           )}
         </div>
       </section>

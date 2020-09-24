@@ -70,8 +70,6 @@ const SchoolSelect = ({
             Please select a clan, then school
           </p>
         ) : (
-          // <p className="wizard__details-text">
-          // {/* A brief description of the {currentSchool[0].name} school */}
           currentSchool[0].description.split("\n").map((desc, index) => {
             return (
               <p className="wizard__details-text" key={index}>
@@ -79,7 +77,6 @@ const SchoolSelect = ({
               </p>
             );
           })
-          // </p>
         )}
       </div>
     </section>

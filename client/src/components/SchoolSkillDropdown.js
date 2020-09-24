@@ -1,7 +1,6 @@
 import React from "react";
 import { Dropdown } from "semantic-ui-react";
 
-// receives currentSchool prop
 const SchoolSkillDropdown = ({
   currentSchool,
   skills,
@@ -74,7 +73,10 @@ const SchoolSkillDropdown = ({
       }
 
       return (
-        <>
+        <div
+          className="wizard__skills-pick-dropdown"
+          key={`free-pick-${index}`}
+        >
           <label className="wizard__skills-pick-label">{dropdownHeading}</label>
           <Dropdown
             placeholder={"Select skill"}
@@ -84,7 +86,7 @@ const SchoolSkillDropdown = ({
             options={skillTypeItems}
             onChange={(e, data) => schoolSkillsSelected(e, data, index)}
           ></Dropdown>
-        </>
+        </div>
       );
     }
   );

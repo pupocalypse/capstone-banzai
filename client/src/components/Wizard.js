@@ -136,12 +136,6 @@ class Wizard extends React.Component {
     const currentFamily = this.state.currentClan[0].families.filter(
       (family) => family.name === value
     );
-    // let rings = { ...this.state.character.rings };
-    // const { elementRing, traitRank, ringRank } = this.upgradeTraitRing(
-    //   currentFamily[0].bonus
-    // );
-    // rings[elementRing].rank = ringRank;
-    // rings[elementRing].traits[currentFamily[0].bonus].rank = traitRank;
 
     this.setState(
       {
@@ -150,7 +144,6 @@ class Wizard extends React.Component {
           ...this.state.character,
           family: currentFamily[0],
           lastName: currentFamily[0].name,
-          // rings,
         },
       }
       // () =>
@@ -174,13 +167,6 @@ class Wizard extends React.Component {
       selectSkills.push(false);
     }
 
-    // let rings = { ...this.state.character.rings };
-    // const { elementRing, traitRank, ringRank } = this.upgradeTraitRing(
-    //   schoolDetails[0].bonus
-    // );
-    // rings[elementRing].rank = ringRank;
-    // rings[elementRing].traits[schoolDetails[0].bonus].rank = traitRank;
-
     this.setState(
       {
         currentSchool: schoolDetails,
@@ -190,7 +176,6 @@ class Wizard extends React.Component {
           job: currentSchool[0].type,
           school: schoolDetails[0],
           skills: schoolDetails[0].skills.core,
-          // rings,
         },
       }
       // () =>
@@ -251,44 +236,29 @@ class Wizard extends React.Component {
 
   // receives specified trait bonus based on family & school,
   // applies the bonus to the starting rank of the trait
-  upgradeTraitRing = (trait) => {
-    const character = { ...this.state.character };
+  upgradeTraitRing = (currentRings, trait) => {
     let elementRing = "";
     // let traitRank = startingRank + 1;
     let traitRank;
-    for (let ring in character.rings) {
-      if (character.rings[ring].traits.hasOwnProperty(trait)) {
+    for (let ring in currentRings) {
+      if (currentRings[ring].traits.hasOwnProperty(trait)) {
         elementRing = ring;
-        traitRank = character.rings[ring].traits[trait].rank + 1;
+        traitRank = currentRings[ring].traits[trait].rank + 1;
       }
     }
-    const ringRank = this.calculateElementRingRank(
-      character.rings,
-      elementRing
-    );
-
-    // character.rings[elementRing].traits[trait].rank = traitRank;
-    // this.setState({ character });
+    const ringRank = this.calculateElementRingRank(currentRings, elementRing);
     return { elementRing, traitRank, ringRank };
   };
 
   // provided an element ring, search that ring for its updated trait
   // ranks and calculate minimum of the two for element ring rank
   calculateElementRingRank = (rings, element) => {
-    // const character = { ...this.state.character };
     let ringRank = 0;
-    for (let ring in rings) {
-      if (ring === element) {
-        let traitRanks = [];
-        for (let trait in rings[ring].traits) {
-          traitRanks.push(rings[ring].traits[trait].rank);
-        }
-        ringRank = Math.min(...traitRanks);
-      }
+    let traitRanks = [];
+    for (let trait in rings[element].traits) {
+      traitRanks.push(rings[element].traits[trait].rank);
     }
-
-    // character.rings[element].rank = ringRank;
-    // this.setState({ character });
+    ringRank = Math.min(...traitRanks);
     return ringRank;
   };
 
@@ -302,21 +272,57 @@ class Wizard extends React.Component {
     let character = { ...this.state.character };
     const familyBonus = character.family.bonus;
     const schoolBonus = character.school.bonus;
-    // returns elementRing, traitRank, ringRank
-    const familyBonusRing = this.upgradeTraitRing(familyBonus);
-    const schoolBonusRing = this.upgradeTraitRing(schoolBonus);
-    console.log("familyBonusRing:", familyBonusRing);
-    console.log("schoolBonusRing:", schoolBonusRing);
 
+    // returns elementRing, traitRank, ringRank
+    const familyBonusRing = this.upgradeTraitRing(character.rings, familyBonus);
     character.rings[familyBonusRing.elementRing].traits[familyBonus].rank =
       familyBonusRing.traitRank;
     character.rings[familyBonusRing.elementRing].rank =
       familyBonusRing.ringRank;
 
+    const schoolBonusRing = this.upgradeTraitRing(character.rings, schoolBonus);
     character.rings[schoolBonusRing.elementRing].traits[schoolBonus].rank =
       schoolBonusRing.traitRank;
     character.rings[schoolBonusRing.elementRing].rank =
       schoolBonusRing.ringRank;
+
+    for (let ring in character.rings) {
+      if (
+        ring !== familyBonusRing.elementRing &&
+        ring !== schoolBonusRing.elementRing
+      ) {
+        character.rings[ring].rank = this.calculateElementRingRank(
+          character.rings,
+          ring
+        );
+      }
+    }
+
+    console.log(
+      "minimum of two traits:",
+      Math.min(
+        this.state.character.rings.air.traits.reflexes.rank,
+        this.state.character.rings.air.traits.awareness.rank
+      )
+    );
+    // console.log("familyBonusRing:", familyBonusRing);
+    // console.log("schoolBonusRing:", schoolBonusRing);
+
+    this.setState({ character });
+  };
+
+  // for indecisive players :P - undoes the previous
+  // trait bonuses so new selections can be made
+  backButtonClick = () => {
+    let character = { ...this.state.character };
+    for (let ring in character.rings) {
+      let traitRanks = [];
+      for (let trait in character.rings[ring].traits) {
+        character.rings[ring].traits[trait].rank = 2;
+        traitRanks.push(character.rings[ring].traits[trait]);
+      }
+      character.rings[ring].rank = Math.min(...traitRanks);
+    }
 
     this.setState({ character });
   };
@@ -368,6 +374,7 @@ class Wizard extends React.Component {
                     currentSchool={this.state.currentSchool}
                     character={this.state.character}
                     updateLastName={this.updateLastName}
+                    backButtonClick={this.backButtonClick}
                   />
                 );
               }}

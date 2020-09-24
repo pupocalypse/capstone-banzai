@@ -54,7 +54,6 @@ const FamilySelect = ({ currentClan, currentFamily, handleChange }) => {
             </p>
           ) : (
             <p className="wizard__details-text">
-              {/* A brief description of the {currentFamily[0].name} family */}
               {currentFamily[0].description}
             </p>
           )}

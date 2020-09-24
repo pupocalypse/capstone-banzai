@@ -5,16 +5,17 @@ import { Form, Button, Loader, Statistic } from "semantic-ui-react";
 import WizardRingsTable from "./WizardRingsTable";
 
 class WizardPage2 extends React.Component {
-  // const WizardPage2 = ({ skills, currentClan, currentFamily, currentSchool }) => {
   state = {
     formSkillFields: [],
     skillOptions: [],
-    // currentSelections: [], // an array of only skills that gets added below
   };
 
   componentDidMount() {
     this.setSkills();
     this.addSkillField();
+
+    if (!this.props.character.clan) {
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -25,19 +26,14 @@ class WizardPage2 extends React.Component {
 
   getNonSchoolSkills = () => {};
 
+  // get available options by eliminating already chosen skills
   setSkills = () => {
-    // get available options by eliminating already chosen skills
-    // const allSkills = this.props.skills;
     let skillOptions = [];
     for (let skill in this.props.skills) {
       if (this.props.currentSchool.length !== 0) {
         let noMatches = true;
         for (let schoolSkill of this.props.character.skills) {
-          // console.log("skill:", skill);
-          // console.log("schoolSkill:", schoolSkill[0]);
           if (skill === schoolSkill[0]) {
-            // console.log("skill:", skill);
-            // console.log("schoolSkill[0]:", schoolSkill[0]);
             noMatches = false;
           }
         }
@@ -80,6 +76,7 @@ class WizardPage2 extends React.Component {
     this.setState({
       formSkillFields: [
         ...this.state.formSkillFields,
+        // key for list, skill, rank, trait
         [skillFieldKey, "", 1, ""],
       ],
     });
@@ -94,30 +91,23 @@ class WizardPage2 extends React.Component {
   };
 
   updateSelectedSkill = (e, { value }, index) => {
-    console.log("data.value:", value);
     const skillName = value;
     let trait = this.props.skills[skillName].trait;
-    // for (let key in this.props.skills) {
-    //   if (key === skillName) {
-    //     trait = this.props.skills[key].trait;
-    //   }
-    // }
 
     const updatedSkills = this.state.formSkillFields;
     updatedSkills[index][1] = skillName;
     updatedSkills[index][3] = trait;
-    console.log("updatedSkills:", updatedSkills);
 
     this.setState({
       formSkillFields: updatedSkills,
     });
   };
 
-  updateSkillRank = (e, index) => {};
+  // updateSkillRank = (e, index) => {};
 
-  createCharacter = (e) => {
-    // console.log("form:", e.target);
-  };
+  // createCharacter = (e) => {
+  //   // console.log("form:", e.target);
+  // };
 
   render() {
     return (
@@ -148,6 +138,38 @@ class WizardPage2 extends React.Component {
                 label="Family Name"
               />
               <Form.Input placeholder="Given Name" label="Given Name" />
+              <table>
+                <tbody>
+                  <tr>
+                    {/* will receive clan mon from props, but all background styles will be handled in SCSS */}
+                    <td
+                      rowSpan="4"
+                      style={{
+                        background: `url(${process.env.PUBLIC_URL}/images/mons-detail/${this.props.character.clan}_Clan_mon.png`,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "contain",
+                      }}
+                    ></td>
+                    <td>Clan:</td>
+                    <td>{this.props.character.clan}</td>
+                  </tr>
+                  <tr>
+                    <td>Class:</td>
+                    <td>{this.props.character.job}</td>
+                  </tr>
+                  <tr>
+                    <td>Family:</td>
+                    <td>{this.props.character.family.name}</td>
+                    <td>+1 {this.props.character.family.bonus}</td>
+                  </tr>
+                  <tr>
+                    <td>School:</td>
+                    <td>{this.props.character.school.name}</td>
+                    <td>+1 {this.props.character.school.bonus}</td>
+                  </tr>
+                </tbody>
+              </table>
             </Form.Group>
             <div className="wizard__form-xp-rings-container">
               <div className="wizard__form-rings-borders-horizontal"></div>
@@ -291,6 +313,7 @@ class WizardPage2 extends React.Component {
                 floated="left"
                 circular
                 size="tiny"
+                onClick={this.props.backButtonClick}
               />
               <Button.Group size="tiny" floated="right">
                 <Button negative>Cancel</Button>

@@ -10,7 +10,10 @@ const WizardRingsTable = ({ rings }) => {
             Air
           </td>
           <td rowSpan="2" className="element-rank">
-            {rings.air.rank}
+            {Math.min(
+              rings.air.traits.reflexes.rank,
+              rings.air.traits.awareness.rank
+            )}
           </td>
           <td className="trait">Reflexes</td>
           <td className="trait-rank">{rings.air.traits.reflexes.rank}</td>
@@ -41,7 +44,10 @@ const WizardRingsTable = ({ rings }) => {
             Earth
           </td>
           <td rowSpan="2" className="element-rank">
-            {rings.earth.rank}
+            {Math.min(
+              rings.earth.traits.stamina.rank,
+              rings.earth.traits.willpower.rank
+            )}
           </td>
           <td className="trait">Stamina</td>
           <td className="trait-rank">{rings.earth.traits.stamina.rank}</td>
@@ -72,7 +78,10 @@ const WizardRingsTable = ({ rings }) => {
             Fire
           </td>
           <td rowSpan="2" className="element-rank">
-            {rings.fire.rank}
+            {Math.min(
+              rings.fire.traits.agility.rank,
+              rings.fire.traits.intelligence.rank
+            )}
           </td>
           <td className="trait">Agility</td>
           <td className="trait-rank">{rings.fire.traits.agility.rank}</td>
@@ -103,7 +112,10 @@ const WizardRingsTable = ({ rings }) => {
             Water
           </td>
           <td rowSpan="2" className="element-rank">
-            {rings.water.rank}
+            {Math.min(
+              rings.water.traits.strength.rank,
+              rings.water.traits.perception.rank
+            )}
           </td>
           <td className="trait">Strength</td>
           <td className="trait-rank">{rings.water.traits.strength.rank}</td>
@@ -131,7 +143,7 @@ const WizardRingsTable = ({ rings }) => {
 
         <tr>
           <td className="element void">Void</td>
-          <td className="element-rank void">{rings.void.rank}</td>
+          <td className="element-rank void">{rings.void.traits.void.rank}</td>
           <td className="trait void"></td>
           <td className="trait-rank void"></td>
           <td className="upgrade-button-cell void">

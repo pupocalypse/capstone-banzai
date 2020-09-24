@@ -686,6 +686,54 @@ label {
   font-size: 1rem;
 }
 
+.wizard__form-selections-table {
+  width: 100%;
+  margin-top: 1.5rem;
+  border-collapse: collapse;
+  font-family: "Fontin Regular";
+  font-size: 0.925rem;
+}
+
+.wizard__selections-header {
+  color: rgba(220, 205, 176, 0.7);
+  background: -webkit-gradient(linear, left top, left bottom, from(#822c2d), to(transparent));
+  background: linear-gradient(to bottom, #822c2d, transparent);
+  padding: 0.25rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  font-family: "Fontin Bold";
+  font-size: 1rem;
+}
+
+.wizard__selections-table-mon {
+  width: 32%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+}
+
+.wizard__selections-table-category {
+  text-align: right;
+  padding: 0.25rem;
+  color: #b8b6af;
+  vertical-align: top;
+}
+
+.wizard__selections-table-item {
+  text-align: left;
+  width: 25%;
+  padding: 0.25rem 0.5rem;
+  color: #dccdb0;
+}
+
+.wizard__selections-table-bonus {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.25rem;
+  color: rgba(0, 181, 173, 0.7);
+  font-family: "Fontin Bold";
+}
+
 .wizard__form-xp-rings-container {
   width: 50%;
   -webkit-box-flex: 1;

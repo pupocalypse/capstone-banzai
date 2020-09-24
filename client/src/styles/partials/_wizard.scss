@@ -147,6 +147,53 @@
     font-size: 1rem;
   }
 
+  &__form-selections-table {
+    width: 100%;
+    margin-top: 1.5rem;
+    border-collapse: collapse;
+    font-family: "Fontin Regular";
+    font-size: 0.925rem;
+  }
+
+  &__selections-header {
+    color: rgba($content-colour-accent, 0.7);
+    background: linear-gradient(to bottom, $primary-dark-colour, transparent);
+    padding: 0.25rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    font-family: "Fontin Bold";
+    font-size: 1rem;
+  }
+
+  &__selections-table-mon {
+    width: 32%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+  }
+
+  &__selections-table-category {
+    text-align: right;
+    padding: 0.25rem;
+    color: $background-colour-secondary;
+    vertical-align: top;
+  }
+
+  &__selections-table-item {
+    text-align: left;
+    width: 25%;
+    padding: 0.25rem 0.5rem;
+    color: $content-colour-accent;
+  }
+
+  &__selections-table-bonus {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.25rem;
+    color: rgba($primary-complement, 0.7);
+    font-family: "Fontin Bold";
+  }
+
   &__form-xp-rings-container {
     width: 50%;
     // height: 20rem;

@@ -138,35 +138,59 @@ class WizardPage2 extends React.Component {
                 label="Family Name"
               />
               <Form.Input placeholder="Given Name" label="Given Name" />
-              <table>
+              <table className="wizard__form-selections-table">
+                <thead>
+                  <tr>
+                    <td colSpan="4" className="wizard__selections-header">
+                      Current Selections
+                    </td>
+                  </tr>
+                </thead>
                 <tbody>
                   <tr>
-                    {/* will receive clan mon from props, but all background styles will be handled in SCSS */}
                     <td
                       rowSpan="4"
+                      className="wizard__selections-table-mon"
                       style={{
-                        background: `url(${process.env.PUBLIC_URL}/images/mons-detail/${this.props.character.clan}_Clan_mon.png`,
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "contain",
+                        background: `url(${process.env.PUBLIC_URL}/images/mons-detail/${this.props.character.clan}_Clan_mon.png) no-repeat`,
+                        backgroundSize: "contain",
+                        backgroundPosition: "top",
                       }}
                     ></td>
-                    <td>Clan:</td>
-                    <td>{this.props.character.clan}</td>
+                    <td className="wizard__selections-table-category">Clan:</td>
+                    <td className="wizard__selections-table-item">
+                      {this.props.character.clan}
+                    </td>
                   </tr>
                   <tr>
-                    <td>Class:</td>
-                    <td>{this.props.character.job}</td>
+                    <td className="wizard__selections-table-category">
+                      Class:
+                    </td>
+                    <td className="wizard__selections-table-item">
+                      {this.props.character.job}
+                    </td>
                   </tr>
                   <tr>
-                    <td>Family:</td>
-                    <td>{this.props.character.family.name}</td>
-                    <td>+1 {this.props.character.family.bonus}</td>
+                    <td className="wizard__selections-table-category">
+                      Family:
+                    </td>
+                    <td className="wizard__selections-table-item">
+                      {this.props.character.family.name}
+                    </td>
+                    <td className="wizard__selections-table-bonus">
+                      +1 {this.props.character.family.bonus}
+                    </td>
                   </tr>
                   <tr>
-                    <td>School:</td>
-                    <td>{this.props.character.school.name}</td>
-                    <td>+1 {this.props.character.school.bonus}</td>
+                    <td className="wizard__selections-table-category">
+                      School:
+                    </td>
+                    <td className="wizard__selections-table-item">
+                      {this.props.character.school.name}
+                    </td>
+                    <td className="wizard__selections-table-bonus">
+                      +1 {this.props.character.school.bonus}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -207,7 +231,10 @@ class WizardPage2 extends React.Component {
                   }
 
                   return (
-                    <div className="wizard__form-school-skill">
+                    <div
+                      className="wizard__form-school-skill"
+                      key={`school-skill-${skill[0]}`}
+                    >
                       <h4 className="wizard__form-school-skill-name">
                         {skill[0]}
                       </h4>
@@ -261,7 +288,6 @@ class WizardPage2 extends React.Component {
                       name={`skill-${key}`}
                       options={this.state.skillOptions}
                       placeholder="Select a skill..."
-                      // label="Skill Name & Types"
                       defaultValue={this.state.skillOptions[0]}
                       className="wizard__form-skill-select"
                       onChange={(e, data) =>
@@ -274,7 +300,6 @@ class WizardPage2 extends React.Component {
                         return { key: item, text: item, value: item };
                       })}
                       placeholder="Rank..."
-                      // label="Rank"
                       defaultValue={1}
                       compact
                       className="wizard__form-skill-rank-select"
@@ -286,7 +311,6 @@ class WizardPage2 extends React.Component {
                       </p>
                     )}
                   </div>
-                  {/* <div className="wizard__form-skill-details">{trait}</div> */}
                   <Button
                     circular
                     size="mini"

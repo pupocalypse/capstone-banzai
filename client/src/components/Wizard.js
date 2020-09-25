@@ -219,7 +219,7 @@ class Wizard extends React.Component {
   // adding if user changes their mind)
   addSelectedSkill = (value, skillsIndex) => {
     const currentSkills = [...this.state.character.skills];
-    currentSkills[skillsIndex] = [value, "1"];
+    currentSkills[skillsIndex] = [value, 1];
 
     this.setState(
       {
@@ -277,6 +277,14 @@ class Wizard extends React.Component {
         requiredExp -= i;
       }
     }
+    if (requiredExp > this.state.character.currentExp) {
+      console.log("requiredExp:", requiredExp);
+      alert(`You do not have enough experience for this upgrade\n
+      Required Experience: ${requiredExp}\n
+      Current Experience: ${this.state.character.currentExp}`);
+      return;
+    }
+
     schoolSkills[index][2] = value;
     this.setState({
       character: {
@@ -294,9 +302,7 @@ class Wizard extends React.Component {
     expModifiers.push(requiredExp);
     let currentExp = this.state.character.currentExp;
     for (let i = 0; i < expModifiers.length; i++) {
-      console.log("currentExp before modifiers:", currentExp);
       currentExp -= expModifiers[i];
-      console.log("currentExp after modifiers:", currentExp);
     }
     this.setState({
       character: {

@@ -114,6 +114,13 @@ class WizardPage2 extends React.Component {
         requiredExp -= i;
       }
     }
+    if (requiredExp > this.props.character.currentExp) {
+      alert(`You do not have enough experience for this upgrade\n
+      Required Experience: ${requiredExp}\n
+      Current Experience: ${this.props.character.currentExp}`);
+      return;
+    }
+
     formSkillFields[index][2] = value;
     this.setState({ formSkillFields });
     this.props.updateCurrentExp(requiredExp);
@@ -291,59 +298,59 @@ class WizardPage2 extends React.Component {
               </div>
             </div>
 
-            {/* {this.state.skillOptions.length > 0 ? ( */}
-            {this.state.formSkillFields.map((key, index) => {
-              // console.log("form field key:", key);
-              // console.log("form field index:", index);
-              return (
-                <div
-                  className="wizard__form-add-skill"
-                  key={`add-skill-${key[0]}`}
-                >
-                  <div className="wizard__form-add-skill-dropdowns">
-                    <Form.Select
-                      name={`skill-${key}`}
-                      options={this.state.skillOptions}
-                      placeholder="Select a skill..."
-                      defaultValue={this.state.skillOptions[0]}
-                      className="wizard__form-skill-select"
-                      onChange={(e, data) =>
-                        this.updateSelectedSkill(e, data, index)
-                      }
+            {this.state.skillOptions.length > 0 ? (
+              this.state.formSkillFields.map((key, index) => {
+                return (
+                  <div
+                    className="wizard__form-add-skill"
+                    key={`add-skill-${key[0]}`}
+                  >
+                    <div className="wizard__form-add-skill-dropdowns">
+                      <Form.Select
+                        name={`skill-${key}`}
+                        options={this.state.skillOptions}
+                        placeholder="Select a skill..."
+                        defaultValue={this.state.skillOptions[0]}
+                        className="wizard__form-skill-select"
+                        onChange={(e, data) =>
+                          this.updateSelectedSkill(e, data, index)
+                        }
+                      />
+                      <Form.Select
+                        name={`skill-${key}-rank`}
+                        options={[1, 2, 3, 4].map((item) => {
+                          return { key: item, text: item, value: item };
+                        })}
+                        placeholder="Rank..."
+                        defaultValue={1}
+                        compact
+                        className="wizard__form-skill-rank-select"
+                        onChange={(e, data) =>
+                          this.spendSkillExp(e, data, index)
+                        }
+                      />
+                      {!key[3] ? null : (
+                        <p className="wizard__form-add-skill-trait">
+                          Trait: {key[3]}
+                        </p>
+                      )}
+                    </div>
+                    <Button
+                      circular
+                      size="mini"
+                      icon="remove"
+                      negative
+                      onClick={() => this.removeSkillField(index)}
+                      className="wizard__form-skill-delete"
                     />
-                    <Form.Select
-                      name={`skill-${key}-rank`}
-                      options={[1, 2, 3, 4].map((item) => {
-                        return { key: item, text: item, value: item };
-                      })}
-                      placeholder="Rank..."
-                      defaultValue={1}
-                      compact
-                      className="wizard__form-skill-rank-select"
-                      onChange={(e, data) => this.spendSkillExp(e, data, index)}
-                    />
-                    {!key[3] ? null : (
-                      <p className="wizard__form-add-skill-trait">
-                        Trait: {key[3]}
-                      </p>
-                    )}
                   </div>
-                  <Button
-                    circular
-                    size="mini"
-                    icon="remove"
-                    negative
-                    onClick={() => this.removeSkillField(index)}
-                    className="wizard__form-skill-delete"
-                  />
-                </div>
-              );
-            })}
-            {/* ) : (
+                );
+              })
+            ) : (
               <div className="wizard__form-add-skill">
                 <Loader active inline />
               </div>
-            )} */}
+            )}
             <div className="wizard__form-buttons">
               <Button
                 as={Link}

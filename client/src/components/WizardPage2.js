@@ -13,9 +13,6 @@ class WizardPage2 extends React.Component {
   componentDidMount() {
     this.setSkills();
     this.addSkillField();
-
-    if (!this.props.character.clan) {
-    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -23,8 +20,6 @@ class WizardPage2 extends React.Component {
       this.setSkills();
     }
   }
-
-  getNonSchoolSkills = () => {};
 
   // get available options by eliminating already chosen skills
   setSkills = () => {
@@ -80,6 +75,7 @@ class WizardPage2 extends React.Component {
         [skillFieldKey, "", 1, ""],
       ],
     });
+    this.props.updateCurrentExp(1);
   };
 
   removeSkillField = (index) => {
@@ -103,7 +99,25 @@ class WizardPage2 extends React.Component {
     });
   };
 
-  // updateSkillRank = (e, index) => {};
+  // receives new value of rank dropdown, calculates the difference
+  // in previous formSkillField rank, adds exp cost to expModifiers array
+  spendSkillExp = (e, { value }, index) => {
+    const formSkillFields = [...this.state.formSkillFields];
+    const currentRank = formSkillFields[index][2];
+    let requiredExp = 0;
+    if (value > currentRank) {
+      for (let i = currentRank; i < value; i++) {
+        requiredExp += i + 1;
+      }
+    } else if (value < currentRank) {
+      for (let i = currentRank; i > value; i--) {
+        requiredExp -= i;
+      }
+    }
+    formSkillFields[index][2] = value;
+    this.setState({ formSkillFields });
+    this.props.updateCurrentExp(requiredExp);
+  };
 
   // createCharacter = (e) => {
   //   // console.log("form:", e.target);
@@ -116,12 +130,12 @@ class WizardPage2 extends React.Component {
           <Form onSubmit={this.createCharacter}>
             <Form.Group widths="equal">
               <h4 className="wizard__form-details">
-                You now have 20 starting experience points to spend. You may
-                purchase additional skills, or higher ranks in existing skills
-                (which contribute to your 'roll' dice) or your trait rings
-                (these control your 'kept' dice). Once you've made your choices
-                and named your character, click 'Save' to generate your
-                character sheet.
+                You now have {this.props.character.totalExp} starting experience
+                points to spend. You may purchase additional skills, or higher
+                ranks in existing skills (which contribute to your 'roll' dice)
+                or your trait rings (these control your 'kept' dice). Once
+                you've made your choices and named your character, click 'Save'
+                to generate your character sheet.
                 <br />
                 <br />
                 Note that some rank purchases may be at your GM's
@@ -207,7 +221,9 @@ class WizardPage2 extends React.Component {
                 <h2 className="wizard__form-rings-heading">Rings</h2>
                 <div className="wizard__form-xp-container">
                   <Statistic>
-                    <Statistic.Value>20</Statistic.Value>
+                    <Statistic.Value>
+                      {this.props.character.currentExp}
+                    </Statistic.Value>
                     <Statistic.Label>XP</Statistic.Label>
                   </Statistic>
                 </div>
@@ -218,7 +234,7 @@ class WizardPage2 extends React.Component {
             <div className="wizard__form-skills">
               <h2 className="wizard__skills-heading">School Skills</h2>
               {this.props.character.skills.length > 0 ? (
-                this.props.character.skills.map((skill) => {
+                this.props.character.skills.map((skill, index) => {
                   let ranks = [];
                   for (let i = skill[1]; i < 5; i++) {
                     ranks.push(i);
@@ -244,11 +260,12 @@ class WizardPage2 extends React.Component {
                           return { key: item, text: item, value: item };
                         })}
                         placeholder="Rank..."
-                        // label="Rank"
                         defaultValue={ranks[0]}
                         compact
                         className="wizard__form-skill-rank-select"
-                        onChange={this.updateSkillRank}
+                        onChange={(e, data) =>
+                          this.props.spendSchoolSkillExp(e, data, index)
+                        }
                       />
                       <p className="wizard__form-school-skill-trait">
                         Trait: {trait}
@@ -303,7 +320,7 @@ class WizardPage2 extends React.Component {
                       defaultValue={1}
                       compact
                       className="wizard__form-skill-rank-select"
-                      onChange={this.updateSkillRank}
+                      onChange={(e, data) => this.spendSkillExp(e, data, index)}
                     />
                     {!key[3] ? null : (
                       <p className="wizard__form-add-skill-trait">

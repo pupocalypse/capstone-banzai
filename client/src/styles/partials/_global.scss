@@ -209,6 +209,7 @@ label {
   background: rgba($background-colour-secondary, 0.2);
   border: 1px solid rgba($background-colour-primary, 0.3);
   color: $content-colour-accent;
+  font-family: "Fontin Regular";
 
   &::placeholder {
     color: rgba($background-colour-primary, 0.6);

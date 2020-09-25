@@ -148,7 +148,7 @@
   }
 
   &__form-selections-table {
-    width: 100%;
+    margin: 0 0.5rem;
     margin-top: 1.5rem;
     border-collapse: collapse;
     font-family: "Fontin Regular";
@@ -161,8 +161,8 @@
     padding: 0.25rem;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
-    font-family: "Fontin Bold";
-    font-size: 1rem;
+    font-family: "BrushtipTexe";
+    font-size: 1.35rem;
   }
 
   &__selections-table-mon {
@@ -196,7 +196,6 @@
 
   &__form-xp-rings-container {
     width: 50%;
-    // height: 20rem;
     flex: 1 1;
     margin-left: 1.5rem;
     padding: 1rem;

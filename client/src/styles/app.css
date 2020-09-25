@@ -232,6 +232,7 @@ label {
   background: rgba(184, 182, 175, 0.2);
   border: 1px solid rgba(221, 213, 196, 0.3);
   color: #dccdb0;
+  font-family: "Fontin Regular";
 }
 
 .ui.form .field .ui.input input::-webkit-input-placeholder,
@@ -687,7 +688,7 @@ label {
 }
 
 .wizard__form-selections-table {
-  width: 100%;
+  margin: 0 0.5rem;
   margin-top: 1.5rem;
   border-collapse: collapse;
   font-family: "Fontin Regular";
@@ -701,8 +702,8 @@ label {
   padding: 0.25rem;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
-  font-family: "Fontin Bold";
-  font-size: 1rem;
+  font-family: "BrushtipTexe";
+  font-size: 1.35rem;
 }
 
 .wizard__selections-table-mon {

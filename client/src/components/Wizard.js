@@ -13,7 +13,10 @@ class Wizard extends React.Component {
     currentFamily: "",
     currentSchool: "",
     selectSkills: [],
+    expModifiers: [0],
     character: {
+      totalExp: 20,
+      currentExp: 20,
       firstName: "",
       lastName: "",
       clan: "",
@@ -23,7 +26,7 @@ class Wizard extends React.Component {
       skills: {},
       rings: {
         air: {
-          rank: 2,
+          // rank: 2,
           traits: {
             reflexes: {
               rank: 2,
@@ -38,7 +41,7 @@ class Wizard extends React.Component {
           },
         },
         earth: {
-          rank: 2,
+          // rank: 2,
           traits: {
             stamina: {
               rank: 2,
@@ -53,7 +56,7 @@ class Wizard extends React.Component {
           },
         },
         fire: {
-          rank: 2,
+          // rank: 2,
           traits: {
             agility: {
               rank: 2,
@@ -68,7 +71,7 @@ class Wizard extends React.Component {
           },
         },
         water: {
-          rank: 2,
+          // rank: 2,
           traits: {
             strength: {
               rank: 2,
@@ -83,7 +86,7 @@ class Wizard extends React.Component {
           },
         },
         void: {
-          rank: 2,
+          // rank: 2,
           traits: {
             void: {
               rank: 2,
@@ -209,14 +212,12 @@ class Wizard extends React.Component {
     const originalSkills = this.state.currentSchool[0].skills.core;
     const skillsIndex = originalSkills.length + index;
     this.addSelectedSkill(value, skillsIndex);
-    // console.log("this.state.selectSkills:", this.state.selectSkills);
   };
 
   // receives onChange data, updates LAST item in
   // character.skills array (so it doesn't keep
   // adding if user changes their mind)
   addSelectedSkill = (value, skillsIndex) => {
-    // console.log("skillsIndex:", skillsIndex);
     const currentSkills = [...this.state.character.skills];
     currentSkills[skillsIndex] = [value, "1"];
 
@@ -226,11 +227,10 @@ class Wizard extends React.Component {
           ...this.state.character,
           skills: currentSkills,
         },
-      },
-      () => {
-        // console.log("character's skills:", this.state.character.skills);
-        localStorage.setItem("new character", this.state.character);
       }
+      // () => {
+      //   localStorage.setItem("new character", this.state.character);
+      // }
     );
   };
 
@@ -246,8 +246,8 @@ class Wizard extends React.Component {
         traitRank = currentRings[ring].traits[trait].rank + 1;
       }
     }
-    const ringRank = this.calculateElementRingRank(currentRings, elementRing);
-    return { elementRing, traitRank, ringRank };
+    // const ringRank = this.calculateElementRingRank(currentRings, elementRing);
+    return { elementRing, traitRank };
   };
 
   // provided an element ring, search that ring for its updated trait
@@ -262,10 +262,50 @@ class Wizard extends React.Component {
     return ringRank;
   };
 
-  // page two functions
-  // addNewSkillName = () => {
-  //   const newSkillArray
-  // }
+  // for ranking up school skills specifically (purchased
+  // skills managed in WizardPage2 component)
+  spendSchoolSkillExp = (e, { value }, index) => {
+    const schoolSkills = [...this.state.character.skills];
+    const currentRank = schoolSkills[index][2] || schoolSkills[index][1];
+    let requiredExp = 0;
+    if (value > currentRank) {
+      for (let i = currentRank; i < value; i++) {
+        requiredExp += i + 1;
+      }
+    } else if (value < currentRank) {
+      for (let i = currentRank; i > value; i--) {
+        requiredExp -= i;
+      }
+    }
+    schoolSkills[index][2] = value;
+    this.setState({
+      character: {
+        ...this.state.character,
+        skills: schoolSkills,
+      },
+    });
+    this.updateCurrentExp(requiredExp);
+  };
+
+  // receives experience to spend, adds (or subtracts) from expModifiers
+  // then calculates currentExp after expModifiers
+  updateCurrentExp = (requiredExp) => {
+    let expModifiers = [...this.state.expModifiers];
+    expModifiers.push(requiredExp);
+    let currentExp = this.state.character.currentExp;
+    for (let i = 0; i < expModifiers.length; i++) {
+      console.log("currentExp before modifiers:", currentExp);
+      currentExp -= expModifiers[i];
+      console.log("currentExp after modifiers:", currentExp);
+    }
+    this.setState({
+      character: {
+        ...this.state.character,
+        expModifiers,
+        currentExp,
+      },
+    });
+  };
 
   // prepares character object for final phase, including ring calculations
   nextPageClick = () => {
@@ -286,28 +326,6 @@ class Wizard extends React.Component {
     character.rings[schoolBonusRing.elementRing].rank =
       schoolBonusRing.ringRank;
 
-    for (let ring in character.rings) {
-      if (
-        ring !== familyBonusRing.elementRing &&
-        ring !== schoolBonusRing.elementRing
-      ) {
-        character.rings[ring].rank = this.calculateElementRingRank(
-          character.rings,
-          ring
-        );
-      }
-    }
-
-    console.log(
-      "minimum of two traits:",
-      Math.min(
-        this.state.character.rings.air.traits.reflexes.rank,
-        this.state.character.rings.air.traits.awareness.rank
-      )
-    );
-    // console.log("familyBonusRing:", familyBonusRing);
-    // console.log("schoolBonusRing:", schoolBonusRing);
-
     this.setState({ character });
   };
 
@@ -322,6 +340,7 @@ class Wizard extends React.Component {
         traitRanks.push(character.rings[ring].traits[trait]);
       }
       character.rings[ring].rank = Math.min(...traitRanks);
+      character.currentExp = this.state.character.totalExp;
     }
 
     this.setState({ character });
@@ -373,6 +392,9 @@ class Wizard extends React.Component {
                     currentFamily={this.state.currentFamily}
                     currentSchool={this.state.currentSchool}
                     character={this.state.character}
+                    expModifiers={this.state.expModifiers}
+                    updateCurrentExp={this.updateCurrentExp}
+                    spendSchoolSkillExp={this.spendSchoolSkillExp}
                     updateLastName={this.updateLastName}
                     backButtonClick={this.backButtonClick}
                   />

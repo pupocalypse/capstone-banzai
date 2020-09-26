@@ -900,6 +900,17 @@ label {
   border-collapse: collapse;
   margin-top: 1rem;
   margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.wizard__form-rings-details {
+  font-size: 0.875rem;
+  font-family: "Fontin Italic";
+  color: rgba(184, 182, 175, 0.8);
+}
+
+.wizard__form-rings-details:last-child {
+  margin-bottom: 0.5rem;
 }
 
 .wizard__form-skills {
@@ -942,14 +953,20 @@ label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
   margin-top: 1rem;
   padding-left: 0.5rem;
+}
+
+.wizard__form-skills-details {
+  font-family: "Fontin Italic";
+  font-size: 0.875rem;
+  color: rgba(184, 182, 175, 0.8);
 }
 
 .wizard__form-add-skill {
@@ -1040,6 +1057,21 @@ label {
   border-bottom: 2px solid #822c2d;
   padding-left: 0.15rem;
   padding-top: 0.3rem;
+  position: relative;
+}
+
+.element-rank::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("../assets/images/rings/rings_empty_noBG.png") no-repeat;
+  background-size: contain;
+  background-position: center;
+  -webkit-filter: invert(99%) sepia(99%) saturate(493%) hue-rotate(313deg) brightness(92%) contrast(86%);
+          filter: invert(99%) sepia(99%) saturate(493%) hue-rotate(313deg) brightness(92%) contrast(86%);
 }
 
 .trait {

@@ -236,7 +236,21 @@ class WizardPage2 extends React.Component {
                 </div>
               </div>
 
-              <WizardRingsTable rings={this.props.character.rings} />
+              <WizardRingsTable
+                rings={this.props.character.rings}
+                spendTraitExp={this.props.spendTraitExp}
+              />
+              <p className="wizard__form-rings-details">
+                Element rings take the lesser rank of their two traits
+              </p>
+              <p className="wizard__form-rings-details">
+                Upgrading trait rings costs{" "}
+                <strong className="pop-text-2">next rank &times; 4</strong>
+              </p>
+              <p className="wizard__form-rings-details">
+                Upgrading Void ring costs{" "}
+                <strong className="pop-text-2">next rank &times; 6</strong>
+              </p>
             </div>
             <div className="wizard__form-skills">
               <h2 className="wizard__skills-heading">School Skills</h2>
@@ -287,6 +301,10 @@ class WizardPage2 extends React.Component {
               )}
             </div>
             <div className="wizard__form-button-container">
+              <p className="wizard__form-skills-details">
+                Upgrading skills costs{" "}
+                <strong className="pop-text-2">next rank</strong> in experience
+              </p>
               <div className="wizard__form-add-skill-button">
                 <Button
                   circular
@@ -351,6 +369,7 @@ class WizardPage2 extends React.Component {
                 <Loader active inline />
               </div>
             )}
+
             <div className="wizard__form-buttons">
               <Button
                 as={Link}

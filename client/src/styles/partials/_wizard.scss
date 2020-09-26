@@ -335,6 +335,17 @@
     border-collapse: collapse;
     margin-top: 1rem;
     margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__form-rings-details {
+    font-size: 0.875rem;
+    font-family: "Fontin Italic";
+    color: rgba($background-colour-secondary, 0.8);
+
+    &:last-child {
+      margin-bottom: 0.5rem;
+    }
   }
 
   &__form-skills {
@@ -373,10 +384,16 @@
   &__form-button-container {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: baseline;
     margin-top: 1rem;
     padding-left: 0.5rem;
+  }
+
+  &__form-skills-details {
+    font-family: "Fontin Italic";
+    font-size: 0.875rem;
+    color: rgba($background-colour-secondary, 0.8);
   }
 
   &__form-add-skill-button {

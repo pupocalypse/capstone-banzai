@@ -278,7 +278,6 @@ class Wizard extends React.Component {
       }
     }
     if (requiredExp > this.state.character.currentExp) {
-      console.log("requiredExp:", requiredExp);
       alert(`You do not have enough experience for this upgrade\n
       Required Experience: ${requiredExp}\n
       Current Experience: ${this.state.character.currentExp}`);
@@ -290,6 +289,78 @@ class Wizard extends React.Component {
       character: {
         ...this.state.character,
         skills: schoolSkills,
+      },
+    });
+    this.updateCurrentExp(requiredExp);
+  };
+
+  minimumTraitRanks = () => {
+    const character = { ...this.state.character };
+
+    // initial setup of default ranks (cannot reset below these values)
+    const defaultRings = {
+      air: {
+        reflexes: 2,
+        awareness: 2,
+      },
+      earth: {
+        stamina: 2,
+        willpower: 2,
+      },
+      fire: {
+        agility: 2,
+        intelligence: 2,
+      },
+      water: {
+        strength: 2,
+        perception: 2,
+      },
+      void: {
+        void: 2,
+      },
+    };
+    // modify based on family/school pick bonuses to determine minimum
+    for (let element in defaultRings) {
+      if (defaultRings[element].hasOwnProperty(character.family.bonus)) {
+        defaultRings[element][character.family.bonus] = 3;
+      } else if (defaultRings[element].hasOwnProperty(character.school.bonus)) {
+        defaultRings[element][character.school.bonus] = 3;
+      }
+    }
+
+    return defaultRings;
+  };
+
+  // calculates required experience cost for a given trait (only void costs more)
+  spendTraitExp = (element, trait) => {
+    const defaultRings = this.minimumTraitRanks();
+    const rings = { ...this.state.character.rings };
+    // let element;
+    // for (let ring in rings) {
+    //   if (rings[ring].traits.hasOwnProperty(trait)) {
+    //     element = ring;
+    //   }
+    // }
+    const currentRank = rings[element].traits[trait].rank;
+    let requiredExp;
+    if (rings[element].traits[trait].isVoid) {
+      requiredExp = (currentRank + 1) * 6;
+    } else {
+      requiredExp = (currentRank + 1) * 4;
+    }
+
+    if (requiredExp > this.state.character.currentExp) {
+      alert(`You do not have enough experience for this upgrade\n
+      Required Experience: ${requiredExp}\n
+      Current Experience: ${this.state.character.currentExp}`);
+      return;
+    }
+
+    rings[element].traits[trait].rank = currentRank + 1;
+    this.setState({
+      character: {
+        ...this.state.character,
+        rings,
       },
     });
     this.updateCurrentExp(requiredExp);
@@ -401,6 +472,7 @@ class Wizard extends React.Component {
                     expModifiers={this.state.expModifiers}
                     updateCurrentExp={this.updateCurrentExp}
                     spendSchoolSkillExp={this.spendSchoolSkillExp}
+                    spendTraitExp={this.spendTraitExp}
                     updateLastName={this.updateLastName}
                     backButtonClick={this.backButtonClick}
                   />

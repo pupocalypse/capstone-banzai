@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "semantic-ui-react";
 
-const WizardRingsTable = ({ rings }) => {
+const WizardRingsTable = ({ rings, spendTraitExp }) => {
   return (
     <table className="wizard__form-rings-table">
       <tbody>
@@ -23,6 +23,7 @@ const WizardRingsTable = ({ rings }) => {
               icon="angle double up"
               circular
               size="mini"
+              onClick={() => spendTraitExp("air", "reflexes")}
             ></Button>
           </td>
         </tr>
@@ -35,6 +36,7 @@ const WizardRingsTable = ({ rings }) => {
               icon="angle double up"
               circular
               size="mini"
+              onClick={() => spendTraitExp("air", "awareness")}
             ></Button>
           </td>
         </tr>
@@ -57,6 +59,7 @@ const WizardRingsTable = ({ rings }) => {
               icon="angle double up"
               circular
               size="mini"
+              onClick={() => spendTraitExp("earth", "stamina")}
             ></Button>
           </td>
         </tr>
@@ -69,6 +72,7 @@ const WizardRingsTable = ({ rings }) => {
               icon="angle double up"
               circular
               size="mini"
+              onClick={() => spendTraitExp("earth", "willpower")}
             ></Button>
           </td>
         </tr>
@@ -91,6 +95,7 @@ const WizardRingsTable = ({ rings }) => {
               icon="angle double up"
               circular
               size="mini"
+              onClick={() => spendTraitExp("fire", "agility")}
             ></Button>
           </td>
         </tr>
@@ -103,6 +108,7 @@ const WizardRingsTable = ({ rings }) => {
               icon="angle double up"
               circular
               size="mini"
+              onClick={() => spendTraitExp("fire", "intelligence")}
             ></Button>
           </td>
         </tr>
@@ -125,6 +131,7 @@ const WizardRingsTable = ({ rings }) => {
               icon="angle double up"
               circular
               size="mini"
+              onClick={() => spendTraitExp("water", "strength")}
             ></Button>
           </td>
         </tr>
@@ -137,6 +144,7 @@ const WizardRingsTable = ({ rings }) => {
               icon="angle double up"
               circular
               size="mini"
+              onClick={() => spendTraitExp("water", "perception")}
             ></Button>
           </td>
         </tr>
@@ -152,6 +160,7 @@ const WizardRingsTable = ({ rings }) => {
               icon="angle double up"
               circular
               size="mini"
+              onClick={() => spendTraitExp("void", "void")}
             ></Button>
           </td>
         </tr>

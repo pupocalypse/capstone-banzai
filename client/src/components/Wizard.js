@@ -1,11 +1,12 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import axios from "axios";
 
 import WizardPage1 from "./WizardPage1";
 import WizardPage2 from "./WizardPage2";
 import WizardHeader from "./WizardHeader";
 
-// import { Character } from "./CharacterClasses";
+const URL = "http://localhost:8000";
 
 class Wizard extends React.Component {
   state = {
@@ -27,7 +28,6 @@ class Wizard extends React.Component {
       skills: [],
       rings: {
         air: {
-          // rank: 2,
           traits: {
             reflexes: {
               rank: 2,
@@ -42,7 +42,6 @@ class Wizard extends React.Component {
           },
         },
         earth: {
-          // rank: 2,
           traits: {
             stamina: {
               rank: 2,
@@ -57,7 +56,6 @@ class Wizard extends React.Component {
           },
         },
         fire: {
-          // rank: 2,
           traits: {
             agility: {
               rank: 2,
@@ -72,7 +70,6 @@ class Wizard extends React.Component {
           },
         },
         water: {
-          // rank: 2,
           traits: {
             strength: {
               rank: 2,
@@ -87,7 +84,6 @@ class Wizard extends React.Component {
           },
         },
         void: {
-          // rank: 2,
           traits: {
             void: {
               rank: 2,
@@ -201,6 +197,15 @@ class Wizard extends React.Component {
     });
   };
 
+  updateFirstName = (e, { value }) => {
+    this.setState({
+      character: {
+        ...this.state.character,
+        firstName: value,
+      },
+    });
+  };
+
   // gatekeeping for disabled 'next' button
   // checks that ALL free pick skills have been selected
   schoolSkillsSelected = (e, { value }, index) => {
@@ -250,15 +255,15 @@ class Wizard extends React.Component {
 
   // provided an element ring, search that ring for its updated trait
   // ranks and calculate minimum of the two for element ring rank
-  calculateElementRingRank = (rings, element) => {
-    let ringRank = 0;
-    let traitRanks = [];
-    for (let trait in rings[element].traits) {
-      traitRanks.push(rings[element].traits[trait].rank);
-    }
-    ringRank = Math.min(...traitRanks);
-    return ringRank;
-  };
+  // calculateElementRingRank = (rings, element) => {
+  //   let ringRank = 0;
+  //   let traitRanks = [];
+  //   for (let trait in rings[element].traits) {
+  //     traitRanks.push(rings[element].traits[trait].rank);
+  //   }
+  //   ringRank = Math.min(...traitRanks);
+  //   return ringRank;
+  // };
 
   // for ranking up school skills specifically (purchased
   // skills managed in WizardPage2 component)
@@ -409,7 +414,6 @@ class Wizard extends React.Component {
         character.rings[ring].traits[trait].rank = 2;
         traitRanks.push(character.rings[ring].traits[trait]);
       }
-      character.rings[ring].rank = Math.min(...traitRanks);
       character.currentExp = this.state.character.totalExp;
     }
 
@@ -485,20 +489,22 @@ class Wizard extends React.Component {
       }
     }
 
-    // appending one thing at a time...
     formData.append("firstName", character.firstName);
     formData.append("lastName", character.lastName);
     formData.append("job", character.job);
     formData.append("clan", character.clan);
-    formData.append("family", character.family);
-    formData.append("school", character.school);
+    formData.append("family", JSON.stringify(character.family));
+    formData.append("school", JSON.stringify(character.school));
     formData.append("totalExp", character.totalExp);
     formData.append("currentExp", character.currentExp);
-    formData.append("skills", skillsObject);
-    formData.append("rings", character.rings);
-    formData.append("artwork", artworkFile);
+    formData.append("skills", JSON.stringify(skillsObject));
+    formData.append("rings", JSON.stringify(character.rings));
+    formData.append("artwork", JSON.stringify(artworkFile));
 
-    // axios call next...
+    axios
+      .post(`${URL}/characters`, formData)
+      .then((response) => console.log(response.data))
+      .catch((error) => console.log(error));
   };
 
   render() {
@@ -545,6 +551,7 @@ class Wizard extends React.Component {
                     spendSchoolSkillExp={this.spendSchoolSkillExp}
                     spendTraitExp={this.spendTraitExp}
                     updateLastName={this.updateLastName}
+                    updateFirstName={this.updateFirstName}
                     resetExpSpent={this.resetExpSpent}
                     backButtonClick={this.backButtonClick}
                     submitCharacter={this.submitCharacter}

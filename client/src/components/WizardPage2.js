@@ -48,20 +48,6 @@ class WizardPage2 extends React.Component {
     });
   };
 
-  // disableSkillOption = (e, { value }) => {
-  //   // loop through skillOptions object, find match for value
-  //   // delete skillOptions[value]
-  //   console.log("data.value:", value);
-  //   const updatedOptions = this.state.skillOptions.map((skill) => {
-  //     if (skill.name === value) {
-  //       skill.disabled = true;
-  //     }
-  //   });
-  //   this.setState({
-  //     skillOptions: updatedOptions,
-  //   });
-  // };
-
   addSkillField = () => {
     const skillFieldKey =
       this.state.formSkillFields.length > 0
@@ -139,11 +125,17 @@ class WizardPage2 extends React.Component {
 
   // callback for passed onSubmit function
   createCharacter = () => {
-    const boughtSkills = this.state.formSkillFields.filter((skill) => {
-      if (skill[1]) {
-        return [skill[1], skill[2]];
-      }
-    });
+    let boughtSkills;
+    boughtSkills = this.state.formSkillFields.reduce(
+      (acc, [key, skillName, rank, trait]) => {
+        if (skillName) {
+          acc.push([skillName, rank]);
+        }
+        return acc;
+      },
+      []
+    );
+
     return { boughtSkills, artworkFile: this.state.artworkFile };
   };
 
@@ -155,6 +147,7 @@ class WizardPage2 extends React.Component {
             onSubmit={(e) =>
               this.props.submitCharacter(e, this.createCharacter)
             }
+            encType="multipart/form-data"
           >
             <Form.Group widths="equal">
               <h4 className="wizard__form-details">
@@ -179,7 +172,11 @@ class WizardPage2 extends React.Component {
                 onChange={this.props.updateLastName}
                 label="Family Name"
               />
-              <Form.Input placeholder="Given Name" label="Given Name" />
+              <Form.Input
+                placeholder="Given Name"
+                label="Given Name"
+                onChange={this.props.updateFirstName}
+              />
               <table className="wizard__form-selections-table">
                 <thead>
                   <tr>
@@ -338,6 +335,7 @@ class WizardPage2 extends React.Component {
                   icon="add"
                   size="tiny"
                   onClick={this.addSkillField}
+                  type="button"
                 />
               </div>
             </div>
@@ -400,6 +398,7 @@ class WizardPage2 extends React.Component {
                       negative
                       onClick={() => this.removeSkillField(index)}
                       className="wizard__form-skill-delete"
+                      type="button"
                     />
                   </div>
                 );
@@ -426,6 +425,7 @@ class WizardPage2 extends React.Component {
                   circular
                   size="tiny"
                   className="wizard__form-upload-label"
+                  type="button"
                 >
                   <Icon name="file image"></Icon>
                   Upload
@@ -456,6 +456,7 @@ class WizardPage2 extends React.Component {
                 circular
                 size="tiny"
                 onClick={this.props.backButtonClick}
+                type="button"
               />
               <Button
                 content="Reset"
@@ -464,9 +465,12 @@ class WizardPage2 extends React.Component {
                 size="tiny"
                 onClick={() => this.props.resetExpSpent(this.resetChanges)}
                 negative
+                type="button"
               />
               <Button.Group size="tiny" floated="right">
-                <Button negative>Cancel</Button>
+                <Button negative type="button">
+                  Cancel
+                </Button>
                 <Button.Or />
                 <Button primary type="submit">
                   Save

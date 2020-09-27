@@ -24,7 +24,8 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
               circular
               size="mini"
               onClick={() => spendTraitExp("air", "reflexes")}
-            ></Button>
+              type="button"
+            />
           </td>
         </tr>
         <tr>
@@ -37,7 +38,8 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
               circular
               size="mini"
               onClick={() => spendTraitExp("air", "awareness")}
-            ></Button>
+              type="button"
+            />
           </td>
         </tr>
 
@@ -60,7 +62,8 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
               circular
               size="mini"
               onClick={() => spendTraitExp("earth", "stamina")}
-            ></Button>
+              type="button"
+            />
           </td>
         </tr>
         <tr>
@@ -73,7 +76,8 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
               circular
               size="mini"
               onClick={() => spendTraitExp("earth", "willpower")}
-            ></Button>
+              type="button"
+            />
           </td>
         </tr>
 
@@ -96,7 +100,8 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
               circular
               size="mini"
               onClick={() => spendTraitExp("fire", "agility")}
-            ></Button>
+              type="button"
+            />
           </td>
         </tr>
         <tr>
@@ -109,7 +114,8 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
               circular
               size="mini"
               onClick={() => spendTraitExp("fire", "intelligence")}
-            ></Button>
+              type="button"
+            />
           </td>
         </tr>
 
@@ -132,7 +138,8 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
               circular
               size="mini"
               onClick={() => spendTraitExp("water", "strength")}
-            ></Button>
+              type="button"
+            />
           </td>
         </tr>
         <tr>
@@ -145,7 +152,8 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
               circular
               size="mini"
               onClick={() => spendTraitExp("water", "perception")}
-            ></Button>
+              type="button"
+            />
           </td>
         </tr>
 
@@ -161,7 +169,8 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
               circular
               size="mini"
               onClick={() => spendTraitExp("void", "void")}
-            ></Button>
+              type="button"
+            />
           </td>
         </tr>
       </tbody>

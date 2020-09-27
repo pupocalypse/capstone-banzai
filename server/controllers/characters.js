@@ -5,4 +5,8 @@ const getCharacters = (req, res) => {
   res.json(characters);
 };
 
-module.exports = { getCharacters };
+const getCharacterById = (req, res) => {};
+
+const createCharacter = (req, res) => {};
+
+module.exports = { getCharacters, getCharacterById, createCharacter };

@@ -140,7 +140,9 @@ class WizardPage2 extends React.Component {
   // callback for passed onSubmit function
   createCharacter = () => {
     const boughtSkills = this.state.formSkillFields.filter((skill) => {
-      return [skill[1], skill[2]];
+      if (skill[1]) {
+        return [skill[1], skill[2]];
+      }
     });
     return { boughtSkills, artworkFile: this.state.artworkFile };
   };
@@ -300,7 +302,7 @@ class WizardPage2 extends React.Component {
                           return { key: item, text: item, value: item };
                         })}
                         placeholder="Rank..."
-                        defaultValue={ranks[0]}
+                        // defaultValue={ranks[0]}
                         value={
                           this.props.character.skills[index][2]
                             ? this.props.character.skills[index][2]
@@ -352,7 +354,7 @@ class WizardPage2 extends React.Component {
                         name={`skill-${key}`}
                         options={this.state.skillOptions}
                         placeholder="Select a skill..."
-                        defaultValue={this.state.skillOptions[0]}
+                        // defaultValue={this.state.skillOptions[0]}
                         className="wizard__form-skill-select"
                         onChange={(e, data) =>
                           this.updateSelectedSkill(e, data, index)

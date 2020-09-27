@@ -461,22 +461,29 @@ class Wizard extends React.Component {
   submitCharacter = (e, callback) => {
     e.preventDefault();
     let formData = new FormData();
-    const { character, skills } = this.state;
+    const { character } = this.state;
+    const { skills } = this.props;
     const { boughtSkills, artworkFile } = callback();
 
-    let skillsObject = character.skills.reduce((acc, skillArr) => {
-      const skillName = skillArr[0];
-      const skillRank = skillArr[skillArr.length - 1];
-      acc[skillName] = skills[skillName];
-      acc[skillName].rank = skillRank;
-      acc[skillName].schoolSkill = true;
-      return acc;
-    }, {});
-    skillsObject = boughtSkills.reduce((acc, [skillName, skillRank]) => {
-      acc[skillName] = skills[skillName];
-      acc[skillName].rank = skillRank;
-      return acc;
-    }, skillsObject);
+    let skillsObject;
+
+    if (skills) {
+      skillsObject = character.skills.reduce((acc, skillArr) => {
+        const skillName = skillArr[0];
+        const skillRank = skillArr[skillArr.length - 1];
+        acc[skillName] = skills[skillName];
+        acc[skillName].rank = skillRank;
+        acc[skillName].schoolSkill = true;
+        return acc;
+      }, {});
+      if (boughtSkills) {
+        skillsObject = boughtSkills.reduce((acc, [skillName, skillRank]) => {
+          acc[skillName] = skills[skillName];
+          acc[skillName].rank = skillRank;
+          return acc;
+        }, skillsObject);
+      }
+    }
 
     // appending one thing at a time...
     formData.append("firstName", character.firstName);
@@ -490,6 +497,8 @@ class Wizard extends React.Component {
     formData.append("skills", skillsObject);
     formData.append("rings", character.rings);
     formData.append("artwork", artworkFile);
+
+    // axios call next...
   };
 
   render() {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Form, Button, Loader, Statistic } from "semantic-ui-react";
+import { Form, Button, Loader, Statistic, Icon } from "semantic-ui-react";
 
 import WizardRingsTable from "./WizardRingsTable";
 
@@ -8,6 +8,7 @@ class WizardPage2 extends React.Component {
   state = {
     formSkillFields: [],
     skillOptions: [],
+    artworkFile: "",
   };
 
   componentDidMount() {
@@ -124,6 +125,16 @@ class WizardPage2 extends React.Component {
     formSkillFields[index][2] = value;
     this.setState({ formSkillFields });
     this.props.updateCurrentExp(requiredExp);
+  };
+
+  changeArtwork = (e) => {
+    this.setState({
+      artworkFile: e.target.files[0],
+    });
+  };
+
+  resetChanges = () => {
+    this.setState({ formSkillFields: [], artworkFile: "" });
   };
 
   // createCharacter = (e) => {
@@ -370,6 +381,41 @@ class WizardPage2 extends React.Component {
               </div>
             )}
 
+            <div className="wizard__form-upload-container">
+              <h3 className="wizard__form-upload-heading">
+                Upload Character Artwork
+              </h3>
+              <p className="wizard__form-upload-details">
+                Provide an image that you feel represents your character. Try to
+                use something where the important details of the character are
+                the main focus of the artwork and roughly centred.
+              </p>
+              <div className="wizard__form-input-container">
+                <Button
+                  as="label"
+                  htmlFor="artworkFile"
+                  circular
+                  size="tiny"
+                  className="wizard__form-upload-label"
+                >
+                  <Icon name="file image"></Icon>
+                  Upload
+                  <input
+                    type="file"
+                    id="artworkFile"
+                    name="artworkFile"
+                    className="wizard__form-upload-input"
+                    onChange={(e) => this.changeArtwork(e)}
+                  />
+                </Button>
+                <p className="wizard__form-upload-filename">
+                  {this.state.artworkFile.name
+                    ? this.state.artworkFile.name
+                    : "Select a file..."}
+                </p>
+              </div>
+            </div>
+
             <div className="wizard__form-buttons">
               <Button
                 as={Link}
@@ -381,6 +427,14 @@ class WizardPage2 extends React.Component {
                 circular
                 size="tiny"
                 onClick={this.props.backButtonClick}
+              />
+              <Button
+                content="Reset"
+                icon="exclamation circle"
+                circular
+                size="tiny"
+                onClick={() => this.props.resetExpSpent(this.resetChanges)}
+                negative
               />
               <Button.Group size="tiny" floated="right">
                 <Button negative>Cancel</Button>

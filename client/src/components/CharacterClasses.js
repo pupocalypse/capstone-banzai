@@ -30,26 +30,26 @@ class Trait {
   // }
 }
 
-class Skill {
-  constructor(rank, trait, type, subType, schoolSkill, emphasis) {
-    this.baseRank = rank;
-    this.trait = trait;
-    this.type = type;
-    this.subType = subType;
-    this.schoolSkill = schoolSkill; // will be true or false
-    this.rank = this.getRank();
-    // this.emphasis = emphasis; // skip emphases for now?
-  }
+// class Skill {
+//   constructor(rank, trait, type, subType, schoolSkill, emphasis) {
+//     this.baseRank = rank;
+//     this.trait = trait;
+//     this.type = type;
+//     this.subType = subType;
+//     this.schoolSkill = schoolSkill; // will be true or false
+//     this.rank = this.getRank();
+//     // this.emphasis = emphasis; // skip emphases for now?
+//   }
 
-  getRank() {
-    // return current rank, as defined by previous experience spending
-    return this.getRank || this.baseRank;
-  }
+//   getRank() {
+//     // return current rank, as defined by previous experience spending
+//     return this.getRank || this.baseRank;
+//   }
 
-  // set rank(newRank) {
-  //   this.rank = newRank;
-  // }
-}
+//   // set rank(newRank) {
+//   //   this.rank = newRank;
+//   // }
+// }
 
 // class functions
 class Character {
@@ -60,11 +60,11 @@ class Character {
     // this.insight = new Insight(); // what args should it take?
     this.baseExp = 20;
     this.name = args[0];
-    this.clan = args[1];
+    this.clan = args[1]; // string
     // this.family = args.family;
-    this.family = args[2];
+    this.family = args[2]; // object
     // this.school = args.school;
-    this.school = args[3];
+    this.school = args[3]; // object
     // this.skills;
     this.rings = this.getRings();
     this.skills = this.getSkills();
@@ -197,29 +197,29 @@ class Character {
     this.totalExp += gainedExp;
   }
 
-  rankUpTrait(trait) {
-    // receives a trait name
-    for (let element in this.rings) {
-      if (element.traits.hasOwnProperty(trait)) {
-        let nextRank = element.traits[trait].rank + 1;
-        let requiredExp;
-        if (trait === "void") {
-          requiredExp = nextRank * 6; // eg. rank (1 + 1) * 6 = 12, cost of next rank
-        } else {
-          requiredExp = nextRank * 4; // eg. rank (2 + 1) * 4 = 12, cost of next rank
-        }
+  // rankUpTrait(trait) {
+  //   // receives a trait name
+  //   for (let element in this.rings) {
+  //     if (element.traits.hasOwnProperty(trait)) {
+  //       let nextRank = element.traits[trait].rank + 1;
+  //       let requiredExp;
+  //       if (trait === "void") {
+  //         requiredExp = nextRank * 6; // eg. rank (1 + 1) * 6 = 12, cost of next rank
+  //       } else {
+  //         requiredExp = nextRank * 4; // eg. rank (2 + 1) * 4 = 12, cost of next rank
+  //       }
 
-        if (requiredExp > this.xp) {
-          return "You do not have enough experience to improve this trait";
-        } else {
-          // deduct requiredExp from character's xp value
-          // improve Trait rank by +1
-          this.currExp(-Math.abs(requiredExp)); // need to make sure it subtracts, not adds
-          this.rings[element].traits[trait].rank = nextRank;
-        }
-      }
-    }
-  }
+  //       if (requiredExp > this.xp) {
+  //         return "You do not have enough experience to improve this trait";
+  //       } else {
+  //         // deduct requiredExp from character's xp value
+  //         // improve Trait rank by +1
+  //         this.currExp(-Math.abs(requiredExp)); // need to make sure it subtracts, not adds
+  //         this.rings[element].traits[trait].rank = nextRank;
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 export { Character };

@@ -8,7 +8,6 @@ import RyoImg from "../assets/images/example_GoukimaroRyo.jpg";
 const CharactersPage = () => {
   return (
     <main className="characters">
-      {/* renders existing character 'card' components, links to character sheet */}
       <div className="characters__header">
         <h1 className="characters__heading">Characters</h1>
       </div>

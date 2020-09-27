@@ -45,8 +45,7 @@ const WizardPage1 = ({
       <Button
         content="Reset"
         icon="exclamation circle"
-        labelPosition="left"
-        // color="red"
+        // labelPosition="left"
         circular
         size="tiny"
         onClick={resetInputs}
@@ -61,7 +60,6 @@ const WizardPage1 = ({
           content="Next"
           icon="right arrow"
           labelPosition="right"
-          // color="olive"
           circular
           size="tiny"
           onClick={nextPageClick}
@@ -72,7 +70,6 @@ const WizardPage1 = ({
           content="Next"
           icon="right arrow"
           labelPosition="right"
-          // color="olive"
           circular
           size="tiny"
           primary

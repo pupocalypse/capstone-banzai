@@ -1,7 +1,5 @@
 import React from "react";
 
-// import HayamiImg from "../assets/images/example_YasukiHayami.png";
-
 const CharacterCard = ({
   rank,
   name,
@@ -32,7 +30,6 @@ const CharacterCard = ({
             src={`${process.env.PUBLIC_URL}/images/mons-colour/Mon_${clan}_colour.png`}
             alt=""
             className="character-card__mon-image"
-            // style={{ width: "20vw" }}
           />
         </div>
         <div className="character-card__description">

@@ -1,10 +1,6 @@
 import React from "react";
 import { Statistic } from "semantic-ui-react";
 
-// import HayamiImg from "../assets/images/example_YasukiHayami.png";
-// import ringsImg from "../assets/images/rings/rings_noBG.png";
-// import emptyRingImg from "../assets/images/rings/rings_empty_whiteBG.png";
-
 class CharacterSheet extends React.Component {
   state = {
     voidSlots: {
@@ -27,7 +23,6 @@ class CharacterSheet extends React.Component {
       <main className="character-sheet">
         <section className="character-sheet__info-container">
           <div className="character-sheet__artwork"></div>
-          {/* <img src={HayamiImg} alt="" className="character-sheet__artwork" /> */}
           <div className="character-sheet__info">
             <h1 className="character-sheet__name-heading">Yasuki Hayami</h1>
             <div className="character-sheet__details-container">

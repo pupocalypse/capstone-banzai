@@ -14,6 +14,7 @@ class Wizard extends React.Component {
     currentSchool: "",
     selectSkills: [],
     expModifiers: [0],
+    defaultRings: {},
     character: {
       totalExp: 20,
       currentExp: 20,
@@ -23,7 +24,7 @@ class Wizard extends React.Component {
       family: {}, // family name, bonus, description
       school: {}, // school name, bonus
       job: "",
-      skills: {},
+      skills: [],
       rings: {
         air: {
           // rank: 2,
@@ -328,19 +329,16 @@ class Wizard extends React.Component {
       }
     }
 
-    return defaultRings;
+    this.setState({
+      defaultRings,
+    });
+
+    // return defaultRings;
   };
 
   // calculates required experience cost for a given trait (only void costs more)
   spendTraitExp = (element, trait) => {
-    const defaultRings = this.minimumTraitRanks();
     const rings = { ...this.state.character.rings };
-    // let element;
-    // for (let ring in rings) {
-    //   if (rings[ring].traits.hasOwnProperty(trait)) {
-    //     element = ring;
-    //   }
-    // }
     const currentRank = rings[element].traits[trait].rank;
     let requiredExp;
     if (rings[element].traits[trait].isVoid) {
@@ -403,7 +401,7 @@ class Wizard extends React.Component {
     character.rings[schoolBonusRing.elementRing].rank =
       schoolBonusRing.ringRank;
 
-    this.setState({ character });
+    this.setState({ character }, () => this.minimumTraitRanks());
   };
 
   // for indecisive players :P - undoes the previous
@@ -421,6 +419,39 @@ class Wizard extends React.Component {
     }
 
     this.setState({ character });
+  };
+
+  // resets expModifiers, improved skill ranks, improved trait ranks, name, artwork
+  resetExpSpent = (callback) => {
+    const characterRings = { ...this.state.character.rings };
+    const defaultRings = { ...this.state.defaultRings };
+    for (let element in characterRings) {
+      for (let trait in characterRings[element].traits) {
+        characterRings[element].traits[trait].rank =
+          defaultRings[element][trait];
+      }
+    }
+    const characterSkills = [...this.state.character.skills];
+    const skillsReset = characterSkills.map((skill) => {
+      console.log("skill:", skill);
+      if (skill.length > 2) {
+        skill.pop();
+      }
+      return skill;
+    });
+    console.log("skillsReset:", skillsReset);
+
+    this.setState({
+      character: {
+        ...this.state.character,
+        firstName: "",
+        expModifiers: [],
+        currentExp: 20,
+        rings: characterRings,
+        skills: skillsReset,
+      },
+    });
+    callback();
   };
 
   resetInputs = () => {
@@ -474,6 +505,7 @@ class Wizard extends React.Component {
                     spendSchoolSkillExp={this.spendSchoolSkillExp}
                     spendTraitExp={this.spendTraitExp}
                     updateLastName={this.updateLastName}
+                    resetExpSpent={this.resetExpSpent}
                     backButtonClick={this.backButtonClick}
                   />
                 );

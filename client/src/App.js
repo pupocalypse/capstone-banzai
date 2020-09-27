@@ -7,8 +7,6 @@ import Home from "./components/Home";
 import Wizard from "./components/Wizard";
 import CharactersPage from "./components/CharactersPage";
 import CharacterSheet from "./components/CharacterSheet";
-// import Clans from "./components/Clans";
-// import UITest from "./components/UI-Test";
 
 const URL = "http://localhost:8000";
 
@@ -17,39 +15,19 @@ class App extends React.Component {
     clans: [],
     schools: [],
     skills: {},
-    // selectedClan: {},
-    // open: true,
   };
 
   componentDidMount() {
     this.getData("clans");
     this.getData("schools");
     this.getData("skills");
-    // console.log("App component mounted");
   }
 
-  // componentDidUpdate(_prevProps, prevState) {
-  //   // console.log("prevState:", prevState);
-  //   // console.log("this.state:", this.state);
-  //   if (prevState.clans !== this.state.clans) {
-  //     this.setState({
-  //       selectedClan: this.state.clans[0],
-  //     });
-  //   }
-  //   if (prevState.selectedClan !== this.state.selectedClan) {
-  //     this.setState({
-  //       open: true,
-  //     });
-  //   }
-  //   console.log("App component updated");
-  // }
-
+  // pass in clans, schools, skills as string
   getData(stateProp) {
-    // pass in clans, schools, skills as string
     axios
       .get(`${URL}/${stateProp}`)
       .then(({ data }) => {
-        // console.log(data);
         let sevenClans;
         if (stateProp === "clans" || stateProp === "schools") {
           sevenClans = data.filter((clanData) => clanData.clan !== "Mantis");
@@ -71,7 +49,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* <h1>万歳 Banzai! Homepage</h1> */}
         <Navbar />
         <Switch>
           <Route
@@ -107,14 +84,6 @@ class App extends React.Component {
             }}
           />
         </Switch>
-        {/* <UITest clans={this.state.clans} /> */}
-        {/* <Clans
-          clans={this.state.clans}
-          schools={this.state.schools}
-          selectedClan={this.state.selectedClan}
-          handleClick={this.handleClick}
-          open={this.state.open}
-        /> */}
       </div>
     );
   }

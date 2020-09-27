@@ -998,6 +998,12 @@ label {
   margin-bottom: 1.5rem;
 }
 
+.wizard .loading {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .wizard__form-add-skill-dropdowns {
   -webkit-box-flex: 1;
       -ms-flex: 1 1;

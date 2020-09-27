@@ -16,13 +16,13 @@ class Wizard extends React.Component {
     expModifiers: [0],
     defaultRings: {},
     character: {
-      totalExp: 20,
-      currentExp: 20,
+      totalExp: 40,
+      currentExp: 40,
       firstName: "",
       lastName: "",
       clan: "",
       family: {}, // family name, bonus, description
-      school: {}, // school name, bonus
+      school: {}, // school name, bonus, description, etc.
       job: "",
       skills: [],
       rings: {
@@ -204,7 +204,6 @@ class Wizard extends React.Component {
   // gatekeeping for disabled 'next' button
   // checks that ALL free pick skills have been selected
   schoolSkillsSelected = (e, { value }, index) => {
-    // console.log("index:", index);
     let selectedSkill = this.state.selectSkills;
     selectedSkill[index] = true;
     this.setState({
@@ -239,7 +238,6 @@ class Wizard extends React.Component {
   // applies the bonus to the starting rank of the trait
   upgradeTraitRing = (currentRings, trait) => {
     let elementRing = "";
-    // let traitRank = startingRank + 1;
     let traitRank;
     for (let ring in currentRings) {
       if (currentRings[ring].traits.hasOwnProperty(trait)) {
@@ -247,7 +245,6 @@ class Wizard extends React.Component {
         traitRank = currentRings[ring].traits[trait].rank + 1;
       }
     }
-    // const ringRank = this.calculateElementRingRank(currentRings, elementRing);
     return { elementRing, traitRank };
   };
 
@@ -332,8 +329,6 @@ class Wizard extends React.Component {
     this.setState({
       defaultRings,
     });
-
-    // return defaultRings;
   };
 
   // calculates required experience cost for a given trait (only void costs more)
@@ -422,6 +417,7 @@ class Wizard extends React.Component {
   };
 
   // resets expModifiers, improved skill ranks, improved trait ranks, name, artwork
+  // callback resets page 2 specific states
   resetExpSpent = (callback) => {
     const characterRings = { ...this.state.character.rings };
     const defaultRings = { ...this.state.defaultRings };
@@ -459,6 +455,41 @@ class Wizard extends React.Component {
     localStorage.removeItem("current clan");
     localStorage.removeItem("current family");
     localStorage.removeItem("current school");
+  };
+
+  // assembles all appropriate character data as formData
+  submitCharacter = (e, callback) => {
+    e.preventDefault();
+    let formData = new FormData();
+    const { character, skills } = this.state;
+    const { boughtSkills, artworkFile } = callback();
+
+    let skillsObject = character.skills.reduce((acc, skillArr) => {
+      const skillName = skillArr[0];
+      const skillRank = skillArr[skillArr.length - 1];
+      acc[skillName] = skills[skillName];
+      acc[skillName].rank = skillRank;
+      acc[skillName].schoolSkill = true;
+      return acc;
+    }, {});
+    skillsObject = boughtSkills.reduce((acc, [skillName, skillRank]) => {
+      acc[skillName] = skills[skillName];
+      acc[skillName].rank = skillRank;
+      return acc;
+    }, skillsObject);
+
+    // appending one thing at a time...
+    formData.append("firstName", character.firstName);
+    formData.append("lastName", character.lastName);
+    formData.append("job", character.job);
+    formData.append("clan", character.clan);
+    formData.append("family", character.family);
+    formData.append("school", character.school);
+    formData.append("totalExp", character.totalExp);
+    formData.append("currentExp", character.currentExp);
+    formData.append("skills", skillsObject);
+    formData.append("rings", character.rings);
+    formData.append("artwork", artworkFile);
   };
 
   render() {
@@ -507,6 +538,7 @@ class Wizard extends React.Component {
                     updateLastName={this.updateLastName}
                     resetExpSpent={this.resetExpSpent}
                     backButtonClick={this.backButtonClick}
+                    submitCharacter={this.submitCharacter}
                   />
                 );
               }}

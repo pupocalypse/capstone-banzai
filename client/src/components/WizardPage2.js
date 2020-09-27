@@ -137,15 +137,23 @@ class WizardPage2 extends React.Component {
     this.setState({ formSkillFields: [], artworkFile: "" });
   };
 
-  // createCharacter = (e) => {
-  //   // console.log("form:", e.target);
-  // };
+  // callback for passed onSubmit function
+  createCharacter = () => {
+    const boughtSkills = this.state.formSkillFields.filter((skill) => {
+      return [skill[1], skill[2]];
+    });
+    return { boughtSkills, artworkFile: this.state.artworkFile };
+  };
 
   render() {
     return (
       <div className="wizard__part-two-container">
         <div className="wizard__form-container">
-          <Form onSubmit={this.createCharacter}>
+          <Form
+            onSubmit={(e) =>
+              this.props.submitCharacter(e, this.createCharacter)
+            }
+          >
             <Form.Group widths="equal">
               <h4 className="wizard__form-details">
                 You now have {this.props.character.totalExp} starting experience
@@ -293,6 +301,11 @@ class WizardPage2 extends React.Component {
                         })}
                         placeholder="Rank..."
                         defaultValue={ranks[0]}
+                        value={
+                          this.props.character.skills[index][2]
+                            ? this.props.character.skills[index][2]
+                            : this.props.character.skills[index][1]
+                        }
                         compact
                         className="wizard__form-skill-rank-select"
                         onChange={(e, data) =>
@@ -306,7 +319,7 @@ class WizardPage2 extends React.Component {
                   );
                 })
               ) : (
-                <div className="wizard__form-add-skill">
+                <div className="wizard__form-add-skill loading">
                   <Loader active inline />
                 </div>
               )}
@@ -345,19 +358,33 @@ class WizardPage2 extends React.Component {
                           this.updateSelectedSkill(e, data, index)
                         }
                       />
-                      <Form.Select
-                        name={`skill-${key}-rank`}
-                        options={[1, 2, 3, 4].map((item) => {
-                          return { key: item, text: item, value: item };
-                        })}
-                        placeholder="Rank..."
-                        defaultValue={1}
-                        compact
-                        className="wizard__form-skill-rank-select"
-                        onChange={(e, data) =>
-                          this.spendSkillExp(e, data, index)
-                        }
-                      />
+                      {!this.state.formSkillFields[index][1] ? (
+                        <Form.Select
+                          name={`skill-${key}-rank`}
+                          options={[1, 2, 3, 4].map((item) => {
+                            return { key: item, text: item, value: item };
+                          })}
+                          placeholder="Rank..."
+                          defaultValue={1}
+                          compact
+                          className="wizard__form-skill-rank-select"
+                          disabled
+                        />
+                      ) : (
+                        <Form.Select
+                          name={`skill-${key}-rank`}
+                          options={[1, 2, 3, 4].map((item) => {
+                            return { key: item, text: item, value: item };
+                          })}
+                          placeholder="Rank..."
+                          defaultValue={1}
+                          compact
+                          className="wizard__form-skill-rank-select"
+                          onChange={(e, data) =>
+                            this.spendSkillExp(e, data, index)
+                          }
+                        />
+                      )}
                       {!key[3] ? null : (
                         <p className="wizard__form-add-skill-trait">
                           Trait: {key[3]}
@@ -376,7 +403,7 @@ class WizardPage2 extends React.Component {
                 );
               })
             ) : (
-              <div className="wizard__form-add-skill">
+              <div className="wizard__form-add-skill loading">
                 <Loader active inline />
               </div>
             )}

@@ -419,6 +419,10 @@
     }
   }
 
+  .loading {
+    justify-content: center;
+  }
+
   &__form-add-skill-dropdowns {
     flex: 1 1;
     display: flex;

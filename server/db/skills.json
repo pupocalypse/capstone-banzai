@@ -5,6 +5,60 @@
     "subType": ["Social", "Perform"],
     "schoolSkill": false
   },
+  "animal handling": {
+    "trait": "awareness",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "artisan: bonsai": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "artisan: gardening": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "artisan: ikebana": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "artisan: origami": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "artisan: painting": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "artisan: poetry": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "artisan: sculpture": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "artisan: tattooing": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
   "athletics": {
     "trait": "strength",
     "type": "Bugei",
@@ -15,6 +69,18 @@
     "trait": "perception",
     "type": "Bugei",
     "subType": [],
+    "schoolSkill": false
+  },
+  "calligraphy": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": ["Artisan"],
+    "schoolSkill": false
+  },
+  "chain weapons": {
+    "trait": "agility",
+    "type": "Bugei",
+    "subType": ["Weapon"],
     "schoolSkill": false
   },
   "commerce": {
@@ -29,9 +95,129 @@
     "subType": ["Social"],
     "schoolSkill": false
   },
+  "craft: armorsmithing": {
+    "trait": "agility",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: blacksmithing": {
+    "trait": "agility",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: bowyer": {
+    "trait": "agility",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: brewing": {
+    "trait": "awareness",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: carpentry": {
+    "trait": "agility",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: cartography": {
+    "trait": "intelligence",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: cobbling": {
+    "trait": "agility",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: cooking": {
+    "trait": "awareness",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: farming": {
+    "trait": "strength",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: fishing": {
+    "trait": "reflexes",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: masonry": {
+    "trait": "agility",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: mining": {
+    "trait": "strength",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: poison": {
+    "trait": "intelligence",
+    "type": "Low",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: pottery": {
+    "trait": "agility",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: shipbuilding": {
+    "trait": "agility",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: tailoring": {
+    "trait": "reflexes",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: weaponsmithing": {
+    "trait": "agility",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "craft: weaving": {
+    "trait": "agility",
+    "type": "Merchant",
+    "subType": [],
+    "schoolSkill": false
+  },
   "defense": {
     "trait": "reflexes",
     "type": "Bugei",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "divination": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "engineering": {
+    "trait": "intelligence",
+    "type": "Merchant",
     "subType": [],
     "schoolSkill": false
   },
@@ -39,6 +225,48 @@
     "trait": "awareness",
     "type": "High",
     "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "forgery": {
+    "trait": "agility",
+    "type": "Low",
+    "subType": ["Craft"],
+    "schoolSkill": false
+  },
+  "games: fortunes & winds": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "games: go": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "games: kemari": {
+    "trait": "agility",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "games: letters": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "games: sadane": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "games: shogi": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
     "schoolSkill": false
   },
   "heavy weapons": {
@@ -101,7 +329,61 @@
     "subType": ["Weapon"],
     "schoolSkill": false
   },
+  "lore: anatomy": {
+    "trait": "intelligence",
+    "type": "Low",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "lore: architecture": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "lore: bushido": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "lore: elements": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "lore: ghosts": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "lore: heraldry": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
   "lore: history": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "lore: maho": {
+    "trait": "intelligence",
+    "type": "Low",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "lore: nature": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "lore: omens": {
     "trait": "intelligence",
     "type": "High",
     "subType": [],
@@ -119,7 +401,31 @@
     "subType": [],
     "schoolSkill": false
   },
+  "lore: spirit realms": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
   "lore: theology": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "lore: underworld": {
+    "trait": "intelligence",
+    "type": "Low",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "lore: war": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": [],
+    "schoolSkill": false
+  },
+  "medicine": {
     "trait": "intelligence",
     "type": "High",
     "subType": [],
@@ -137,6 +443,66 @@
     "subType": ["Weapon", "Low"],
     "schoolSkill": false
   },
+  "perform: biwa": {
+    "trait": "agility",
+    "type": "High",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "perform: dance": {
+    "trait": "agility",
+    "type": "High",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "perform: drums": {
+    "trait": "agility",
+    "type": "High",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "perform: flute": {
+    "trait": "agility",
+    "type": "High",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "perform: oratory": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "perform: puppeteer": {
+    "trait": "agility",
+    "type": "High",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "perform: samisen": {
+    "trait": "agility",
+    "type": "High",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "perform: song": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "perform: storytelling": {
+    "trait": "awareness",
+    "type": "High",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "polearms": {
+    "trait": "agility",
+    "type": "Bugei",
+    "subType": ["Weapon"],
+    "schoolSkill": false
+  },
   "sailing": {
     "trait": ["agility", "intelligence"],
     "type": "Merchant",
@@ -149,7 +515,25 @@
     "subType": ["Social"],
     "schoolSkill": false
   },
+  "sleight of hand": {
+    "trait": "agility",
+    "type": "Low",
+    "subType": [],
+    "schoolSkill": false
+  },
   "spears": {
+    "trait": "agility",
+    "type": "Bugei",
+    "subType": ["Weapon"],
+    "schoolSkill": false
+  },
+  "spellcraft": {
+    "trait": "intelligence",
+    "type": "High",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "staves": {
     "trait": "agility",
     "type": "Bugei",
     "subType": ["Weapon"],
@@ -165,6 +549,18 @@
     "trait": "void",
     "type": "High",
     "subType": [],
+    "schoolSkill": false
+  },
+  "temptation": {
+    "trait": "awareness",
+    "type": "Low",
+    "subType": ["Social"],
+    "schoolSkill": false
+  },
+  "war fan": {
+    "trait": "agility",
+    "type": "Bugei",
+    "subType": ["Weapon"],
     "schoolSkill": false
   }
 }

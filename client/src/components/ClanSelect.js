@@ -3,8 +3,6 @@ import DropdownMenu from "./DropdownMenu";
 import { Divider } from "semantic-ui-react";
 
 const ClanSelect = ({ clans, currentClan, handleChange }) => {
-  // const localStorageClan = JSON.parse(localStorage.getItem("current clan"));
-
   return (
     <>
       <section className="wizard__clan-container">

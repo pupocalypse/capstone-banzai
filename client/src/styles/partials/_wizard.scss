@@ -453,6 +453,10 @@
     padding: 1rem 0;
   }
 
+  &__form-upload-text-container {
+    flex: 1 1;
+  }
+
   &__form-upload-heading {
     width: 100%;
     padding-top: 0.5rem;
@@ -465,6 +469,8 @@
   }
 
   &__form-input-container {
+    margin: auto;
+    width: max-content;
     padding: 0.5rem;
     background: $primary-black;
     border-radius: 10rem;
@@ -472,6 +478,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    & > .ui.button {
+      flex-shrink: 0;
+    }
   }
 
   &__form-upload-label {
@@ -503,6 +513,35 @@
     color: rgba($content-colour-accent, 0.8);
     margin: 0 0.5rem;
     text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__form-upload-image-container {
+    max-width: 50%;
+    height: 14rem;
+    flex: 1 1;
+    background: rgba($primary-dark-colour, 0.2);
+    margin: 1rem;
+    margin-left: 1.5rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 5px $primary-black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__form-upload-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__form-upload-icon {
+    color: rgba($background-colour-primary, 0.7);
   }
 
   &__form-buttons {

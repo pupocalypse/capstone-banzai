@@ -116,6 +116,7 @@ class WizardPage2 extends React.Component {
   changeArtwork = (e) => {
     this.setState({
       artworkFile: e.target.files[0],
+      tempFile: URL.createObjectURL(e.target.files[0]),
     });
   };
 
@@ -410,38 +411,55 @@ class WizardPage2 extends React.Component {
             )}
 
             <div className="wizard__form-upload-container">
-              <h3 className="wizard__form-upload-heading">
-                Upload Character Artwork
-              </h3>
-              <p className="wizard__form-upload-details">
-                Provide an image that you feel represents your character. Try to
-                use something where the important details of the character are
-                the main focus of the artwork and roughly centred.
-              </p>
-              <div className="wizard__form-input-container">
-                <Button
-                  as="label"
-                  htmlFor="artworkFile"
-                  circular
-                  size="tiny"
-                  className="wizard__form-upload-label"
-                  type="button"
-                >
-                  <Icon name="file image"></Icon>
-                  Upload
-                  <input
-                    type="file"
-                    id="artworkFile"
-                    name="artworkFile"
-                    className="wizard__form-upload-input"
-                    onChange={(e) => this.changeArtwork(e)}
-                  />
-                </Button>
-                <p className="wizard__form-upload-filename">
-                  {this.state.artworkFile.name
-                    ? this.state.artworkFile.name
-                    : "Select a file..."}
+              <div className="wizard__form-upload-text-container">
+                <h3 className="wizard__form-upload-heading">
+                  Upload Character Artwork
+                </h3>
+                <p className="wizard__form-upload-details">
+                  Provide an image that you feel represents your character. Try
+                  to use something where the important details of the character
+                  are the main focus of the artwork and roughly centred.
                 </p>
+                <div className="wizard__form-input-container">
+                  <Button
+                    as="label"
+                    htmlFor="artworkFile"
+                    circular
+                    size="tiny"
+                    className="wizard__form-upload-label"
+                    type="button"
+                  >
+                    <Icon name="file image"></Icon>
+                    Upload
+                    <input
+                      type="file"
+                      id="artworkFile"
+                      name="artworkFile"
+                      className="wizard__form-upload-input"
+                      onChange={(e) => this.changeArtwork(e)}
+                    />
+                  </Button>
+                  <p className="wizard__form-upload-filename">
+                    {this.state.artworkFile.name
+                      ? this.state.artworkFile.name
+                      : "Select a file..."}
+                  </p>
+                </div>
+              </div>
+              <div className="wizard__form-upload-image-container">
+                {this.state.tempFile ? (
+                  <img
+                    src={this.state.tempFile}
+                    className="wizard__form-upload-image"
+                    alt=""
+                  />
+                ) : (
+                  <Icon
+                    name="file image"
+                    className="wizard__form-upload-icon"
+                    size="huge"
+                  ></Icon>
+                )}
               </div>
             </div>
 

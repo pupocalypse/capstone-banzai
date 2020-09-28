@@ -470,7 +470,6 @@ class Wizard extends React.Component {
     const { boughtSkills, artworkFile } = callback();
 
     let skillsObject;
-
     if (skills) {
       skillsObject = character.skills.reduce((acc, skillArr) => {
         const skillName = skillArr[0];
@@ -499,7 +498,7 @@ class Wizard extends React.Component {
     formData.append("currentExp", character.currentExp);
     formData.append("skills", JSON.stringify(skillsObject));
     formData.append("rings", JSON.stringify(character.rings));
-    formData.append("artwork", JSON.stringify(artworkFile));
+    formData.append("artwork", artworkFile);
 
     axios
       .post(`${URL}/characters`, formData)

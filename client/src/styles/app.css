@@ -1123,18 +1123,20 @@ label {
 }
 
 .wizard__form-upload-image-container {
-  max-width: 50%;
-  height: 14rem;
+  max-width: 40%;
+  height: 15rem;
   -webkit-box-flex: 1;
       -ms-flex: 1 1;
           flex: 1 1;
-  background: rgba(130, 44, 45, 0.2);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(130, 44, 45, 0.2)), to(rgba(34, 30, 31, 0.6)));
+  background: linear-gradient(to bottom, rgba(130, 44, 45, 0.2), rgba(34, 30, 31, 0.6));
   margin: 1rem;
   margin-left: 1.5rem;
+  border: 2px dotted rgba(184, 182, 175, 0.2);
   border-radius: 0.5rem;
   overflow: hidden;
-  -webkit-box-shadow: 0 2px 5px #221e1f;
-          box-shadow: 0 2px 5px #221e1f;
+  -webkit-box-shadow: 0 2px 5px 2px rgba(34, 30, 31, 0.7);
+          box-shadow: 0 2px 5px 2px rgba(34, 30, 31, 0.7);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

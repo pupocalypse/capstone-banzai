@@ -23,7 +23,10 @@ const createCharacter = (req, res) => {
       message: "You must specify a first name to proceed",
     });
   } else {
-    const characters = charactersModel.addNewCharacter(req.body);
+    const characters = charactersModel.addNewCharacter(
+      req.body,
+      req.file.filename
+    );
     res.json(characters);
   }
 };

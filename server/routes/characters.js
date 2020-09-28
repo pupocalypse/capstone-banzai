@@ -11,9 +11,10 @@ const storage = multer.diskStorage({
     callback(null, "./uploads/artwork");
   },
   filename: (req, file, callback) => {
-    const newFilename = `${req.body.lastName}${
-      req.body.firstName
-    }-${uuidv4()}${path.extname(file.originalname)}`;
+    const shortenId = uuidv4().split("-");
+    const newFilename = `${req.body.lastName}${req.body.firstName}-${
+      shortenId[0]
+    }${path.extname(file.originalname)}`;
     callback(null, newFilename);
   },
 });

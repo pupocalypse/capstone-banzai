@@ -5,10 +5,10 @@ const { v4: uuidv4 } = require("uuid");
 const CHARACTERS = path.join(__dirname, "../db/characters.json");
 
 class Character {
-  constructor({ ...data }) {
+  constructor({ ...data }, artworkFile) {
     this.id = this.shortenId();
     this.timestamp = Date.parse(new Date());
-    this.artwork = JSON.parse(data.artwork);
+    this.artwork = artworkFile;
     this.firstName = data.firstName;
     this.lastName = data.lastName;
     this.job = data.job;
@@ -32,9 +32,9 @@ const listCharacters = () => {
   return characters;
 };
 
-const addNewCharacter = (characterData) => {
+const addNewCharacter = (characterData, artworkFile) => {
   const characters = JSON.parse(fs.readFileSync(CHARACTERS));
-  const newCharacter = new Character(characterData);
+  const newCharacter = new Character(characterData, artworkFile);
   characters.push(newCharacter);
   fs.writeFileSync(CHARACTERS, JSON.stringify(characters));
   return characters;

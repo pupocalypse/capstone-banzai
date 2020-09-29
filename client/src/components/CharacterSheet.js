@@ -2,16 +2,19 @@ import React from "react";
 import axios from "axios";
 
 import CharInfoCard from "./CharInfoCard";
+import CharStatusCard from "./CharStatusCard";
+import CharRingsCard from "./CharRingsCard";
 
 const URL = "http://localhost:8000";
 
 class CharacterSheet extends React.Component {
   state = {
     activeCharacter: "",
-    voidSlots: {
-      // slot1: false,
-      // slot2: false,
-    },
+    voidSlots:
+      {
+        // slot1: false,
+        // slot2: false,
+      } || null,
     karmaPoints: 1,
   };
 
@@ -119,187 +122,16 @@ class CharacterSheet extends React.Component {
               char={char}
               insightRank={this.insightRankCalculator(char)}
             />
-
-            <section className="character-sheet__status-outer-container">
-              <div className="character-sheet__status-borders-horizontal"></div>
-              <div className="character-sheet__status-borders-vertical"></div>
-              <div className="character-sheet__status-round-corner corner-top-left"></div>
-              <div className="character-sheet__status-round-corner corner-top-right"></div>
-              <div className="character-sheet__status-round-corner corner-bottom-left"></div>
-              <div className="character-sheet__status-round-corner corner-bottom-right"></div>
-
-              <div className="character-sheet__initiative-karma-container">
-                <div className="character-sheet__initiative-container">
-                  <h1 className="character-sheet__initiative-count">
-                    {this.initiativeRoll()}
-                  </h1>
-                  <p className="character-sheet__initiative-label">
-                    Initiative Roll
-                  </p>
-                </div>
-
-                <div className="character-sheet__karma-container">
-                  <h1 className="character-sheet__karma-count">
-                    {this.state.karmaPoints}
-                  </h1>
-                  <p className="character-sheet__karma-label">Karma Points</p>
-                </div>
-              </div>
-
-              <div className="character-sheet__stats-container">
-                <div className="character-sheet__honor-container">
-                  <p className="character-sheet__honor-text">
-                    Honor: {char.school.honor}
-                  </p>
-                  <div className="character-sheet__honor-slots">
-                    <div className="character-sheet__slots-image honor-point"></div>
-                    <div className="character-sheet__slots-image honor-point"></div>
-                    <div className="character-sheet__slots-image honor-point"></div>
-                    <div className="character-sheet__slots-image honor-point"></div>
-                    <div className="character-sheet__slots-image honor-point"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                  </div>
-                </div>
-
-                <div className="character-sheet__glory-container">
-                  <p className="character-sheet__glory-text">Glory: 0</p>
-                  <div className="character-sheet__glory-slots">
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                  </div>
-                </div>
-
-                <div className="character-sheet__status-container">
-                  <p className="character-sheet__status-text">Status: 1</p>
-                  <div className="character-sheet__status-slots">
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                    <div className="character-sheet__slots-image"></div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="character-sheet__rings-container">
-              <div className="character-sheet__all-rings-container">
-                <div className="character-sheet__rings-image">
-                  {/* element rings */}
-                  <div className="character-sheet__ring-rank-container earth">
-                    <h3 className="character-sheet__trait-rank">3</h3>
-                  </div>
-                  <div className="character-sheet__ring-rank-container air">
-                    <h3 className="character-sheet__trait-rank">2</h3>
-                  </div>
-                  <div className="character-sheet__ring-rank-container water">
-                    <h3 className="character-sheet__trait-rank">2</h3>
-                  </div>
-                  <div className="character-sheet__ring-rank-container fire">
-                    <h3 className="character-sheet__trait-rank">3</h3>
-                  </div>
-                  <div className="character-sheet__ring-rank-container void">
-                    <h3 className="character-sheet__trait-rank">2</h3>
-                  </div>
-
-                  {/* trait rings */}
-                  <div className="character-sheet__ring-rank-container stamina">
-                    <h3 className="character-sheet__trait-rank">3</h3>
-                    <p className="character-sheet__trait-text stamina-text">
-                      Stamina
-                    </p>
-                  </div>
-                  <div className="character-sheet__ring-rank-container willpower">
-                    <h3 className="character-sheet__trait-rank">3</h3>
-                    <p className="character-sheet__trait-text willpower-text">
-                      Willpower
-                    </p>
-                  </div>
-                  <div className="character-sheet__ring-rank-container strength">
-                    <h3 className="character-sheet__trait-rank">2</h3>
-                    <p className="character-sheet__trait-text strength-text">
-                      Strength
-                    </p>
-                  </div>
-                  <div className="character-sheet__ring-rank-container perception">
-                    <h3 className="character-sheet__trait-rank">2</h3>
-                    <p className="character-sheet__trait-text perception-text">
-                      Perception
-                    </p>
-                  </div>
-                  <div className="character-sheet__ring-rank-container agility">
-                    <h3 className="character-sheet__trait-rank">3</h3>
-                    <p className="character-sheet__trait-text agility-text">
-                      Agility
-                    </p>
-                  </div>
-                  <div className="character-sheet__ring-rank-container intelligence">
-                    <h3 className="character-sheet__trait-rank">3</h3>
-                    <p className="character-sheet__trait-text intelligence-text">
-                      Intelligence
-                    </p>
-                  </div>
-                  <div className="character-sheet__ring-rank-container reflexes">
-                    <h3 className="character-sheet__trait-rank">2</h3>
-                    <p className="character-sheet__trait-text reflexes-text">
-                      Reflexes
-                    </p>
-                  </div>
-                  <div className="character-sheet__ring-rank-container awareness">
-                    <h3 className="character-sheet__trait-rank">3</h3>
-                    <p className="character-sheet__trait-text awareness-text">
-                      Awareness
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="character-sheet__void-container">
-                <p className="character-sheet__void-text">Void Slots</p>
-                <div className="character-sheet__void-slots">
-                  <div
-                    className={
-                      this.state.voidSlots.slot1
-                        ? "character-sheet__void-slots-image void-spent"
-                        : "character-sheet__void-slots-image"
-                    }
-                    onClick={() => this.handleVoidClick("slot1")}
-                  ></div>
-                  <div
-                    className={
-                      this.state.voidSlots.slot2
-                        ? "character-sheet__void-slots-image void-spent"
-                        : "character-sheet__void-slots-image"
-                    }
-                    onClick={() => this.handleVoidClick("slot2")}
-                  ></div>
-                  <div className="character-sheet__void-slots-image unavailable"></div>
-                  <div className="character-sheet__void-slots-image unavailable"></div>
-                  <div className="character-sheet__void-slots-image unavailable"></div>
-                  <div className="character-sheet__void-slots-image unavailable"></div>
-                  <div className="character-sheet__void-slots-image unavailable"></div>
-                  <div className="character-sheet__void-slots-image unavailable"></div>
-                  <div className="character-sheet__void-slots-image unavailable"></div>
-                  <div className="character-sheet__void-slots-image unavailable"></div>
-                </div>
-              </div>
-            </section>
+            <CharStatusCard
+              char={char}
+              initiativeRoll={this.initiativeRoll}
+              karmaPoints={this.state.karmaPoints}
+            />
+            <CharRingsCard
+              char={char}
+              voidSlots={this.state.voidSlots}
+              handleVoidClick={this.handleVoidClick}
+            />
 
             <section className="character-sheet__skills-container">
               <table className="character-sheet__skills-table">

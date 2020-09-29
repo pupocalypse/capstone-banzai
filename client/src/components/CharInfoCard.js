@@ -17,10 +17,9 @@ const CharInfoCard = ({ char, insightRank }) => {
       <div
         className="character-sheet__artwork"
         style={{
-          background: `url(${IMAGE_URL}/${char.artwork})`,
+          background: `url(${IMAGE_URL}/${char.artwork}) no-repeat`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundPositionX: "-10rem",
         }}
       ></div>
       <div className="character-sheet__info">

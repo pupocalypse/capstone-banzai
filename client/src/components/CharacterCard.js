@@ -66,6 +66,16 @@ const CharacterCard = ({
     return insightRank;
   };
 
+  const capitalize = (string) => {
+    if (string.includes(" ")) {
+      return string
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+    }
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   return (
     <div className="character-card">
       <div className="character-card__name-art-container">
@@ -94,13 +104,17 @@ const CharacterCard = ({
           />
         </div>
         <div className="character-card__description">
-          {/* {specialTitle ? (
+          {char.hasOwnProperty("specialTitle") ? (
             <div className="character-card__special-banner">
-              <p className="character-card__special-title">{specialTitle}</p>
+              <p className="character-card__special-title">
+                {char.specialTitle}
+              </p>
             </div>
-          ) : null} */}
+          ) : null}
           <ul className="character-card__desc-items">
-            <li className="character-card__desc-item">{char.job}</li>
+            <li className="character-card__desc-item">
+              {capitalize(char.job)}
+            </li>
             <li className="character-card__desc-item">
               Member of the {char.family.name} family
             </li>

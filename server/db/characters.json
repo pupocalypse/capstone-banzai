@@ -5,7 +5,7 @@
     "artwork": "IsawaMei-06dd79e7.jpg",
     "firstName": "Mei",
     "lastName": "Isawa",
-    "job": "Bushi",
+    "job": "bushi",
     "clan": "Phoenix",
     "family": {
       "name": "Isawa",
@@ -153,6 +153,175 @@
         "subType": [],
         "schoolSkill": false,
         "rank": 2
+      },
+      "iaijutsu": {
+        "trait": "reflexes",
+        "type": "Bugei",
+        "subType": [],
+        "schoolSkill": false,
+        "rank": 1
+      }
+    }
+  },
+  {
+    "id": "1f757bd3a84d",
+    "timestamp": 1601364884000,
+    "artwork": "YasukiHayami-c854a20e.png",
+    "firstName": "Hayami",
+    "lastName": "Yasuki",
+    "job": "bushi",
+    "clan": "Crab",
+    "family": {
+      "name": "Yasuki",
+      "bonus": "awareness",
+      "description": "Strangely at odds with the other Crab families, the Yasuki are slight of build and devious of mind. They were once part of the Crane Clan, but joined the Crab in the third century, provoking the first great internal war in Rokugani history. They are merchants and courtiers, always looking for any means to gain an advantage for their Clan, and tend to be more concerned with monetary gain than is considered respectable for someone of the samurai caste."
+    },
+    "school": {
+      "clan": "Crab",
+      "name": "Hiruma Bushi",
+      "type": "Bushi",
+      "bonus": "willpower",
+      "description": "Where the Hida Bushi School teaches endurance and strength, their Hiruma cousins teach avoidance and targeting weak points in an enemy’s defenses with lightning fast strikes. The lessons taught by their sensei are essential to fulfilling their duties as warriors inside the Shadowlands. Those who do not heed their teachers well do not survive to perpetuate their mistakes. Those who excel at their lessons become a scourge upon the Shadowlands, moving through that dark realm with speed and grace, leaving death in their wake.\nThe Hiruma Bushi School emphasizes movement and survival, not just to endure a strike as the Hida do, but to live through an entire skirmish. In one-on-one combat the Hiruma excels at evading his opponent, while in larger skirmishes his ability to avoid damage makes him adept at reaching trouble-some foes and eliminating them while his allies tie up other rank-and-file opponents.",
+      "skills": {
+        "core": [
+          ["athletics", 1],
+          ["hunting", 1, 2],
+          ["kenjutsu", 1, 3],
+          ["kyujutsu", 1],
+          ["lore: shadowlands", 1],
+          ["stealth", 1, 2]
+        ],
+        "emphases": [{ "skillName": "kenjutsu", "emphasis": "katana" }],
+        "freePickType": [["any"]]
+      },
+      "honor": 4.5,
+      "outfit": {
+        "armor": { "option1": "ashigaru armor", "option2": "light armor" },
+        "clothing": "sturdy clothing",
+        "weapons": {
+          "base": { "base1": "katana", "base2": "wakizashi" },
+          "options": { "option1": ["bow", "20 arrows"], "option2": "knife" }
+        },
+        "tools": [""],
+        "pack": "traveling pack",
+        "koku": 3
+      }
+    },
+    "totalExp": "40",
+    "currentExp": "4",
+    "rings": {
+      "air": {
+        "traits": {
+          "reflexes": { "rank": 2, "type": "physical", "isVoid": false },
+          "awareness": { "rank": 3, "type": "mental", "isVoid": false }
+        }
+      },
+      "earth": {
+        "traits": {
+          "stamina": { "rank": 3, "type": "physical", "isVoid": false },
+          "willpower": { "rank": 3, "type": "mental", "isVoid": false }
+        }
+      },
+      "fire": {
+        "traits": {
+          "agility": { "rank": 2, "type": "physical", "isVoid": false },
+          "intelligence": { "rank": 2, "type": "mental", "isVoid": false }
+        }
+      },
+      "water": {
+        "traits": {
+          "strength": { "rank": 2, "type": "physical", "isVoid": false },
+          "perception": { "rank": 2, "type": "mental", "isVoid": false }
+        }
+      },
+      "void": {
+        "traits": { "void": { "rank": 2, "type": "mental", "isVoid": true } }
+      }
+    },
+    "skills": {
+      "athletics": {
+        "trait": "strength",
+        "type": "Bugei",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 1
+      },
+      "hunting": {
+        "trait": "perception",
+        "type": "Bugei",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 2
+      },
+      "kenjutsu": {
+        "trait": "agility",
+        "type": "Bugei",
+        "subType": ["Weapon"],
+        "schoolSkill": true,
+        "rank": 3
+      },
+      "kyujutsu": {
+        "trait": "reflexes",
+        "type": "Bugei",
+        "subType": ["Weapon"],
+        "schoolSkill": true,
+        "rank": 1
+      },
+      "lore: shadowlands": {
+        "trait": "intelligence",
+        "type": "Low",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 1
+      },
+      "stealth": {
+        "trait": "agility",
+        "type": "Low",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 2
+      },
+      "medicine": {
+        "trait": "intelligence",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 3
+      },
+      "defense": {
+        "trait": "reflexes",
+        "type": "Bugei",
+        "subType": [],
+        "schoolSkill": false,
+        "rank": 1
+      },
+      "meditation": {
+        "trait": "void",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": false,
+        "rank": 2
+      },
+      "investigation": {
+        "trait": "perception",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": false,
+        "rank": 1
+      },
+      "courtier": {
+        "trait": "awareness",
+        "type": "High",
+        "subType": ["Social"],
+        "schoolSkill": false,
+        "rank": 2
+      },
+      "sincerity": {
+        "trait": "awareness",
+        "type": "High",
+        "subType": ["Social"],
+        "schoolSkill": false,
+        "rank": 1
       },
       "iaijutsu": {
         "trait": "reflexes",

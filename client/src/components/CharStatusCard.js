@@ -1,4 +1,5 @@
 import React from "react";
+import { Popup } from "semantic-ui-react";
 
 const CharStatusCard = ({ char, initiativeRoll, karmaPoints }) => {
   const honorPointsList = () => {
@@ -34,9 +35,24 @@ const CharStatusCard = ({ char, initiativeRoll, karmaPoints }) => {
 
       <div className="character-sheet__initiative-karma-container">
         <div className="character-sheet__initiative-container">
-          <h1 className="character-sheet__initiative-count">
-            {initiativeRoll()}
-          </h1>
+          <Popup
+            trigger={
+              <h1 className="character-sheet__initiative-count">
+                {initiativeRoll()}
+              </h1>
+            }
+            position="top center"
+            wide
+            mouseEnterDelay={500}
+            mouseLeaveDelay={250}
+          >
+            <div className="character-sheet__popup">
+              <span className="character-sheet__popup-roll">
+                Insight Rank + Reflexes
+              </span>{" "}
+              / <span className="character-sheet__popup-keep">Reflexes</span>
+            </div>
+          </Popup>
           <p className="character-sheet__initiative-label">Initiative Roll</p>
         </div>
 
@@ -57,7 +73,7 @@ const CharStatusCard = ({ char, initiativeRoll, karmaPoints }) => {
         </div>
 
         <div className="character-sheet__glory-container">
-          <p className="character-sheet__glory-text">Glory: 0</p>
+          <p className="character-sheet__glory-text">Glory: 1.0</p>
           <div className="character-sheet__glory-slots">
             <div className="character-sheet__slots-image"></div>
             <div className="character-sheet__slots-image"></div>
@@ -73,7 +89,7 @@ const CharStatusCard = ({ char, initiativeRoll, karmaPoints }) => {
         </div>
 
         <div className="character-sheet__status-container">
-          <p className="character-sheet__status-text">Status: 1</p>
+          <p className="character-sheet__status-text">Status: 1.0</p>
           <div className="character-sheet__status-slots">
             <div className="character-sheet__slots-image"></div>
             <div className="character-sheet__slots-image"></div>

@@ -337,6 +337,21 @@ label {
   top: 0;
 }
 
+.ui.popup {
+  background: #30475e;
+  color: #cbaf87;
+  border-color: rgba(126, 138, 151, 0.5);
+  font-family: "Fontin Regular";
+  font-size: 0.925rem;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.ui.top.popup::before {
+  background: #30475e;
+}
+
 .header {
   padding: 0 1.5rem;
   background: #221e1f;
@@ -1597,6 +1612,42 @@ label {
   position: relative;
 }
 
+.character-sheet__popup-roll {
+  position: relative;
+  padding-top: 0.25rem;
+}
+
+.character-sheet__popup-roll::before {
+  content: "ROLL";
+  font-family: "Roboto Condensed";
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: rgba(220, 205, 176, 0.7);
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+}
+
+.character-sheet__popup {
+  padding-top: 0.5rem;
+}
+
+.character-sheet__popup-keep {
+  position: relative;
+  padding-top: 0.25rem;
+}
+
+.character-sheet__popup-keep::before {
+  content: "KEEP";
+  font-family: "Roboto Condensed";
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: rgba(220, 205, 176, 0.7);
+  position: absolute;
+  top: -1rem;
+  left: 28%;
+}
+
 .character-sheet__navbar {
   width: 120%;
   padding: 1rem;
@@ -1646,7 +1697,7 @@ label {
 }
 
 .character-sheet__navbar > .ui.button:hover, .character-sheet__navbar > .ui.button:focus {
-  width: 10rem;
+  width: 8.5rem;
 }
 
 .character-sheet__navbar > .ui.button:hover .character-sheet__navbar-button-text, .character-sheet__navbar > .ui.button:focus .character-sheet__navbar-button-text {

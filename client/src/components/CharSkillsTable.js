@@ -1,4 +1,5 @@
 import React from "react";
+import { Popup } from "semantic-ui-react";
 
 const CharSkillsTable = ({ char }) => {
   const skillRollCalculator = (rank, trait) => {
@@ -41,9 +42,27 @@ const CharSkillsTable = ({ char }) => {
             {capitalize(skill.trait)}
           </td>
           <td className="character-sheet__skill-roll">
-            <span className="skill-roll">
-              {skillRollCalculator(skill.rank, skill.trait)}
-            </span>
+            <Popup
+              trigger={
+                <span className="skill-roll">
+                  {skillRollCalculator(skill.rank, skill.trait)}
+                </span>
+              }
+              position="top center"
+              wide
+              mouseEnterDelay={500}
+              mouseLeaveDelay={250}
+            >
+              <div className="character-sheet__popup">
+                <span className="character-sheet__popup-roll">
+                  Rank + {capitalize(skill.trait)}
+                </span>{" "}
+                /{" "}
+                <span className="character-sheet__popup-keep">
+                  {capitalize(skill.trait)}
+                </span>
+              </div>
+            </Popup>
           </td>
           <td className="character-sheet__skill-types">{skillTypes}</td>
         </tr>

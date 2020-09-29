@@ -310,3 +310,20 @@ label {
 .ui.horizontal.divider:before {
   top: 0;
 }
+
+// popup tooltips on character sheet
+.ui.popup {
+  background: $mid-slate;
+  color: $mid-beige;
+  border-color: rgba($light-slate, 0.5);
+  font-family: "Fontin Regular";
+  font-size: 0.925rem;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.ui.top.popup {
+  &::before {
+    background: $mid-slate;
+  }
+}

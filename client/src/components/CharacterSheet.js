@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Icon } from "semantic-ui-react";
+import { Icon, Button } from "semantic-ui-react";
 
 import CharInfoCard from "./CharInfoCard";
 import CharStatusCard from "./CharStatusCard";
@@ -123,6 +123,12 @@ class CharacterSheet extends React.Component {
             />
             <p className="character-sheet__navbar-text">Back to Characters</p>
           </Link>
+          <Button circular negative size="mini">
+            <Icon name="exclamation circle" />
+            <span className="character-sheet__navbar-button-text">
+              Delete Character
+            </span>
+          </Button>
           {/* </div> */}
         </div>
         {!char ? (

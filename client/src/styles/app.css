@@ -1635,6 +1635,35 @@ label {
           filter: drop-shadow(0 1px 2px rgba(27, 27, 47, 0.6));
 }
 
+.character-sheet__navbar > .ui.button {
+  margin: 0;
+  width: 1rem;
+  padding: 0.78571429em 1.35em 0.78571429em;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-transition: width 0.7s ease-in-out;
+  transition: width 0.7s ease-in-out;
+}
+
+.character-sheet__navbar > .ui.button:hover, .character-sheet__navbar > .ui.button:focus {
+  width: 10rem;
+}
+
+.character-sheet__navbar > .ui.button:hover .character-sheet__navbar-button-text, .character-sheet__navbar > .ui.button:focus .character-sheet__navbar-button-text {
+  opacity: 1;
+}
+
+.character-sheet__navbar > .ui.button:not(.icon) > .icon:not(.button):not(.dropdown) {
+  -webkit-transform: translateX(-0.225rem);
+          transform: translateX(-0.225rem);
+}
+
+.character-sheet__navbar-button-text {
+  opacity: 0;
+  -webkit-transition: opacity 0.7s ease-out;
+  transition: opacity 0.7s ease-out;
+}
+
 .character-sheet__info-container {
   width: 55%;
   height: 20rem;

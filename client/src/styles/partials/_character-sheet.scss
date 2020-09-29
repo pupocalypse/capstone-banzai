@@ -21,18 +21,18 @@
     overflow: hidden;
     position: relative;
 
-    &::before {
-      content: "";
-      width: 50%;
-      height: 50%;
-      position: absolute;
-      top: -1rem;
-      right: -1rem;
-      background: url("../assets/images/Mon_Crab_colour.png") no-repeat;
-      background-size: contain;
-      background-position: right;
-      opacity: 0.3;
-    }
+    // &::before {
+    //   content: "";
+    //   width: 50%;
+    //   height: 50%;
+    //   position: absolute;
+    //   top: -1rem;
+    //   right: -1rem;
+    //   background: url("../assets/images/Mon_Crab_colour.png") no-repeat;
+    //   background-size: contain;
+    //   background-position: right;
+    //   opacity: 0.3;
+    // }
 
     &::after {
       content: "";
@@ -45,13 +45,22 @@
     }
   }
 
+  &__info-mon {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    opacity: 0.5;
+  }
+
   &__artwork {
     height: 100%;
     width: 7rem;
-    background: url("../assets/images/example_YasukiHayami.png");
-    background-size: cover;
-    background-position: center;
-    background-position-x: -6rem;
+    // background: url("../assets/images/example_YasukiHayami.png");
+    // background-size: cover;
+    // background-position: center;
+    // background-position-x: -6rem;
     box-shadow: -30px 0 25px $light-slate inset;
     position: relative;
 
@@ -318,20 +327,66 @@
   .status-point {
     position: relative;
 
+    // &::after {
+    //   content: "";
+    //   height: 100%;
+    //   width: 4px;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 45%;
+    //   border-radius: 0.5rem;
+    //   background: rgba($primary-black, 0.5);
+    //   background: linear-gradient($primary-dark-colour, $primary-black);
+    //   transform: rotate(37deg);
+    //   opacity: 0.7;
+    // }
+  }
+
+  .honor-point {
     &::after {
-      content: "";
-      height: 100%;
-      width: 4px;
-      position: absolute;
-      top: 0;
-      left: 45%;
-      border-radius: 0.5rem;
-      background: rgba($primary-black, 0.5);
-      background: linear-gradient($primary-dark-colour, $primary-black);
-      transform: rotate(37deg);
-      opacity: 0.7;
+      content: "義";
+      font-family: "Honoka";
+      font-size: 1.25rem;
+      color: $primary-dark-colour;
+      position: relative;
+      top: 0.3rem;
+      background: linear-gradient(-45deg, $accent-red, $primary-black);
+      background-size: 100%;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
+
+  .glory-point {
+    &::after {
+      content: "栄";
+      font-family: "Honoka";
+      font-size: 1.25rem;
+      color: $primary-dark-colour;
+      position: relative;
+      top: 0.3rem;
+      background: linear-gradient(-45deg, $accent-red, $primary-black);
+      background-size: 100%;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .status-point {
+    &::after {
+      content: "格";
+      font-family: "Honoka";
+      font-size: 1.25rem;
+      color: $primary-dark-colour;
+      position: relative;
+      top: 0.3rem;
+      background: linear-gradient(-45deg, $accent-red, $primary-black);
+      background-size: 100%;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
   // rings
   &__rings-container {
     width: 100%;
@@ -399,20 +454,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    &::before {
-      content: "";
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: url("../assets/images/rings/rings_empty_whiteBG.png");
-      background-size: contain;
-      background-position: center;
-      filter: brightness(0) saturate(100%) invert(80%) sepia(7%) saturate(203%)
-        hue-rotate(9deg) brightness(90%) contrast(93%);
-    }
   }
 
   &__trait-rank {

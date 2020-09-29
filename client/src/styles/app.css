@@ -1611,19 +1611,6 @@ label {
   position: relative;
 }
 
-.character-sheet__info-container::before {
-  content: "";
-  width: 50%;
-  height: 50%;
-  position: absolute;
-  top: -1rem;
-  right: -1rem;
-  background: url("../assets/images/Mon_Crab_colour.png") no-repeat;
-  background-size: contain;
-  background-position: right;
-  opacity: 0.3;
-}
-
 .character-sheet__info-container::after {
   content: "";
   width: 100%;
@@ -1635,13 +1622,18 @@ label {
           box-shadow: 3px 0px 10px 1px rgba(130, 44, 45, 0.5) inset;
 }
 
+.character-sheet__info-mon {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  opacity: 0.5;
+}
+
 .character-sheet__artwork {
   height: 100%;
   width: 7rem;
-  background: url("../assets/images/example_YasukiHayami.png");
-  background-size: cover;
-  background-position: center;
-  background-position-x: -6rem;
   -webkit-box-shadow: -30px 0 25px #7e8a97 inset;
           box-shadow: -30px 0 25px #7e8a97 inset;
   position: relative;
@@ -1937,22 +1929,43 @@ label {
   position: relative;
 }
 
-.character-sheet .honor-point::after,
-.character-sheet .glory-point::after,
+.character-sheet .honor-point::after {
+  content: "義";
+  font-family: "Honoka";
+  font-size: 1.25rem;
+  color: #822c2d;
+  position: relative;
+  top: 0.3rem;
+  background: linear-gradient(-45deg, #e43f5a, #221e1f);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.character-sheet .glory-point::after {
+  content: "栄";
+  font-family: "Honoka";
+  font-size: 1.25rem;
+  color: #822c2d;
+  position: relative;
+  top: 0.3rem;
+  background: linear-gradient(-45deg, #e43f5a, #221e1f);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .character-sheet .status-point::after {
-  content: "";
-  height: 100%;
-  width: 4px;
-  position: absolute;
-  top: 0;
-  left: 45%;
-  border-radius: 0.5rem;
-  background: rgba(34, 30, 31, 0.5);
-  background: -webkit-gradient(linear, left top, left bottom, from(#822c2d), to(#221e1f));
-  background: linear-gradient(#822c2d, #221e1f);
-  -webkit-transform: rotate(37deg);
-          transform: rotate(37deg);
-  opacity: 0.7;
+  content: "格";
+  font-family: "Honoka";
+  font-size: 1.25rem;
+  color: #822c2d;
+  position: relative;
+  top: 0.3rem;
+  background: linear-gradient(-45deg, #e43f5a, #221e1f);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .character-sheet__rings-container {
@@ -2033,20 +2046,6 @@ label {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.character-sheet__ring-rank-container::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: url("../assets/images/rings/rings_empty_whiteBG.png");
-  background-size: contain;
-  background-position: center;
-  -webkit-filter: brightness(0) saturate(100%) invert(80%) sepia(7%) saturate(203%) hue-rotate(9deg) brightness(90%) contrast(93%);
-          filter: brightness(0) saturate(100%) invert(80%) sepia(7%) saturate(203%) hue-rotate(9deg) brightness(90%) contrast(93%);
 }
 
 .character-sheet__trait-rank {

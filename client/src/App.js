@@ -81,8 +81,13 @@ class App extends React.Component {
           />
           <Route
             path="/characters/:id"
-            render={() => {
-              return <CharacterSheet />;
+            render={(renderProps) => {
+              return (
+                <CharacterSheet
+                  activeCharacter={this.state.activeCharacter}
+                  {...renderProps}
+                />
+              );
             }}
           />
         </Switch>

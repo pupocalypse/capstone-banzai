@@ -63,8 +63,6 @@ const CharacterCard = ({
         insightRank = 1;
         break;
     }
-    console.log("insight:", insight);
-    console.log("insightRank:", insightRank);
     return insightRank;
   };
 

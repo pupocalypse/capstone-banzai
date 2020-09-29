@@ -2,7 +2,7 @@
   {
     "clan": "Crab",
     "name": "Hida Bushi",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "stamina",
     "description": "The Hida fighting style is one of the oldest and most respected bushi schools in the Empire, and one with a very basic premise: endure the enemy’s attacks until you have the opportunity to crush him with sheer brute force. The style was shaped by the Clan’s early years combating oni and other Shadowlands enemies, when only the strongest and most resilient among Hida’s followers survived.\nThe Hida Bushi School encompasses two broad themes: damage mitigation and heavy weapon use. Hida bushi may not be the most accurate samurai in the Empire, but when they do connect, they inflict tremendous damage. And fortunately for them, they are able to withstand incredible amounts of punishment while they wait to cripple their enemies.",
     "skills": {
@@ -47,7 +47,7 @@
   {
     "clan": "Crab",
     "name": "Hiruma Bushi",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "willpower",
     "description": "Where the Hida Bushi School teaches endurance and strength, their Hiruma cousins teach avoidance and targeting weak points in an enemy’s defenses with lightning fast strikes. The lessons taught by their sensei are essential to fulfilling their duties as warriors inside the Shadowlands. Those who do not heed their teachers well do not survive to perpetuate their mistakes. Those who excel at their lessons become a scourge upon the Shadowlands, moving through that dark realm with speed and grace, leaving death in their wake.\nThe Hiruma Bushi School emphasizes movement and survival, not just to endure a strike as the Hida do, but to live through an entire skirmish. In one-on-one combat the Hiruma excels at evading his opponent, while in larger skirmishes his ability to avoid damage makes him adept at reaching trouble-some foes and eliminating them while his allies tie up other rank-and-file opponents.",
     "skills": {
@@ -92,7 +92,7 @@
   {
     "clan": "Crane",
     "name": "Kakita Bushi",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "reflexes",
     "description": "The sacred art of iaijutsu is practiced by all clans, but none have truly mastered it in the same manner as the sensei at the Kakita Dueling Academy. The School focuses unapologetically upon dueling. Other skills are part of the core teachings, but they are considered incidental and in many cases are offered only because some facet of their instruction relates in some way to iaijutsu. While there are those in the Empire who have criticized the School for its narrow focus, few can argue with the results; many battles have been won by the Crane because an enemy general was slain in a duel before the fighting began. Likewise the Crane stranglehold on the courts is easier to maintain when any challenge can be answered by a Kakita champion taking the courtier’s place in a duel.\nThe Kakita Techniques place an obvious emphasis on iaijutsu but several of them can be of use in both dueling and general skirmishing. The Kakita are generally faster than most opponents, reflected in their Initiative bonuses, and are able to utilize the Center Stance for greater benefits than normal, both in dueling and outside.",
     "skills": {
@@ -137,7 +137,7 @@
   {
     "clan": "Crane",
     "name": "Daidoji Iron Warriors",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "agility",
     "description": "The skills of the Doji and the Kakita have raised the Crane into their position as masters of the court, but when words alone cannot attain victory; it is the strength and the courage of the Daidoji Iron Warriors that carry the day. The Daidoji have always considered themselves the silent steel of the Crane, and that perception is not inaccurate. The Daidoji Iron Warriors are both the rank and file and the heavy infantry of the Crane armies, comprising a sizeable portion of the Clan’s first army and the majority of the second. They also serve as yojimbo, and this duty is the one most often ascribed to the Daidoji, even if it is but one of their many roles.\nThe Daidoji are a versatile group, with Techniques that emphasize both enduring the damage of one’s opponents and protecting their charge. This fighting style is not exclusively protective, however, and it allows an Iron Warrior to fight defensively in a skirmish to great effect.",
     "skills": {
@@ -181,7 +181,7 @@
   {
     "clan": "Dragon",
     "name": "Mirumoto Bushi",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "stamina",
     "description": "Famous throughout the Empire for its unique teachings, the Mirumoto Bushi School is the lone fighting style that utilizes the Niten technique, wherein a samurai wields both the katana and the wakizashi simultaneously. This is a controversial style because it flies in the face of the traditional style used by the other clans for centuries, although Niten was actually developed at the same time as the one-sword style. In particular, the rivalry between students of the Mirumoto Bushi School and the Kakita Bushi School, the greatest advocates of Kakita’s “One soul, one sword” philosophy, is heated even during times of peace. Many opponents, anticipating the reputation of the Dragon as erratic, are surprised to face the calm, implacable Mirumoto as an enemy, a mistake that has cost more than one samurai victory on the field of battle.\nThe Mirumoto Bushi School focuses on the mechanical benefits of wielding two weapons simultaneously, both in forgiving the penalties associated with doing so and improv-ing the benefits. It also increases the samurai’s Armor TN and grants him additional attacks at an increased rate due to the availability of his weapons.",
     "skills": {
@@ -226,7 +226,7 @@
   {
     "clan": "Lion",
     "name": "Akodo Bushi",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "perception",
     "description": "Over the centuries, the primary bushi Schools of many Clans have developed specialties that have narrowed their focus. The Akodo consider such things a mistake, and have carefully avoided it. The Akodo School focuses on precision in the art of kenjutsu, the basic swordsmanship style of the Empire. The Akodo believe that if you strike your target exactly as you intend every time, there is no need for anything more complicated as part of your studies. Some regard this as simplistic, but no one argues with Akodo capabilities in battle. The study of battle itself is also a strong component of every Akodo’s training, and there are virtually no Akodo-trained samurai who do not possess a rudimentary knowledge of tactics and strategy.\nThe Akodo Techniques focus on precision and success, transforming marginal successes into greater ones and, at higher levels, changing failure to success. To some extent the School also negates bonuses an opponent might possess, but generally speaking the Techniques exist only to ensure success on the part of the Akodo-trained samurai.",
     "skills": {
@@ -271,7 +271,7 @@
   {
     "clan": "Lion",
     "name": "Matsu Berserker",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "strength",
     "description": "The great majority of the vast legions of Matsu samurai study at the family’s home School, if for no other reason than that most Matsu believe other fighting styles are too conservative and reserved. A true Matsu has no fear of death, and as such the Techniques imparted by their sensei embrace absolute, unwavering commitment to battle. Although this leaves the Matsu vulnerable to an opponent’s attacks, the philosophy behind the Techniques is that an opponent who has been defeated has no opportunity to retaliate. It is for this reason that the legions of the Matsu family are so feared on the battlefield: how can one defeat an enemy who does not care if he lives or dies, so long as you are defeated first?\nThe Matsu Techniques focus heavily upon the Full Attack Stance, which makes them heavy-hitting opponents who have to position themselves carefully in order to prevent an opponent from exploiting their lower Armor TN. As a secondary focus, the Matsu can generate Fear effects that can further destabilize opponents and make them easier targets for himself and allies.",
     "skills": {
@@ -315,7 +315,7 @@
   {
     "clan": "Mantis",
     "name": "Yoritomo Bushi",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "strength",
     "description": "",
     "skills": {
@@ -364,7 +364,7 @@
   {
     "clan": "Mantis",
     "name": "Tsuruchi Archer",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "reflexes",
     "description": "",
     "skills": {
@@ -408,7 +408,7 @@
   {
     "clan": "Phoenix",
     "name": "Shiba Bushi",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "agility",
     "description": "The Shiba Bushi are well known as a relatively peaceful group, at least as bushi are concerned. Their training emphasizes a number of non-martial skills in addition to the traditional weapons training, which has led to a reputation as warrior-scholars in some circles. A Shiba bushi considers all options before committing to combat, searching for any possible alternative other than the loss of life. If those a Shiba protects are threatened, however, or if combat is an inevitability, he attacks swiftly and without reservation, committing himself fully to the act until it is done. Those who mistake the desire of a Shiba bushi to preserve life for an inability to take it are woefully unprepared to face them on the battlefield.\nThe Shiba Techniques optimize the use of Void Points and specialize in the protection of others, allowing Shiba bushi to more than adequately fill their common role as yojimbo. They also possess an affinity for the use of polearms, and can excel at dueling if properly tailored.",
     "skills": {
@@ -453,7 +453,7 @@
   {
     "clan": "Scorpion",
     "name": "Bayushi Bushi",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "intelligence",
     "description": "The greatest villains in Rokugan’s most successful plays are always Scorpions, because it is so easy for most samurai to believe. It is the actions of students from the Bayushi Bushi School that have brought this stereotype to life and reinforced it over and over again. Every student in the Bayushi dojo is trained to be the perfect weapon of discord, capable of turn-ing the Clans against one another with minimal effort. Weapons training is only one aspect of their education, which often includes social manipulation, stealth, and even the use of poisons when the student is deemed suitable for such things.\nThe Bayushi Techniques might best be described as dirty tricks. They focus on granting the character an advantage, such as an increase in Initiative, or ruthlessly exploiting any other advantage that might already exist. In particular the ability to cripple an opponent with Conditions can turn the tide of a battle against a vastly superior opponent, if one has but a little luck.",
     "skills": {
@@ -498,7 +498,7 @@
   {
     "clan": "Scorpion",
     "name": "Shosuro Infiltrator",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "reflexes",
     "description": "Few outside the Scorpion Clan are aware of the existence of the Shosuro Infiltrator School, and those few who do are either so inextricably bound to the Clan that they dare not reveal its existence, or have been so thoroughly discredited that no one takes their wild accusations seriously. The Shosuro are that which most believe all Scorpion to be, but without the arrogance and cruelty that such villains are commonly ascribed in plays and poems. The Infiltrators are silent, merciless killers who take no pleasure or satisfaction from their role. They are simply fulfilling their duty, and experience neither joy nor remorse as a result.\nThe specialization of the Shosuro Infiltrators is relatively simple: they attack unknowing targets and destroy them utterly. Their bonuses to stealth make them virtually impossible to detect and, once hidden from an opponent, they can strike from shadows and inflict incredible amounts of damage.",
     "skills": {
@@ -542,7 +542,7 @@
   {
     "clan": "Unicorn",
     "name": "Moto Bushi",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "strength",
     "description": "The Moto Bushi are the living stereotype that many hold of the Unicorn Clan. More so than any other family, they are born of a union between the Rokugani people and the gaijin who were allowed to join the Unicorn during their travels abroad. Owing to their descent from the wild, nomadic, barbarian tribes of the northern steppes, the Moto practice an unfettered fighting style that makes them awe-inspiring opponents on the battlefield, even as it earns them the enmity of all those who despise deviation from the customs and nature of Rokugani warfare.\nThe Moto Bushi are heavy cavalry, a role around which their Techniques are unabashedly centered. They excel at the Full Attack Stance, and many of their Techniques are geared toward allowing them to do additional damage with any of an assortment of weaponry.",
     "skills": {
@@ -587,7 +587,7 @@
   {
     "clan": "Unicorn",
     "name": "Utaku Battle Maiden",
-    "type": "bushi",
+    "type": "Bushi",
     "bonus": "reflexes",
     "description": "The Utaku Battle Maidens, also known as the shiotome, are the finest and most respected cavalry in all the Empire, feared by reputation even more so than their kinsmen among the Moto and Shinjo families. While the remainder of the Clan trains on gaijin riding horses, a larger and sturdier breed than the simple Rokugani pony, the Utaku alone have the right to breed, raise, and ride into battle the legendary Utaku steeds, the finest horses in the world.\nLike other Unicorn bushi Schools, the Utaku Battle Maiden Techniques focus on mounted combat, although not to the total exclusion of non-mounted abilities. On a horse, however, an Utaku is a threat to virtually any human opponent. Honor is an important trait for a Battle Maiden as well, and the higher an individual’s Honor, the greater the bonuses they receive.",
     "skills": {

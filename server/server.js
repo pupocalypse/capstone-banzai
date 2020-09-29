@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require("path");
 const cors = require("cors");
 
 const PORT = 8000;
@@ -11,9 +12,13 @@ const charactersRoute = require("./routes/characters.js");
 
 app.use(express.json());
 app.use(cors());
+app.use(
+  "/characters/images",
+  express.static(path.join(__dirname, "/uploads/artwork"))
+);
 
 app.get("/", (req, res) => {
-  res.send("<h1>Welcome to Banzai's server!");
+  res.send("<h1>Welcome to Banzai's server!</h1>");
 });
 
 app.use("/clans", clansRoute);

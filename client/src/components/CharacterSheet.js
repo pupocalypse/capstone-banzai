@@ -9,6 +9,19 @@ class CharacterSheet extends React.Component {
     },
   };
 
+  componentDidMount() {
+    // this.setVoidSlots();
+  }
+
+  // setVoidSlots = () => {
+  //   let voidSlots = { ...this.state.voidSlots };
+  //   for (let i = 1; i <= this.props.char.rings.void.traits.void.rank; i++) {
+  //     let slot = "slot" + i;
+  //     voidSlots[slot] = false;
+  //   }
+  //   this.setState({ voidSlots });
+  // };
+
   handleVoidClick = (slotNum) => {
     this.setState({
       voidSlots: {

@@ -18,6 +18,7 @@ const getCharacterById = (req, res) => {
 };
 
 const createCharacter = (req, res) => {
+  console.log("req.file:", req.file);
   if (!req.body.firstName) {
     res.status(400).json({
       message: "You must specify a first name to proceed",

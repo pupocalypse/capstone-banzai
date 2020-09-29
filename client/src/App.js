@@ -15,12 +15,14 @@ class App extends React.Component {
     clans: [],
     schools: [],
     skills: {},
+    characters: [],
   };
 
   componentDidMount() {
     this.getData("clans");
     this.getData("schools");
     this.getData("skills");
+    this.getData("characters");
   }
 
   // pass in clans, schools, skills as string
@@ -73,12 +75,12 @@ class App extends React.Component {
           <Route
             path="/characters"
             render={() => {
-              return <CharactersPage />;
+              return <CharactersPage characters={this.state.characters} />;
             }}
             exact
           />
           <Route
-            path="/characters/YasukiHayami"
+            path="/characters/:id"
             render={() => {
               return <CharacterSheet />;
             }}

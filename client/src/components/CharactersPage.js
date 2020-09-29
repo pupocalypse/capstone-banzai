@@ -2,17 +2,26 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CharacterCard from "./CharacterCard";
 
-import HayamiImg from "../assets/images/example_YasukiHayami.png";
-import RyoImg from "../assets/images/example_GoukimaroRyo.jpg";
+// import HayamiImg from "../assets/images/example_YasukiHayami.png";
+// import RyoImg from "../assets/images/example_GoukimaroRyo.jpg";
 
-const CharactersPage = () => {
+const CharactersPage = ({ characters }) => {
+  const characterList = characters.map((char) => {
+    return (
+      <Link to={`/characters/${char.id}`} key={char.id}>
+        <CharacterCard charData={char} />
+      </Link>
+    );
+  });
+
   return (
     <main className="characters">
       <div className="characters__header">
         <h1 className="characters__heading">Characters</h1>
       </div>
       <div className="characters__cards-container">
-        <Link to="/characters/YasukiHayami">
+        {characterList}
+        {/* <Link to="/characters/YasukiHayami">
           <CharacterCard
             rank="1"
             name="Yasuki Hayami"
@@ -37,7 +46,7 @@ const CharactersPage = () => {
             campaign="March of the Black Queen"
             specialTitle={"Abbot of the Spider"}
           />
-        </Link>
+        </Link> */}
       </div>
     </main>
   );

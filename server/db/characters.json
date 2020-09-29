@@ -1,1 +1,166 @@
-[{"id":"0935f32c7db2","timestamp":1601277402000,"artwork":"IsawaMei-06dd79e7.jpg","firstName":"Mei","lastName":"Isawa","job":"bushi","clan":"Phoenix","family":{"name":"Isawa","bonus":"willpower","description":"The Isawa truly rule the Phoenix Clan, despite the presence of a Shiba Clan Champion. They are unquestionably the most knowledgeable, most powerful, and most numerous shugenja family in the Empire. Unfortunately, this has made them arrogant as well, and many Isawa constantly struggle against their own shortcomings."},"school":{"clan":"Phoenix","name":"Shiba Bushi","type":"bushi","bonus":"agility","description":"The Shiba Bushi are well known as a relatively peaceful group, at least as bushi are concerned. Their training emphasizes a number of non-martial skills in addition to the traditional weapons training, which has led to a reputation as warrior-scholars in some circles. A Shiba bushi considers all options before committing to combat, searching for any possible alternative other than the loss of life. If those a Shiba protects are threatened, however, or if combat is an inevitability, he attacks swiftly and without reservation, committing himself fully to the act until it is done. Those who mistake the desire of a Shiba bushi to preserve life for an inability to take it are woefully unprepared to face them on the battlefield.\nThe Shiba Techniques optimize the use of Void Points and specialize in the protection of others, allowing Shiba bushi to more than adequately fill their common role as yojimbo. They also possess an affinity for the use of polearms, and can excel at dueling if properly tailored.","skills":{"core":[["defense",1],["kenjutsu",1],["kyujutsu",1],["lore: theology",1,3],["meditation",1,2],["spears",1,3]],"emphases":[{"skillName":"meditation","emphasis":"void recovery"}],"freePickType":[["bugei","high"]]},"honor":5.5,"outfit":{"armor":{"option1":"light armor","option2":""},"clothing":"sturdy clothing","weapons":{"base":{"base1":"katana","base2":"wakizashi"},"options":{"option1":"any","option2":""}},"tools":[""],"pack":"traveling pack","koku":5}},"totalExp":"40","currentExp":"0","rings":{"air":{"traits":{"reflexes":{"rank":2,"type":"physical","isVoid":false},"awareness":{"rank":2,"type":"mental","isVoid":false}}},"earth":{"traits":{"stamina":{"rank":3,"type":"physical","isVoid":false},"willpower":{"rank":3,"type":"mental","isVoid":false}}},"fire":{"traits":{"agility":{"rank":3,"type":"physical","isVoid":false},"intelligence":{"rank":2,"type":"mental","isVoid":false}}},"water":{"traits":{"strength":{"rank":2,"type":"physical","isVoid":false},"perception":{"rank":2,"type":"mental","isVoid":false}}},"void":{"traits":{"void":{"rank":2,"type":"mental","isVoid":true}}}},"skills":{"defense":{"trait":"reflexes","type":"Bugei","subType":[],"schoolSkill":true,"rank":1},"kenjutsu":{"trait":"agility","type":"Bugei","subType":["Weapon"],"schoolSkill":true,"rank":1},"kyujutsu":{"trait":"reflexes","type":"Bugei","subType":["Weapon"],"schoolSkill":true,"rank":1},"lore: theology":{"trait":"intelligence","type":"High","subType":[],"schoolSkill":true,"rank":3},"meditation":{"trait":"void","type":"High","subType":[],"schoolSkill":true,"rank":2},"spears":{"trait":"agility","type":"Bugei","subType":["Weapon"],"schoolSkill":true,"rank":3},"polearms":{"trait":"agility","type":"Bugei","subType":["Weapon"],"schoolSkill":true,"rank":4},"courtier":{"trait":"awareness","type":"High","subType":["Social"],"schoolSkill":false,"rank":1},"etiquette":{"trait":"awareness","type":"High","subType":["Social"],"schoolSkill":false,"rank":1},"investigation":{"trait":"perception","type":"High","subType":[],"schoolSkill":false,"rank":1},"jiujutsu":{"trait":"agility","type":"Bugei","subType":[],"schoolSkill":false,"rank":2},"iaijutsu":{"trait":"reflexes","type":"Bugei","subType":[],"schoolSkill":false,"rank":1}}}]
+[
+  {
+    "id": "0935f32c7db2",
+    "timestamp": 1601277402000,
+    "artwork": "IsawaMei-06dd79e7.jpg",
+    "firstName": "Mei",
+    "lastName": "Isawa",
+    "job": "bushi",
+    "clan": "Phoenix",
+    "family": {
+      "name": "Isawa",
+      "bonus": "willpower",
+      "description": "The Isawa truly rule the Phoenix Clan, despite the presence of a Shiba Clan Champion. They are unquestionably the most knowledgeable, most powerful, and most numerous shugenja family in the Empire. Unfortunately, this has made them arrogant as well, and many Isawa constantly struggle against their own shortcomings."
+    },
+    "school": {
+      "clan": "Phoenix",
+      "name": "Shiba Bushi",
+      "type": "bushi",
+      "bonus": "agility",
+      "description": "The Shiba Bushi are well known as a relatively peaceful group, at least as bushi are concerned. Their training emphasizes a number of non-martial skills in addition to the traditional weapons training, which has led to a reputation as warrior-scholars in some circles. A Shiba bushi considers all options before committing to combat, searching for any possible alternative other than the loss of life. If those a Shiba protects are threatened, however, or if combat is an inevitability, he attacks swiftly and without reservation, committing himself fully to the act until it is done. Those who mistake the desire of a Shiba bushi to preserve life for an inability to take it are woefully unprepared to face them on the battlefield.\nThe Shiba Techniques optimize the use of Void Points and specialize in the protection of others, allowing Shiba bushi to more than adequately fill their common role as yojimbo. They also possess an affinity for the use of polearms, and can excel at dueling if properly tailored.",
+      "skills": {
+        "core": [
+          ["defense", 1],
+          ["kenjutsu", 1],
+          ["kyujutsu", 1],
+          ["lore: theology", 1, 3],
+          ["meditation", 1, 2],
+          ["spears", 1, 3]
+        ],
+        "emphases": [
+          { "skillName": "meditation", "emphasis": "void recovery" }
+        ],
+        "freePickType": [["bugei", "high"]]
+      },
+      "honor": 5.5,
+      "outfit": {
+        "armor": { "option1": "light armor", "option2": "" },
+        "clothing": "sturdy clothing",
+        "weapons": {
+          "base": { "base1": "katana", "base2": "wakizashi" },
+          "options": { "option1": "any", "option2": "" }
+        },
+        "tools": [""],
+        "pack": "traveling pack",
+        "koku": 5
+      }
+    },
+    "totalExp": "40",
+    "currentExp": "0",
+    "rings": {
+      "air": {
+        "traits": {
+          "reflexes": { "rank": 2, "type": "physical", "isVoid": false },
+          "awareness": { "rank": 2, "type": "mental", "isVoid": false }
+        }
+      },
+      "earth": {
+        "traits": {
+          "stamina": { "rank": 3, "type": "physical", "isVoid": false },
+          "willpower": { "rank": 3, "type": "mental", "isVoid": false }
+        }
+      },
+      "fire": {
+        "traits": {
+          "agility": { "rank": 3, "type": "physical", "isVoid": false },
+          "intelligence": { "rank": 2, "type": "mental", "isVoid": false }
+        }
+      },
+      "water": {
+        "traits": {
+          "strength": { "rank": 2, "type": "physical", "isVoid": false },
+          "perception": { "rank": 2, "type": "mental", "isVoid": false }
+        }
+      },
+      "void": {
+        "traits": { "void": { "rank": 2, "type": "mental", "isVoid": true } }
+      }
+    },
+    "skills": {
+      "defense": {
+        "trait": "reflexes",
+        "type": "Bugei",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 1
+      },
+      "kenjutsu": {
+        "trait": "agility",
+        "type": "Bugei",
+        "subType": ["Weapon"],
+        "schoolSkill": true,
+        "rank": 1
+      },
+      "kyujutsu": {
+        "trait": "reflexes",
+        "type": "Bugei",
+        "subType": ["Weapon"],
+        "schoolSkill": true,
+        "rank": 1
+      },
+      "lore: theology": {
+        "trait": "intelligence",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 3
+      },
+      "meditation": {
+        "trait": "void",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 2
+      },
+      "spears": {
+        "trait": "agility",
+        "type": "Bugei",
+        "subType": ["Weapon"],
+        "schoolSkill": true,
+        "rank": 3
+      },
+      "polearms": {
+        "trait": "agility",
+        "type": "Bugei",
+        "subType": ["Weapon"],
+        "schoolSkill": true,
+        "rank": 4
+      },
+      "courtier": {
+        "trait": "awareness",
+        "type": "High",
+        "subType": ["Social"],
+        "schoolSkill": false,
+        "rank": 1
+      },
+      "etiquette": {
+        "trait": "awareness",
+        "type": "High",
+        "subType": ["Social"],
+        "schoolSkill": false,
+        "rank": 1
+      },
+      "investigation": {
+        "trait": "perception",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": false,
+        "rank": 1
+      },
+      "jiujutsu": {
+        "trait": "agility",
+        "type": "Bugei",
+        "subType": [],
+        "schoolSkill": false,
+        "rank": 2
+      },
+      "iaijutsu": {
+        "trait": "reflexes",
+        "type": "Bugei",
+        "subType": [],
+        "schoolSkill": false,
+        "rank": 1
+      }
+    }
+  }
+]

@@ -26,11 +26,13 @@ const CharSkillsTable = ({ char }) => {
     let skillRows = [];
     for (let s in skills) {
       const skill = skills[s];
-      const skillTypes = [skill.type, skill.subTypes].flat();
-      skillTypes.join(", ");
+      const skillTypes = [skill.type, skill.subType].flat().join(", ");
 
       skillRows.push(
-        <tr className="character-sheet__skills-item" key={`skill-${s}`}>
+        <tr
+          className="character-sheet__skills-item"
+          key={`skill-${s.split(": ").join("")}`}
+        >
           <td className="character-sheet__skill-name pop-text-2">
             {capitalize(s)}
           </td>

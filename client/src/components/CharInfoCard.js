@@ -4,6 +4,10 @@ import { Statistic } from "semantic-ui-react";
 const IMAGE_URL = "http://localhost:8000/characters/images";
 
 const CharInfoCard = ({ char, insightRank }) => {
+  const artworkPath = char.artwork
+    ? `${IMAGE_URL}/${char.artwork}`
+    : `${process.env.PUBLIC_URL}/images/noface_samurai.png`;
+
   return (
     <section className="character-sheet__info-container">
       <div
@@ -17,9 +21,9 @@ const CharInfoCard = ({ char, insightRank }) => {
       <div
         className="character-sheet__artwork"
         style={{
-          background: `url(${IMAGE_URL}/${char.artwork}) no-repeat`,
+          background: `url(${artworkPath}) no-repeat`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "52%",
         }}
       ></div>
       <div className="character-sheet__info">

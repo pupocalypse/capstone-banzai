@@ -1,5 +1,7 @@
 import React from "react";
 
+import placeholderImage from "../assets/images/noface_samurai.png";
+
 const IMAGE_URL = "http://localhost:8000/characters/images";
 
 const CharacterCard = ({
@@ -89,7 +91,7 @@ const CharacterCard = ({
           </h3>
         </div>
         <img
-          src={`${IMAGE_URL}/${char.artwork}`}
+          src={char.artwork ? `${IMAGE_URL}/${char.artwork}` : placeholderImage}
           alt=""
           className="character-card__card-art"
         />

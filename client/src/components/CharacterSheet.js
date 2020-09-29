@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { Icon } from "semantic-ui-react";
 
 import CharInfoCard from "./CharInfoCard";
 import CharStatusCard from "./CharStatusCard";
@@ -111,6 +113,18 @@ class CharacterSheet extends React.Component {
     const { activeCharacter: char } = this.state;
     return (
       <main className="character-sheet">
+        <div className="character-sheet__navbar">
+          {/* <div className="character-sheet__navbar-left"> */}
+          <Link to="/characters" className="character-sheet__navbar-left-link">
+            <Icon
+              name="arrow circle left"
+              size="large"
+              className="character-sheet__navbar-icon"
+            />
+            <p className="character-sheet__navbar-text">Back to Characters</p>
+          </Link>
+          {/* </div> */}
+        </div>
         {!char ? (
           "Loading..."
         ) : (

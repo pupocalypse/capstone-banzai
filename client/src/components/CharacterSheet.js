@@ -4,6 +4,7 @@ import axios from "axios";
 import CharInfoCard from "./CharInfoCard";
 import CharStatusCard from "./CharStatusCard";
 import CharRingsCard from "./CharRingsCard";
+import CharSkillsTable from "./CharSkillsTable";
 
 const URL = "http://localhost:8000";
 
@@ -132,8 +133,8 @@ class CharacterSheet extends React.Component {
               voidSlots={this.state.voidSlots}
               handleVoidClick={this.handleVoidClick}
             />
-
-            <section className="character-sheet__skills-container">
+            <CharSkillsTable char={char} />
+            {/* <section className="character-sheet__skills-container">
               <table className="character-sheet__skills-table">
                 <thead>
                   <tr className="character-sheet__skills-header-row">
@@ -336,7 +337,7 @@ class CharacterSheet extends React.Component {
                   </tr>
                 </tbody>
               </table>
-            </section>
+            </section> */}
           </>
         )}
       </main>

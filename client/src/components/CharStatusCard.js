@@ -2,13 +2,22 @@ import React from "react";
 
 const CharStatusCard = ({ char, initiativeRoll, karmaPoints }) => {
   const honorPointsList = () => {
-    console.log("char:", char);
     const honorPoints = char.school.honor.toString().split(".")[1];
     let honorArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => {
       if (num <= honorPoints) {
-        return <div className="character-sheet__slots-image honor-point"></div>;
+        return (
+          <div
+            className="character-sheet__slots-image honor-point"
+            key={`honor-${num}`}
+          ></div>
+        );
       } else {
-        return <div className="character-sheet__slots-image"></div>;
+        return (
+          <div
+            className="character-sheet__slots-image"
+            key={`honor-${num}`}
+          ></div>
+        );
       }
     });
     return honorArray;

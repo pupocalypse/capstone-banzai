@@ -1,7 +1,12 @@
 import React from "react";
 import { Popup, Icon } from "semantic-ui-react";
 
-const CharStatusCard = ({ char, initiativeRoll, karmaPoints }) => {
+const CharStatusCard = ({
+  char,
+  initiativeRoll,
+  karmaPoints,
+  onClickKarmaPoints,
+}) => {
   const honorPointsList = () => {
     const honorPoints = char.school.honor.toString().split(".")[1];
     let honorArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => {
@@ -59,10 +64,16 @@ const CharStatusCard = ({ char, initiativeRoll, karmaPoints }) => {
         <div className="character-sheet__karma-container">
           <h1 className="character-sheet__karma-count">{karmaPoints}</h1>
           <div className="character-sheet__karma-icons">
-            <button className="character-sheet__icon-button">
+            <button
+              className="character-sheet__icon-button"
+              onClick={() => onClickKarmaPoints("add")}
+            >
               <Icon name="caret up" />
             </button>
-            <button className="character-sheet__icon-button">
+            <button
+              className="character-sheet__icon-button"
+              onClick={() => onClickKarmaPoints("minus")}
+            >
               <Icon name="caret down" />
             </button>
           </div>

@@ -149,6 +149,17 @@ class CharacterSheet extends React.Component {
     });
   };
 
+  // adds or removes karma points
+  onClickKarmaPoints = (intent) => {
+    let { karmaPoints } = this.state;
+    if (intent === "add") {
+      karmaPoints++;
+    } else if (intent === "minus" && karmaPoints !== 0) {
+      karmaPoints--;
+    }
+    this.setState({ karmaPoints });
+  };
+
   render() {
     const { activeCharacter: char } = this.state;
     return (
@@ -183,6 +194,7 @@ class CharacterSheet extends React.Component {
               char={char}
               initiativeRoll={this.initiativeRoll}
               karmaPoints={this.state.karmaPoints}
+              onClickKarmaPoints={this.onClickKarmaPoints}
             />
             <CharRingsCard
               char={char}

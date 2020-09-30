@@ -2104,8 +2104,9 @@ label {
 }
 
 .character-sheet__karma-count {
+  width: 5.75rem;
   background: #30475e;
-  padding: 0.125rem 1rem 0;
+  padding: 0.125rem 1.75rem 0 0.75rem;
   border-radius: 0.5rem;
   margin: 0 0.5rem;
   font-family: "Otsutome";

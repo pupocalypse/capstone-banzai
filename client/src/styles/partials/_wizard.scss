@@ -532,7 +532,8 @@
     border: 2px dotted rgba($background-colour-secondary, 0.2);
     border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 0 2px 5px 2px rgba($primary-black, 0.7);
+    box-shadow: 0 2px 5px 2px rgba($primary-black, 0.7),
+      0 0 5px 0 rgba($primary-complement, 0.2) inset;
     display: flex;
     justify-content: center;
     align-items: center;

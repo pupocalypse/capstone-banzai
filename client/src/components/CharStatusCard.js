@@ -1,5 +1,5 @@
 import React from "react";
-import { Popup } from "semantic-ui-react";
+import { Popup, Icon } from "semantic-ui-react";
 
 const CharStatusCard = ({ char, initiativeRoll, karmaPoints }) => {
   const honorPointsList = () => {
@@ -58,6 +58,14 @@ const CharStatusCard = ({ char, initiativeRoll, karmaPoints }) => {
 
         <div className="character-sheet__karma-container">
           <h1 className="character-sheet__karma-count">{karmaPoints}</h1>
+          <div className="character-sheet__karma-icons">
+            <button className="character-sheet__icon-button">
+              <Icon name="caret up" />
+            </button>
+            <button className="character-sheet__icon-button">
+              <Icon name="caret down" />
+            </button>
+          </div>
           <p className="character-sheet__karma-label">Karma Points</p>
         </div>
       </div>

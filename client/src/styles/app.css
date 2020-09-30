@@ -1193,8 +1193,8 @@ label {
   border: 2px dotted rgba(184, 182, 175, 0.2);
   border-radius: 0.5rem;
   overflow: hidden;
-  -webkit-box-shadow: 0 2px 5px 2px rgba(34, 30, 31, 0.7);
-          box-shadow: 0 2px 5px 2px rgba(34, 30, 31, 0.7);
+  -webkit-box-shadow: 0 2px 5px 2px rgba(34, 30, 31, 0.7), 0 0 5px 0 rgba(0, 181, 173, 0.2) inset;
+          box-shadow: 0 2px 5px 2px rgba(34, 30, 31, 0.7), 0 0 5px 0 rgba(0, 181, 173, 0.2) inset;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1289,7 +1289,7 @@ label {
   background: url("../assets/images/rings/rings_empty_whiteBG.png") no-repeat;
   background-size: contain;
   background-position: center;
-  width: 12%;
+  width: 2.75rem;
   color: #822c2d;
   font-family: "Otsutome";
   font-size: 1.5rem;
@@ -1710,10 +1710,12 @@ label {
   font-family: "Roboto Condensed";
   font-size: 0.7rem;
   font-weight: bold;
+  text-align: center;
   color: rgba(220, 205, 176, 0.7);
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: -1rem;
-  left: 50%;
 }
 
 .character-sheet__popup {
@@ -1730,10 +1732,12 @@ label {
   font-family: "Roboto Condensed";
   font-size: 0.7rem;
   font-weight: bold;
+  text-align: center;
   color: rgba(220, 205, 176, 0.7);
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: -1rem;
-  left: 28%;
 }
 
 .character-sheet__navbar {
@@ -1862,6 +1866,7 @@ label {
   right: 0;
   padding: 1rem 1rem 0 0;
   position: relative;
+  z-index: 10;
 }
 
 .character-sheet__info::before {
@@ -1941,6 +1946,43 @@ label {
           justify-content: space-between;
   position: relative;
   top: 0.75rem;
+}
+
+.character-sheet__info-xp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.character-sheet__exp-icons {
+  width: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-left: 0.5rem;
+  margin-top: -0.35rem;
+}
+
+.character-sheet__icon-button {
+  background: none;
+  border: none;
+  color: #dccdb0;
+  -webkit-filter: drop-shadow(0.5px 0.5px 1px rgba(27, 27, 47, 0.5));
+          filter: drop-shadow(0.5px 0.5px 1px rgba(27, 27, 47, 0.5));
+  -webkit-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+.character-sheet__icon-button:hover, .character-sheet__icon-button:focus {
+  outline: none;
+  color: #f2a07b;
 }
 
 .character-sheet__rank-label {
@@ -2057,6 +2099,10 @@ label {
   padding-top: 0.5rem;
 }
 
+.character-sheet__karma-container {
+  position: relative;
+}
+
 .character-sheet__karma-count {
   background: #30475e;
   padding: 0.125rem 1rem 0;
@@ -2076,9 +2122,22 @@ label {
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
-.character-sheet__karma-count:hover {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+.character-sheet__karma-icons {
+  position: absolute;
+  width: 1rem;
+  height: 100%;
+  top: 0.375rem;
+  right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .character-sheet__karma-label {
@@ -2388,6 +2447,19 @@ label {
   font-family: "Fontin Small Caps";
   font-size: 1.5rem;
   color: #221e1f;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.character-sheet__void-text::after {
+  content: "(click to toggle)";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 1.125rem;
+  left: 0;
+  font-size: 0.825rem;
+  text-align: center;
 }
 
 .character-sheet__void-slots {

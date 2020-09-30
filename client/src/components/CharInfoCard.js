@@ -1,9 +1,14 @@
 import React from "react";
-import { Statistic } from "semantic-ui-react";
+import { Statistic, Icon } from "semantic-ui-react";
 
 const IMAGE_URL = "http://localhost:8000/characters/images";
 
-const CharInfoCard = ({ char, insightRank }) => {
+const CharInfoCard = ({
+  char,
+  insightRank,
+  onClickAddExp,
+  onClickMinusExp,
+}) => {
   const artworkPath = char.artwork
     ? `${IMAGE_URL}/${char.artwork}`
     : `${process.env.PUBLIC_URL}/images/noface_samurai.png`;
@@ -70,6 +75,20 @@ const CharInfoCard = ({ char, insightRank }) => {
                 Total
               </Statistic.Label>
             </Statistic>
+            <div className="character-sheet__exp-icons">
+              <button
+                className="character-sheet__icon-button"
+                onClick={onClickAddExp}
+              >
+                <Icon name="caret up" />
+              </button>
+              <button
+                className="character-sheet__icon-button"
+                onClick={onClickMinusExp}
+              >
+                <Icon name="caret down" />
+              </button>
+            </div>
           </div>
           <Statistic>
             <Statistic.Value>{insightRank}</Statistic.Value>

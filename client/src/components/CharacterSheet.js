@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Icon, Button } from "semantic-ui-react";
+import { Icon, Button, Loader } from "semantic-ui-react";
 
 import CharInfoCard from "./CharInfoCard";
 import CharStatusCard from "./CharStatusCard";
@@ -15,6 +15,8 @@ class CharacterSheet extends React.Component {
     activeCharacter: "",
     voidSlots: {} || null,
     karmaPoints: 1,
+    startingTotalExp: 40,
+    startingCurrentExp: 0,
   };
 
   componentDidMount() {
@@ -27,7 +29,10 @@ class CharacterSheet extends React.Component {
       .get(`${URL}/characters/${id}`)
       .then(({ data }) => {
         let activeCharacter = data;
-        this.setState({ activeCharacter });
+        this.setState({
+          activeCharacter,
+          startingCurrentExp: Number(activeCharacter.currentExp),
+        });
       })
       .catch((error) => console.log(error));
   };
@@ -109,6 +114,41 @@ class CharacterSheet extends React.Component {
     return `${insightRank + reflexes}k${reflexes}`;
   };
 
+  // increases current & total exp
+  onClickAddExp = () => {
+    let { currentExp, totalExp } = this.state.activeCharacter;
+    currentExp = Number(currentExp) + 1;
+    totalExp = Number(totalExp) + 1;
+    this.setState({
+      activeCharacter: {
+        ...this.state.activeCharacter,
+        currentExp,
+        totalExp,
+      },
+    });
+  };
+
+  // decreases current & total exp (until current is 0)
+  onClickMinusExp = () => {
+    let { currentExp, totalExp } = this.state.activeCharacter;
+    let {
+      startingCurrentExp: minCurrent,
+      startingTotalExp: minTotal,
+    } = this.state;
+    if (Number(currentExp) === minCurrent || Number(totalExp) === minTotal) {
+      return;
+    }
+    currentExp = Number(currentExp) - 1;
+    totalExp = Number(totalExp) - 1;
+    this.setState({
+      activeCharacter: {
+        ...this.state.activeCharacter,
+        currentExp,
+        totalExp,
+      },
+    });
+  };
+
   render() {
     const { activeCharacter: char } = this.state;
     return (
@@ -130,12 +170,14 @@ class CharacterSheet extends React.Component {
           </Button>
         </div>
         {!char ? (
-          "Loading..."
+          <Loader active inline />
         ) : (
           <>
             <CharInfoCard
               char={char}
               insightRank={this.insightRankCalculator(char)}
+              onClickAddExp={this.onClickAddExp}
+              onClickMinusExp={this.onClickMinusExp}
             />
             <CharStatusCard
               char={char}

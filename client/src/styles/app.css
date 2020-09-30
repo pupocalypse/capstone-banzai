@@ -1290,9 +1290,6 @@ label {
   background-size: contain;
   background-position: center;
   width: 2.75rem;
-  color: #822c2d;
-  font-family: "Otsutome";
-  font-size: 1.5rem;
   border-bottom: 2px solid #822c2d;
   padding-left: 0.15rem;
   padding-top: 0.3rem;
@@ -1311,6 +1308,51 @@ label {
   background-position: center;
   -webkit-filter: invert(99%) sepia(99%) saturate(493%) hue-rotate(313deg) brightness(92%) contrast(86%);
           filter: invert(99%) sepia(99%) saturate(493%) hue-rotate(313deg) brightness(92%) contrast(86%);
+}
+
+.air-rank {
+  font-family: "Otsutome";
+  font-size: 1.5rem;
+  background: linear-gradient(-45deg, #3e298b, rgba(133, 140, 167, 0.75));
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.earth-rank {
+  font-family: "Otsutome";
+  font-size: 1.5rem;
+  background: linear-gradient(-45deg, #416b2c, rgba(148, 156, 133, 0.75));
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fire-rank {
+  font-family: "Otsutome";
+  font-size: 1.5rem;
+  background: linear-gradient(-45deg, #c03f1b, rgba(229, 152, 119, 0.75));
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.water-rank {
+  font-family: "Otsutome";
+  font-size: 1.5rem;
+  background: linear-gradient(-45deg, #17528d, rgba(146, 167, 186, 0.75));
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.void-rank {
+  font-family: "Otsutome";
+  font-size: 1.5rem;
+  background: linear-gradient(-45deg, #383330, rgba(148, 144, 141, 0.75));
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .trait {
@@ -2306,6 +2348,86 @@ label {
   opacity: 0.7;
 }
 
+.character-sheet__rings-clipped-earth {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 100%;
+  background: linear-gradient(-45deg, #416b2c, #221e1f);
+  -webkit-clip-path: circle(2.75rem at 35% 30%);
+          clip-path: circle(2.75rem at 35% 30%);
+  -webkit-mask: url("../assets/images/rings/rings_noBG.png");
+          mask: url("../assets/images/rings/rings_noBG.png");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+}
+
+.character-sheet__rings-clipped-air {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 50%;
+  background: linear-gradient(-45deg, #3e298b, rgba(34, 30, 31, 0.3));
+  -webkit-clip-path: circle(2.75rem at 65% 30%);
+          clip-path: circle(2.75rem at 65% 30%);
+  -webkit-mask: url("../assets/images/rings/rings_noBG.png");
+          mask: url("../assets/images/rings/rings_noBG.png");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+}
+
+.character-sheet__rings-clipped-water {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 50%;
+  background: linear-gradient(-45deg, #17528d, #221e1f);
+  -webkit-clip-path: circle(2.75rem at 25% 60%);
+          clip-path: circle(2.75rem at 25% 60%);
+  -webkit-mask: url("../assets/images/rings/rings_noBG.png");
+          mask: url("../assets/images/rings/rings_noBG.png");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+}
+
+.character-sheet__rings-clipped-fire {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 50%;
+  background: linear-gradient(-45deg, #c03f1b, #221e1f);
+  -webkit-clip-path: circle(2.75rem at 75% 60%);
+          clip-path: circle(2.75rem at 75% 60%);
+  -webkit-mask: url("../assets/images/rings/rings_noBG.png");
+          mask: url("../assets/images/rings/rings_noBG.png");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+}
+
+.character-sheet__rings-clipped-void {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: 50%;
+  background: linear-gradient(-45deg, #383330, #221e1f);
+  -webkit-clip-path: circle(2.75rem at 52% 78%);
+          clip-path: circle(2.75rem at 52% 78%);
+  -webkit-mask: url("../assets/images/rings/rings_noBG.png");
+          mask: url("../assets/images/rings/rings_noBG.png");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+}
+
 .character-sheet__ring-rank-container {
   border: none;
   height: 2.75rem;
@@ -2409,12 +2531,13 @@ label {
 .character-sheet .stamina {
   top: -0.25rem;
   left: 3rem;
-  opacity: 0.8;
+  opacity: 0.85;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 .character-sheet .stamina:hover, .character-sheet .stamina:focus {
+  outline: none;
   cursor: pointer;
   opacity: 1;
   -webkit-filter: drop-shadow(0 1px 3px #416b2c);
@@ -2428,12 +2551,13 @@ label {
 .character-sheet .willpower {
   top: 2.25rem;
   left: 0.5rem;
-  opacity: 0.8;
+  opacity: 0.85;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 .character-sheet .willpower:hover, .character-sheet .willpower:focus {
+  outline: none;
   cursor: pointer;
   opacity: 1;
   -webkit-filter: drop-shadow(0 1px 3px #416b2c);
@@ -2447,12 +2571,13 @@ label {
 .character-sheet .reflexes {
   top: -0.25rem;
   right: 3rem;
-  opacity: 0.8;
+  opacity: 0.85;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 .character-sheet .reflexes:hover, .character-sheet .reflexes:focus {
+  outline: none;
   cursor: pointer;
   opacity: 1;
   -webkit-filter: drop-shadow(0 1px 3px #3e298b);
@@ -2466,12 +2591,13 @@ label {
 .character-sheet .awareness {
   top: 2.25rem;
   right: 0.5rem;
-  opacity: 0.8;
+  opacity: 0.85;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 .character-sheet .awareness:hover, .character-sheet .awareness:focus {
+  outline: none;
   cursor: pointer;
   opacity: 1;
   -webkit-filter: drop-shadow(0 1px 3px #3e298b);
@@ -2485,12 +2611,13 @@ label {
 .character-sheet .strength {
   top: 10rem;
   left: -1rem;
-  opacity: 0.8;
+  opacity: 0.85;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 .character-sheet .strength:hover, .character-sheet .strength:focus {
+  outline: none;
   cursor: pointer;
   opacity: 1;
   -webkit-filter: drop-shadow(0 1px 3px #17528d);
@@ -2505,12 +2632,13 @@ label {
 .character-sheet .perception {
   top: 13rem;
   left: 0.75rem;
-  opacity: 0.8;
+  opacity: 0.85;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 .character-sheet .perception:hover, .character-sheet .perception:focus {
+  outline: none;
   cursor: pointer;
   opacity: 1;
   -webkit-filter: drop-shadow(0 1px 3px #17528d);
@@ -2525,12 +2653,13 @@ label {
 .character-sheet .agility {
   top: 10rem;
   right: -1.25rem;
-  opacity: 0.8;
+  opacity: 0.85;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 .character-sheet .agility:hover, .character-sheet .agility:focus {
+  outline: none;
   cursor: pointer;
   opacity: 1;
   -webkit-filter: drop-shadow(0 1px 3px #c03f1b);
@@ -2545,12 +2674,13 @@ label {
 .character-sheet .intelligence {
   top: 13rem;
   right: 0.55rem;
-  opacity: 0.8;
+  opacity: 0.85;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
 .character-sheet .intelligence:hover, .character-sheet .intelligence:focus {
+  outline: none;
   cursor: pointer;
   opacity: 1;
   -webkit-filter: drop-shadow(0 1px 3px #c03f1b);

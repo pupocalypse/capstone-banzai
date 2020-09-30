@@ -31,11 +31,13 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
     <section className="character-sheet__rings-container">
       <div className="character-sheet__all-rings-container">
         <div className="character-sheet__rings-image">
-          <img
-            src="../assets/images/rings_noBG.png"
-            alt=""
-            className="character-sheet_rings-clipped"
-          />
+          {/* clipping masks for ring colours */}
+          <div className="character-sheet__rings-clipped-earth"></div>
+          <div className="character-sheet__rings-clipped-air"></div>
+          <div className="character-sheet__rings-clipped-water"></div>
+          <div className="character-sheet__rings-clipped-fire"></div>
+          <div className="character-sheet__rings-clipped-void"></div>
+
           {/* element rings */}
           <div className="character-sheet__ring-rank-container earth">
             <h3 className="character-sheet__trait-rank earth-rank">

@@ -10,10 +10,12 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
             Air
           </td>
           <td rowSpan="2" className="element-rank">
-            {Math.min(
-              rings.air.traits.reflexes.rank,
-              rings.air.traits.awareness.rank
-            )}
+            <h3 className="air-rank">
+              {Math.min(
+                rings.air.traits.reflexes.rank,
+                rings.air.traits.awareness.rank
+              )}
+            </h3>
           </td>
           <td className="trait">Reflexes</td>
           <td className="trait-rank">{rings.air.traits.reflexes.rank}</td>
@@ -48,10 +50,12 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
             Earth
           </td>
           <td rowSpan="2" className="element-rank">
-            {Math.min(
-              rings.earth.traits.stamina.rank,
-              rings.earth.traits.willpower.rank
-            )}
+            <h3 className="earth-rank">
+              {Math.min(
+                rings.earth.traits.stamina.rank,
+                rings.earth.traits.willpower.rank
+              )}
+            </h3>
           </td>
           <td className="trait">Stamina</td>
           <td className="trait-rank">{rings.earth.traits.stamina.rank}</td>
@@ -86,10 +90,12 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
             Fire
           </td>
           <td rowSpan="2" className="element-rank">
-            {Math.min(
-              rings.fire.traits.agility.rank,
-              rings.fire.traits.intelligence.rank
-            )}
+            <h3 className="fire-rank">
+              {Math.min(
+                rings.fire.traits.agility.rank,
+                rings.fire.traits.intelligence.rank
+              )}
+            </h3>
           </td>
           <td className="trait">Agility</td>
           <td className="trait-rank">{rings.fire.traits.agility.rank}</td>
@@ -124,10 +130,12 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
             Water
           </td>
           <td rowSpan="2" className="element-rank">
-            {Math.min(
-              rings.water.traits.strength.rank,
-              rings.water.traits.perception.rank
-            )}
+            <h3 className="water-rank">
+              {Math.min(
+                rings.water.traits.strength.rank,
+                rings.water.traits.perception.rank
+              )}
+            </h3>
           </td>
           <td className="trait">Strength</td>
           <td className="trait-rank">{rings.water.traits.strength.rank}</td>
@@ -159,7 +167,9 @@ const WizardRingsTable = ({ rings, spendTraitExp }) => {
 
         <tr>
           <td className="element void">Void</td>
-          <td className="element-rank void">{rings.void.traits.void.rank}</td>
+          <td className="element-rank void">
+            <h3 className="void-rank">{rings.void.traits.void.rank}</h3>
+          </td>
           <td className="trait void"></td>
           <td className="trait-rank void"></td>
           <td className="upgrade-button-cell void">

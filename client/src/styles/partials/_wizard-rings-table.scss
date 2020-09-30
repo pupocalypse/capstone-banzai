@@ -10,9 +10,7 @@
   background-size: contain;
   background-position: center;
   width: 2.75rem;
-  color: $primary-dark-colour;
-  font-family: "Otsutome";
-  font-size: 1.5rem;
+  // color: $primary-dark-colour;
   border-bottom: 2px solid $primary-dark-colour;
   padding-left: 0.15rem;
   padding-top: 0.3rem;
@@ -31,6 +29,59 @@
     filter: invert(99%) sepia(99%) saturate(493%) hue-rotate(313deg)
       brightness(92%) contrast(86%);
   }
+}
+
+.air-rank {
+  font-family: "Otsutome";
+  font-size: 1.5rem;
+  background: linear-gradient(-45deg, $air-ring, rgba($air-ring-light, 0.75));
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.earth-rank {
+  font-family: "Otsutome";
+  font-size: 1.5rem;
+  background: linear-gradient(
+    -45deg,
+    $earth-ring,
+    rgba($earth-ring-light, 0.75)
+  );
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fire-rank {
+  font-family: "Otsutome";
+  font-size: 1.5rem;
+  background: linear-gradient(-45deg, $fire-ring, rgba($fire-ring-light, 0.75));
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.water-rank {
+  font-family: "Otsutome";
+  font-size: 1.5rem;
+  background: linear-gradient(
+    -45deg,
+    $water-ring,
+    rgba($water-ring-light, 0.75)
+  );
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.void-rank {
+  font-family: "Otsutome";
+  font-size: 1.5rem;
+  background: linear-gradient(-45deg, $void-ring, rgba($void-ring-light, 0.75));
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .trait {

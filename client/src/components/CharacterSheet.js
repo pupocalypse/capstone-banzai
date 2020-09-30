@@ -24,6 +24,12 @@ class CharacterSheet extends React.Component {
     this.getActiveCharacter(id);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.activeCharacter !== this.state.activeCharacter) {
+      this.setVoidSlots();
+    }
+  }
+
   getActiveCharacter = (id) => {
     axios
       .get(`${URL}/characters/${id}`)

@@ -556,4 +556,38 @@
     align-items: center;
     padding: 1rem 0;
   }
+
+  &__modal-image {
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 1.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 6px rgba($primary-dark-colour, 0.7);
+  }
+
+  &__modal-icon {
+    color: $background-colour-secondary;
+  }
+
+  &__modal-description {
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 70%;
+    flex: 1.5 1;
+    text-align: center;
+  }
+
+  &__modal-mon {
+    width: 6.5rem;
+    height: 6.5rem;
+    margin: 0 2rem 0.5rem;
+  }
+
+  &__modal-heading {
+    margin-bottom: 1rem;
+  }
 }

@@ -1,6 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Form, Button, Loader, Statistic, Icon } from "semantic-ui-react";
+import {
+  Form,
+  Button,
+  Loader,
+  Statistic,
+  Icon,
+  Modal,
+  Message,
+} from "semantic-ui-react";
 
 import WizardRingsTable from "./WizardRingsTable";
 
@@ -9,6 +17,7 @@ class WizardPage2 extends React.Component {
     formSkillFields: [],
     skillOptions: [],
     artworkFile: "",
+    open: false, // for modal, not using hooks
   };
 
   componentDidMount() {
@@ -16,7 +25,7 @@ class WizardPage2 extends React.Component {
     this.addSkillField();
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (prevProps.skills !== this.props.skills) {
       this.setSkills();
     }
@@ -149,6 +158,7 @@ class WizardPage2 extends React.Component {
               this.props.submitCharacter(e, this.createCharacter)
             }
             encType="multipart/form-data"
+            error={this.props.character.firstName ? false : true}
           >
             <Form.Group widths="equal">
               <h4 className="wizard__form-details">
@@ -490,11 +500,71 @@ class WizardPage2 extends React.Component {
                   Cancel
                 </Button>
                 <Button.Or />
-                <Button primary type="submit">
-                  Save
-                </Button>
+                <Modal
+                  basic
+                  trigger={
+                    <Button
+                      primary
+                      type="submit"
+                      disabled={this.props.character.firstName ? false : true}
+                    >
+                      Save
+                    </Button>
+                  }
+                  onClose={() => this.setState({ open: false })}
+                  onOpen={() => this.setState({ open: true })}
+                  open={this.state.open}
+                  size="small"
+                >
+                  <Modal.Content>
+                    {this.state.tempFile ? (
+                      <img
+                        src={this.state.tempFile}
+                        alt=""
+                        className="wizard__modal-image"
+                      />
+                    ) : (
+                      <Icon
+                        name="file text"
+                        size="massive"
+                        className="wizard__modal-icon"
+                      />
+                    )}
+                    <div className="wizard__modal-description">
+                      <img
+                        src={`${process.env.PUBLIC_URL}/images/mons-colour/Mon_${this.props.character.clan}_colour.png`}
+                        alt=""
+                        className="wizard__modal-mon"
+                      />
+                      <h1 className="wizard__modal-heading">
+                        Character Saved!
+                      </h1>
+                      <p>
+                        You may now view your completed character sheet and
+                        continue editing as desired.
+                      </p>
+                    </div>
+                  </Modal.Content>
+                  <Modal.Actions>
+                    <Button circular as={Link} to="/build-character/page1">
+                      Return to Start
+                    </Button>
+                    <Button
+                      primary
+                      circular
+                      as={Link}
+                      to={`/characters/${this.props.id}`}
+                    >
+                      View Character Sheet
+                    </Button>
+                  </Modal.Actions>
+                </Modal>
               </Button.Group>
             </div>
+            <Message
+              error
+              content="You must enter a name for your character before submitting"
+            />
           </Form>
         </div>
       </div>

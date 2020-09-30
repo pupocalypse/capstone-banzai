@@ -114,7 +114,6 @@ class CharacterSheet extends React.Component {
     return (
       <main className="character-sheet">
         <div className="character-sheet__navbar">
-          {/* <div className="character-sheet__navbar-left"> */}
           <Link to="/characters" className="character-sheet__navbar-left-link">
             <Icon
               name="arrow circle left"
@@ -129,7 +128,6 @@ class CharacterSheet extends React.Component {
               Delete Character
             </span>
           </Button>
-          {/* </div> */}
         </div>
         {!char ? (
           "Loading..."

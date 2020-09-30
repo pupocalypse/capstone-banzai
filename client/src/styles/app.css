@@ -348,8 +348,51 @@ label {
   transition: opacity 0.2s ease-in-out;
 }
 
+.ui.popup::before {
+  -webkit-box-shadow: 1px 1px 0 0 #7e8a97;
+          box-shadow: 1px 1px 0 0 #7e8a97;
+}
+
 .ui.top.popup::before {
   background: #30475e;
+}
+
+.ui.modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ui.modal > .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ui.error.message {
+  padding: 0.5rem 1rem;
+  margin-top: 0;
+  margin-left: auto;
+  background: rgba(48, 71, 94, 0.8);
+  color: #00b5ad;
+  border: 1px solid rgba(0, 181, 173, 0.5);
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 181, 173, 0.7) inset, 0 0 0 transparent;
+          box-shadow: 0 0 0 1px rgba(0, 181, 173, 0.7) inset, 0 0 0 transparent;
+  font-weight: bold;
+  -webkit-box-shadow: 1px 1px 3px #1b1b2f;
+          box-shadow: 1px 1px 3px #1b1b2f;
+}
+
+.ui.error.message > .content > p {
+  color: inherit;
+  -webkit-filter: drop-shadow(1px 1px 0 #1b1b2f);
+          filter: drop-shadow(1px 1px 0 #1b1b2f);
 }
 
 .header {
@@ -1188,6 +1231,51 @@ label {
       -ms-flex-align: center;
           align-items: center;
   padding: 1rem 0;
+}
+
+.wizard__modal-image {
+  width: 15rem;
+  height: 15rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  margin-right: 1.5rem;
+  border-radius: 0.25rem;
+  -webkit-box-shadow: 0 0 6px rgba(130, 44, 45, 0.7);
+          box-shadow: 0 0 6px rgba(130, 44, 45, 0.7);
+}
+
+.wizard__modal-icon {
+  color: #b8b6af;
+}
+
+.wizard__modal-description {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 70%;
+  -webkit-box-flex: 1.5;
+      -ms-flex: 1.5 1;
+          flex: 1.5 1;
+  text-align: center;
+}
+
+.wizard__modal-mon {
+  width: 6.5rem;
+  height: 6.5rem;
+  margin: 0 2rem 0.5rem;
+}
+
+.wizard__modal-heading {
+  margin-bottom: 1rem;
 }
 
 .element {

@@ -320,10 +320,45 @@ label {
   font-size: 0.925rem;
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
+
+  // for "border" colour on arrow
+  &::before {
+    box-shadow: 1px 1px 0 0 $light-slate;
+  }
 }
 
+// for arrow colour
 .ui.top.popup {
   &::before {
     background: $mid-slate;
   }
+}
+
+// for modal
+.ui.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui.modal > .content {
+  display: flex;
+}
+
+// for form error message
+.ui.error.message {
+  padding: 0.5rem 1rem;
+  margin-top: 0;
+  margin-left: auto;
+  background: rgba($mid-slate, 0.8);
+  color: $primary-complement;
+  border: 1px solid rgba($primary-complement, 0.5);
+  box-shadow: 0 0 0 1px rgba($primary-complement, 0.7) inset, 0 0 0 transparent;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px $dark-blue;
+}
+
+.ui.error.message > .content > p {
+  color: inherit;
+  filter: drop-shadow(1px 1px 0 $dark-blue);
 }

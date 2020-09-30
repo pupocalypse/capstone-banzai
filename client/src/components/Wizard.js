@@ -10,6 +10,7 @@ const URL = "http://localhost:8000";
 
 class Wizard extends React.Component {
   state = {
+    id: null,
     currentClan: "",
     currentFamily: "",
     currentSchool: "",
@@ -502,7 +503,10 @@ class Wizard extends React.Component {
 
     axios
       .post(`${URL}/characters`, formData)
-      .then((response) => console.log(response.data))
+      .then((response) => {
+        const id = response.data[response.data.length - 1].id;
+        this.setState({ id });
+      })
       .catch((error) => console.log(error));
   };
 
@@ -554,6 +558,7 @@ class Wizard extends React.Component {
                     resetExpSpent={this.resetExpSpent}
                     backButtonClick={this.backButtonClick}
                     submitCharacter={this.submitCharacter}
+                    id={this.state.id}
                   />
                 );
               }}

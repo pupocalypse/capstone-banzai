@@ -2352,7 +2352,7 @@ label {
 }
 
 .character-sheet .earth-rank {
-  background: linear-gradient(-45deg, #536749, rgba(34, 30, 31, 0.75));
+  background: linear-gradient(-45deg, #416b2c, rgba(148, 156, 133, 0.75));
   background-size: 100%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -2364,7 +2364,7 @@ label {
 }
 
 .character-sheet .air-rank {
-  background: linear-gradient(-45deg, #2e3f6a, rgba(34, 30, 31, 0.65));
+  background: linear-gradient(-45deg, #3e298b, rgba(133, 140, 167, 0.75));
   background-size: 100%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -2376,7 +2376,7 @@ label {
 }
 
 .character-sheet .water-rank {
-  background: linear-gradient(-45deg, #326393, rgba(34, 30, 31, 0.75));
+  background: linear-gradient(-45deg, #17528d, rgba(146, 167, 186, 0.75));
   background-size: 100%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -2388,7 +2388,7 @@ label {
 }
 
 .character-sheet .fire-rank {
-  background: linear-gradient(-45deg, #db4820, rgba(34, 30, 31, 0.75));
+  background: linear-gradient(-45deg, #c03f1b, rgba(229, 152, 119, 0.75));
   background-size: 100%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -2400,7 +2400,7 @@ label {
 }
 
 .character-sheet .void-rank {
-  background: linear-gradient(-45deg, #56514e, rgba(34, 30, 31, 0.85));
+  background: linear-gradient(-45deg, #383330, rgba(148, 144, 141, 0.75));
   background-size: 100%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -2417,8 +2417,8 @@ label {
 .character-sheet .stamina:hover, .character-sheet .stamina:focus {
   cursor: pointer;
   opacity: 1;
-  -webkit-filter: drop-shadow(0 1px 3px #536749);
-          filter: drop-shadow(0 1px 3px #536749);
+  -webkit-filter: drop-shadow(0 1px 3px #416b2c);
+          filter: drop-shadow(0 1px 3px #416b2c);
 }
 
 .character-sheet .stamina-text {
@@ -2436,8 +2436,8 @@ label {
 .character-sheet .willpower:hover, .character-sheet .willpower:focus {
   cursor: pointer;
   opacity: 1;
-  -webkit-filter: drop-shadow(0 1px 3px #536749);
-          filter: drop-shadow(0 1px 3px #536749);
+  -webkit-filter: drop-shadow(0 1px 3px #416b2c);
+          filter: drop-shadow(0 1px 3px #416b2c);
 }
 
 .character-sheet .willpower-text {
@@ -2455,8 +2455,8 @@ label {
 .character-sheet .reflexes:hover, .character-sheet .reflexes:focus {
   cursor: pointer;
   opacity: 1;
-  -webkit-filter: drop-shadow(0 1px 3px #2e3f6a);
-          filter: drop-shadow(0 1px 3px #2e3f6a);
+  -webkit-filter: drop-shadow(0 1px 3px #3e298b);
+          filter: drop-shadow(0 1px 3px #3e298b);
 }
 
 .character-sheet .reflexes-text {
@@ -2474,8 +2474,8 @@ label {
 .character-sheet .awareness:hover, .character-sheet .awareness:focus {
   cursor: pointer;
   opacity: 1;
-  -webkit-filter: drop-shadow(0 1px 3px #2e3f6a);
-          filter: drop-shadow(0 1px 3px #2e3f6a);
+  -webkit-filter: drop-shadow(0 1px 3px #3e298b);
+          filter: drop-shadow(0 1px 3px #3e298b);
 }
 
 .character-sheet .awareness-text {
@@ -2493,8 +2493,8 @@ label {
 .character-sheet .strength:hover, .character-sheet .strength:focus {
   cursor: pointer;
   opacity: 1;
-  -webkit-filter: drop-shadow(0 1px 3px #326393);
-          filter: drop-shadow(0 1px 3px #326393);
+  -webkit-filter: drop-shadow(0 1px 3px #17528d);
+          filter: drop-shadow(0 1px 3px #17528d);
 }
 
 .character-sheet .strength-text {
@@ -2513,8 +2513,8 @@ label {
 .character-sheet .perception:hover, .character-sheet .perception:focus {
   cursor: pointer;
   opacity: 1;
-  -webkit-filter: drop-shadow(0 1px 3px #326393);
-          filter: drop-shadow(0 1px 3px #326393);
+  -webkit-filter: drop-shadow(0 1px 3px #17528d);
+          filter: drop-shadow(0 1px 3px #17528d);
 }
 
 .character-sheet .perception-text {
@@ -2533,8 +2533,8 @@ label {
 .character-sheet .agility:hover, .character-sheet .agility:focus {
   cursor: pointer;
   opacity: 1;
-  -webkit-filter: drop-shadow(0 1px 3px #db4820);
-          filter: drop-shadow(0 1px 3px #db4820);
+  -webkit-filter: drop-shadow(0 1px 3px #c03f1b);
+          filter: drop-shadow(0 1px 3px #c03f1b);
 }
 
 .character-sheet .agility-text {
@@ -2553,8 +2553,8 @@ label {
 .character-sheet .intelligence:hover, .character-sheet .intelligence:focus {
   cursor: pointer;
   opacity: 1;
-  -webkit-filter: drop-shadow(0 1px 3px #db4820);
-          filter: drop-shadow(0 1px 3px #db4820);
+  -webkit-filter: drop-shadow(0 1px 3px #c03f1b);
+          filter: drop-shadow(0 1px 3px #c03f1b);
 }
 
 .character-sheet .intelligence-text {
@@ -2616,8 +2616,8 @@ label {
 .character-sheet__void-slots-image:hover, .character-sheet__void-slots-image:focus {
   outline: none;
   cursor: pointer;
-  -webkit-filter: drop-shadow(0 1px 3px rgba(228, 63, 90, 0.9));
-          filter: drop-shadow(0 1px 3px rgba(228, 63, 90, 0.9));
+  -webkit-filter: drop-shadow(0 1px 4px rgba(130, 44, 45, 0.9));
+          filter: drop-shadow(0 1px 4px rgba(130, 44, 45, 0.9));
 }
 
 .character-sheet .void-spent {

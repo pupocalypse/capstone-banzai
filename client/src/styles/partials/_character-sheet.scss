@@ -638,7 +638,7 @@
     background: linear-gradient(
       -45deg,
       $earth-ring,
-      rgba($primary-black, 0.75)
+      rgba($earth-ring-light, 0.75)
     );
     background-size: 100%;
     background-clip: text;
@@ -651,7 +651,7 @@
   }
 
   .air-rank {
-    background: linear-gradient(-45deg, $air-ring, rgba($primary-black, 0.65));
+    background: linear-gradient(-45deg, $air-ring, rgba($air-ring-light, 0.75));
     background-size: 100%;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -666,7 +666,7 @@
     background: linear-gradient(
       -45deg,
       $water-ring,
-      rgba($primary-black, 0.75)
+      rgba($water-ring-light, 0.75)
     );
     background-size: 100%;
     background-clip: text;
@@ -679,7 +679,11 @@
   }
 
   .fire-rank {
-    background: linear-gradient(-45deg, $fire-ring, rgba($primary-black, 0.75));
+    background: linear-gradient(
+      -45deg,
+      $fire-ring,
+      rgba($fire-ring-light, 0.75)
+    );
     background-size: 100%;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -691,7 +695,11 @@
   }
 
   .void-rank {
-    background: linear-gradient(-45deg, $void-ring, rgba($primary-black, 0.85));
+    background: linear-gradient(
+      -45deg,
+      $void-ring,
+      rgba($void-ring-light, 0.75)
+    );
     background-size: 100%;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -894,7 +902,7 @@
     &:focus {
       outline: none;
       cursor: pointer;
-      filter: drop-shadow(0 1px 3px rgba($accent-red, 0.9));
+      filter: drop-shadow(0 1px 4px rgba($primary-dark-colour, 0.9));
     }
   }
 

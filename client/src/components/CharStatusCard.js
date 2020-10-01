@@ -29,6 +29,50 @@ const CharStatusCard = ({
     return honorArray;
   };
 
+  const gloryPointsList = () => {
+    const gloryPoints = char.glory.toString().split(".")[1];
+    let gloryArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => {
+      if (num <= gloryPoints) {
+        return (
+          <div
+            className="character-sheet__slots-image glory-point"
+            key={`glory-${num}`}
+          ></div>
+        );
+      } else {
+        return (
+          <div
+            className="character-sheet__slots-image"
+            key={`glory-${num}`}
+          ></div>
+        );
+      }
+    });
+    return gloryArray;
+  };
+
+  const statusPointsList = () => {
+    const statusPoints = char.status.toString().split(".")[1];
+    let statusArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => {
+      if (num <= statusPoints) {
+        return (
+          <div
+            className="character-sheet__slots-image status-point"
+            key={`status-${num}`}
+          ></div>
+        );
+      } else {
+        return (
+          <div
+            className="character-sheet__slots-image"
+            key={`status-${num}`}
+          ></div>
+        );
+      }
+    });
+    return statusArray;
+  };
+
   return (
     <section className="character-sheet__status-outer-container">
       <div className="character-sheet__status-borders-horizontal"></div>
@@ -92,8 +136,10 @@ const CharStatusCard = ({
         </div>
 
         <div className="character-sheet__glory-container">
-          <p className="character-sheet__glory-text">Glory: 1.0</p>
+          <p className="character-sheet__glory-text">Glory: {char.glory}</p>
           <div className="character-sheet__glory-slots">
+            {gloryPointsList()}
+            {/* <div className="character-sheet__slots-image"></div>
             <div className="character-sheet__slots-image"></div>
             <div className="character-sheet__slots-image"></div>
             <div className="character-sheet__slots-image"></div>
@@ -102,14 +148,15 @@ const CharStatusCard = ({
             <div className="character-sheet__slots-image"></div>
             <div className="character-sheet__slots-image"></div>
             <div className="character-sheet__slots-image"></div>
-            <div className="character-sheet__slots-image"></div>
-            <div className="character-sheet__slots-image"></div>
+            <div className="character-sheet__slots-image"></div> */}
           </div>
         </div>
 
         <div className="character-sheet__status-container">
-          <p className="character-sheet__status-text">Status: 1.0</p>
+          <p className="character-sheet__status-text">Status: {char.status}</p>
           <div className="character-sheet__status-slots">
+            {statusPointsList()}
+            {/* <div className="character-sheet__slots-image"></div>
             <div className="character-sheet__slots-image"></div>
             <div className="character-sheet__slots-image"></div>
             <div className="character-sheet__slots-image"></div>
@@ -118,8 +165,7 @@ const CharStatusCard = ({
             <div className="character-sheet__slots-image"></div>
             <div className="character-sheet__slots-image"></div>
             <div className="character-sheet__slots-image"></div>
-            <div className="character-sheet__slots-image"></div>
-            <div className="character-sheet__slots-image"></div>
+            <div className="character-sheet__slots-image"></div> */}
           </div>
         </div>
       </div>

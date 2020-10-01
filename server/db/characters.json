@@ -3,8 +3,10 @@
     "id": "0935f32c7db2",
     "timestamp": 1601277402000,
     "artwork": "IsawaMei-06dd79e7.jpg",
+    "campaign": "The Darkest Timeline",
     "firstName": "Mei",
     "lastName": "Isawa",
+    "specialTitle": "",
     "job": "bushi",
     "clan": "Phoenix",
     "family": {
@@ -45,6 +47,8 @@
         "koku": 5
       }
     },
+    "glory": 1.0,
+    "status": 1.0,
     "totalExp": "40",
     "currentExp": "0",
     "rings": {
@@ -167,8 +171,10 @@
     "id": "1f757bd3a84d",
     "timestamp": 1601364884000,
     "artwork": "YasukiHayami-c854a20e.png",
+    "campaign": "The Darkest Timeline",
     "firstName": "Hayami",
     "lastName": "Yasuki",
+    "specialTitle": "",
     "job": "bushi",
     "clan": "Crab",
     "family": {
@@ -207,6 +213,8 @@
         "koku": 3
       }
     },
+    "glory": 1.0,
+    "status": 1.0,
     "totalExp": "40",
     "currentExp": "4",
     "rings": {
@@ -329,6 +337,179 @@
         "subType": [],
         "schoolSkill": false,
         "rank": 1
+      }
+    }
+  },
+  {
+    "id": "f8ac9fafae4d",
+    "timestamp": 1601538145000,
+    "artwork": "GoukimaroRyo-13f61c9e.jpg",
+    "campaign": "March of the Black Queen",
+    "firstName": "Ryo",
+    "lastName": "Goukimaro",
+    "specialTitle": "Abbot of the Spider",
+    "job": "shugenja",
+    "clan": "Spider",
+    "family": {
+      "name": "Goukimaro",
+      "bonus": "perception",
+      "description": ""
+    },
+    "school": {
+      "clan": "Crab",
+      "name": "Hiruma Bushi",
+      "type": "Bushi",
+      "bonus": "willpower",
+      "description": "Where the Hida Bushi School teaches endurance and strength, their Hiruma cousins teach avoidance and targeting weak points in an enemy’s defenses with lightning fast strikes. The lessons taught by their sensei are essential to fulfilling their duties as warriors inside the Shadowlands. Those who do not heed their teachers well do not survive to perpetuate their mistakes. Those who excel at their lessons become a scourge upon the Shadowlands, moving through that dark realm with speed and grace, leaving death in their wake.\nThe Hiruma Bushi School emphasizes movement and survival, not just to endure a strike as the Hida do, but to live through an entire skirmish. In one-on-one combat the Hiruma excels at evading his opponent, while in larger skirmishes his ability to avoid damage makes him adept at reaching trouble-some foes and eliminating them while his allies tie up other rank-and-file opponents.",
+      "skills": {
+        "core": [
+          ["athletics", 1],
+          ["calligraphy", 1],
+          ["knives", 1],
+          ["lore: theology", 1],
+          ["jiujitsu", 1],
+          ["meditation", 1]
+        ],
+        "emphases": [],
+        "freePickType": [["any"]]
+      },
+      "honor": 7.4,
+      "outfit": {
+        "armor": { "option1": "ashigaru armor", "option2": "light armor" },
+        "clothing": "sturdy clothing",
+        "weapons": {
+          "base": { "base1": "katana", "base2": "wakizashi" },
+          "options": { "option1": ["bow", "20 arrows"], "option2": "knife" }
+        },
+        "tools": [""],
+        "pack": "traveling pack",
+        "koku": 3
+      }
+    },
+    "glory": 7.4,
+    "status": 7.5,
+    "totalExp": "208",
+    "currentExp": "1",
+    "rings": {
+      "air": {
+        "traits": {
+          "reflexes": { "rank": 2, "type": "physical", "isVoid": false },
+          "awareness": { "rank": 3, "type": "mental", "isVoid": false }
+        }
+      },
+      "earth": {
+        "traits": {
+          "stamina": { "rank": 3, "type": "physical", "isVoid": false },
+          "willpower": { "rank": 3, "type": "mental", "isVoid": false }
+        }
+      },
+      "fire": {
+        "traits": {
+          "agility": { "rank": 5, "type": "physical", "isVoid": false },
+          "intelligence": { "rank": 5, "type": "mental", "isVoid": false }
+        }
+      },
+      "water": {
+        "traits": {
+          "strength": { "rank": 3, "type": "physical", "isVoid": false },
+          "perception": { "rank": 3, "type": "mental", "isVoid": false }
+        }
+      },
+      "void": {
+        "traits": { "void": { "rank": 3, "type": "mental", "isVoid": true } }
+      }
+    },
+    "skills": {
+      "athletics": {
+        "trait": "strength",
+        "type": "Bugei",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 3
+      },
+      "calligraphy": {
+        "trait": "intelligence",
+        "type": "High",
+        "subType": ["Artisan"],
+        "schoolSkill": true,
+        "rank": 2
+      },
+      "jiujutsu": {
+        "trait": "agility",
+        "type": "Bugei",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 4
+      },
+      "knives": {
+        "trait": "agility",
+        "type": "Bugei",
+        "subType": ["Weapon"],
+        "schoolSkill": true,
+        "rank": 3
+      },
+      "lore: theology": {
+        "trait": "intelligence",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 2
+      },
+      "meditation": {
+        "trait": "void",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 3
+      },
+      "animal handling": {
+        "trait": "awareness",
+        "type": "Merchant",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 3
+      },
+      "investigation": {
+        "trait": "perception",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": false,
+        "rank": 1
+      },
+      "intimidation": {
+        "trait": "awareness",
+        "type": "Low",
+        "subType": ["Social"],
+        "schoolSkill": false,
+        "rank": 2
+      },
+      "etiquette": {
+        "trait": "awareness",
+        "type": "High",
+        "subType": ["Social"],
+        "schoolSkill": false,
+        "rank": 1
+      },
+      "spellcraft": {
+        "trait": "intelligence",
+        "type": "High",
+        "subType": ["Social"],
+        "schoolSkill": false,
+        "rank": 5
+      },
+      "stealth": {
+        "trait": "agility",
+        "type": "Low",
+        "subType": [],
+        "schoolSkill": false,
+        "rank": 3
+      },
+      "craft: weaponsmithing": {
+        "trait": "agility",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": false,
+        "rank": 4
       }
     }
   }

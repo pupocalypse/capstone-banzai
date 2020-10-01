@@ -18,6 +18,7 @@ const CharacterCard = ({
 }) => {
   // insight equals (element rings * 10) + skill ranks
   const insightRankCalculator = () => {
+    // const { activeCharacter: char } = this.state;
     let baseRingRanksArray = [];
     for (let ring in char.rings) {
       let traitRanks = [];
@@ -35,36 +36,7 @@ const CharacterCard = ({
     const skillsTotal = skillRanksArray.reduce((acc, curr) => acc + curr);
     const insight = ringsTotal * 10 + skillsTotal;
 
-    let insightRank;
-    switch (insight) {
-      case insight < 150:
-        insightRank = 1;
-        break;
-      case insight < 175:
-        insightRank = 2;
-        break;
-      case insight < 200:
-        insightRank = 3;
-        break;
-      case insight < 225:
-        insightRank = 4;
-        break;
-      case insight < 250:
-        insightRank = 5;
-        break;
-      case insight < 275:
-        insightRank = 6;
-        break;
-      case insight < 300:
-        insightRank = 7;
-        break;
-      case insight < 325:
-        insightRank = 8;
-        break;
-      default:
-        insightRank = 1;
-        break;
-    }
+    const insightRank = Math.max(Math.floor((insight - 125) / 25 + 1), 1);
     return insightRank;
   };
 
@@ -106,7 +78,7 @@ const CharacterCard = ({
           />
         </div>
         <div className="character-card__description">
-          {char.hasOwnProperty("specialTitle") ? (
+          {char.specialTitle !== "" ? (
             <div className="character-card__special-banner">
               <p className="character-card__special-title">
                 {char.specialTitle}
@@ -125,7 +97,9 @@ const CharacterCard = ({
             </li>
           </ul>
         </div>
-        <p className="character-card__campaign-text">Campaign: none</p>
+        <p className="character-card__campaign-text">
+          Campaign: {char.campaign}
+        </p>
       </div>
     </div>
   );

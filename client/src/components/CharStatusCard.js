@@ -5,7 +5,7 @@ const CharStatusCard = ({
   char,
   initiativeRoll,
   karmaPoints,
-  onClickKarmaPoints,
+  handleKarmaPoints,
 }) => {
   const honorPointsList = () => {
     const honorPoints = char.school.honor.toString().split(".")[1];
@@ -66,13 +66,13 @@ const CharStatusCard = ({
           <div className="character-sheet__karma-icons">
             <button
               className="character-sheet__icon-button"
-              onClick={() => onClickKarmaPoints("add")}
+              onClick={() => handleKarmaPoints("add")}
             >
               <Icon name="caret up" />
             </button>
             <button
               className="character-sheet__icon-button"
-              onClick={() => onClickKarmaPoints("minus")}
+              onClick={() => handleKarmaPoints("minus")}
             >
               <Icon name="caret down" />
             </button>

@@ -1,7 +1,7 @@
 import React from "react";
-import { Popup } from "semantic-ui-react";
+import { Popup, Icon } from "semantic-ui-react";
 
-const CharSkillsTable = ({ char }) => {
+const CharSkillsTable = ({ char, handleChangeSkillRank }) => {
   const skillRollCalculator = (rank, trait) => {
     let traitRank;
     for (let ring in char.rings) {
@@ -27,7 +27,9 @@ const CharSkillsTable = ({ char }) => {
     let skillRows = [];
     for (let s in skills) {
       const skill = skills[s];
-      const skillTypes = [skill.type, skill.subType].flat().join(", ");
+      const skillTypes = skill.schoolSkill
+        ? ["School", skill.type, skill.subType].flat().join(", ")
+        : [skill.type, skill.subType].flat().join(", ");
 
       skillRows.push(
         <tr
@@ -37,7 +39,41 @@ const CharSkillsTable = ({ char }) => {
           <td className="character-sheet__skill-name pop-text-2">
             {capitalize(s)}
           </td>
-          <td className="character-sheet__skill-rank">{skill.rank}</td>
+          <Popup
+            trigger={
+              <td className="character-sheet__skill-rank">
+                {skill.rank}
+                <div className="character-sheet__skill-icons">
+                  <button
+                    className="character-sheet__icon-button"
+                    onClick={() => handleChangeSkillRank("add", s)}
+                  >
+                    <Icon name="caret up" />
+                  </button>
+                  <button
+                    className="character-sheet__icon-button"
+                    onClick={() => handleChangeSkillRank("minus", s)}
+                  >
+                    <Icon name="caret down" />
+                  </button>
+                </div>
+              </td>
+            }
+            position="top center"
+            wide
+            on={["click", "hover"]}
+            mouseEnterDelay={500}
+            mouseLeaveDelay={250}
+            content={
+              <p className="character-sheet__skill-popup-text">
+                Cost: <span className="pop-text-2">{skill.rank + 1}</span>{" "}
+                experience for{" "}
+                <span className="pop-text-2">
+                  {capitalize(s)} {skill.rank + 1}
+                </span>
+              </p>
+            }
+          />
           <td className="character-sheet__skill-trait">
             {capitalize(skill.trait)}
           </td>

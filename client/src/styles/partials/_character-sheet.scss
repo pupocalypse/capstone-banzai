@@ -8,7 +8,7 @@
   padding-top: 0;
   border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0px 2px 5px 2px rgba($primary-black, 0.8);
+  box-shadow: 0px 2px 5px 2px rgba($dark-red, 0.5);
   position: relative;
 
   &__popup-roll {
@@ -155,10 +155,6 @@
   &__artwork {
     height: 100%;
     width: 7rem;
-    // background: url("../assets/images/example_YasukiHayami.png");
-    // background-size: cover;
-    // background-position: center;
-    // background-position-x: -6rem;
     box-shadow: -30px 0 25px $light-slate inset;
     position: relative;
 
@@ -276,6 +272,7 @@
 
     &:hover,
     &:focus {
+      cursor: pointer;
       outline: none;
       color: $mid-peach;
     }
@@ -365,6 +362,7 @@
     transition: transform 0.2s ease-in-out;
 
     &:hover {
+      cursor: pointer;
       transform: scale(1.05);
     }
   }
@@ -772,6 +770,15 @@
   .void {
     top: 10rem;
     left: 7.75rem;
+    transition: all 0.2s ease-in-out;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      cursor: pointer;
+      opacity: 1;
+      filter: drop-shadow(0 1px 3px $primary-complement);
+    }
   }
 
   .void-rank {
@@ -968,6 +975,7 @@
     color: $primary-black;
     position: relative;
     padding-bottom: 0.75rem;
+    transition: all 0.2s ease-in-out;
 
     &::after {
       content: "(click to toggle)";
@@ -1003,7 +1011,7 @@
     &:focus {
       outline: none;
       cursor: pointer;
-      filter: drop-shadow(0 1px 4px rgba($primary-dark-colour, 0.9));
+      filter: drop-shadow(0 1px 4px rgba($dark-blue, 0.9));
     }
   }
 
@@ -1090,7 +1098,7 @@
 
   // tr > th
   .heading-name {
-    width: 30%;
+    width: 28%;
     text-align: left;
     padding: 0.5rem;
     font-family: "Honoka";
@@ -1123,7 +1131,7 @@
   }
 
   .heading-types {
-    width: 25%;
+    width: 27%;
     text-align: left;
     font-family: "Honoka";
     font-size: 0.875rem;
@@ -1155,6 +1163,22 @@
     font-size: 1.5rem;
     color: $content-colour-accent;
     border-bottom: 2px dotted rgba($background-colour-secondary, 0.4);
+    position: relative;
+  }
+
+  &__skill-icons {
+    position: absolute;
+    width: 1rem;
+    // height: 100%;
+    top: 0.375rem;
+    right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    padding-left: 1rem;
+    padding-top: 0.35rem;
+    font-size: 1rem;
   }
 
   &__skill-trait {
@@ -1167,6 +1191,7 @@
     transition: transform 0.2s ease-in-out;
 
     &:hover {
+      cursor: pointer;
       transform: scale(1.05);
     }
   }

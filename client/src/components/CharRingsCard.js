@@ -5,7 +5,7 @@ const CharRingsCard = ({
   char,
   voidSlots,
   handleVoidClick,
-  onClickUpgradeTrait,
+  handleUpgradeTrait,
 }) => {
   // trait ranks
   const traits = {
@@ -90,7 +90,7 @@ const CharRingsCard = ({
             }
             position="top center"
             wide
-            on="click"
+            on={["click", "hover"]}
             content={
               (traits[trait] + 1) * 4 <= char.currentExp ? (
                 <>
@@ -109,7 +109,7 @@ const CharRingsCard = ({
                     circular
                     size="mini"
                     fluid
-                    onClick={() => onClickUpgradeTrait(ring, trait)}
+                    onClick={() => handleUpgradeTrait(ring, trait)}
                   >
                     Upgrade {capitalize(trait)}
                   </Button>
@@ -162,114 +162,50 @@ const CharRingsCard = ({
               {fireRank}
             </h3>
           </div>
-          <div className="character-sheet__ring-rank-container void">
-            <h3 className="character-sheet__trait-rank void-rank">
-              {voidRank}
-            </h3>
-          </div>
-
-          {/* trait rings */}
-          {traitRingsList()}
-          {/* <Popup
+          <Popup
             trigger={
-              <button className="character-sheet__ring-rank-container stamina">
-                <h3 className="character-sheet__trait-rank earth-rank">
-                  {staminaRank}
+              <button className="character-sheet__ring-rank-container void">
+                <h3 className="character-sheet__trait-rank void-rank">
+                  {voidRank}
                 </h3>
-                <p className="character-sheet__trait-text stamina-text">
-                  Stamina
-                </p>
               </button>
             }
             position="top center"
             wide
-            on="click"
+            on={["click", "hover"]}
+            mouseEnterDelay={500}
+            mouseLeaveDelay={250}
             content={
-              (staminaRank + 1) * 4 <= char.currentExp ? (
+              (voidRank + 1) * 6 <= char.currentExp ? (
                 <>
                   <p className="character-sheet__trait-popup-text">
                     Spend{" "}
-                    <span className="pop-text-2">{(staminaRank + 1) * 4} </span>
+                    <span className="pop-text-2">{(voidRank + 1) * 6} </span>
                     experience on{" "}
-                    <span className="pop-text-2">
-                      Stamina {staminaRank + 1}
-                    </span>
-                    ?
+                    <span className="pop-text-2">Void {voidRank + 1}</span>?
                   </p>
-                  <Button circular size="mini" fluid>
-                    Upgrade Stamina
+                  <Button
+                    circular
+                    size="mini"
+                    fluid
+                    onClick={() => handleUpgradeTrait("void", "void")}
+                  >
+                    Upgrade Void
                   </Button>
                 </>
               ) : (
                 <p className="character-sheet__trait-popup-text">
                   You need{" "}
-                  <span className="pop-text-2">{(staminaRank + 1) * 4}</span>{" "}
+                  <span className="pop-text-2">{(voidRank + 1) * 6}</span>{" "}
                   experience to purchase{" "}
-                  <span className="pop-text-2">Stamina {staminaRank + 1}</span>
+                  <span className="pop-text-2">Void {voidRank + 1}</span>
                 </p>
               )
             }
-          /> */}
-          {/* <button className="character-sheet__ring-rank-container stamina">
-            <h3 className="character-sheet__trait-rank earth-rank">
-              {char.rings.earth.traits.stamina.rank}
-            </h3>
-            <p className="character-sheet__trait-text stamina-text">Stamina</p>
-          </button> */}
-          {/* <button className="character-sheet__ring-rank-container willpower">
-            <h3 className="character-sheet__trait-rank earth-rank">
-              {willpowerRank}
-            </h3>
-            <p className="character-sheet__trait-text willpower-text">
-              Willpower
-            </p>
-          </button>
-          <button className="character-sheet__ring-rank-container strength">
-            <h3 className="character-sheet__trait-rank water-rank">
-              {strengthRank}
-            </h3>
-            <p className="character-sheet__trait-text strength-text">
-              Strength
-            </p>
-          </button>
-          <button className="character-sheet__ring-rank-container perception">
-            <h3 className="character-sheet__trait-rank water-rank">
-              {perceptionRank}
-            </h3>
-            <p className="character-sheet__trait-text perception-text">
-              Perception
-            </p>
-          </button>
-          <button className="character-sheet__ring-rank-container reflexes">
-            <h3 className="character-sheet__trait-rank air-rank">
-              {reflexesRank}
-            </h3>
-            <p className="character-sheet__trait-text reflexes-text">
-              Reflexes
-            </p>
-          </button>
-          <button className="character-sheet__ring-rank-container awareness">
-            <h3 className="character-sheet__trait-rank air-rank">
-              {awarenessRank}
-            </h3>
-            <p className="character-sheet__trait-text awareness-text">
-              Awareness
-            </p>
-          </button>
-          <button className="character-sheet__ring-rank-container agility">
-            <h3 className="character-sheet__trait-rank fire-rank">
-              {agilityRank}
-            </h3>
-            <p className="character-sheet__trait-text agility-text">Agility</p>
-          </button>
-          <button className="character-sheet__ring-rank-container intelligence">
-            <h3 className="character-sheet__trait-rank fire-rank">
-              {intelligenceRank}
-            </h3>
-            <p className="character-sheet__trait-text intelligence-text">
-              Intelligence
-            </p>
-          </button> */}
+          />
+
+          {/* trait rings */}
+          {traitRingsList()}
         </div>
       </div>
       <div className="character-sheet__void-container">

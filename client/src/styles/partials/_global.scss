@@ -323,12 +323,19 @@ label {
 
   // for "border" colour on arrow
   &::before {
-    box-shadow: 1px 1px 0 0 $light-slate;
+    box-shadow: 1px 1px 0 0 rgba($light-slate, 0.5);
+  }
+}
+
+.ui.bottom.center.popup {
+  &::before {
+    box-shadow: -1px -1px 0 0 rgba($light-slate, 0.6);
   }
 }
 
 // for popup arrow colour
-.ui.top.popup {
+.ui.top.popup,
+.ui.bottom.popup {
   &::before {
     background: $mid-slate;
   }

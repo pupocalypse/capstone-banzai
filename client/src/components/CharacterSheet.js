@@ -93,7 +93,7 @@ class CharacterSheet extends React.Component {
   };
 
   // increases current & total exp
-  onClickAddExp = () => {
+  handleAddExp = () => {
     let { currentExp, totalExp } = this.state.activeCharacter;
     currentExp = Number(currentExp) + 1;
     totalExp = Number(totalExp) + 1;
@@ -107,7 +107,7 @@ class CharacterSheet extends React.Component {
   };
 
   // decreases current & total exp (until current is 0)
-  onClickMinusExp = () => {
+  handleMinusExp = () => {
     let { currentExp, totalExp } = this.state.activeCharacter;
     let {
       startingCurrentExp: minCurrent,
@@ -128,7 +128,7 @@ class CharacterSheet extends React.Component {
   };
 
   // adds or removes karma points
-  onClickKarmaPoints = (intent) => {
+  handleKarmaPoints = (intent) => {
     let { karmaPoints } = this.state;
     if (intent === "add") {
       karmaPoints++;
@@ -139,7 +139,7 @@ class CharacterSheet extends React.Component {
   };
 
   // calculates required experience cost for a given trait (only void costs more)
-  onClickUpgradeTrait = (element, trait) => {
+  handleUpgradeTrait = (element, trait) => {
     let { rings, currentExp } = this.state.activeCharacter;
     const currentRank = rings[element].traits[trait].rank;
     let requiredExp;
@@ -155,6 +155,50 @@ class CharacterSheet extends React.Component {
       activeCharacter: {
         ...this.state.activeCharacter,
         rings,
+        currentExp,
+      },
+    });
+  };
+
+  handleChangeSkillRank = (intent, skill) => {
+    let { skills, currentExp, school } = this.state.activeCharacter;
+    currentExp = Number(currentExp);
+    const nextRank = skills[skill].rank + 1;
+    const returnExp = skills[skill].rank; // returnExp is same as currentRank
+
+    const schoolSkillsBase = {};
+    school.skills.core.forEach(([skillName, rank]) => {
+      schoolSkillsBase[skillName] = rank;
+    });
+
+    if (intent === "add" && nextRank > currentExp) {
+      return null;
+    } else if (intent === "add") {
+      skills[skill].rank = nextRank;
+      currentExp = currentExp - nextRank;
+    } else if (
+      intent === "minus" &&
+      skills[skill].schoolSkill &&
+      returnExp > schoolSkillsBase[skill]
+    ) {
+      skills[skill].rank = returnExp - 1;
+      currentExp = currentExp + returnExp;
+    } else if (
+      intent === "minus" &&
+      skills[skill].schoolSkill &&
+      returnExp <= schoolSkillsBase[skill]
+    ) {
+      alert("You may not reset a school skill below its initial rank");
+      return null;
+    } else if (intent === "minus" && returnExp > 1) {
+      skills[skill].rank = returnExp - 1;
+      currentExp = currentExp + returnExp;
+    }
+
+    this.setState({
+      activeCharacter: {
+        ...this.state.activeCharacter,
+        skills,
         currentExp,
       },
     });
@@ -187,22 +231,25 @@ class CharacterSheet extends React.Component {
             <CharInfoCard
               char={char}
               insightRank={this.insightRankCalculator()}
-              onClickAddExp={this.onClickAddExp}
-              onClickMinusExp={this.onClickMinusExp}
+              handleAddExp={this.handleAddExp}
+              handleMinusExp={this.handleMinusExp}
             />
             <CharStatusCard
               char={char}
               initiativeRoll={this.initiativeRoll}
               karmaPoints={this.state.karmaPoints}
-              onClickKarmaPoints={this.onClickKarmaPoints}
+              handleKarmaPoints={this.handleKarmaPoints}
             />
             <CharRingsCard
               char={char}
               voidSlots={this.state.voidSlots}
               handleVoidClick={this.handleVoidClick}
-              onClickUpgradeTrait={this.onClickUpgradeTrait}
+              handleUpgradeTrait={this.handleUpgradeTrait}
             />
-            <CharSkillsTable char={char} />
+            <CharSkillsTable
+              char={char}
+              handleChangeSkillRank={this.handleChangeSkillRank}
+            />
           </>
         )}
       </main>

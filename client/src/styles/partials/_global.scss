@@ -358,15 +358,15 @@ label {
   padding: 0.5rem 1rem;
   margin-top: 0;
   margin-left: auto;
-  background: rgba($mid-slate, 0.8);
-  color: $primary-complement;
-  border: 1px solid rgba($primary-complement, 0.5);
+  background: rgba($primary-dark-colour, 0.8);
+  color: $light-beige;
+  border: 1px solid rgba($light-beige, 0.5);
   box-shadow: 0 0 0 1px rgba($primary-complement, 0.7) inset, 0 0 0 transparent;
   font-weight: bold;
-  box-shadow: 1px 1px 3px $dark-blue;
+  box-shadow: 1px 1px 3px $dark-red;
 }
 
 .ui.error.message > .content > p {
   color: inherit;
-  filter: drop-shadow(1px 1px 0 $dark-blue);
+  filter: drop-shadow(1px 1px 0 $dark-red);
 }

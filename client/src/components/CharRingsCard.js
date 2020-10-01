@@ -3,21 +3,33 @@ import { Popup, Button } from "semantic-ui-react";
 
 const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
   // trait ranks
-  const reflexesRank = char.rings.air.traits.reflexes.rank;
-  const awarenessRank = char.rings.air.traits.awareness.rank;
-  const staminaRank = char.rings.earth.traits.stamina.rank;
-  const willpowerRank = char.rings.earth.traits.willpower.rank;
-  const agilityRank = char.rings.fire.traits.agility.rank;
-  const intelligenceRank = char.rings.fire.traits.intelligence.rank;
-  const strengthRank = char.rings.water.traits.strength.rank;
-  const perceptionRank = char.rings.water.traits.perception.rank;
+  const traits = {
+    reflexes: char.rings.air.traits.reflexes.rank,
+    awareness: char.rings.air.traits.awareness.rank,
+    stamina: char.rings.earth.traits.stamina.rank,
+    willpower: char.rings.earth.traits.willpower.rank,
+    agility: char.rings.fire.traits.agility.rank,
+    intelligence: char.rings.fire.traits.intelligence.rank,
+    strength: char.rings.water.traits.strength.rank,
+    perception: char.rings.water.traits.perception.rank,
+  };
 
   // ring ranks
-  const airRank = Math.min(reflexesRank, awarenessRank);
-  const earthRank = Math.min(staminaRank, willpowerRank);
-  const fireRank = Math.min(agilityRank, intelligenceRank);
-  const waterRank = Math.min(strengthRank, perceptionRank);
+  const airRank = Math.min(traits.reflexes, traits.awareness);
+  const earthRank = Math.min(traits.stamina, traits.willpower);
+  const fireRank = Math.min(traits.agility, traits.intelligence);
+  const waterRank = Math.min(traits.strength, traits.perception);
   const voidRank = char.rings.void.traits.void.rank;
+
+  const capitalize = (string) => {
+    if (string.includes(" ")) {
+      return string
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+    }
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
 
   const voidSlotsList = () => {
     let remaining = 10;
@@ -28,6 +40,7 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
       remaining--;
       return (
         <button
+          key={`void-${slot}`}
           className={
             voidSlots[slot]
               ? "character-sheet__void-slots-image void-spent"
@@ -37,12 +50,76 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
         ></button>
       );
     });
-    for (let i = 0; i < remaining; i++) {
+    for (let i = 1; i <= remaining; i++) {
       voidSlotsJSX.push(
-        <div className="character-sheet__void-slots-image unavailable"></div>
+        <div
+          key={`void-${i}`}
+          className="character-sheet__void-slots-image unavailable"
+        ></div>
       );
     }
     return voidSlotsJSX;
+  };
+
+  const traitRingsList = () => {
+    const { rings } = char;
+    const traitsJSX = Object.keys(rings).map((ring) => {
+      if (ring === "void") {
+        return;
+      }
+      return Object.keys(rings[ring].traits).map((trait) => {
+        return (
+          <Popup
+            key={trait}
+            trigger={
+              <button
+                className={`character-sheet__ring-rank-container ${trait}`}
+              >
+                <h3 className={`character-sheet__trait-rank ${ring}-rank`}>
+                  {traits[trait]}
+                </h3>
+                <p className={`character-sheet__trait-text ${trait}-text`}>
+                  {capitalize(trait)}
+                </p>
+              </button>
+            }
+            position="top center"
+            wide
+            on="click"
+            content={
+              (traits[trait] + 1) * 4 <= char.currentExp ? (
+                <>
+                  <p className="character-sheet__trait-popup-text">
+                    Spend{" "}
+                    <span className="pop-text-2">
+                      {(traits[trait] + 1) * 4}{" "}
+                    </span>
+                    experience on{" "}
+                    <span className="pop-text-2">
+                      {capitalize(trait)} {traits[trait] + 1}
+                    </span>
+                    ?
+                  </p>
+                  <Button circular size="mini" fluid>
+                    Upgrade {capitalize(trait)}
+                  </Button>
+                </>
+              ) : (
+                <p className="character-sheet__trait-popup-text">
+                  You need{" "}
+                  <span className="pop-text-2">{(traits[trait] + 1) * 4}</span>{" "}
+                  experience to purchase{" "}
+                  <span className="pop-text-2">
+                    {capitalize(trait)} {traits[trait] + 1}
+                  </span>
+                </p>
+              )
+            }
+          />
+        );
+      });
+    });
+    return traitsJSX;
   };
 
   return (
@@ -82,7 +159,8 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
           </div>
 
           {/* trait rings */}
-          <Popup
+          {traitRingsList()}
+          {/* <Popup
             trigger={
               <button className="character-sheet__ring-rank-container stamina">
                 <h3 className="character-sheet__trait-rank earth-rank">
@@ -113,29 +191,22 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
                   </Button>
                 </>
               ) : (
-                <>
-                  <p className="character-sheet__trait-popup-text">
-                    You need{" "}
-                    <span className="pop-text-2">{(staminaRank + 1) * 4}</span>{" "}
-                    experience to purchase{" "}
-                    <span className="pop-text-2">
-                      Stamina {staminaRank + 1}
-                    </span>
-                  </p>
-                  {/* <Button circular size="mini" fluid disabled>
-                    Upgrade Stamina
-                  </Button> */}
-                </>
+                <p className="character-sheet__trait-popup-text">
+                  You need{" "}
+                  <span className="pop-text-2">{(staminaRank + 1) * 4}</span>{" "}
+                  experience to purchase{" "}
+                  <span className="pop-text-2">Stamina {staminaRank + 1}</span>
+                </p>
               )
             }
-          />
+          /> */}
           {/* <button className="character-sheet__ring-rank-container stamina">
             <h3 className="character-sheet__trait-rank earth-rank">
               {char.rings.earth.traits.stamina.rank}
             </h3>
             <p className="character-sheet__trait-text stamina-text">Stamina</p>
           </button> */}
-          <button className="character-sheet__ring-rank-container willpower">
+          {/* <button className="character-sheet__ring-rank-container willpower">
             <h3 className="character-sheet__trait-rank earth-rank">
               {willpowerRank}
             </h3>
@@ -188,7 +259,7 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
             <p className="character-sheet__trait-text intelligence-text">
               Intelligence
             </p>
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="character-sheet__void-container">

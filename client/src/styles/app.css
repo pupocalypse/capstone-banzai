@@ -423,7 +423,9 @@ label {
           align-items: center;
   -webkit-box-shadow: 0 0px 10px rgba(34, 30, 31, 0.6);
           box-shadow: 0 0px 10px rgba(34, 30, 31, 0.6);
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   z-index: 100;
 }
 

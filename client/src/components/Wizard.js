@@ -20,12 +20,16 @@ class Wizard extends React.Component {
     character: {
       totalExp: 40,
       currentExp: 40,
+      campaign: "unassigned",
       firstName: "",
       lastName: "",
+      specialTitle: "",
       clan: "",
       family: {}, // family name, bonus, description
       school: {}, // school name, bonus, description, etc.
       job: "",
+      glory: 1.0,
+      status: 1.0,
       skills: [],
       rings: {
         air: {
@@ -489,12 +493,16 @@ class Wizard extends React.Component {
       }
     }
 
+    formData.append("campaign", character.campaign);
     formData.append("firstName", character.firstName);
     formData.append("lastName", character.lastName);
     formData.append("job", character.job);
+    formData.append("specialTitle", character.specialTitle);
     formData.append("clan", character.clan);
     formData.append("family", JSON.stringify(character.family));
     formData.append("school", JSON.stringify(character.school));
+    formData.append("glory", JSON.stringify(character.glory));
+    formData.append("status", JSON.stringify(character.status));
     formData.append("totalExp", character.totalExp);
     formData.append("currentExp", character.currentExp);
     formData.append("skills", JSON.stringify(skillsObject));

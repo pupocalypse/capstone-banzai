@@ -9,12 +9,16 @@ class Character {
     this.id = this.shortenId();
     this.timestamp = Date.parse(new Date());
     this.artwork = artworkFile;
+    this.campaign = data.campaign;
     this.firstName = data.firstName;
     this.lastName = data.lastName;
     this.job = data.job;
+    this.specialTitle = data.specialTitle;
     this.clan = data.clan;
     this.family = JSON.parse(data.family);
     this.school = JSON.parse(data.school);
+    this.glory = data.glory;
+    this.status = data.status;
     this.totalExp = data.totalExp;
     this.currentExp = data.currentExp;
     this.rings = JSON.parse(data.rings);

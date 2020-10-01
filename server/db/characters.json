@@ -47,8 +47,8 @@
         "koku": 5
       }
     },
-    "glory": 1.0,
-    "status": 1.0,
+    "glory": 1,
+    "status": 1,
     "totalExp": "40",
     "currentExp": "0",
     "rings": {
@@ -213,8 +213,8 @@
         "koku": 3
       }
     },
-    "glory": 1.0,
-    "status": 1.0,
+    "glory": 1,
+    "status": 1,
     "totalExp": "40",
     "currentExp": "4",
     "rings": {
@@ -350,11 +350,7 @@
     "specialTitle": "Abbot of the Spider",
     "job": "shugenja",
     "clan": "Spider",
-    "family": {
-      "name": "Goukimaro",
-      "bonus": "perception",
-      "description": ""
-    },
+    "family": { "name": "Goukimaro", "bonus": "perception", "description": "" },
     "school": {
       "clan": "Crab",
       "name": "Hiruma Bushi",

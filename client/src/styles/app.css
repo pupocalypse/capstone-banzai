@@ -752,9 +752,13 @@ label {
   font-size: 1rem;
 }
 
-.wizard__form-selections-table {
-  margin: 0 0.5rem;
+.wizard__form-selections-container {
+  width: 100%;
   margin-top: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+.wizard__form-selections-table {
   border-collapse: collapse;
   font-family: "Fontin Regular";
   font-size: 0.925rem;
@@ -787,7 +791,7 @@ label {
 
 .wizard__selections-table-item {
   text-align: left;
-  width: 25%;
+  width: 28%;
   padding: 0.25rem 0.5rem;
   color: #dccdb0;
 }

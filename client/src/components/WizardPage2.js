@@ -188,62 +188,66 @@ class WizardPage2 extends React.Component {
                 label="Given Name"
                 onChange={this.props.updateFirstName}
               />
-              <table className="wizard__form-selections-table">
-                <thead>
-                  <tr>
-                    <td colSpan="4" className="wizard__selections-header">
-                      Current Selections
-                    </td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td
-                      rowSpan="4"
-                      className="wizard__selections-table-mon"
-                      style={{
-                        background: `url(${process.env.PUBLIC_URL}/images/mons-detail/${this.props.character.clan}_Clan_mon.png) no-repeat`,
-                        backgroundSize: "contain",
-                        backgroundPosition: "top",
-                      }}
-                    ></td>
-                    <td className="wizard__selections-table-category">Clan:</td>
-                    <td className="wizard__selections-table-item">
-                      {this.props.character.clan}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="wizard__selections-table-category">
-                      Class:
-                    </td>
-                    <td className="wizard__selections-table-item">
-                      {this.props.character.job}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="wizard__selections-table-category">
-                      Family:
-                    </td>
-                    <td className="wizard__selections-table-item">
-                      {this.props.character.family.name}
-                    </td>
-                    <td className="wizard__selections-table-bonus">
-                      +1 {this.props.character.family.bonus}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="wizard__selections-table-category">
-                      School:
-                    </td>
-                    <td className="wizard__selections-table-item">
-                      {this.props.character.school.name}
-                    </td>
-                    <td className="wizard__selections-table-bonus">
-                      +1 {this.props.character.school.bonus}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <div className="wizard__form-selections-container">
+                <table className="wizard__form-selections-table">
+                  <thead>
+                    <tr>
+                      <td colSpan="4" className="wizard__selections-header">
+                        Current Selections
+                      </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        rowSpan="4"
+                        className="wizard__selections-table-mon"
+                        style={{
+                          background: `url(${process.env.PUBLIC_URL}/images/mons-detail/${this.props.character.clan}_Clan_mon.png) no-repeat`,
+                          backgroundSize: "contain",
+                          backgroundPosition: "top",
+                        }}
+                      ></td>
+                      <td className="wizard__selections-table-category">
+                        Clan:
+                      </td>
+                      <td className="wizard__selections-table-item">
+                        {this.props.character.clan}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="wizard__selections-table-category">
+                        Class:
+                      </td>
+                      <td className="wizard__selections-table-item">
+                        {this.props.character.job}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="wizard__selections-table-category">
+                        Family:
+                      </td>
+                      <td className="wizard__selections-table-item">
+                        {this.props.character.family.name}
+                      </td>
+                      <td className="wizard__selections-table-bonus">
+                        +1 {this.props.character.family.bonus}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="wizard__selections-table-category">
+                        School:
+                      </td>
+                      <td className="wizard__selections-table-item">
+                        {this.props.character.school.name}
+                      </td>
+                      <td className="wizard__selections-table-bonus">
+                        +1 {this.props.character.school.bonus}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </Form.Group>
             <div className="wizard__form-xp-rings-container">
               <div className="wizard__form-rings-borders-horizontal"></div>

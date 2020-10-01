@@ -1,6 +1,24 @@
 import React from "react";
+import { Popup, Button } from "semantic-ui-react";
 
 const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
+  // trait ranks
+  const reflexesRank = char.rings.air.traits.reflexes.rank;
+  const awarenessRank = char.rings.air.traits.awareness.rank;
+  const staminaRank = char.rings.earth.traits.stamina.rank;
+  const willpowerRank = char.rings.earth.traits.willpower.rank;
+  const agilityRank = char.rings.fire.traits.agility.rank;
+  const intelligenceRank = char.rings.fire.traits.intelligence.rank;
+  const strengthRank = char.rings.water.traits.strength.rank;
+  const perceptionRank = char.rings.water.traits.perception.rank;
+
+  // ring ranks
+  const airRank = Math.min(reflexesRank, awarenessRank);
+  const earthRank = Math.min(staminaRank, willpowerRank);
+  const fireRank = Math.min(agilityRank, intelligenceRank);
+  const waterRank = Math.min(strengthRank, perceptionRank);
+  const voidRank = char.rings.void.traits.void.rank;
+
   const voidSlotsList = () => {
     let remaining = 10;
     if (remaining === 0) {
@@ -41,52 +59,85 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
           {/* element rings */}
           <div className="character-sheet__ring-rank-container earth">
             <h3 className="character-sheet__trait-rank earth-rank">
-              {Math.min(
-                char.rings.earth.traits.stamina.rank,
-                char.rings.earth.traits.willpower.rank
-              )}
+              {earthRank}
             </h3>
           </div>
           <div className="character-sheet__ring-rank-container air">
-            <h3 className="character-sheet__trait-rank air-rank">
-              {Math.min(
-                char.rings.air.traits.reflexes.rank,
-                char.rings.air.traits.awareness.rank
-              )}
-            </h3>
+            <h3 className="character-sheet__trait-rank air-rank">{airRank}</h3>
           </div>
           <div className="character-sheet__ring-rank-container water">
             <h3 className="character-sheet__trait-rank water-rank">
-              {Math.min(
-                char.rings.water.traits.strength.rank,
-                char.rings.water.traits.perception.rank
-              )}
+              {waterRank}
             </h3>
           </div>
           <div className="character-sheet__ring-rank-container fire">
             <h3 className="character-sheet__trait-rank fire-rank">
-              {Math.min(
-                char.rings.fire.traits.agility.rank,
-                char.rings.fire.traits.intelligence.rank
-              )}
+              {fireRank}
             </h3>
           </div>
           <div className="character-sheet__ring-rank-container void">
             <h3 className="character-sheet__trait-rank void-rank">
-              {char.rings.void.traits.void.rank}
+              {voidRank}
             </h3>
           </div>
 
           {/* trait rings */}
-          <button className="character-sheet__ring-rank-container stamina">
+          <Popup
+            trigger={
+              <button className="character-sheet__ring-rank-container stamina">
+                <h3 className="character-sheet__trait-rank earth-rank">
+                  {staminaRank}
+                </h3>
+                <p className="character-sheet__trait-text stamina-text">
+                  Stamina
+                </p>
+              </button>
+            }
+            position="top center"
+            wide
+            on="click"
+            content={
+              (staminaRank + 1) * 4 <= char.currentExp ? (
+                <>
+                  <p className="character-sheet__trait-popup-text">
+                    Spend{" "}
+                    <span className="pop-text-2">{(staminaRank + 1) * 4} </span>
+                    experience on{" "}
+                    <span className="pop-text-2">
+                      Stamina {staminaRank + 1}
+                    </span>
+                    ?
+                  </p>
+                  <Button circular size="mini" fluid>
+                    Upgrade Stamina
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <p className="character-sheet__trait-popup-text">
+                    You need{" "}
+                    <span className="pop-text-2">{(staminaRank + 1) * 4}</span>{" "}
+                    experience to purchase{" "}
+                    <span className="pop-text-2">
+                      Stamina {staminaRank + 1}
+                    </span>
+                  </p>
+                  {/* <Button circular size="mini" fluid disabled>
+                    Upgrade Stamina
+                  </Button> */}
+                </>
+              )
+            }
+          />
+          {/* <button className="character-sheet__ring-rank-container stamina">
             <h3 className="character-sheet__trait-rank earth-rank">
               {char.rings.earth.traits.stamina.rank}
             </h3>
             <p className="character-sheet__trait-text stamina-text">Stamina</p>
-          </button>
+          </button> */}
           <button className="character-sheet__ring-rank-container willpower">
             <h3 className="character-sheet__trait-rank earth-rank">
-              {char.rings.earth.traits.willpower.rank}
+              {willpowerRank}
             </h3>
             <p className="character-sheet__trait-text willpower-text">
               Willpower
@@ -94,7 +145,7 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
           </button>
           <button className="character-sheet__ring-rank-container strength">
             <h3 className="character-sheet__trait-rank water-rank">
-              {char.rings.water.traits.strength.rank}
+              {strengthRank}
             </h3>
             <p className="character-sheet__trait-text strength-text">
               Strength
@@ -102,7 +153,7 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
           </button>
           <button className="character-sheet__ring-rank-container perception">
             <h3 className="character-sheet__trait-rank water-rank">
-              {char.rings.water.traits.perception.rank}
+              {perceptionRank}
             </h3>
             <p className="character-sheet__trait-text perception-text">
               Perception
@@ -110,7 +161,7 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
           </button>
           <button className="character-sheet__ring-rank-container reflexes">
             <h3 className="character-sheet__trait-rank air-rank">
-              {char.rings.air.traits.reflexes.rank}
+              {reflexesRank}
             </h3>
             <p className="character-sheet__trait-text reflexes-text">
               Reflexes
@@ -118,7 +169,7 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
           </button>
           <button className="character-sheet__ring-rank-container awareness">
             <h3 className="character-sheet__trait-rank air-rank">
-              {char.rings.air.traits.awareness.rank}
+              {awarenessRank}
             </h3>
             <p className="character-sheet__trait-text awareness-text">
               Awareness
@@ -126,13 +177,13 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
           </button>
           <button className="character-sheet__ring-rank-container agility">
             <h3 className="character-sheet__trait-rank fire-rank">
-              {char.rings.fire.traits.agility.rank}
+              {agilityRank}
             </h3>
             <p className="character-sheet__trait-text agility-text">Agility</p>
           </button>
           <button className="character-sheet__ring-rank-container intelligence">
             <h3 className="character-sheet__trait-rank fire-rank">
-              {char.rings.fire.traits.intelligence.rank}
+              {intelligenceRank}
             </h3>
             <p className="character-sheet__trait-text intelligence-text">
               Intelligence

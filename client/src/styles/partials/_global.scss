@@ -327,11 +327,19 @@ label {
   }
 }
 
-// for arrow colour
+// for popup arrow colour
 .ui.top.popup {
   &::before {
     background: $mid-slate;
   }
+}
+
+// for buttons inside popup
+.ui.popup > .ui.button {
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 0.925rem;
+  text-transform: uppercase;
 }
 
 // for modal

@@ -357,6 +357,13 @@ label {
   background: #30475e;
 }
 
+.ui.popup > .ui.button {
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 0.925rem;
+  text-transform: uppercase;
+}
+
 .ui.modal {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2355,7 +2362,7 @@ label {
   top: 0;
   left: 0;
   background-size: 100%;
-  background: linear-gradient(-45deg, #416b2c, #221e1f);
+  background: linear-gradient(-45deg, #416b2c, #416b2c, #221e1f);
   -webkit-clip-path: circle(2.75rem at 35% 30%);
           clip-path: circle(2.75rem at 35% 30%);
   -webkit-mask: url("../assets/images/rings/rings_noBG.png");
@@ -2371,7 +2378,7 @@ label {
   top: 0;
   left: 0;
   background-size: 50%;
-  background: linear-gradient(-45deg, #3e298b, rgba(34, 30, 31, 0.3));
+  background: linear-gradient(-45deg, #858ca7, #3e298b, rgba(34, 30, 31, 0.3));
   -webkit-clip-path: circle(2.75rem at 65% 30%);
           clip-path: circle(2.75rem at 65% 30%);
   -webkit-mask: url("../assets/images/rings/rings_noBG.png");
@@ -2387,7 +2394,7 @@ label {
   top: 0;
   left: 0;
   background-size: 50%;
-  background: linear-gradient(-45deg, #17528d, #221e1f);
+  background: linear-gradient(-45deg, #17528d, #17528d, #221e1f);
   -webkit-clip-path: circle(2.75rem at 25% 60%);
           clip-path: circle(2.75rem at 25% 60%);
   -webkit-mask: url("../assets/images/rings/rings_noBG.png");
@@ -2526,6 +2533,26 @@ label {
   background-size: 100%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.character-sheet__trait-popup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.character-sheet__trait-popup-text {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .character-sheet .stamina {

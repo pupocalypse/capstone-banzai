@@ -601,7 +601,12 @@
     top: 0;
     left: 0;
     background-size: 100%;
-    background: linear-gradient(-45deg, $earth-ring, $primary-black);
+    background: linear-gradient(
+      -45deg,
+      $earth-ring,
+      $earth-ring,
+      $primary-black
+    );
     clip-path: circle(2.75rem at 35% 30%);
     mask: url("../assets/images/rings/rings_noBG.png");
     mask-size: contain;
@@ -614,7 +619,12 @@
     top: 0;
     left: 0;
     background-size: 50%;
-    background: linear-gradient(-45deg, $air-ring, rgba($primary-black, 0.3));
+    background: linear-gradient(
+      -45deg,
+      $air-ring-light,
+      $air-ring,
+      rgba($primary-black, 0.3)
+    );
     clip-path: circle(2.75rem at 65% 30%);
     mask: url("../assets/images/rings/rings_noBG.png");
     mask-size: contain;
@@ -627,7 +637,12 @@
     top: 0;
     left: 0;
     background-size: 50%;
-    background: linear-gradient(-45deg, $water-ring, $primary-black);
+    background: linear-gradient(
+      -45deg,
+      $water-ring,
+      $water-ring,
+      $primary-black
+    );
     clip-path: circle(2.75rem at 25% 60%);
     mask: url("../assets/images/rings/rings_noBG.png");
     mask-size: contain;
@@ -768,6 +783,19 @@
     background-size: 100%;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  &__trait-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__trait-popup-text {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
   }
 
   // traits

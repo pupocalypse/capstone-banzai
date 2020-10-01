@@ -1,7 +1,12 @@
 import React from "react";
 import { Popup, Button } from "semantic-ui-react";
 
-const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
+const CharRingsCard = ({
+  char,
+  voidSlots,
+  handleVoidClick,
+  onClickUpgradeTrait,
+}) => {
   // trait ranks
   const traits = {
     reflexes: char.rings.air.traits.reflexes.rank,
@@ -65,7 +70,7 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
     const { rings } = char;
     const traitsJSX = Object.keys(rings).map((ring) => {
       if (ring === "void") {
-        return;
+        return null;
       }
       return Object.keys(rings[ring].traits).map((trait) => {
         return (
@@ -100,7 +105,12 @@ const CharRingsCard = ({ char, voidSlots, handleVoidClick }) => {
                     </span>
                     ?
                   </p>
-                  <Button circular size="mini" fluid>
+                  <Button
+                    circular
+                    size="mini"
+                    fluid
+                    onClick={() => onClickUpgradeTrait(ring, trait)}
+                  >
                     Upgrade {capitalize(trait)}
                   </Button>
                 </>

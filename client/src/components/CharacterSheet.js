@@ -62,7 +62,8 @@ class CharacterSheet extends React.Component {
   };
 
   // insight equals (element rings * 10) + skill ranks
-  insightRankCalculator = (char) => {
+  insightRankCalculator = () => {
+    const { activeCharacter: char } = this.state;
     let baseRingRanksArray = [];
     for (let ring in char.rings) {
       let traitRanks = [];
@@ -80,42 +81,13 @@ class CharacterSheet extends React.Component {
     const skillsTotal = skillRanksArray.reduce((acc, curr) => acc + curr);
     const insight = ringsTotal * 10 + skillsTotal;
 
-    let insightRank;
-    switch (insight) {
-      case insight < 150:
-        insightRank = 1;
-        break;
-      case insight < 175:
-        insightRank = 2;
-        break;
-      case insight < 200:
-        insightRank = 3;
-        break;
-      case insight < 225:
-        insightRank = 4;
-        break;
-      case insight < 250:
-        insightRank = 5;
-        break;
-      case insight < 275:
-        insightRank = 6;
-        break;
-      case insight < 300:
-        insightRank = 7;
-        break;
-      case insight < 325:
-        insightRank = 8;
-        break;
-      default:
-        insightRank = 1;
-        break;
-    }
+    const insightRank = Math.max(Math.floor((insight - 125) / 25 + 1), 1);
     return insightRank;
   };
 
   // insight rank / reflexes
   initiativeRoll = () => {
-    const insightRank = this.insightRankCalculator(this.state.activeCharacter);
+    const insightRank = this.insightRankCalculator();
     const reflexes = this.state.activeCharacter.rings.air.traits.reflexes.rank;
     return `${insightRank + reflexes}k${reflexes}`;
   };
@@ -166,6 +138,28 @@ class CharacterSheet extends React.Component {
     this.setState({ karmaPoints });
   };
 
+  // calculates required experience cost for a given trait (only void costs more)
+  onClickUpgradeTrait = (element, trait) => {
+    let { rings, currentExp } = this.state.activeCharacter;
+    const currentRank = rings[element].traits[trait].rank;
+    let requiredExp;
+    if (rings[element].traits[trait].isVoid) {
+      requiredExp = (currentRank + 1) * 6;
+    } else {
+      requiredExp = (currentRank + 1) * 4;
+    }
+
+    rings[element].traits[trait].rank = currentRank + 1;
+    currentExp = currentExp - requiredExp;
+    this.setState({
+      activeCharacter: {
+        ...this.state.activeCharacter,
+        rings,
+        currentExp,
+      },
+    });
+  };
+
   render() {
     const { activeCharacter: char } = this.state;
     return (
@@ -192,7 +186,7 @@ class CharacterSheet extends React.Component {
           <>
             <CharInfoCard
               char={char}
-              insightRank={this.insightRankCalculator(char)}
+              insightRank={this.insightRankCalculator()}
               onClickAddExp={this.onClickAddExp}
               onClickMinusExp={this.onClickMinusExp}
             />
@@ -206,6 +200,7 @@ class CharacterSheet extends React.Component {
               char={char}
               voidSlots={this.state.voidSlots}
               handleVoidClick={this.handleVoidClick}
+              onClickUpgradeTrait={this.onClickUpgradeTrait}
             />
             <CharSkillsTable char={char} />
           </>

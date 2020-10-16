@@ -215,7 +215,7 @@
     },
     "glory": 1,
     "status": 1,
-    "totalExp": "40",
+    "totalExp": "79",
     "currentExp": "4",
     "rings": {
       "air": {
@@ -232,8 +232,8 @@
       },
       "fire": {
         "traits": {
-          "agility": { "rank": 2, "type": "physical", "isVoid": false },
-          "intelligence": { "rank": 2, "type": "mental", "isVoid": false }
+          "agility": { "rank": 3, "type": "physical", "isVoid": false },
+          "intelligence": { "rank": 3, "type": "mental", "isVoid": false }
         }
       },
       "water": {
@@ -506,6 +506,144 @@
         "subType": [],
         "schoolSkill": false,
         "rank": 4
+      }
+    }
+  },
+  {
+    "id": "88f0183152cb",
+    "timestamp": 1601744362000,
+    "artwork": "KitsukiRosuka-7747f6a9.jpg",
+    "campaign": "unassigned",
+    "firstName": "Rosuka",
+    "lastName": "Kitsuki",
+    "job": "bushi",
+    "specialTitle": "",
+    "clan": "Dragon",
+    "family": {
+      "name": "Kitsuki",
+      "bonus": "awareness",
+      "description": "The ever-perceptive Kitsuki serve the Dragon Clan as magistrates and court representatives, although they are better suited as the former. Even in court, however, a Kitsuki’s ability to perceive truth when presented with lies has proven a tremendous asset to the Dragon in their pursuit of an Empire free of deceit and treachery."
+    },
+    "school": {
+      "clan": "Dragon",
+      "name": "Mirumoto Bushi",
+      "type": "Bushi",
+      "bonus": "stamina",
+      "description": "Famous throughout the Empire for its unique teachings, the Mirumoto Bushi School is the lone fighting style that utilizes the Niten technique, wherein a samurai wields both the katana and the wakizashi simultaneously. This is a controversial style because it flies in the face of the traditional style used by the other clans for centuries, although Niten was actually developed at the same time as the one-sword style. In particular, the rivalry between students of the Mirumoto Bushi School and the Kakita Bushi School, the greatest advocates of Kakita’s “One soul, one sword” philosophy, is heated even during times of peace. Many opponents, anticipating the reputation of the Dragon as erratic, are surprised to face the calm, implacable Mirumoto as an enemy, a mistake that has cost more than one samurai victory on the field of battle.\nThe Mirumoto Bushi School focuses on the mechanical benefits of wielding two weapons simultaneously, both in forgiving the penalties associated with doing so and improv-ing the benefits. It also increases the samurai’s Armor TN and grants him additional attacks at an increased rate due to the availability of his weapons.",
+      "skills": {
+        "core": [
+          ["defense", 1],
+          ["iaijutsu", 1, 2],
+          ["kenjutsu", 1],
+          ["lore: shugenja", 1],
+          ["lore: theology", 1],
+          ["meditation", 1]
+        ],
+        "emphases": [{ "skillName": "kenjutsu", "emphasis": "katana" }],
+        "freePickType": [["bugei", "high"]]
+      },
+      "honor": 4.5,
+      "outfit": {
+        "armor": { "option1": "light armor", "option2": "" },
+        "clothing": "sturdy clothing",
+        "weapons": {
+          "base": { "base1": "katana", "base2": "wakizashi" },
+          "options": { "option1": "any", "option2": "" }
+        },
+        "tools": [""],
+        "pack": "traveling pack",
+        "koku": 5
+      }
+    },
+    "glory": "1",
+    "status": "1",
+    "totalExp": "40",
+    "currentExp": "1",
+    "rings": {
+      "air": {
+        "traits": {
+          "reflexes": { "rank": 3, "type": "physical", "isVoid": false },
+          "awareness": { "rank": 3, "type": "mental", "isVoid": false }
+        }
+      },
+      "earth": {
+        "traits": {
+          "stamina": { "rank": 3, "type": "physical", "isVoid": false },
+          "willpower": { "rank": 2, "type": "mental", "isVoid": false }
+        }
+      },
+      "fire": {
+        "traits": {
+          "agility": { "rank": 2, "type": "physical", "isVoid": false },
+          "intelligence": { "rank": 2, "type": "mental", "isVoid": false }
+        }
+      },
+      "water": {
+        "traits": {
+          "strength": { "rank": 3, "type": "physical", "isVoid": false },
+          "perception": { "rank": 3, "type": "mental", "isVoid": false }
+        }
+      },
+      "void": {
+        "traits": { "void": { "rank": 2, "type": "mental", "isVoid": true } }
+      }
+    },
+    "skills": {
+      "defense": {
+        "trait": "reflexes",
+        "type": "Bugei",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 1
+      },
+      "iaijutsu": {
+        "trait": "reflexes",
+        "type": "Bugei",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 2
+      },
+      "kenjutsu": {
+        "trait": "agility",
+        "type": "Bugei",
+        "subType": ["Weapon"],
+        "schoolSkill": true,
+        "rank": 1
+      },
+      "lore: shugenja": {
+        "trait": "intelligence",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 1
+      },
+      "lore: theology": {
+        "trait": "intelligence",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 1
+      },
+      "meditation": {
+        "trait": "void",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": true,
+        "rank": 1
+      },
+      "kyujutsu": {
+        "trait": "reflexes",
+        "type": "Bugei",
+        "subType": ["Weapon"],
+        "schoolSkill": true,
+        "rank": 1
+      },
+      "artisan: bonsai": {
+        "trait": "awareness",
+        "type": "High",
+        "subType": [],
+        "schoolSkill": false,
+        "rank": 1
       }
     }
   }

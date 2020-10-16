@@ -2075,14 +2075,14 @@ label {
 
 .character-sheet__status-borders-horizontal {
   width: 100%;
-  height: calc(100% - 2rem);
+  height: calc(100% - 1.8rem);
   border-left: 4px solid #822c2d;
   border-right: 4px solid #822c2d;
   position: absolute;
 }
 
 .character-sheet__status-borders-vertical {
-  width: calc(100% - 2rem);
+  width: calc(100% - 1.8rem);
   height: 100%;
   border-top: 4px solid #822c2d;
   border-bottom: 4px solid #822c2d;
@@ -2299,6 +2299,7 @@ label {
 
 .character-sheet__rings-container {
   width: 100%;
+  min-width: 21rem;
   height: 100%;
   padding: 1rem;
   display: -webkit-box;

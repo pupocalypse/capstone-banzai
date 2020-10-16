@@ -1,5 +1,5 @@
 import React from "react";
-import { Statistic, Icon } from "semantic-ui-react";
+import { Statistic, Icon, Popup } from "semantic-ui-react";
 
 const IMAGE_URL = "http://localhost:8000/characters/images";
 
@@ -7,6 +7,22 @@ const CharInfoCard = ({ char, insightRank, handleAddExp, handleMinusExp }) => {
   const artworkPath = char.artwork
     ? `${IMAGE_URL}/${char.artwork}`
     : `${process.env.PUBLIC_URL}/images/noface_samurai.png`;
+
+  let ringRanks = [];
+  for (let ring in char.rings) {
+    let traitRanks = [];
+    for (let trait in char.rings[ring].traits) {
+      traitRanks.push(char.rings[ring].traits[trait].rank);
+    }
+    ringRanks.push(Math.min(...traitRanks));
+  }
+  const ringsTotal = ringRanks.reduce((acc, curr) => acc + curr) * 10;
+
+  let skillRanks = [];
+  for (let skill in char.skills) {
+    skillRanks.push(char.skills[skill].rank);
+  }
+  const skillsTotal = skillRanks.reduce((acc, curr) => acc + curr);
 
   return (
     <section className="character-sheet__info-container">
@@ -85,14 +101,28 @@ const CharInfoCard = ({ char, insightRank, handleAddExp, handleMinusExp }) => {
               </button>
             </div>
           </div>
-          <Statistic>
-            <Statistic.Value>{insightRank}</Statistic.Value>
-            <Statistic.Label className="character-sheet__rank-label">
-              Insight
-              <br />
-              Rank
-            </Statistic.Label>
-          </Statistic>
+          <Popup
+            trigger={
+              <Statistic>
+                <Statistic.Value>{insightRank}</Statistic.Value>
+                <Statistic.Label className="character-sheet__rank-label">
+                  Insight
+                  <br />
+                  Rank
+                </Statistic.Label>
+              </Statistic>
+            }
+            position="top center"
+            wide
+            mouseEnterDelay={500}
+            mouseLeaveDelay={250}
+          >
+            <div className="character-sheet__insight-popup">
+              <span className="character-sheet__insight-popup-text">
+                Rings &times; 10 ({ringsTotal}) + Skills ({skillsTotal})
+              </span>
+            </div>
+          </Popup>
         </div>
       </div>
     </section>

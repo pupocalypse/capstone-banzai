@@ -298,14 +298,14 @@
 
   &__status-borders-horizontal {
     width: 100%;
-    height: calc(100% - 2rem);
+    height: calc(100% - 1.8rem);
     border-left: 4px solid $primary-dark-colour;
     border-right: 4px solid $primary-dark-colour;
     position: absolute;
   }
 
   &__status-borders-vertical {
-    width: calc(100% - 2rem);
+    width: calc(100% - 1.8rem);
     height: 100%;
     border-top: 4px solid $primary-dark-colour;
     border-bottom: 4px solid $primary-dark-colour;
@@ -529,6 +529,7 @@
   // rings
   &__rings-container {
     width: 100%;
+    min-width: 21rem;
     // width: 70%;
     height: 100%;
     padding: 1rem;

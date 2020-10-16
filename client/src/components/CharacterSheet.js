@@ -240,6 +240,7 @@ class CharacterSheet extends React.Component {
               karmaPoints={this.state.karmaPoints}
               handleKarmaPoints={this.handleKarmaPoints}
             />
+            {/* health, armor TN */}
             <CharRingsCard
               char={char}
               voidSlots={this.state.voidSlots}

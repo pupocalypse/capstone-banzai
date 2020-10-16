@@ -91,6 +91,8 @@ const CharRingsCard = ({
             position="top center"
             wide
             on={["click", "hover"]}
+            mouseEnterDelay={500}
+            mouseLeaveDelay={250}
             content={
               (traits[trait] + 1) * 4 <= char.currentExp ? (
                 <>
@@ -209,7 +211,7 @@ const CharRingsCard = ({
         </div>
       </div>
       <div className="character-sheet__void-container">
-        <p className="character-sheet__void-text">Void Slots</p>
+        <p className="character-sheet__void-text">Void Points</p>
         <div className="character-sheet__void-slots">
           {!voidSlots.hasOwnProperty("slot1") ? "Loading..." : voidSlotsList()}
         </div>
